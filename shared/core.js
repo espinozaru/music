@@ -195,7 +195,7 @@ function fitStair() {
     w.style.fontSize = '';
     const ls = w.style.letterSpacing;
     w.style.letterSpacing = '0.06em'; // medir con el espaciado final, no con el de la animación de entrada
-    const box = w.parentElement.clientWidth, word = w.firstElementChild.scrollWidth;
+    const box = w.parentElement.clientWidth, word = w.firstElementChild.offsetWidth; // offsetWidth: ancho real, sin transformaciones
     w.style.letterSpacing = ls;
     if (word > box) w.style.fontSize = `${(parseFloat(getComputedStyle(w).fontSize) * box / word * 0.98).toFixed(1)}px`;
   }

@@ -52,7 +52,7 @@ section { min-height: 100vh; display: flex; flex-direction: column; justify-cont
 @keyframes sheen { from { background-position: 0% 50%; } to { background-position: 200% 50%; } } /* una vuelta exacta: sin salto */
 
 /* título en escalera: ТИШИНА arriba a la izquierda, ВНУТРИ grande abajo a la derecha; siempre dentro de pantalla */
-.stair { width: min(72vw, 1100px); display: flex; flex-direction: column; font-weight: 500; line-height: 1; letter-spacing: .06em; }
+.stair { width: min(72vw, 1100px, 100%); /* nunca más ancho que el hueco entre el menú y el player */ display: flex; flex-direction: column; font-weight: 500; line-height: 1; letter-spacing: .06em; }
 .stair .w { display: block; white-space: nowrap; }
 .stair .w1 { align-self: flex-start; font-size: clamp(32px, 6.4vw, 108px); }
 .stair .w2 { align-self: flex-end; font-size: clamp(50px, 11vw, 190px); margin-top: -.04em; }
@@ -281,7 +281,7 @@ body:has(.player.show) .m-btn { bottom: calc(112px + env(safe-area-inset-bottom)
   .brand { gap: 8px; }
   .hd-btn { width: 32px; height: 32px; }
   .brand .logo { width: 84px; }
-  .sw-menu { min-width: 240px; }
+  .sw-menu { position: fixed; top: 62px; left: 12px; right: 12px; min-width: 0; } /* en el teléfono, a lo ancho: no se sale de la pantalla */
 }
 /* el logo tiene la letra arriba y la raya abajo: bajarlo un poco para que su centro óptico quede alineado con los iconos */
 .brand .logo { translate: 0 4px; }

@@ -7,7 +7,7 @@
 
 @media (min-width: 981px) {
   .v2 section { padding-right: calc(var(--panel-w) + var(--panel-gap) * 2.5); padding-left: 120px; padding-bottom: 90px; transition: padding-right .6s cubic-bezier(.4, 0, .2, 1); }
-  .v2.ph-min section { padding-right: calc(var(--strip-w) + 90px); } /* plegado: el contenido recupera el ancho */
+  .v2.ph-min section { padding-right: calc(var(--strip-w) + 40px); } /* plegado: el contenido recupera el ancho y queda centrado (izq. 120 por el menú) */
   .v2 .made { right: auto; left: 30px; }
   /* escritorio: «Слушать альбом» no va arriba (están los botones de la lista y el panel); en móvil sí, a la derecha */
   .v2 .top-cta { display: none; }
