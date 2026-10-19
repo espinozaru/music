@@ -306,3 +306,4 @@
   .v2.ph-min .ph-art::after { display: none; }
   .v2.ph-min .ph-art .p-cover::before, .v2.ph-min .ph-art .p-cover::after { display: none; }
 }
+@media (min-width: 981px) { .v2 .ph-tool { white-space: nowrap; flex: none; } .v2 .ph-tools { flex-wrap: nowrap; } } /* nunca en dos líneas */

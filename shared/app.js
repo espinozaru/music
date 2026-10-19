@@ -561,13 +561,14 @@ void main(){
 
   // repetir + temporizador
   // repetir, como en Yandex: apagado → todo el álbum → una canción (cada clic pasa al siguiente)
-  const LOOP = {off: 'повтор', all: 'повтор альбома', one: 'повтор трека'};
+  const LOOP = {off: 'повтор', all: 'альбом', one: 'трек'}; // con el icono ↻ delante: «↻ альбом», «↻ трек»
   let loopMode = {1: 'all', all: 'all', one: 'one'}[prefs.get('espinoza-loop')] || 'off';
   const pLoop = $('pLoop'), pTimer = $('pTimer'), pTimerLbl = $('pTimerLbl');
   const showLoop = () => {
     pLoop.setAttribute('aria-pressed', String(loopMode !== 'off'));
     pLoop.dataset.mode = loopMode;
     pLoop.querySelector('span').textContent = LOOP[loopMode];
+    pLoop.title = {off: 'Повтор выключен', all: 'Повтор альбома', one: 'Повтор трека'}[loopMode];
   };
   pLoop.addEventListener('click', () => {
     loopMode = {off: 'all', all: 'one', one: 'off'}[loopMode];
