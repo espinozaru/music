@@ -342,7 +342,8 @@
   .v2.sheet-open .ph-toggle { position: absolute; top: 14px; right: 16px; }
   .v2.sheet-open .ph-toggle svg { transform: none; }
 
-  .v2.sheet-open .ph-albumbar { display: flex; order: 0; margin: 0 48px 18px 0; }
+  /* capa propia por encima del disco que gira (su animación crea otra capa y tapaba el menú de álbumes) */
+  .v2.sheet-open .ph-albumbar { display: flex; order: 0; margin: 0 48px 18px 0; position: relative; z-index: 4; }
   .v2.sheet-open .ph-albsel { flex: 1; min-width: 0; display: flex; align-items: center; gap: 12px; padding: 8px 12px 8px 8px; border-radius: 14px; color: var(--text); text-align: left;
     background: rgba(255, 255, 255, .06); border: 1px solid rgba(255, 255, 255, .14); }
   .v2.sheet-open .pa-cover { flex: none; width: 34px; height: 34px; border-radius: 8px; background: #222 center / cover; }
@@ -354,7 +355,7 @@
   .v2.sheet-open .pa-l { opacity: .55; }
   .v2.sheet-open .pa-chev { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.6; opacity: .7; flex: none; }
   .v2.sheet-open .pa-badge { display: none; }
-  .v2.sheet-open .ph-albumbar .sw-menu { position: absolute; top: calc(100% + 8px); left: 0; right: 0; }
+  .v2.sheet-open .ph-albumbar .sw-menu { position: absolute; top: calc(100% + 8px); left: 0; right: 0; z-index: 6; }
 
   .v2.sheet-open .ph-art { order: 1; margin: 0 0 18px; display: flex; justify-content: center; }
   .v2.sheet-open .ph-art .p-cover { width: min(66vw, 34svh); height: auto; aspect-ratio: 1; border-radius: 50%; box-shadow: 0 18px 44px rgba(0, 0, 0, .55), 0 0 0 1px rgba(255, 255, 255, .14);
