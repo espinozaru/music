@@ -346,9 +346,7 @@ void main(){
     $('pAlbT').textContent = al.title;
     const meta = (SITE.albums || []).find((x) => x.slug === al.slug);
     if (meta) $('pAlbCov').style.backgroundImage = `url(${new URL(meta.cover, ROOT).href})`;
-    $('pAlbSw').dataset.tip = al.title;
-    $('pAlbSw').title = 'Сменить альбом';
-    $('pAlbList').querySelectorAll('a').forEach((a) => a.classList.toggle('cur', a.dataset.slug === al.slug));
+    $('pAlbBox').dataset.tip = al.title;
     $('phAlbum').innerHTML = `${esc(al.title)} <span>${FREE.length} из ${al.tracks.length} доступно</span>`;
     list.innerHTML = al.tracks.map((tr) => `<li class="${tr.free ? 'free' : 'locked'}" data-n="${tr.n}">
       <span class="ln">${tr.n}</span><span class="lt">${esc(tr.t)}</span>
@@ -596,10 +594,6 @@ void main(){
     e.preventDefault();
   }, {passive: false});
 
-  // selector de álbumes dentro del panel (escritorio): un recuadro «альбом · título ⇅» que abre la lista de álbumes
-  // la lista de álbumes del panel vive entre páginas: sus enlaces e imágenes, absolutos
-  $('pAlbList').querySelectorAll('a').forEach((a) => { a.href = ROOT + a.dataset.slug + '/'; const im = a.querySelector('img'); im.src = im.src; });
-  $('pAlbSw').addEventListener('click', (e) => { e.stopPropagation(); const m = $('pAlbList'), o = !m.classList.contains('open'); m.classList.toggle('open', o); $('pAlbSw').setAttribute('aria-expanded', String(o)); });
 
   // notas musicales al pasar el ratón por un play (solo si el clic va a hacer sonar)
   const GLYPHS = ['♪', '♫', '♩', '♬'];
