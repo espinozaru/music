@@ -112,7 +112,7 @@ PLAYER = '''<!-- Player: barra lateral derecha plegable (en móvil, cápsula aba
   <div class="ph-albumbar hd-switch">
     <button class="ph-albsel" id="pAlbSw" aria-label="Выбрать альбом" aria-haspopup="true" aria-expanded="false">
       <span class="pa-cover" id="pAlbCov"><svg class="pa-badge" viewBox="0 0 24 24"><path d="M8 9l4-4 4 4M8 15l4 4 4-4"/></svg></span>
-      <span class="pa-txt"><span class="pa-k"><span class="k-al">альбом</span><span class="k-now">сейчас играет</span></span><span class="pa-t" id="pAlbT"></span></span>
+      <span class="pa-txt"><span class="pa-k">сейчас играет:</span><span class="pa-t"><span class="pa-l">Альбом:</span> <span id="pAlbT"></span></span></span>
       <svg class="pa-chev" viewBox="0 0 24 24"><path d="M8 9l4-4 4 4M8 15l4 4 4-4"/></svg>
     </button>
     <nav class="sw-menu" id="pAlbList" aria-label="Альбомы">
