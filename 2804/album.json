@@ -1,0 +1,106 @@
+{
+ "title": "2804",
+ "artist": "Espinoza",
+ "description": "«2804» — сингл из трёх песен: Stolen Kiss, Cold, For You.",
+ "metaLabel": "песня",
+ "free": 3,
+ "released": true,
+ "ids": {
+  "spotify": "4BLLgkKVUy8odmrF5hGku9",
+  "deezer": "866308912"
+ },
+ "hero": {
+  "words": [
+   "2804"
+  ],
+  "label": "2804",
+  "sub": "сингл · 3 песни",
+  "bg": "cabin",
+  "horizon": 0.995
+ },
+ "manifest": {
+  "bg": "aerial",
+  "horizon": 0.995,
+  "lines": [
+   "Украденный поцелуй.",
+   "Холод. И всё — для тебя."
+  ],
+  "big": "2804."
+ },
+ "tracks": [
+  {
+   "n": "01",
+   "t": "Stolen Kiss",
+   "p": "Поцелуй, который нельзя вернуть",
+   "bg": "turntable",
+   "h": 0.995,
+   "d": 214.9,
+   "links": [
+    {
+     "name": "Spotify",
+     "url": "https://open.spotify.com/track/037QJuCsq7b7IGldhLMrkA"
+    },
+    {
+     "name": "Deezer",
+     "url": "https://www.deezer.com/track/3684822412"
+    }
+   ]
+  },
+  {
+   "n": "02",
+   "t": "Cold",
+   "p": "Холод там, где был огонь",
+   "bg": "forest",
+   "h": 0.995,
+   "d": 115.9,
+   "links": [
+    {
+     "name": "Spotify",
+     "url": "https://open.spotify.com/track/50fZjbNs2uHf2XO6emo3Xj"
+    },
+    {
+     "name": "Deezer",
+     "url": "https://www.deezer.com/track/3684822422"
+    }
+   ]
+  },
+  {
+   "n": "03",
+   "t": "For You",
+   "p": "Всё — для тебя",
+   "bg": "moon",
+   "h": 0.995,
+   "d": 294.9,
+   "links": [
+    {
+     "name": "Spotify",
+     "url": "https://open.spotify.com/track/5mx6ayj7ZZtbyLdlQ8cMUt"
+    },
+    {
+     "name": "Deezer",
+     "url": "https://www.deezer.com/track/3684822432"
+    }
+   ]
+  }
+ ],
+ "listen": {
+  "bg": "earth",
+  "horizon": 0.995,
+  "platforms": [
+   {
+    "name": "Spotify",
+    "url": "https://open.spotify.com/album/4BLLgkKVUy8odmrF5hGku9"
+   },
+   {
+    "name": "Deezer",
+    "url": "https://www.deezer.com/album/866308912"
+   },
+   {
+    "name": "Все платформы",
+    "url": "https://ditto.fm/2804-espinoza"
+   }
+  ],
+  "credits": "Слова, музыка и голос — Espinoza · ℗ 2025",
+  "disclaimer": "© 2026 Espinoza. Все права защищены."
+ }
+}

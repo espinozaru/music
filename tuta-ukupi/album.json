@@ -33,7 +33,25 @@
    "h": 0.995,
    "d": 384.8,
    "light": true,
-   "video": "https://www.youtube.com/watch?v=S4P9m7ATFfk"
+   "video": "https://www.youtube.com/watch?v=S4P9m7ATFfk",
+   "links": [
+    {
+     "name": "Яндекс Музыка",
+     "url": "https://music.yandex.ru/album/44050925/track/156002178"
+    },
+    {
+     "name": "Spotify",
+     "url": "https://open.spotify.com/track/3ytlIgv5oNHrrpzVeVXmvb"
+    },
+    {
+     "name": "YouTube Music",
+     "url": "https://music.youtube.com/playlist?list=OLAK5uy_nXwG5BnrIuL1DP-s5Pw83wXCTQmCqacNg"
+    },
+    {
+     "name": "Deezer",
+     "url": "https://www.deezer.com/track/4307056582"
+    }
+   ]
   },
   {
    "n": "02",
@@ -41,7 +59,25 @@
    "p": "Yaku — вода. Тихое течение внутри ночи",
    "bg": "yaku",
    "h": 0.56,
-   "d": 362.4
+   "d": 362.4,
+   "links": [
+    {
+     "name": "Яндекс Музыка",
+     "url": "https://music.yandex.ru/album/44050925/track/156002165"
+    },
+    {
+     "name": "Spotify",
+     "url": "https://open.spotify.com/track/6bnJ0ZxdrqzUgdSkBnOABS"
+    },
+    {
+     "name": "YouTube Music",
+     "url": "https://music.youtube.com/playlist?list=OLAK5uy_nXwG5BnrIuL1DP-s5Pw83wXCTQmCqacNg"
+    },
+    {
+     "name": "Deezer",
+     "url": "https://www.deezer.com/track/4307056502"
+    }
+   ]
   },
   {
    "n": "03",
@@ -49,7 +85,25 @@
    "p": "Samay — дыхание. Покой высокогорья",
    "bg": "samay",
    "h": 0.995,
-   "d": 319.2
+   "d": 319.2,
+   "links": [
+    {
+     "name": "Яндекс Музыка",
+     "url": "https://music.yandex.ru/album/44050925/track/156002168"
+    },
+    {
+     "name": "Spotify",
+     "url": "https://open.spotify.com/track/2TJ9e0NbF2SGZm8FN62z3N"
+    },
+    {
+     "name": "YouTube Music",
+     "url": "https://music.youtube.com/playlist?list=OLAK5uy_nXwG5BnrIuL1DP-s5Pw83wXCTQmCqacNg"
+    },
+    {
+     "name": "Deezer",
+     "url": "https://www.deezer.com/track/4307056512"
+    }
+   ]
   },
   {
    "n": "04",
@@ -57,7 +111,25 @@
    "p": "Nina — огонь. Тепло костра и чаранго",
    "bg": "nina",
    "h": 0.995,
-   "d": 367.6
+   "d": 367.6,
+   "links": [
+    {
+     "name": "Яндекс Музыка",
+     "url": "https://music.yandex.ru/album/44050925/track/156002170"
+    },
+    {
+     "name": "Spotify",
+     "url": "https://open.spotify.com/track/2QwCQcMbNoj00EWsMxWZt6"
+    },
+    {
+     "name": "YouTube Music",
+     "url": "https://music.youtube.com/playlist?list=OLAK5uy_nXwG5BnrIuL1DP-s5Pw83wXCTQmCqacNg"
+    },
+    {
+     "name": "Deezer",
+     "url": "https://www.deezer.com/track/4307056522"
+    }
+   ]
   },
   {
    "n": "05",
@@ -65,7 +137,25 @@
    "p": "Sonqo — сердце. То, что бьётся внутри",
    "bg": "sonqo",
    "h": 0.995,
-   "d": 408
+   "d": 408,
+   "links": [
+    {
+     "name": "Яндекс Музыка",
+     "url": "https://music.yandex.ru/album/44050925/track/156002172"
+    },
+    {
+     "name": "Spotify",
+     "url": "https://open.spotify.com/track/0pRp50og6gSLbKynjpFU12"
+    },
+    {
+     "name": "YouTube Music",
+     "url": "https://music.youtube.com/playlist?list=OLAK5uy_nXwG5BnrIuL1DP-s5Pw83wXCTQmCqacNg"
+    },
+    {
+     "name": "Deezer",
+     "url": "https://www.deezer.com/track/4307056532"
+    }
+   ]
   },
   {
    "n": "06",
@@ -73,7 +163,25 @@
    "p": "Killa — луна. Каменная тропа в лунном свете",
    "bg": "killa",
    "h": 0.995,
-   "d": 397
+   "d": 397,
+   "links": [
+    {
+     "name": "Яндекс Музыка",
+     "url": "https://music.yandex.ru/album/44050925/track/156002174"
+    },
+    {
+     "name": "Spotify",
+     "url": "https://open.spotify.com/track/5rhyUN3gHTMImHFnlRNbhj"
+    },
+    {
+     "name": "YouTube Music",
+     "url": "https://music.youtube.com/playlist?list=OLAK5uy_nXwG5BnrIuL1DP-s5Pw83wXCTQmCqacNg"
+    },
+    {
+     "name": "Deezer",
+     "url": "https://www.deezer.com/track/4307056542"
+    }
+   ]
   },
   {
    "n": "07",
@@ -81,7 +189,25 @@
    "p": "Yuyay — память. Мысли, которые возвращаются",
    "bg": "yuyay",
    "h": 0.995,
-   "d": 362
+   "d": 362,
+   "links": [
+    {
+     "name": "Яндекс Музыка",
+     "url": "https://music.yandex.ru/album/44050925/track/156002175"
+    },
+    {
+     "name": "Spotify",
+     "url": "https://open.spotify.com/track/1HBT0kboL7mOT8OKEm2YoT"
+    },
+    {
+     "name": "YouTube Music",
+     "url": "https://music.youtube.com/playlist?list=OLAK5uy_nXwG5BnrIuL1DP-s5Pw83wXCTQmCqacNg"
+    },
+    {
+     "name": "Deezer",
+     "url": "https://www.deezer.com/track/4307056552"
+    }
+   ]
   },
   {
    "n": "08",
@@ -89,7 +215,25 @@
    "p": "Apu — дух горы. Мачу-Пикчу над облаками",
    "bg": "apu",
    "h": 0.995,
-   "d": 380
+   "d": 380,
+   "links": [
+    {
+     "name": "Яндекс Музыка",
+     "url": "https://music.yandex.ru/album/44050925/track/156002176"
+    },
+    {
+     "name": "Spotify",
+     "url": "https://open.spotify.com/track/5RJ87ahKPknLmTcOJD1eic"
+    },
+    {
+     "name": "YouTube Music",
+     "url": "https://music.youtube.com/playlist?list=OLAK5uy_nXwG5BnrIuL1DP-s5Pw83wXCTQmCqacNg"
+    },
+    {
+     "name": "Deezer",
+     "url": "https://www.deezer.com/track/4307056562"
+    }
+   ]
   },
   {
    "n": "09",
@@ -97,7 +241,25 @@
    "p": "Дети солнца. Закат над древними руинами",
    "bg": "inti",
    "h": 0.995,
-   "d": 376
+   "d": 376,
+   "links": [
+    {
+     "name": "Яндекс Музыка",
+     "url": "https://music.yandex.ru/album/44050925/track/156002177"
+    },
+    {
+     "name": "Spotify",
+     "url": "https://open.spotify.com/track/3l7RPihjZppJRcw4bgV4nu"
+    },
+    {
+     "name": "YouTube Music",
+     "url": "https://music.youtube.com/playlist?list=OLAK5uy_nXwG5BnrIuL1DP-s5Pw83wXCTQmCqacNg"
+    },
+    {
+     "name": "Deezer",
+     "url": "https://www.deezer.com/track/4307056572"
+    }
+   ]
   }
  ],
  "listen": {
@@ -131,5 +293,11 @@
   ],
   "credits": "Музыка — Espinoza · ℗ 2026",
   "disclaimer": "© 2026 Espinoza. Все права защищены."
+ },
+ "ids": {
+  "spotify": "4WDrTfD6ZwgyE5UHjYSFoL",
+  "yandex": "44050925",
+  "deezer": "1104965352",
+  "youtube": "https://music.youtube.com/playlist?list=OLAK5uy_nXwG5BnrIuL1DP-s5Pw83wXCTQmCqacNg"
  }
 }

@@ -154,7 +154,8 @@ resize();
 function drawScene(time) {
   if (!A) return;
   const scroll = scrollY / Math.max(1, document.body.scrollHeight - innerHeight);
-  const target = (scroll - 0.5) * 0.05 + mouseX * 0.02 + Math.sin(time * 0.05) * 0.006;
+  // SITE.still: fondo fijo (sin parallax, sin ondas, sin zoom) — para imágenes que no son paisajes y se deformarían
+  const target = SITE.still ? 0 : (scroll - 0.5) * 0.05 + mouseX * 0.02 + Math.sin(time * 0.05) * 0.006;
   camX += (target - camX) * 0.03;
   mixB += (mixTarget - mixB) * 0.025;
   const ca = canvas.width / canvas.height, zoom = 1.08;
@@ -163,11 +164,11 @@ function drawScene(time) {
   const heroOut = clamp(scrollY / innerHeight, 0, 1); // al salir de la portada la cámara «entra» un poco en el paisaje
   gl.viewport(0, 0, canvas.width, canvas.height);
   gl.uniform4f(U('rect'), (1 - w) / 2, (1 - h) / 2, w, h);
-  gl.uniform1f(U('zoomK'), 1 + easeIO(heroOut) * 0.06);
+  gl.uniform1f(U('zoomK'), SITE.still ? 1 : 1 + easeIO(heroOut) * 0.06);
   gl.uniform2f(U('cam'), camX, 0);
   gl.uniform1f(U('time'), time);
-  gl.uniform1f(U('horA'), horA);
-  gl.uniform1f(U('horB'), horB);
+  gl.uniform1f(U('horA'), SITE.still ? 2 : horA); // horizonte fuera de la imagen = sin agua
+  gl.uniform1f(U('horB'), SITE.still ? 2 : horB);
   gl.uniform1f(U('mixB'), B ? mixB : 0);
   bindTex(0, A.img, 'imgA'); bindTex(1, A.dep, 'depA');
   bindTex(2, (B || A).img, 'imgB'); bindTex(3, (B || A).dep, 'depB');
@@ -188,7 +189,18 @@ const blocks = [...document.querySelectorAll('.fx')].map((el) => {
   return {el, parts, kind: el.dataset.fx || 'rise', intro: parseFloat(el.dataset.delay || 0), cur: parts.map(() => 0), cy: 0};
 });
 const docTop = (el) => { let y = 0; for (let n = el; n; n = n.offsetParent) y += n.offsetTop; return y; };
-function measure() { for (const b of blocks) b.cy = docTop(b.el) + b.el.offsetHeight / 2; }
+// las palabras del título en escalera nunca se salen de la pantalla: si una es más ancha que el bloque, se achica
+function fitStair() {
+  for (const w of document.querySelectorAll('.stair .w')) {
+    w.style.fontSize = '';
+    const ls = w.style.letterSpacing;
+    w.style.letterSpacing = '0.06em'; // medir con el espaciado final, no con el de la animación de entrada
+    const box = w.parentElement.clientWidth, word = w.firstElementChild.scrollWidth;
+    w.style.letterSpacing = ls;
+    if (word > box) w.style.fontSize = `${(parseFloat(getComputedStyle(w).fontSize) * box / word * 0.98).toFixed(1)}px`;
+  }
+}
+function measure() { fitStair(); for (const b of blocks) b.cy = docTop(b.el) + b.el.offsetHeight / 2; }
 addEventListener('resize', measure);
 measure();
 

@@ -118,10 +118,10 @@
   },
   {
    "slug": "ella",
-   "page": false,
+   "page": true,
    "title": "Ella",
    "cover": "covers/ella.webp",
-   "bg": "covers/bg/ella",
+   "bg": "ella/assets/spot",
    "h": 0.995,
    "kind": "альбом",
    "p": "8 песен на испанском — о ней",
@@ -139,14 +139,15 @@
      "name": "Все платформы",
      "url": "https://ditto.fm/ella_88859687"
     }
-   ]
+   ],
+   "year": 2025
   },
   {
    "slug": "2804",
-   "page": false,
+   "page": true,
    "title": "2804",
    "cover": "covers/2804.webp",
-   "bg": "covers/bg/p2804",
+   "bg": "2804/assets/cabin",
    "h": 0.995,
    "kind": "сингл",
    "p": "Stolen Kiss · Cold · For You",
@@ -156,7 +157,8 @@
      "name": "Все платформы",
      "url": "https://ditto.fm/2804-espinoza"
     }
-   ]
+   ],
+   "year": 2025
   }
  ],
  "outro": {

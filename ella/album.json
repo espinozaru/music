@@ -1,0 +1,271 @@
+{
+ "title": "Ella",
+ "artist": "Espinoza",
+ "description": "«Ella» — 8 песен на испанском о ней: любовь, жар, притяжение и ночи без неё.",
+ "metaLabel": "песня",
+ "free": 0,
+ "released": true,
+ "ids": {
+  "spotify": "4DayA7A9pTg4we6dYCWkcG",
+  "yandex": "39743901",
+  "deezer": "872180452",
+  "youtube": "https://music.youtube.com/playlist?list=OLAK5uy_lUvkgYzrqT_BYezt3LE9LVl-MAzMGX6vk"
+ },
+ "hero": {
+  "words": [
+   "ELLA"
+  ],
+  "label": "Ella",
+  "sub": "8 песен на испанском — о ней",
+  "bg": "spot",
+  "horizon": 0.995
+ },
+ "manifest": {
+  "bg": "worn",
+  "horizon": 0.995,
+  "lines": [
+   "Гитара. Голос. Испанский.",
+   "Восемь песен о ней."
+  ],
+  "big": "Ella."
+ },
+ "tracks": [
+  {
+   "n": "01",
+   "t": "Todo lo que Soy",
+   "p": "Всё, что я есть — для неё",
+   "bg": "red",
+   "d": 229,
+   "h": 0.995,
+   "links": [
+    {
+     "name": "Яндекс Музыка",
+     "url": "https://music.yandex.ru/album/39743901/track/146216188"
+    },
+    {
+     "name": "Spotify",
+     "url": "https://open.spotify.com/track/5DEjfv5fgVlQ7cq50giUvc"
+    },
+    {
+     "name": "YouTube Music",
+     "url": "https://music.youtube.com/playlist?list=OLAK5uy_lUvkgYzrqT_BYezt3LE9LVl-MAzMGX6vk"
+    },
+    {
+     "name": "Deezer",
+     "url": "https://www.deezer.com/track/3701183602"
+    }
+   ]
+  },
+  {
+   "n": "02",
+   "t": "Una noche más sin ti",
+   "match": "Una noche mas sin ti",
+   "p": "Ещё одна ночь без тебя",
+   "bg": "blue",
+   "d": 225,
+   "h": 0.995,
+   "links": [
+    {
+     "name": "Яндекс Музыка",
+     "url": "https://music.yandex.ru/album/39743901/track/146216190"
+    },
+    {
+     "name": "Spotify",
+     "url": "https://open.spotify.com/track/26TKwLXgUVE5JemX5GGngM"
+    },
+    {
+     "name": "YouTube Music",
+     "url": "https://music.youtube.com/playlist?list=OLAK5uy_lUvkgYzrqT_BYezt3LE9LVl-MAzMGX6vk"
+    },
+    {
+     "name": "Deezer",
+     "url": "https://www.deezer.com/track/3701183612"
+    }
+   ]
+  },
+  {
+   "n": "03",
+   "t": "La Verdad",
+   "p": "Правда, которую трудно сказать",
+   "bg": "top0",
+   "d": 275,
+   "h": 0.995,
+   "links": [
+    {
+     "name": "Яндекс Музыка",
+     "url": "https://music.yandex.ru/album/39743901/track/146216191"
+    },
+    {
+     "name": "Spotify",
+     "url": "https://open.spotify.com/track/4Ejd5vt2M4zUVuB94graWj"
+    },
+    {
+     "name": "YouTube Music",
+     "url": "https://music.youtube.com/playlist?list=OLAK5uy_lUvkgYzrqT_BYezt3LE9LVl-MAzMGX6vk"
+    },
+    {
+     "name": "Deezer",
+     "url": "https://www.deezer.com/track/3701183622"
+    }
+   ]
+  },
+  {
+   "n": "04",
+   "t": "Fiebre",
+   "p": "Жар, от которого не спрятаться",
+   "bg": "clear",
+   "d": 266,
+   "h": 0.995,
+   "links": [
+    {
+     "name": "Яндекс Музыка",
+     "url": "https://music.yandex.ru/album/39743901/track/146216192"
+    },
+    {
+     "name": "Spotify",
+     "url": "https://open.spotify.com/track/1GrCDt77ps3euepW5WNe1k"
+    },
+    {
+     "name": "YouTube Music",
+     "url": "https://music.youtube.com/playlist?list=OLAK5uy_lUvkgYzrqT_BYezt3LE9LVl-MAzMGX6vk"
+    },
+    {
+     "name": "Deezer",
+     "url": "https://www.deezer.com/track/3701183632"
+    }
+   ]
+  },
+  {
+   "n": "05",
+   "t": "Gravedad",
+   "p": "Притяжение сильнее меня",
+   "bg": "top1",
+   "d": 210,
+   "h": 0.995,
+   "links": [
+    {
+     "name": "Яндекс Музыка",
+     "url": "https://music.yandex.ru/album/39743901/track/146216194"
+    },
+    {
+     "name": "Spotify",
+     "url": "https://open.spotify.com/track/1W1Jkvvd569baZL3wxR1K8"
+    },
+    {
+     "name": "YouTube Music",
+     "url": "https://music.youtube.com/playlist?list=OLAK5uy_lUvkgYzrqT_BYezt3LE9LVl-MAzMGX6vk"
+    },
+    {
+     "name": "Deezer",
+     "url": "https://www.deezer.com/track/3701183642"
+    }
+   ]
+  },
+  {
+   "n": "06",
+   "t": "Fuego lento",
+   "p": "Медленный огонь",
+   "bg": "andean",
+   "d": 262,
+   "h": 0.995,
+   "links": [
+    {
+     "name": "Яндекс Музыка",
+     "url": "https://music.yandex.ru/album/39743901/track/146216189"
+    },
+    {
+     "name": "Spotify",
+     "url": "https://open.spotify.com/track/6HvtEXNqW1aXcs3j3ZYbWm"
+    },
+    {
+     "name": "YouTube Music",
+     "url": "https://music.youtube.com/playlist?list=OLAK5uy_lUvkgYzrqT_BYezt3LE9LVl-MAzMGX6vk"
+    },
+    {
+     "name": "Deezer",
+     "url": "https://www.deezer.com/track/3701183652"
+    }
+   ]
+  },
+  {
+   "n": "07",
+   "t": "Al otro lado",
+   "p": "По ту сторону",
+   "bg": "worn",
+   "d": 249,
+   "h": 0.995,
+   "links": [
+    {
+     "name": "Яндекс Музыка",
+     "url": "https://music.yandex.ru/album/39743901/track/146216197"
+    },
+    {
+     "name": "Spotify",
+     "url": "https://open.spotify.com/track/67SHrcxIQQY8mk1hSd6zCp"
+    },
+    {
+     "name": "YouTube Music",
+     "url": "https://music.youtube.com/playlist?list=OLAK5uy_lUvkgYzrqT_BYezt3LE9LVl-MAzMGX6vk"
+    },
+    {
+     "name": "Deezer",
+     "url": "https://www.deezer.com/track/3701183662"
+    }
+   ]
+  },
+  {
+   "n": "08",
+   "t": "Aunque me pienses",
+   "p": "Даже если ты думаешь обо мне",
+   "bg": "spot",
+   "d": 251,
+   "h": 0.995,
+   "links": [
+    {
+     "name": "Яндекс Музыка",
+     "url": "https://music.yandex.ru/album/39743901/track/146216201"
+    },
+    {
+     "name": "Spotify",
+     "url": "https://open.spotify.com/track/4ZJkdBHD8mOAsC3KZHmUTU"
+    },
+    {
+     "name": "YouTube Music",
+     "url": "https://music.youtube.com/playlist?list=OLAK5uy_lUvkgYzrqT_BYezt3LE9LVl-MAzMGX6vk"
+    },
+    {
+     "name": "Deezer",
+     "url": "https://www.deezer.com/track/3701183672"
+    }
+   ]
+  }
+ ],
+ "listen": {
+  "bg": "spot",
+  "horizon": 0.995,
+  "platforms": [
+   {
+    "name": "Яндекс Музыка",
+    "url": "https://music.yandex.ru/album/39743901"
+   },
+   {
+    "name": "Spotify",
+    "url": "https://open.spotify.com/album/4DayA7A9pTg4we6dYCWkcG"
+   },
+   {
+    "name": "YouTube Music",
+    "url": "https://music.youtube.com/playlist?list=OLAK5uy_lUvkgYzrqT_BYezt3LE9LVl-MAzMGX6vk"
+   },
+   {
+    "name": "Deezer",
+    "url": "https://www.deezer.com/album/872180452"
+   },
+   {
+    "name": "Все платформы",
+    "url": "https://ditto.fm/ella_88859687"
+   }
+  ],
+  "credits": "Слова, музыка и голос — Espinoza · ℗ 2025",
+  "disclaimer": "© 2026 Espinoza. Все права защищены."
+ }
+}

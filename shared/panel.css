@@ -164,3 +164,8 @@
 .v2 .playing .p-fill::after { opacity: 1; animation: comet 2.6s ease-in-out infinite; }
 @keyframes comet { 50% { box-shadow: 0 0 8px 3px rgba(255, 255, 255, .95), 0 0 26px 8px rgba(200, 215, 240, .6); } }
 @media (prefers-reduced-motion: reduce) { .v2 .playing .p-fill::after { animation: none; } }
+/* álbum sin pistas para escuchar aquí (solo links): sin panel, el contenido usa todo el ancho y el botón de arriba se ve */
+@media (min-width: 981px) {
+  .v2.noplay section { padding-right: 120px; }
+  .v2.noplay .top-cta { display: inline-flex; }
+}

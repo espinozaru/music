@@ -31,7 +31,25 @@
    "p": "Рассвет над Андами и первое «доброе утро»",
    "bg": "morning",
    "h": 0.995,
-   "d": 208.4
+   "d": 208.4,
+   "links": [
+    {
+     "name": "Яндекс Музыка",
+     "url": "https://music.yandex.ru/album/44164655/track/156290461"
+    },
+    {
+     "name": "Spotify",
+     "url": "https://open.spotify.com/track/2Pj0BJ6F3jplLjK5rQquil"
+    },
+    {
+     "name": "YouTube Music",
+     "url": "https://music.youtube.com/playlist?list=OLAK5uy_nDXBwir8gyWAkO8vMSe8HAGrO6N2vVdBg"
+    },
+    {
+     "name": "Deezer",
+     "url": "https://www.deezer.com/track/4306604842"
+    }
+   ]
   },
   {
    "n": "02",
@@ -39,7 +57,25 @@
    "p": "Поцелуй, украденный у гор",
    "bg": "kiss",
    "h": 0.995,
-   "d": 299.6
+   "d": 299.6,
+   "links": [
+    {
+     "name": "Яндекс Музыка",
+     "url": "https://music.yandex.ru/album/44164655/track/156290462"
+    },
+    {
+     "name": "Spotify",
+     "url": "https://open.spotify.com/track/7Ecvmv5aRMDeHbX1wNHjkU"
+    },
+    {
+     "name": "YouTube Music",
+     "url": "https://music.youtube.com/playlist?list=OLAK5uy_nDXBwir8gyWAkO8vMSe8HAGrO6N2vVdBg"
+    },
+    {
+     "name": "Deezer",
+     "url": "https://www.deezer.com/track/4306604852"
+    }
+   ]
   },
   {
    "n": "03",
@@ -47,7 +83,25 @@
    "p": "Андская ночь: туман, огонь и звёзды",
    "bg": "noche",
    "h": 0.995,
-   "d": 138.2
+   "d": 138.2,
+   "links": [
+    {
+     "name": "Яндекс Музыка",
+     "url": "https://music.yandex.ru/album/44164655/track/156290463"
+    },
+    {
+     "name": "Spotify",
+     "url": "https://open.spotify.com/track/55Bs1ldXGmdpTcpYrovCA8"
+    },
+    {
+     "name": "YouTube Music",
+     "url": "https://music.youtube.com/playlist?list=OLAK5uy_nDXBwir8gyWAkO8vMSe8HAGrO6N2vVdBg"
+    },
+    {
+     "name": "Deezer",
+     "url": "https://www.deezer.com/track/4306604862"
+    }
+   ]
   },
   {
    "n": "04",
@@ -55,7 +109,25 @@
    "p": "Долина, в которой её больше нет",
    "bg": "valley",
    "h": 0.995,
-   "d": 330
+   "d": 330,
+   "links": [
+    {
+     "name": "Яндекс Музыка",
+     "url": "https://music.yandex.ru/album/44164655/track/156290464"
+    },
+    {
+     "name": "Spotify",
+     "url": "https://open.spotify.com/track/4MOye9uPGxH6cL0ewBA9Gi"
+    },
+    {
+     "name": "YouTube Music",
+     "url": "https://music.youtube.com/playlist?list=OLAK5uy_nDXBwir8gyWAkO8vMSe8HAGrO6N2vVdBg"
+    },
+    {
+     "name": "Deezer",
+     "url": "https://www.deezer.com/track/4306604882"
+    }
+   ]
   },
   {
    "n": "05",
@@ -63,7 +135,25 @@
    "p": "Всё о её голосе",
    "bg": "voice",
    "h": 0.995,
-   "d": 269
+   "d": 269,
+   "links": [
+    {
+     "name": "Яндекс Музыка",
+     "url": "https://music.yandex.ru/album/44164655"
+    },
+    {
+     "name": "Spotify",
+     "url": "https://open.spotify.com/track/1pivQ8oSAMeWjP5VKlGtcf"
+    },
+    {
+     "name": "YouTube Music",
+     "url": "https://music.youtube.com/playlist?list=OLAK5uy_nDXBwir8gyWAkO8vMSe8HAGrO6N2vVdBg"
+    },
+    {
+     "name": "Deezer",
+     "url": "https://www.deezer.com/track/4306604892"
+    }
+   ]
   },
   {
    "n": "06",
@@ -71,7 +161,25 @@
    "p": "Вечер у озера и тихое «добрый вечер»",
    "bg": "evening",
    "h": 0.62,
-   "d": 204
+   "d": 204,
+   "links": [
+    {
+     "name": "Яндекс Музыка",
+     "url": "https://music.yandex.ru/album/44164655/track/156290466"
+    },
+    {
+     "name": "Spotify",
+     "url": "https://open.spotify.com/track/6sp8R2SkhHV0L3xiiLKfZD"
+    },
+    {
+     "name": "YouTube Music",
+     "url": "https://music.youtube.com/playlist?list=OLAK5uy_nDXBwir8gyWAkO8vMSe8HAGrO6N2vVdBg"
+    },
+    {
+     "name": "Deezer",
+     "url": "https://www.deezer.com/track/4306604902"
+    }
+   ]
   },
   {
    "n": "07",
@@ -79,7 +187,25 @@
    "p": "Спор с болью — и буря после",
    "bg": "pain",
    "h": 0.995,
-   "d": 330
+   "d": 330,
+   "links": [
+    {
+     "name": "Яндекс Музыка",
+     "url": "https://music.yandex.ru/album/44164655/track/156290465"
+    },
+    {
+     "name": "Spotify",
+     "url": "https://open.spotify.com/track/7MmU7IbFiDoKu9rOELDybY"
+    },
+    {
+     "name": "YouTube Music",
+     "url": "https://music.youtube.com/playlist?list=OLAK5uy_nDXBwir8gyWAkO8vMSe8HAGrO6N2vVdBg"
+    },
+    {
+     "name": "Deezer",
+     "url": "https://www.deezer.com/track/4306604922"
+    }
+   ]
   }
  ],
  "listen": {
@@ -113,5 +239,11 @@
   ],
   "credits": "Музыка — Espinoza · ℗ 2026",
   "disclaimer": "© 2026 Espinoza. Все права защищены."
+ },
+ "ids": {
+  "spotify": "2Yhqxs5kvCKG8h7CQNv4wx",
+  "yandex": "44164655",
+  "deezer": "1104762112",
+  "youtube": "https://music.youtube.com/playlist?list=OLAK5uy_nDXBwir8gyWAkO8vMSe8HAGrO6N2vVdBg"
  }
 }

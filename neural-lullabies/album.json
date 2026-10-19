@@ -31,7 +31,25 @@
    "p": "Мягкая колыбельная для засыпания",
    "bg": "lullaby",
    "h": 0.995,
-   "d": 183.0
+   "d": 183.0,
+   "links": [
+    {
+     "name": "Яндекс Музыка",
+     "url": "https://music.yandex.ru/album/43857983"
+    },
+    {
+     "name": "Spotify",
+     "url": "https://open.spotify.com/track/0S3oFkqeF4Ap2uCea72eGK"
+    },
+    {
+     "name": "YouTube Music",
+     "url": "https://music.youtube.com/playlist?list=OLAK5uy_nV13P8uC09iLl6Vql_ub7aO7K9S40j88s"
+    },
+    {
+     "name": "Deezer",
+     "url": "https://www.deezer.com/track/4331742362"
+    }
+   ]
   },
   {
    "n": "02",
@@ -39,7 +57,25 @@
    "p": "Колыбель из морских волн",
    "bg": "lullaby",
    "h": 0.995,
-   "d": 233.0
+   "d": 233.0,
+   "links": [
+    {
+     "name": "Яндекс Музыка",
+     "url": "https://music.yandex.ru/album/43857983"
+    },
+    {
+     "name": "Spotify",
+     "url": "https://open.spotify.com/track/7LkKPoaUqVwisSO03z5ln4"
+    },
+    {
+     "name": "YouTube Music",
+     "url": "https://music.youtube.com/playlist?list=OLAK5uy_nV13P8uC09iLl6Vql_ub7aO7K9S40j88s"
+    },
+    {
+     "name": "Deezer",
+     "url": "https://www.deezer.com/track/4331742372"
+    }
+   ]
   },
   {
    "n": "03",
@@ -47,7 +83,25 @@
    "p": "Как на груди у мамы: тихий стук сердца",
    "bg": "lullaby",
    "h": 0.995,
-   "d": 302.8
+   "d": 302.8,
+   "links": [
+    {
+     "name": "Яндекс Музыка",
+     "url": "https://music.yandex.ru/album/43857983"
+    },
+    {
+     "name": "Spotify",
+     "url": "https://open.spotify.com/track/5q7cnPB05R1wLwJjcNBw1a"
+    },
+    {
+     "name": "YouTube Music",
+     "url": "https://music.youtube.com/playlist?list=OLAK5uy_nV13P8uC09iLl6Vql_ub7aO7K9S40j88s"
+    },
+    {
+     "name": "Deezer",
+     "url": "https://www.deezer.com/track/4331742382"
+    }
+   ]
   },
   {
    "n": "04",
@@ -55,7 +109,25 @@
    "p": "Ночной сад и сверчки",
    "bg": "lullaby",
    "h": 0.995,
-   "d": 224
+   "d": 224,
+   "links": [
+    {
+     "name": "Яндекс Музыка",
+     "url": "https://music.yandex.ru/album/43857983"
+    },
+    {
+     "name": "Spotify",
+     "url": "https://open.spotify.com/track/2A65lXDIhbgxqabf5QHrBL"
+    },
+    {
+     "name": "YouTube Music",
+     "url": "https://music.youtube.com/playlist?list=OLAK5uy_nV13P8uC09iLl6Vql_ub7aO7K9S40j88s"
+    },
+    {
+     "name": "Deezer",
+     "url": "https://www.deezer.com/track/4331742392"
+    }
+   ]
   },
   {
    "n": "05",
@@ -63,7 +135,25 @@
    "p": "Ветер шепчет над лугом",
    "bg": "lullaby",
    "h": 0.995,
-   "d": 290
+   "d": 290,
+   "links": [
+    {
+     "name": "Яндекс Музыка",
+     "url": "https://music.yandex.ru/album/43857983/track/155532460"
+    },
+    {
+     "name": "Spotify",
+     "url": "https://open.spotify.com/track/3s39p0zSCWEATS8Ze3M7EV"
+    },
+    {
+     "name": "YouTube Music",
+     "url": "https://music.youtube.com/playlist?list=OLAK5uy_nV13P8uC09iLl6Vql_ub7aO7K9S40j88s"
+    },
+    {
+     "name": "Deezer",
+     "url": "https://www.deezer.com/track/4331742402"
+    }
+   ]
   },
   {
    "n": "06",
@@ -71,7 +161,25 @@
    "p": "Тихий ручей",
    "bg": "lullaby",
    "h": 0.995,
-   "d": 185
+   "d": 185,
+   "links": [
+    {
+     "name": "Яндекс Музыка",
+     "url": "https://music.yandex.ru/album/43857983"
+    },
+    {
+     "name": "Spotify",
+     "url": "https://open.spotify.com/track/4aPBAlHojdbHaluaDI5l8a"
+    },
+    {
+     "name": "YouTube Music",
+     "url": "https://music.youtube.com/playlist?list=OLAK5uy_nV13P8uC09iLl6Vql_ub7aO7K9S40j88s"
+    },
+    {
+     "name": "Deezer",
+     "url": "https://www.deezer.com/track/4331742412"
+    }
+   ]
   },
   {
    "n": "07",
@@ -79,7 +187,25 @@
    "p": "Нежный дождь и светлячки",
    "bg": "lullaby",
    "h": 0.995,
-   "d": 429
+   "d": 429,
+   "links": [
+    {
+     "name": "Яндекс Музыка",
+     "url": "https://music.yandex.ru/album/43857983/track/155532469"
+    },
+    {
+     "name": "Spotify",
+     "url": "https://open.spotify.com/track/7KzKrpW2M1LxffGUSKP7jr"
+    },
+    {
+     "name": "YouTube Music",
+     "url": "https://music.youtube.com/playlist?list=OLAK5uy_nV13P8uC09iLl6Vql_ub7aO7K9S40j88s"
+    },
+    {
+     "name": "Deezer",
+     "url": "https://www.deezer.com/track/4331742432"
+    }
+   ]
   },
   {
    "n": "08",
@@ -87,7 +213,25 @@
    "p": "Ручьи под луной",
    "bg": "lullaby",
    "h": 0.995,
-   "d": 452
+   "d": 452,
+   "links": [
+    {
+     "name": "Яндекс Музыка",
+     "url": "https://music.yandex.ru/album/43857983"
+    },
+    {
+     "name": "Spotify",
+     "url": "https://open.spotify.com/track/5Rx6v3oS4MIkyPwGnD44Gu"
+    },
+    {
+     "name": "YouTube Music",
+     "url": "https://music.youtube.com/playlist?list=OLAK5uy_nV13P8uC09iLl6Vql_ub7aO7K9S40j88s"
+    },
+    {
+     "name": "Deezer",
+     "url": "https://www.deezer.com/track/4331742442"
+    }
+   ]
   },
   {
    "n": "09",
@@ -95,7 +239,25 @@
    "p": "Мягкое сияние ночного неба",
    "bg": "lullaby",
    "h": 0.995,
-   "d": 329
+   "d": 329,
+   "links": [
+    {
+     "name": "Яндекс Музыка",
+     "url": "https://music.yandex.ru/album/43857983/track/155532458"
+    },
+    {
+     "name": "Spotify",
+     "url": "https://open.spotify.com/track/6VAJy3BXeZk6U06MjZdAkI"
+    },
+    {
+     "name": "YouTube Music",
+     "url": "https://music.youtube.com/playlist?list=OLAK5uy_nV13P8uC09iLl6Vql_ub7aO7K9S40j88s"
+    },
+    {
+     "name": "Deezer",
+     "url": "https://www.deezer.com/track/4331742452"
+    }
+   ]
   },
   {
    "n": "10",
@@ -103,7 +265,25 @@
    "p": "Облака, как в мамином животике",
    "bg": "lullaby",
    "h": 0.995,
-   "d": 362
+   "d": 362,
+   "links": [
+    {
+     "name": "Яндекс Музыка",
+     "url": "https://music.yandex.ru/album/43857983"
+    },
+    {
+     "name": "Spotify",
+     "url": "https://open.spotify.com/track/2JS5ygz7CsDwfb1wrS6mkX"
+    },
+    {
+     "name": "YouTube Music",
+     "url": "https://music.youtube.com/playlist?list=OLAK5uy_nV13P8uC09iLl6Vql_ub7aO7K9S40j88s"
+    },
+    {
+     "name": "Deezer",
+     "url": "https://www.deezer.com/track/4331742462"
+    }
+   ]
   },
   {
    "n": "11",
@@ -111,7 +291,25 @@
    "p": "Лёгкий бриз глубокого сна",
    "bg": "lullaby",
    "h": 0.995,
-   "d": 308
+   "d": 308,
+   "links": [
+    {
+     "name": "Яндекс Музыка",
+     "url": "https://music.yandex.ru/album/43857983/track/155532472"
+    },
+    {
+     "name": "Spotify",
+     "url": "https://open.spotify.com/track/6zVstp5ZZejZNOCrW7Pmgd"
+    },
+    {
+     "name": "YouTube Music",
+     "url": "https://music.youtube.com/playlist?list=OLAK5uy_nV13P8uC09iLl6Vql_ub7aO7K9S40j88s"
+    },
+    {
+     "name": "Deezer",
+     "url": "https://www.deezer.com/track/4331742472"
+    }
+   ]
   }
  ],
  "listen": {
@@ -141,5 +339,11 @@
   ],
   "credits": "Музыка — Espinoza · ℗ 2026",
   "disclaimer": "Слушайте на комфортной, тихой громкости и не ставьте динамик рядом с головой малыша.<br>© 2026 Espinoza. Все права защищены."
+ },
+ "ids": {
+  "spotify": "736XoHBL4wfmTtTkELFwDi",
+  "yandex": "43857983",
+  "deezer": "1115168292",
+  "youtube": "https://music.youtube.com/playlist?list=OLAK5uy_nV13P8uC09iLl6Vql_ub7aO7K9S40j88s"
  }
 }

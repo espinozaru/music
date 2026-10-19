@@ -31,7 +31,25 @@
    "p": "Когда любовь стала раной",
    "bg": "rany",
    "h": 0.995,
-   "d": 283.2
+   "d": 283.2,
+   "links": [
+    {
+     "name": "Яндекс Музыка",
+     "url": "https://music.yandex.ru/album/44068531/track/156047085"
+    },
+    {
+     "name": "Spotify",
+     "url": "https://open.spotify.com/track/0pNKYELe5W0aVD0ZNmh54f"
+    },
+    {
+     "name": "YouTube Music",
+     "url": "https://music.youtube.com/playlist?list=OLAK5uy_nQwnMgERc8YOg8CywKcogFY63aoo9rwhg"
+    },
+    {
+     "name": "Deezer",
+     "url": "https://www.deezer.com/track/4296164952"
+    }
+   ]
   },
   {
    "n": "02",
@@ -39,7 +57,25 @@
    "p": "Просьба, которую некому услышать",
    "bg": "rany",
    "h": 0.995,
-   "d": 397.6
+   "d": 397.6,
+   "links": [
+    {
+     "name": "Яндекс Музыка",
+     "url": "https://music.yandex.ru/album/44068531/track/156047088"
+    },
+    {
+     "name": "Spotify",
+     "url": "https://open.spotify.com/track/0XmJFR3S5xxujPFtkVjK5w"
+    },
+    {
+     "name": "YouTube Music",
+     "url": "https://music.youtube.com/playlist?list=OLAK5uy_nQwnMgERc8YOg8CywKcogFY63aoo9rwhg"
+    },
+    {
+     "name": "Deezer",
+     "url": "https://www.deezer.com/track/4296164972"
+    }
+   ]
   },
   {
    "n": "03",
@@ -47,7 +83,25 @@
    "p": "Стихи, написанные для неё",
    "bg": "rany",
    "h": 0.995,
-   "d": 309.2
+   "d": 309.2,
+   "links": [
+    {
+     "name": "Яндекс Музыка",
+     "url": "https://music.yandex.ru/album/44068531/track/156047090"
+    },
+    {
+     "name": "Spotify",
+     "url": "https://open.spotify.com/track/75sd3pZ3iDWx4IFwPEwuje"
+    },
+    {
+     "name": "YouTube Music",
+     "url": "https://music.youtube.com/playlist?list=OLAK5uy_nQwnMgERc8YOg8CywKcogFY63aoo9rwhg"
+    },
+    {
+     "name": "Deezer",
+     "url": "https://www.deezer.com/track/4296164982"
+    }
+   ]
   },
   {
    "n": "04",
@@ -55,7 +109,25 @@
    "p": "Одно слово, сказанное слишком поздно",
    "bg": "rany",
    "h": 0.995,
-   "d": 391
+   "d": 391,
+   "links": [
+    {
+     "name": "Яндекс Музыка",
+     "url": "https://music.yandex.ru/album/44068531/track/156047094"
+    },
+    {
+     "name": "Spotify",
+     "url": "https://open.spotify.com/track/3R3FUsMRR1DQ09qqEmkETI"
+    },
+    {
+     "name": "YouTube Music",
+     "url": "https://music.youtube.com/playlist?list=OLAK5uy_nQwnMgERc8YOg8CywKcogFY63aoo9rwhg"
+    },
+    {
+     "name": "Deezer",
+     "url": "https://www.deezer.com/track/4296164992"
+    }
+   ]
   },
   {
    "n": "05",
@@ -63,7 +135,25 @@
    "p": "Встреча, которая открыла старую рану",
    "bg": "rany",
    "h": 0.995,
-   "d": 431
+   "d": 431,
+   "links": [
+    {
+     "name": "Яндекс Музыка",
+     "url": "https://music.yandex.ru/album/44068531/track/156047098"
+    },
+    {
+     "name": "Spotify",
+     "url": "https://open.spotify.com/track/2Z6wtWflYXrxqyDwimvf7x"
+    },
+    {
+     "name": "YouTube Music",
+     "url": "https://music.youtube.com/playlist?list=OLAK5uy_nQwnMgERc8YOg8CywKcogFY63aoo9rwhg"
+    },
+    {
+     "name": "Deezer",
+     "url": "https://www.deezer.com/track/4296165002"
+    }
+   ]
   }
  ],
  "listen": {
@@ -93,5 +183,11 @@
   ],
   "credits": "Слова и музыка — Espinoza · ℗ 2026",
   "disclaimer": "© 2026 Espinoza. Все права защищены."
+ },
+ "ids": {
+  "spotify": "6cx93Y7WQwBg89eeAiRVmj",
+  "yandex": "44068531",
+  "deezer": "1100691502",
+  "youtube": "https://music.youtube.com/playlist?list=OLAK5uy_nQwnMgERc8YOg8CywKcogFY63aoo9rwhg"
  }
 }

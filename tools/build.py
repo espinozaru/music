@@ -42,7 +42,18 @@ def menus(label):
 
 
 def hero(h, bg_attr):
-    w1, w2 = h['words']
+    words = h['words']
+    if len(words) == 1:  # una sola palabra (Ella, 2804): solo la grande, centrada
+        return f'''  <!-- Portada: una palabra grande que entra por la derecha -->
+  <section class="hero" id="top" data-bg="{e(bg_attr)}" data-horizon="{h.get('horizon', 0.67)}">
+    <h1 class="stair one" aria-label="{e(h.get('label', words[0]))}">
+      <span class="w w2 fx" data-fx="hero-r" data-delay="0.4"><span class="silver">{e(words[0])}</span></span>
+    </h1>
+    <p class="sub fx" data-split="words" data-delay="1.6">{e(h['sub'])}</p>
+    <div class="scroll-hint fx" data-delay="2.4"><span></span>{e(h.get('hint', 'листай медленно'))}</div>
+  </section>
+'''
+    w1, w2 = words
     return f'''  <!-- Portada: título en escalera (la 1.ª palabra entra por la izquierda, la 2.ª por la derecha) -->
   <section class="hero" id="top" data-bg="{e(bg_attr)}" data-horizon="{h.get('horizon', 0.67)}">
     <h1 class="stair" aria-label="{e(h.get('label', w1 + ' ' + w2))}">
@@ -155,6 +166,8 @@ def album_page(slug, a, albums):
     for t in tracks:
         if t['free']:
             btn = f'<button class="play fx" data-delay="1.0" data-n="{t["n"]}">{ICO_PLAY}{EQ}<span class="lbl">слушать</span></button>'
+        elif t.get('links'):
+            btn = ''  # sin audio aquí: los links de la canción (abajo) hacen de botón
         elif released:
             btn = f'<a class="play ext fx" data-delay="1.0" href="#listen">{ICO_PLAY}<span class="lbl">полностью — на платформах</span></a>'
         else:
@@ -166,12 +179,14 @@ def album_page(slug, a, albums):
     <div class="meta fx" data-delay="0.8">{fmt(t["d"])} · {e(meta)}</div>
     {btn}
     {f'<a class="vid fx" data-delay="1.2" href="{e(t["video"])}" target="_blank" rel="noopener">{ICO_PLAY}клип на YouTube</a>' if t.get("video") else ''}
+    {f'<div class="tlinks fx" data-delay="1.1"><span class="tl-label">{"слушать на" if not t["free"] else "эта песня на"}</span>' + ''.join(f'<a href="{e(l["url"])}" target="_blank" rel="noopener">{e(l["name"])}</a>' for l in t["links"]) + '</div>' if t.get("links") else ''}
   </section>
 ''')
     L = a['listen']
     soon = f'    <p class="soon fx">{L["soon"]}</p>\n' if L.get('soon') else ''
     disclaimer = f'    <p class="disclaimer fx">{L["disclaimer"]}</p>\n' if L.get('disclaimer') else ''
     site = {
+        'still': a.get('motion') != 'parallax',  # fondo fijo salvo que el álbum pida parallax (zen)
         'first': a['hero']['bg'],
         'items': [{'n': t['n'], 't': t['t'], 'tag': 'доступно' if t['free'] else ''} for t in tracks],
         'album': {'slug': slug, 'title': a['title'], 'artist': a['artist'],
@@ -181,7 +196,7 @@ def album_page(slug, a, albums):
                'CormorantGaramond-Upright-Variable.woff2' if a.get('font') == 'serif' else 'Unbounded-Variable.woff2')
     out += f'''<link rel="stylesheet" href="../shared/panel.css">
 </head>
-<body class="v2{" unb" if a.get("font") != "serif" else ""}">
+<body class="v2{" unb" if a.get("font") != "serif" else ""}{"" if free_n else " noplay"}">
 <canvas id="scene"></canvas>
 <div class="veil"></div>
 <div class="grain"></div>
@@ -210,11 +225,10 @@ def album_page(slug, a, albums):
 
 <a class="made" href="https://espinoza.ru" target="_blank" rel="noopener">Проект от <span>espinoza.ru</span></a>
 
-{PLAYER.format(title=e(a['title']), free=free_n, total=total)}
+{PLAYER.format(title=e(a['title']), free=free_n, total=total) if free_n else ''}
 <script>window.SITE = {json.dumps(site, ensure_ascii=False)};</script>
 <script src="../shared/core.js"></script>
-<script src="../shared/player.js"></script>
-<script src="../shared/panel.js"></script>
+{'<script src="../shared/player.js"></script>' + chr(10) + '<script src="../shared/panel.js"></script>' if free_n else ''}
 <script src="../shared/header.js"></script>
 </body>
 </html>

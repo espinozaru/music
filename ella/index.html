@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ella — Espinoza</title>
+<meta name="description" content="«Ella» — 8 песен на испанском о ней: любовь, жар, притяжение и ночи без неё.">
+<link rel="preload" href="../shared/fonts/NotoSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../shared/fonts/Unbounded-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/spot.webp" as="image">
+<link rel="stylesheet" href="../shared/style.css">
+<link rel="stylesheet" href="../shared/panel.css">
+</head>
+<body class="v2 unb noplay">
+<canvas id="scene"></canvas>
+<div class="veil"></div>
+<div class="grain"></div>
+
+<header class="top">
+  <!-- atrás · logo · selector para saltar a otro álbum -->
+  <div class="brand">
+    <a class="hd-btn hd-back" href="../" aria-label="Все альбомы"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></a>
+    <a href="../" class="logo-link" aria-label="Все альбомы"><img src="../shared/logo-white.png" alt="Espinoza" class="logo"></a>
+    <div class="hd-switch">
+      <button class="hd-btn" id="albSw" aria-label="Другие альбомы" aria-haspopup="true" aria-expanded="false"><svg viewBox="0 0 24 24"><path d="M8 9l4-4 4 4M8 15l4 4 4-4"/></svg></button>
+      <nav class="sw-menu" id="swMenu" aria-label="Альбомы">
+        <a href="../zen/"><img src="../covers/zen.webp" alt="" width="40" height="40"><span>Тишина внутри<small>медитации</small></span></a>
+        <a href="../tuta-ukupi/"><img src="../covers/tuta-ukupi.webp" alt="" width="40" height="40"><span>Tuta Ukupi<small>альбом</small></span></a>
+        <a href="../andes-nights/"><img src="../covers/andes-nights.webp" alt="" width="40" height="40"><span>Andes Nights<small>альбом</small></span></a>
+        <a href="../neural-lullabies/"><img src="../covers/neural-lullabies.webp" alt="" width="40" height="40"><span>Neural Lullabies<small>альбом</small></span></a>
+        <a href="../rany-na-bumage/"><img src="../covers/rany-na-bumage.webp" alt="" width="40" height="40"><span>Раны на бумаге<small>альбом</small></span></a>
+        <a href="../ella/" class="cur" aria-current="page"><img src="../covers/ella.webp" alt="" width="40" height="40"><span>Ella<small>альбом</small></span></a>
+        <a href="../2804/"><img src="../covers/2804.webp" alt="" width="40" height="40"><span>2804<small>сингл</small></span></a>
+        <a href="../" class="all"><span>← Все альбомы</span></a>
+      </nav>
+    </div>
+  </div>
+  <div class="top-right">
+    <a class="top-cta" href="#listen"><svg viewBox="0 0 10 10"><path d="M2 1v8l7-4z"/></svg>Слушать альбом</a>
+  </div>
+</header>
+
+<!-- Menú vertical fijo: rayas + números; se marca lo que está en pantalla y lo que suena -->
+<nav class="side" id="side" aria-label="Треки"></nav>
+<div class="side-tip" id="sideTip" aria-hidden="true"></div>
+<!-- Móvil: la lista a pantalla completa, con el botón abajo (donde está el pulgar) -->
+<nav class="m-menu" id="mMenu" aria-label="Треки"></nav>
+<button class="m-btn" id="mBtn" aria-label="Треки" aria-expanded="false"><span></span><span></span></button>
+
+<main>
+  <!-- Portada: una palabra grande que entra por la derecha -->
+  <section class="hero" id="top" data-bg="spot" data-horizon="0.995">
+    <h1 class="stair one" aria-label="Ella">
+      <span class="w w2 fx" data-fx="hero-r" data-delay="0.4"><span class="silver">ELLA</span></span>
+    </h1>
+    <p class="sub fx" data-split="words" data-delay="1.6">8 песен на испанском — о ней</p>
+    <div class="scroll-hint fx" data-delay="2.4"><span></span>листай медленно</div>
+  </section>
+
+  <!-- Manifiesto: frases palabra a palabra y una línea grande en plata -->
+  <section class="manifest" data-bg="worn" data-horizon="0.995">
+    <p class="line fx" data-split="words">Гитара. Голос. Испанский.</p>
+    <p class="line tight fx" data-split="words">Восемь песен о ней.</p>
+    <p class="line big fx" data-fx="title"><span class="silver">Ella.</span></p>
+  </section>
+
+  <!-- Pistas: cada una cambia el paisaje de fondo -->
+  <section class="track" id="t01" data-bg="red" data-horizon="0.995">
+    <div class="num fx">01 / 8</div>
+    <h2 class="fx" data-fx="title" data-delay="0.1"><span class="silver">Todo lo que Soy</span></h2>
+    <p class="phrase fx" data-split="words" data-delay="0.45">Всё, что я есть — для неё</p>
+    <div class="meta fx" data-delay="0.8">3:49 · песня</div>
+    
+    
+    <div class="tlinks fx" data-delay="1.1"><span class="tl-label">слушать на</span><a href="https://music.yandex.ru/album/39743901/track/146216188" target="_blank" rel="noopener">Яндекс Музыка</a><a href="https://open.spotify.com/track/5DEjfv5fgVlQ7cq50giUvc" target="_blank" rel="noopener">Spotify</a><a href="https://music.youtube.com/playlist?list=OLAK5uy_lUvkgYzrqT_BYezt3LE9LVl-MAzMGX6vk" target="_blank" rel="noopener">YouTube Music</a><a href="https://www.deezer.com/track/3701183602" target="_blank" rel="noopener">Deezer</a></div>
+  </section>
+  <section class="track" id="t02" data-bg="blue" data-horizon="0.995">
+    <div class="num fx">02 / 8</div>
+    <h2 class="fx" data-fx="title" data-delay="0.1"><span class="silver">Una noche más sin ti</span></h2>
+    <p class="phrase fx" data-split="words" data-delay="0.45">Ещё одна ночь без тебя</p>
+    <div class="meta fx" data-delay="0.8">3:45 · песня</div>
+    
+    
+    <div class="tlinks fx" data-delay="1.1"><span class="tl-label">слушать на</span><a href="https://music.yandex.ru/album/39743901/track/146216190" target="_blank" rel="noopener">Яндекс Музыка</a><a href="https://open.spotify.com/track/26TKwLXgUVE5JemX5GGngM" target="_blank" rel="noopener">Spotify</a><a href="https://music.youtube.com/playlist?list=OLAK5uy_lUvkgYzrqT_BYezt3LE9LVl-MAzMGX6vk" target="_blank" rel="noopener">YouTube Music</a><a href="https://www.deezer.com/track/3701183612" target="_blank" rel="noopener">Deezer</a></div>
+  </section>
+  <section class="track" id="t03" data-bg="top0" data-horizon="0.995">
+    <div class="num fx">03 / 8</div>
+    <h2 class="fx" data-fx="title" data-delay="0.1"><span class="silver">La Verdad</span></h2>
+    <p class="phrase fx" data-split="words" data-delay="0.45">Правда, которую трудно сказать</p>
+    <div class="meta fx" data-delay="0.8">4:35 · песня</div>
+    
+    
+    <div class="tlinks fx" data-delay="1.1"><span class="tl-label">слушать на</span><a href="https://music.yandex.ru/album/39743901/track/146216191" target="_blank" rel="noopener">Яндекс Музыка</a><a href="https://open.spotify.com/track/4Ejd5vt2M4zUVuB94graWj" target="_blank" rel="noopener">Spotify</a><a href="https://music.youtube.com/playlist?list=OLAK5uy_lUvkgYzrqT_BYezt3LE9LVl-MAzMGX6vk" target="_blank" rel="noopener">YouTube Music</a><a href="https://www.deezer.com/track/3701183622" target="_blank" rel="noopener">Deezer</a></div>
+  </section>
+  <section class="track" id="t04" data-bg="clear" data-horizon="0.995">
+    <div class="num fx">04 / 8</div>
+    <h2 class="fx" data-fx="title" data-delay="0.1"><span class="silver">Fiebre</span></h2>
+    <p class="phrase fx" data-split="words" data-delay="0.45">Жар, от которого не спрятаться</p>
+    <div class="meta fx" data-delay="0.8">4:26 · песня</div>
+    
+    
+    <div class="tlinks fx" data-delay="1.1"><span class="tl-label">слушать на</span><a href="https://music.yandex.ru/album/39743901/track/146216192" target="_blank" rel="noopener">Яндекс Музыка</a><a href="https://open.spotify.com/track/1GrCDt77ps3euepW5WNe1k" target="_blank" rel="noopener">Spotify</a><a href="https://music.youtube.com/playlist?list=OLAK5uy_lUvkgYzrqT_BYezt3LE9LVl-MAzMGX6vk" target="_blank" rel="noopener">YouTube Music</a><a href="https://www.deezer.com/track/3701183632" target="_blank" rel="noopener">Deezer</a></div>
+  </section>
+  <section class="track" id="t05" data-bg="top1" data-horizon="0.995">
+    <div class="num fx">05 / 8</div>
+    <h2 class="fx" data-fx="title" data-delay="0.1"><span class="silver">Gravedad</span></h2>
+    <p class="phrase fx" data-split="words" data-delay="0.45">Притяжение сильнее меня</p>
+    <div class="meta fx" data-delay="0.8">3:30 · песня</div>
+    
+    
+    <div class="tlinks fx" data-delay="1.1"><span class="tl-label">слушать на</span><a href="https://music.yandex.ru/album/39743901/track/146216194" target="_blank" rel="noopener">Яндекс Музыка</a><a href="https://open.spotify.com/track/1W1Jkvvd569baZL3wxR1K8" target="_blank" rel="noopener">Spotify</a><a href="https://music.youtube.com/playlist?list=OLAK5uy_lUvkgYzrqT_BYezt3LE9LVl-MAzMGX6vk" target="_blank" rel="noopener">YouTube Music</a><a href="https://www.deezer.com/track/3701183642" target="_blank" rel="noopener">Deezer</a></div>
+  </section>
+  <section class="track" id="t06" data-bg="andean" data-horizon="0.995">
+    <div class="num fx">06 / 8</div>
+    <h2 class="fx" data-fx="title" data-delay="0.1"><span class="silver">Fuego lento</span></h2>
+    <p class="phrase fx" data-split="words" data-delay="0.45">Медленный огонь</p>
+    <div class="meta fx" data-delay="0.8">4:22 · песня</div>
+    
+    
+    <div class="tlinks fx" data-delay="1.1"><span class="tl-label">слушать на</span><a href="https://music.yandex.ru/album/39743901/track/146216189" target="_blank" rel="noopener">Яндекс Музыка</a><a href="https://open.spotify.com/track/6HvtEXNqW1aXcs3j3ZYbWm" target="_blank" rel="noopener">Spotify</a><a href="https://music.youtube.com/playlist?list=OLAK5uy_lUvkgYzrqT_BYezt3LE9LVl-MAzMGX6vk" target="_blank" rel="noopener">YouTube Music</a><a href="https://www.deezer.com/track/3701183652" target="_blank" rel="noopener">Deezer</a></div>
+  </section>
+  <section class="track" id="t07" data-bg="worn" data-horizon="0.995">
+    <div class="num fx">07 / 8</div>
+    <h2 class="fx" data-fx="title" data-delay="0.1"><span class="silver">Al otro lado</span></h2>
+    <p class="phrase fx" data-split="words" data-delay="0.45">По ту сторону</p>
+    <div class="meta fx" data-delay="0.8">4:09 · песня</div>
+    
+    
+    <div class="tlinks fx" data-delay="1.1"><span class="tl-label">слушать на</span><a href="https://music.yandex.ru/album/39743901/track/146216197" target="_blank" rel="noopener">Яндекс Музыка</a><a href="https://open.spotify.com/track/67SHrcxIQQY8mk1hSd6zCp" target="_blank" rel="noopener">Spotify</a><a href="https://music.youtube.com/playlist?list=OLAK5uy_lUvkgYzrqT_BYezt3LE9LVl-MAzMGX6vk" target="_blank" rel="noopener">YouTube Music</a><a href="https://www.deezer.com/track/3701183662" target="_blank" rel="noopener">Deezer</a></div>
+  </section>
+  <section class="track" id="t08" data-bg="spot" data-horizon="0.995">
+    <div class="num fx">08 / 8</div>
+    <h2 class="fx" data-fx="title" data-delay="0.1"><span class="silver">Aunque me pienses</span></h2>
+    <p class="phrase fx" data-split="words" data-delay="0.45">Даже если ты думаешь обо мне</p>
+    <div class="meta fx" data-delay="0.8">4:11 · песня</div>
+    
+    
+    <div class="tlinks fx" data-delay="1.1"><span class="tl-label">слушать на</span><a href="https://music.yandex.ru/album/39743901/track/146216201" target="_blank" rel="noopener">Яндекс Музыка</a><a href="https://open.spotify.com/track/4ZJkdBHD8mOAsC3KZHmUTU" target="_blank" rel="noopener">Spotify</a><a href="https://music.youtube.com/playlist?list=OLAK5uy_lUvkgYzrqT_BYezt3LE9LVl-MAzMGX6vk" target="_blank" rel="noopener">YouTube Music</a><a href="https://www.deezer.com/track/3701183672" target="_blank" rel="noopener">Deezer</a></div>
+  </section>
+
+  <!-- Escuchar -->
+  <section class="listen" id="listen" data-bg="spot" data-horizon="0.995">
+    <h2 class="fx" data-fx="title"><span class="silver">Слушать альбом</span></h2>
+    <div class="platforms fx"><a href="https://music.yandex.ru/album/39743901" target="_blank" rel="noopener">Яндекс Музыка</a><a href="https://open.spotify.com/album/4DayA7A9pTg4we6dYCWkcG" target="_blank" rel="noopener">Spotify</a><a href="https://music.youtube.com/playlist?list=OLAK5uy_lUvkgYzrqT_BYezt3LE9LVl-MAzMGX6vk" target="_blank" rel="noopener">YouTube Music</a><a href="https://www.deezer.com/album/872180452" target="_blank" rel="noopener">Deezer</a><a href="https://ditto.fm/ella_88859687" target="_blank" rel="noopener">Все платформы</a></div>
+    <p class="credits fx">Слова, музыка и голос — Espinoza · ℗ 2025</p>
+    <p class="disclaimer fx">© 2026 Espinoza. Все права защищены.</p>
+    <p class="back fx"><a href="../">← Все альбомы</a></p>
+  </section>
+</main>
+
+<a class="made" href="https://espinoza.ru" target="_blank" rel="noopener">Проект от <span>espinoza.ru</span></a>
+
+
+<script>window.SITE = {"still": true, "first": "spot", "items": [{"n": "01", "t": "Todo lo que Soy", "tag": ""}, {"n": "02", "t": "Una noche más sin ti", "tag": ""}, {"n": "03", "t": "La Verdad", "tag": ""}, {"n": "04", "t": "Fiebre", "tag": ""}, {"n": "05", "t": "Gravedad", "tag": ""}, {"n": "06", "t": "Fuego lento", "tag": ""}, {"n": "07", "t": "Al otro lado", "tag": ""}, {"n": "08", "t": "Aunque me pienses", "tag": ""}], "album": {"slug": "ella", "title": "Ella", "artist": "Espinoza", "tracks": [{"n": "01", "t": "Todo lo que Soy", "p": "Всё, что я есть — для неё", "bg": "red", "d": 229, "free": false}, {"n": "02", "t": "Una noche más sin ti", "p": "Ещё одна ночь без тебя", "bg": "blue", "d": 225, "free": false}, {"n": "03", "t": "La Verdad", "p": "Правда, которую трудно сказать", "bg": "top0", "d": 275, "free": false}, {"n": "04", "t": "Fiebre", "p": "Жар, от которого не спрятаться", "bg": "clear", "d": 266, "free": false}, {"n": "05", "t": "Gravedad", "p": "Притяжение сильнее меня", "bg": "top1", "d": 210, "free": false}, {"n": "06", "t": "Fuego lento", "p": "Медленный огонь", "bg": "andean", "d": 262, "free": false}, {"n": "07", "t": "Al otro lado", "p": "По ту сторону", "bg": "worn", "d": 249, "free": false}, {"n": "08", "t": "Aunque me pienses", "p": "Даже если ты думаешь обо мне", "bg": "spot", "d": 251, "free": false}]}};</script>
+<script src="../shared/core.js"></script>
+
+<script src="../shared/header.js"></script>
+</body>
+</html>
