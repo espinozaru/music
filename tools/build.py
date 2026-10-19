@@ -16,6 +16,19 @@ def fmt(s):
     return f'{s // 60}:{s % 60:02d}'
 
 
+import hashlib
+
+
+def ver():
+    h = hashlib.md5()
+    for f in ('app.js', 'style.css', 'panel.css', 'home.css'):
+        h.update(open(os.path.join(ROOT, 'shared', f), 'rb').read())
+    return h.hexdigest()[:8]
+
+
+V = None
+
+
 def head(title, desc, first_bg, base, font='Unbounded-Variable.woff2'):
     return f'''<!doctype html>
 <html lang="ru">
@@ -27,9 +40,9 @@ def head(title, desc, first_bg, base, font='Unbounded-Variable.woff2'):
 <link rel="preload" href="{base}shared/fonts/NotoSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="{base}shared/fonts/{font}" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="{e(first_bg)}" as="image">
-<link rel="stylesheet" href="{base}shared/style.css">
-<link rel="stylesheet" href="{base}shared/panel.css">
-<link rel="stylesheet" href="{base}shared/home.css">
+<link rel="stylesheet" href="{base}shared/style.css?v={V}">
+<link rel="stylesheet" href="{base}shared/panel.css?v={V}">
+<link rel="stylesheet" href="{base}shared/home.css?v={V}">
 '''
 
 
@@ -271,7 +284,7 @@ def album_page(slug, a, albums):
 
 {player_html(albums, '../')}
 <script>window.SITE = {json.dumps(site, ensure_ascii=False)};</script>
-<script src="../shared/app.js" data-keep></script>
+<script src="../shared/app.js?v={V}" data-keep></script>
 </body>
 </html>
 '''
@@ -337,7 +350,7 @@ def home_page(s):
 
 {player_html(s['albums'], '')}
 <script>window.SITE = {json.dumps({'type': 'home', 'albums': site_albums(s['albums'])}, ensure_ascii=False)};</script>
-<script src="shared/app.js" data-keep></script>
+<script src="shared/app.js?v={V}" data-keep></script>
 </body>
 </html>
 '''
@@ -345,6 +358,8 @@ def home_page(s):
 
 
 def main():
+    global V
+    V = ver()
     s = json.load(open(os.path.join(ROOT, 'site.json'), encoding='utf-8'))
     for al in s['albums']:  # ¿tiene pistas que suenan aquí? (para el selector del player)
         p = os.path.join(ROOT, al['slug'], 'album.json')

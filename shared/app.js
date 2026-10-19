@@ -600,7 +600,8 @@ void main(){
   // la lista de álbumes del panel vive entre páginas: sus enlaces e imágenes, absolutos
   $('pAlbList').querySelectorAll('a').forEach((a) => { a.href = ROOT + a.dataset.slug + '/'; const im = a.querySelector('img'); im.src = im.src; });
   $('pAlbSw').addEventListener('click', (e) => { e.stopPropagation(); const m = $('pAlbList'), o = !m.classList.contains('open'); m.classList.toggle('open', o); $('pAlbSw').setAttribute('aria-expanded', String(o)); });
-  // elegir un álbum aquí cambia el álbum del PLAYER (no la página): lo que sonaba se detiene y queda preparada su primera canción
+  // elegir un álbum aquí cambia TODO: lo que sonaba se detiene, el player pasa a ese álbum (primera canción preparada)
+  // y la página va a ese álbum. (El ⇅ de la cabecera, en cambio, solo explora: cambia la página y la música sigue.)
   const albCache = {};
   const loadAlbum = (slug) => (albCache[slug] ??= fetch(ROOT + slug + '/').then((r) => r.text()).then((html) => {
     const doc = new DOMParser().parseFromString(html, 'text/html');
@@ -614,13 +615,14 @@ void main(){
     e.stopPropagation(); // no navegar
     $('pAlbList').classList.remove('open');
     $('pAlbSw').setAttribute('aria-expanded', 'false');
-    if (Q && a.dataset.slug === Q.slug) return;
-    if (!audio.paused) { cancelAnimationFrame(fadeRAF); audio.pause(); }
-    const al = sameAlbum() || a.dataset.slug !== SITE.album?.slug ? await loadAlbum(a.dataset.slug) : pageAlbum();
-    setQueue(al);
-    setTrack(0);
-    sync();
-    panelVisibility();
+    const slug = a.dataset.slug;
+    if (!(Q && slug === Q.slug)) {
+      if (!audio.paused) { cancelAnimationFrame(fadeRAF); audio.pause(); }
+      setQueue(await loadAlbum(slug));
+      setTrack(0);
+      sync();
+    }
+    if (SITE.type !== 'album' || SITE.album.slug !== slug) go(ROOT + slug + '/');
   });
 
   // notas musicales al pasar el ratón por un play (solo si el clic va a hacer sonar)
