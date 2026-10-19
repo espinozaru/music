@@ -803,6 +803,7 @@ void main(){
     e.preventDefault();
     if (u.pathname === location.pathname) { // la misma página: nunca recargar (cortaría la música); solo ir al ancla o arriba
       document.querySelectorAll('.sw-menu.open').forEach((m) => m.classList.remove('open'));
+      document.body.classList.remove('sheet-open'); // en el móvil, la tarjeta del player se cierra para ver el destino
       const t = u.hash && document.querySelector(u.hash);
       if (t) t.scrollIntoView({behavior: 'smooth', block: 'center'}); else scrollTo({top: 0, behavior: 'smooth'});
       return;
