@@ -258,7 +258,10 @@ def home_page(s):
 </header>
 
 <main>
-  <h1 class="sr-only">Espinoza — дискография</h1>
+  <div class="intro">
+    <h1 class="eyebrow">{e(s['intro']['eyebrow'])}</h1>
+    <p>{e(s['intro']['text'])}</p>
+  </div>
 
   <!-- Discos: funda + vinilo; al pasar el ratón el vinilo sale y el fondo pasa al paisaje del álbum -->
   <ul class="discs">

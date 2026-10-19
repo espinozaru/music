@@ -9,10 +9,12 @@
 .home main { position: relative; z-index: 3; }
 /* cabecera del índice: solo el logo, centrado */
 .home-top { justify-content: center; }
-.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.intro { max-width: 620px; margin: 0 auto; padding: 150px 24px 0; text-align: center; }
+.intro .eyebrow { margin: 0; font-size: 11px; font-weight: 400; letter-spacing: .4em; text-transform: uppercase; color: var(--dim); opacity: .7; }
+.intro p { margin: 22px 0 0; font-size: 16px; line-height: 1.7; color: #dfe3e7; opacity: .85; }
 
 /* rejilla de discos */
-.discs { list-style: none; margin: 0 auto; padding: 150px 40px 120px; max-width: 1280px;
+.discs { list-style: none; margin: 0 auto; padding: 90px 40px 120px; max-width: 1280px;
   display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 90px 70px; }
 .disc { opacity: 0; transform: translateY(40px); transition: opacity 1s ease, transform 1.2s cubic-bezier(.2, .7, .2, 1); }
 .disc.in { opacity: 1; transform: none; }
@@ -50,7 +52,9 @@
 .disco-foot .credits { margin-top: 0; }
 
 @media (max-width: 700px) {
-  .discs { grid-template-columns: 1fr; padding: 110px 28px 110px; gap: 70px; }
+  .discs { grid-template-columns: 1fr; padding: 70px 28px 110px; gap: 70px; }
+  .intro { padding-top: 110px; }
+  .intro p { font-size: 15px; }
   .sleeve-box { width: 72%; }
   .vinyl-slide { transform: translateX(26%); } /* en el teléfono no hay ratón: el vinilo asoma más */
 }
