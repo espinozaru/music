@@ -2,14 +2,10 @@
  "title": "Espinoza — музыка",
  "description": "Альбомы Espinoza: медитации «Тишина внутри», андская музыка Tuta Ukupi и Andes Nights, колыбельные Neural Lullabies, песни «Раны на бумаге», Ella, 2804.",
  "hero": {
-  "words": [
-   "МУЗЫКА",
-   "ESPINOZA"
-  ],
-  "label": "Музыка Espinoza",
+  "eyebrow": "дискография",
+  "title": "Espinoza",
   "sub": "альбомы · медитации · андская музыка",
-  "bg": "zen/assets/song1",
-  "horizon": 0.67
+  "bg": "zen/assets/song1"
  },
  "albums": [
   {

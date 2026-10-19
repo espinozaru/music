@@ -191,30 +191,34 @@ def album_page(slug, a):
 
 
 def home_page(s):
-    albums = s['albums']
-    secs = []
-    for i, al in enumerate(albums):
-        n = f'{i + 1:02d}'
-        links = []
-        if al.get('page'):
-            links.append(f'<a class="play open fx" data-delay="1.0" href="{al["slug"]}/">{ICO_PLAY}<span class="lbl">открыть альбом</span></a>')
-        pl = [p for p in al.get('platforms', []) if p.get('url')]
-        pl_html = ''.join(f'<a href="{e(p["url"])}" target="_blank" rel="noopener">{e(p["name"])}</a>' for p in pl)
-        secs.append(f'''  <section class="track album{" light" if al.get("light") else ""}" id="t{n}" data-bg="{e(al["bg"])}" data-horizon="{al.get("h", 0.67)}">
-    <img class="a-cover fx" src="{e(al["cover"])}" alt="{e(al["title"])}" loading="lazy" width="160" height="160">
-    <div class="num fx">{e(al.get("kind", "альбом"))}{f" · {al['year']}" if al.get("year") else ""}</div>
-    <h2 class="fx" data-fx="title" data-delay="0.1"><span class="silver">{e(al["title"])}</span></h2>
-    <p class="phrase fx" data-split="words" data-delay="0.45">{e(al["p"])}</p>
-    <div class="meta fx" data-delay="0.8">{e(al["meta"])}</div>
-    {''.join(links)}
-    {f'<div class="platforms small fx" data-delay="1.1">{pl_html}</div>' if pl_html else ''}
-  </section>
+    """Índice: presentación de discos (funda + vinilo), fondo que cambia con el disco. Sin menú lateral."""
+    cards = []
+    for al in s['albums']:
+        href = f'{al["slug"]}/' if al.get('page') else next((p['url'] for p in al.get('platforms', []) if p.get('url')), '#')
+        ext = '' if al.get('page') else ' target="_blank" rel="noopener"'
+        go = 'открыть альбом' if al.get('page') else 'слушать на платформах'
+        kind = e(al.get('kind', 'альбом')) + (f' · {al["year"]}' if al.get('year') else '') + f' · {e(al["meta"])}'
+        cards.append(f'''  <li class="disc" data-bg="{e(al["bg"])}.webp">
+    <a href="{e(href)}"{ext}>
+      <div class="sleeve-box">
+        <div class="vinyl-slide"><div class="vinyl"><span class="label" style="background-image:url({e(al["cover"])})"></span></div></div>
+        <div class="sleeve" style="background-image:url({e(al["cover"])})" role="img" aria-label="{e(al["title"])}"></div>
+      </div>
+      <div class="info">
+        <div class="kind">{kind}</div>
+        <h2><span class="silver">{e(al["title"])}</span></h2>
+        <p class="p">{e(al["p"])}</p>
+        <span class="go">{go} →</span>
+      </div>
+    </a>
+  </li>
 ''')
-    site = {'first': s['hero']['bg'], 'items': [{'n': f'{i + 1:02d}', 't': al['title'], 'tag': ''} for i, al in enumerate(albums)]}
-    out = head(s['title'], s['description'], s['hero']['bg'] + '.webp', '')
-    out += f'''</head>
-<body class="home">
-<canvas id="scene"></canvas>
+    h = s['hero']
+    out = head(s['title'], s['description'], h['bg'] + '.webp', '')
+    out += f'''<link rel="stylesheet" href="shared/home.css">
+</head>
+<body class="home" data-bg="{e(h['bg'])}.webp">
+<div class="bg"></div><div class="bg"></div>
 <div class="veil"></div>
 <div class="grain"></div>
 
@@ -222,22 +226,24 @@ def home_page(s):
   <img src="shared/logo-white.png" alt="Espinoza" class="logo">
 </header>
 
-{menus('Альбомы')}
 <main>
-{hero(s['hero'], s['hero']['bg'])}
-  <!-- Álbumes: cada uno con su paisaje -->
-{''.join(secs)}
-  <section class="listen" id="listen" data-bg="{e(s['outro']['bg'])}" data-horizon="{s['outro'].get('horizon', 0.67)}">
-    <h2 class="fx" data-fx="title"><span class="silver">{e(s['outro']['title'])}</span></h2>
-    <p class="soon fx">{s['outro']['text']}</p>
-    <p class="credits fx">{s['outro']['credits']}</p>
+  <section class="disco-hero">
+    <div class="eyebrow">{e(h['eyebrow'])}</div>
+    <h1><span class="silver">{e(h['title'])}</span></h1>
+    <p class="sub">{e(h['sub'])}</p>
   </section>
+
+  <!-- Discos: funda + vinilo; al pasar el ratón el vinilo sale y el fondo pasa al paisaje del álbum -->
+  <ul class="discs">
+{''.join(cards)}  </ul>
+
+  <footer class="disco-foot">
+    <p class="credits">{s['outro']['credits']}</p>
+  </footer>
 </main>
 
 <a class="made" href="https://espinoza.ru" target="_blank" rel="noopener">Проект от <span>espinoza.ru</span></a>
-
-<script>window.SITE = {json.dumps(site, ensure_ascii=False)};</script>
-<script src="shared/core.js"></script>
+<script src="shared/home.js"></script>
 </body>
 </html>
 '''
