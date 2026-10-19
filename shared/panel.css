@@ -308,3 +308,40 @@
   .v2.ph-min .ph-albumbar { z-index: 3; }
   .v2.ph-min .ph-albsel::after { right: calc(100% + 46px); z-index: 3; }
 }
+
+/* ===== plegado = BARRA ABAJO (como Yandex Музыка y como en el móvil): todo con texto, en una fila =====
+   álbum · ⏮ ▶ ⏭ · portada + título + avance · повтор/таймер/поделиться · volumen · ↑ abrir panel */
+@media (min-width: 981px) {
+  :root { --bar-h: 84px; }
+  .v2.ph-min .player.phone { top: auto; left: 0; right: 0; bottom: 0; width: auto; height: var(--bar-h); padding: 0 22px; flex-direction: row; align-items: center; gap: 22px;
+    border-left: none; border-top: 1px solid rgba(255, 255, 255, .12); cursor: default; }
+  .v2.ph-min section { padding-right: 120px; padding-bottom: calc(var(--bar-h) + 40px); }
+  .v2.noplay.has-panel.ph-min section { padding-right: 120px; }
+  .v2.ph-min .made { bottom: calc(var(--bar-h) + 18px); }
+  .v2.ph-min .side { bottom: var(--bar-h); }
+
+  /* álbum: recuadro con texto (sin etiqueta flotante) y la lista se abre hacia arriba */
+  .v2.ph-min .ph-albumbar { order: 1; flex: none; width: 260px; margin: 0; justify-content: flex-start; }
+  .v2.ph-min .ph-albsel { flex: 1; padding: 7px 12px 7px 8px; gap: 10px; background: rgba(255, 255, 255, .06); border: 1px solid rgba(255, 255, 255, .14); }
+  .v2.ph-min .ph-albsel .pa-txt, .v2.ph-min .ph-albsel .pa-chev { display: flex; }
+  .v2.ph-min .ph-albsel .pa-chev { display: block; }
+  .v2.ph-min .pa-cover { width: 30px; height: 30px; border-radius: 8px; }
+  .v2.ph-min .pa-badge, .v2.ph-min .ph-albsel::after { display: none; }
+  .v2.ph-min .ph-albumbar .sw-menu { top: auto; bottom: calc(100% + 12px); left: 0; right: auto; }
+
+  .v2.ph-min .p-ctrl { order: 2; flex-direction: row; gap: 10px; margin: 0; }
+  .v2.ph-min .p-ctrl .p-play { width: 46px; height: 46px; }
+  .v2.ph-min .ph-art { order: 3; margin: 0; flex: none; }
+  .v2.ph-min .ph-art .p-cover { width: 50px; }
+  .v2.ph-min .p-info { order: 4; display: block; flex: 1; min-width: 160px; }
+  .v2.ph-min .p-info .ph-phrase { display: none; }
+  .v2.ph-min .p-title { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 14px; }
+  .v2.ph-min .p-bar { margin-top: 6px; }
+  .v2.ph-min .ph-tools { order: 5; display: flex; margin: 0; }
+  .v2.ph-min .ph-vol { order: 6; display: flex; width: 190px; margin: 0; }
+  /* ↑ abrir el panel: botón al final de la barra */
+  .v2.ph-min .ph-toggle { order: 7; position: static; translate: none; top: auto; width: 38px; height: 38px; border-radius: 50%; flex: none; box-shadow: none; }
+  .v2.ph-min .ph-toggle svg { transform: rotate(180deg); }
+  .v2.ph-min .ph-albumbar { z-index: auto; }
+}
+@media (min-width: 981px) and (max-width: 1280px) { .v2.ph-min .ph-tools span { display: none; } .v2.ph-min .ph-vol { width: 140px; } } /* en pantallas medianas: solo iconos */
