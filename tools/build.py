@@ -95,12 +95,15 @@ EQ = '<span class="eq"><i></i><i></i><i></i><i></i><i></i></span>'
 PLAYER = '''<!-- Player: barra lateral derecha plegable (en móvil, cápsula abajo) -->
 <aside class="player phone" id="player" role="region" aria-label="Плеер" data-keep>
   <button class="ph-toggle" id="phToggle" aria-label="Свернуть плеер" aria-expanded="true"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
-  <!-- solo informa: el álbum de lo que suena (para cambiar de álbum está el ⇅ de la cabecera) -->
-  <div class="ph-albumbar">
-    <div class="ph-albsel" id="pAlbBox">
-      <span class="pa-cover" id="pAlbCov"></span>
+  <!-- álbum que suena (clic = ir a su página) · ⇅ otros álbumes -->
+  <div class="ph-albumbar hd-switch">
+    <button class="ph-albsel" id="pAlbSw" aria-label="Выбрать альбом" aria-haspopup="true" aria-expanded="false">
+      <span class="pa-cover" id="pAlbCov"><svg class="pa-badge" viewBox="0 0 24 24"><path d="M8 9l4-4 4 4M8 15l4 4 4-4"/></svg></span>
       <span class="pa-txt"><span class="pa-k"><span class="k-al">альбом</span><span class="k-now">сейчас играет</span></span><span class="pa-t" id="pAlbT"></span></span>
-    </div>
+      <svg class="pa-chev" viewBox="0 0 24 24"><path d="M8 9l4-4 4 4M8 15l4 4 4-4"/></svg>
+    </button>
+    <nav class="sw-menu" id="pAlbList" aria-label="Альбомы">
+{albums}    </nav>
   </div>
   <div class="ph-art">
     <div class="p-cover" id="pCover"><span class="p-ring"></span></div>
@@ -154,7 +157,7 @@ PLAYER = '''<!-- Player: barra lateral derecha plegable (en móvil, cápsula aba
 def player_html(albums, base):
     items = ''.join(f'      <a href="{base}{al["slug"]}/" data-slug="{al["slug"]}"><img src="{base}{e(al["cover"])}" alt="" width="40" height="40"><span>{e(al["title"])}<small>{e(al.get("kind", "альбом"))}</small></span></a>\n'
                     for al in albums if al.get('page'))
-    return PLAYER
+    return PLAYER.replace('{albums}', items)
 
 
 SHELL_TOP = '''<!-- fijo (data-keep): no cambia al navegar entre páginas -->

@@ -220,12 +220,14 @@
   .v2.noplay.has-panel section { padding-right: calc(var(--panel-w) + var(--panel-gap) * 2.5); }
   .v2.noplay.has-panel.ph-min section { padding-right: calc(var(--strip-w) + 40px); }
   /* índice: el panel se superpone al contenido (no lo empuja ni lo estrecha) */
+  .has-panel .top .hd-switch { display: none; } /* el selector de álbumes está dentro del panel */
   .v2 .ph-toggle[hidden] { display: none; }
 
-  /* arriba del panel: el álbum de lo que suena (solo informa; para cambiar de álbum, el ⇅ de la cabecera) */
+  /* selector de álbum arriba del panel: recuadro tipo «select» (disco · альбом / título · ⇅) */
   .v2 .ph-albumbar { display: flex; margin: -6px 0 14px; position: relative; }
   .v2 .ph-albsel { flex: 1; min-width: 0; display: flex; align-items: center; gap: 12px; padding: 9px 12px 9px 10px; border-radius: 14px; color: var(--text); text-align: left;
-    background: rgba(255, 255, 255, .06); border: 1px solid rgba(255, 255, 255, .14); position: relative; }
+    background: rgba(255, 255, 255, .06); border: 1px solid rgba(255, 255, 255, .14); transition: background .3s, border-color .3s; cursor: pointer; }
+  .v2 .ph-albsel:hover, .v2 .ph-albsel[aria-expanded="true"] { background: rgba(255, 255, 255, .11); border-color: rgba(255, 255, 255, .3); }
   .v2 .ph-albsel svg { flex: none; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
   /* portada del álbum en el selector, con ⇅ en la esquina */
   .v2 .pa-cover { position: relative; flex: none; width: 34px; height: 34px; border-radius: 8px; background: #222 center / cover; transition: box-shadow .4s; }
@@ -239,17 +241,20 @@
   .v2 .pa-k .k-now, .v2 .player.other .pa-k .k-al { display: none; }
   .v2 .player.other .pa-k .k-now { display: inline; } /* «сейчас играет» cuando suena otro álbum que el de la página */
   .v2 .pa-t { font-family: 'Unbounded', 'Noto Sans Web', sans-serif; font-weight: 300; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .v2 .ph-albumbar .sw-menu { left: auto; right: 0; top: calc(100% + 8px); z-index: 6; }
   /* plegado: solo el ⇅ arriba de la franja; la lista de álbumes se abre hacia la izquierda */
   .v2.ph-min .ph-albumbar { margin: 0 0 16px; justify-content: center; }
-  /* plegado: solo la portada del álbum y, al pasar el ratón, «сейчас играет» + su nombre */
+  /* plegado: solo la portada del álbum con ⇅ (que se note que se puede cambiar) y una etiqueta al pasar el ratón */
   .v2.ph-min .ph-albsel { flex: none; padding: 0; gap: 0; background: none; border: none; position: relative; }
   .v2.ph-min .ph-albsel .pa-txt, .v2.ph-min .ph-albsel .pa-chev { display: none; }
   .v2.ph-min .pa-cover { width: 50px; height: 50px; border-radius: 12px; }
-  .v2.ph-min .ph-albsel::after { content: 'СЕЙЧАС ИГРАЕТ\A' attr(data-tip); white-space: pre; position: absolute; right: calc(100% + 14px); top: 50%; translate: 0 -50%;
+  .v2.ph-min .pa-badge { display: block; }
+  .v2.ph-min .ph-albsel::after { content: 'СМЕНИТЬ АЛЬБОМ\A' attr(data-tip); white-space: pre; position: absolute; right: calc(100% + 14px); top: 50%; translate: 0 -50%;
     padding: 9px 14px; border-radius: 12px; font-size: 13px; line-height: 1.6; text-align: left; background: rgba(10, 14, 24, .92); border: 1px solid rgba(255, 255, 255, .15);
     opacity: 0; pointer-events: none; transition: opacity .25s; }
   .v2.ph-min .ph-albsel:hover::after { opacity: 1; }
-
+  .v2.ph-min .ph-albsel[aria-expanded="true"]::after { opacity: 0; }
+  .v2.ph-min .ph-albumbar .sw-menu { right: calc(100% + 14px); top: 0; }
 }
 .ph-albumbar { display: none; }
 

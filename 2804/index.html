@@ -105,12 +105,22 @@
 <!-- Player: barra lateral derecha plegable (en móvil, cápsula abajo) -->
 <aside class="player phone" id="player" role="region" aria-label="Плеер" data-keep>
   <button class="ph-toggle" id="phToggle" aria-label="Свернуть плеер" aria-expanded="true"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
-  <!-- solo informa: el álbum de lo que suena (para cambiar de álbum está el ⇅ de la cabecera) -->
-  <div class="ph-albumbar">
-    <div class="ph-albsel" id="pAlbBox">
-      <span class="pa-cover" id="pAlbCov"></span>
+  <!-- álbum que suena (clic = ir a su página) · ⇅ otros álbumes -->
+  <div class="ph-albumbar hd-switch">
+    <button class="ph-albsel" id="pAlbSw" aria-label="Выбрать альбом" aria-haspopup="true" aria-expanded="false">
+      <span class="pa-cover" id="pAlbCov"><svg class="pa-badge" viewBox="0 0 24 24"><path d="M8 9l4-4 4 4M8 15l4 4 4-4"/></svg></span>
       <span class="pa-txt"><span class="pa-k"><span class="k-al">альбом</span><span class="k-now">сейчас играет</span></span><span class="pa-t" id="pAlbT"></span></span>
-    </div>
+      <svg class="pa-chev" viewBox="0 0 24 24"><path d="M8 9l4-4 4 4M8 15l4 4 4-4"/></svg>
+    </button>
+    <nav class="sw-menu" id="pAlbList" aria-label="Альбомы">
+      <a href="../zen/" data-slug="zen"><img src="../covers/zen.webp" alt="" width="40" height="40"><span>Тишина внутри<small>медитации</small></span></a>
+      <a href="../tuta-ukupi/" data-slug="tuta-ukupi"><img src="../covers/tuta-ukupi.webp" alt="" width="40" height="40"><span>Tuta Ukupi<small>альбом</small></span></a>
+      <a href="../andes-nights/" data-slug="andes-nights"><img src="../covers/andes-nights.webp" alt="" width="40" height="40"><span>Andes Nights<small>альбом</small></span></a>
+      <a href="../neural-lullabies/" data-slug="neural-lullabies"><img src="../covers/neural-lullabies.webp" alt="" width="40" height="40"><span>Neural Lullabies<small>альбом</small></span></a>
+      <a href="../rany-na-bumage/" data-slug="rany-na-bumage"><img src="../covers/rany-na-bumage.webp" alt="" width="40" height="40"><span>Раны на бумаге<small>альбом</small></span></a>
+      <a href="../ella/" data-slug="ella"><img src="../covers/ella.webp" alt="" width="40" height="40"><span>Ella<small>альбом</small></span></a>
+      <a href="../2804/" data-slug="2804"><img src="../covers/2804.webp" alt="" width="40" height="40"><span>2804<small>сингл</small></span></a>
+    </nav>
   </div>
   <div class="ph-art">
     <div class="p-cover" id="pCover"><span class="p-ring"></span></div>
