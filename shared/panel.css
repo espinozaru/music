@@ -238,7 +238,7 @@
   .v2 .pa-chev { width: 16px; height: 16px; opacity: .7; }
   .v2 .pa-txt { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
   .v2 .pa-k { font-size: 9px; letter-spacing: .3em; text-transform: uppercase; color: var(--dim); opacity: .7; }
-  .v2 .pa-t { font-family: 'Unbounded', 'Noto Sans Web', sans-serif; font-weight: 300; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .v2 .pa-t { font-family: 'Noto Sans Web', 'Noto Sans', sans-serif; font-weight: 400; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .v2 .pa-l { opacity: .55; }
   .v2 .pa-k .k-on, .v2 .playing .pa-k .k-off { display: none; }  /* «сейчас играет» solo mientras suena; en pausa «в плеере» */
   .v2 .playing .pa-k .k-on { display: inline; }
