@@ -270,3 +270,39 @@
 /* repetir: el «1» dentro del icono solo en «повтор трека» */
 .ph-tool .one { display: none; font: 600 8px/1 'Noto Sans Web', sans-serif; fill: currentColor; stroke: none; }
 .ph-tool[data-mode="one"] .one { display: inline; }
+
+/* panel más compacto: portada más pequeña y menos aire, para que la lista de canciones se vea */
+@media (min-width: 981px) {
+  .v2 .ph-art .p-cover { width: min(100%, 26vh); }
+  .v2 .ph-art { margin-bottom: 12px; }
+  .v2 .ph-albumbar { margin: -8px 0 12px; }
+  .v2 .ph-albsel { padding: 7px 12px 7px 8px; }
+  .v2 .pa-cover { width: 30px; height: 30px; }
+  .v2 .ph-phrase { margin: 4px 0 6px; min-height: 0; }
+  .v2 .p-ctrl { margin: 4px 0 2px; }
+  .v2 .ph-vol { margin: 2px 0 8px; }
+  .v2 .ph-tools { margin-bottom: 8px; }
+  .v2 .ph-album { padding: 10px 2px 6px; }
+}
+@media (min-width: 981px) { .v2:not(.ph-min) .ph-toggle { top: 18px; height: 50px; } } /* sigue alineada con el selector, más bajo */
+
+/* portada del player como un disco «single» (7''): el arte grande en el centro, un anillo fino de surcos y el agujero;
+   gira mientras suena y se detiene en pausa */
+@media (min-width: 981px) {
+  .v2 .ph-art .p-cover { border-radius: 50%; box-shadow: 0 18px 44px rgba(0, 0, 0, .55), 0 0 0 1px rgba(255, 255, 255, .14);
+    animation: spin 9s linear infinite; animation-play-state: paused; }
+  .v2 .playing .ph-art .p-cover { animation-play-state: running; }
+  .v2 .ph-art .p-cover::before { content: ''; position: absolute; inset: 0; border-radius: 50%; pointer-events: none;
+    background: radial-gradient(circle closest-side, transparent 0 72%, rgba(255, 255, 255, .25) 72.5% 73.2%, transparent 73.8%),
+      repeating-radial-gradient(circle closest-side, #101216 0 1.1px, #23262d 1.5px 2.6px);
+    -webkit-mask: radial-gradient(circle closest-side, transparent 0 72.3%, #000 72.8%); mask: radial-gradient(circle closest-side, transparent 0 72.3%, #000 72.8%); }
+  .v2 .ph-art .p-cover::after { content: ''; position: absolute; left: 50%; top: 50%; width: 7%; height: 7%; translate: -50% -50%; border-radius: 50%;
+    background: #0b0c0f; box-shadow: 0 0 0 2px rgba(255, 255, 255, .18); }
+  .v2 .ph-art .p-ring { border-radius: 50%; }
+  /* el brillo del disco no gira con él: va encima, fijo */
+  .v2 .ph-art { position: relative; }
+  .v2 .ph-art::after { content: ''; position: absolute; left: 50%; top: 0; width: min(100%, 26vh); aspect-ratio: 1; translate: -50% 0; border-radius: 50%; pointer-events: none;
+    background: conic-gradient(from 30deg, transparent 0 40deg, rgba(255, 255, 255, .12) 60deg, transparent 90deg 220deg, rgba(255, 255, 255, .09) 240deg, transparent 270deg); }
+  .v2.ph-min .ph-art::after { display: none; }
+  .v2.ph-min .ph-art .p-cover::before, .v2.ph-min .ph-art .p-cover::after { display: none; }
+}
