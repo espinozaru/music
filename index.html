@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Espinoza — музыка</title>
+<meta name="description" content="Альбомы Espinoza: медитации «Тишина внутри», андская музыка Tuta Ukupi и Andes Nights, колыбельные Neural Lullabies, песни «Раны на бумаге», Ella, 2804.">
+<link rel="preload" href="shared/fonts/NotoSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="shared/fonts/CormorantGaramond-Upright-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="zen/assets/song1.webp" as="image">
+<link rel="stylesheet" href="shared/style.css">
+</head>
+<body class="home">
+<canvas id="scene"></canvas>
+<div class="veil"></div>
+<div class="grain"></div>
+
+<header class="top">
+  <img src="shared/logo-white.png" alt="Espinoza" class="logo">
+</header>
+
+<!-- Menú vertical fijo: rayas + números; se marca lo que está en pantalla y lo que suena -->
+<nav class="side" id="side" aria-label="Альбомы"></nav>
+<div class="side-tip" id="sideTip" aria-hidden="true"></div>
+<!-- Móvil: la lista a pantalla completa, con el botón abajo (donde está el pulgar) -->
+<nav class="m-menu" id="mMenu" aria-label="Альбомы"></nav>
+<button class="m-btn" id="mBtn" aria-label="Альбомы" aria-expanded="false"><span></span><span></span></button>
+
+<main>
+  <!-- Portada: título en escalera (la 1.ª palabra entra por la izquierda, la 2.ª por la derecha) -->
+  <section class="hero" id="top" data-bg="zen/assets/song1" data-horizon="0.67">
+    <h1 class="stair" aria-label="Музыка Espinoza">
+      <span class="w w1 fx" data-fx="hero-l" data-delay="0.3"><span class="silver">МУЗЫКА</span></span>
+      <span class="w w2 fx" data-fx="hero-r" data-delay="1.1"><span class="silver">ESPINOZA</span></span>
+    </h1>
+    <p class="sub fx" data-split="words" data-delay="2.0">альбомы · медитации · андская музыка</p>
+    <div class="scroll-hint fx" data-delay="2.8"><span></span>листай медленно</div>
+  </section>
+
+  <!-- Álbumes: cada uno con su paisaje -->
+  <section class="track album" id="t01" data-bg="zen/assets/song1" data-horizon="0.67">
+    <img class="a-cover fx" src="covers/zen.webp" alt="Тишина внутри" loading="lazy" width="160" height="160">
+    <div class="num fx">медитации · 2026</div>
+    <h2 class="fx" data-fx="title" data-delay="0.1"><span class="silver">Тишина внутри</span></h2>
+    <p class="phrase fx" data-split="words" data-delay="0.45">11 медитаций для тела, ума и сна</p>
+    <div class="meta fx" data-delay="0.8">11 треков · голос и музыка</div>
+    <a class="play open fx" data-delay="1.0" href="zen/"><svg class="ico" viewBox="0 0 10 10"><path d="M2 1v8l7-4z"/></svg><span class="lbl">открыть альбом</span></a>
+    
+  </section>
+  <section class="track album" id="t02" data-bg="tuta-ukupi/assets/yaku" data-horizon="0.56">
+    <img class="a-cover fx" src="covers/tuta-ukupi.webp" alt="Tuta Ukupi" loading="lazy" width="160" height="160">
+    <div class="num fx">альбом · 2026</div>
+    <h2 class="fx" data-fx="title" data-delay="0.1"><span class="silver">Tuta Ukupi</span></h2>
+    <p class="phrase fx" data-split="words" data-delay="0.45">Внутри ночи — андская музыка на кечуа</p>
+    <div class="meta fx" data-delay="0.8">9 треков</div>
+    <a class="play open fx" data-delay="1.0" href="tuta-ukupi/"><svg class="ico" viewBox="0 0 10 10"><path d="M2 1v8l7-4z"/></svg><span class="lbl">открыть альбом</span></a>
+    <div class="platforms small fx" data-delay="1.1"><a href="https://open.spotify.com/album/4WDrTfD6ZwgyE5UHjYSFoL" target="_blank" rel="noopener">Spotify</a><a href="https://ditto.fm/tuta-ukupi" target="_blank" rel="noopener">Все платформы</a></div>
+  </section>
+  <section class="track album" id="t03" data-bg="andes-nights/assets/morning" data-horizon="0.995">
+    <img class="a-cover fx" src="covers/andes-nights.webp" alt="Andes Nights" loading="lazy" width="160" height="160">
+    <div class="num fx">альбом · 2026</div>
+    <h2 class="fx" data-fx="title" data-delay="0.1"><span class="silver">Andes Nights</span></h2>
+    <p class="phrase fx" data-split="words" data-delay="0.45">Андские ночи — 7 историй о ней</p>
+    <div class="meta fx" data-delay="0.8">7 треков</div>
+    <a class="play open fx" data-delay="1.0" href="andes-nights/"><svg class="ico" viewBox="0 0 10 10"><path d="M2 1v8l7-4z"/></svg><span class="lbl">открыть альбом</span></a>
+    <div class="platforms small fx" data-delay="1.1"><a href="https://open.spotify.com/album/2Yhqxs5kvCKG8h7CQNv4wx" target="_blank" rel="noopener">Spotify</a><a href="https://ditto.fm/andes-nights" target="_blank" rel="noopener">Все платформы</a></div>
+  </section>
+  <section class="track album" id="t04" data-bg="neural-lullabies/assets/lullaby" data-horizon="0.995">
+    <img class="a-cover fx" src="covers/neural-lullabies.webp" alt="Neural Lullabies" loading="lazy" width="160" height="160">
+    <div class="num fx">альбом · 2026</div>
+    <h2 class="fx" data-fx="title" data-delay="0.1"><span class="silver">Neural Lullabies</span></h2>
+    <p class="phrase fx" data-split="words" data-delay="0.45">Колыбельные и звуки природы для глубокого сна малыша</p>
+    <div class="meta fx" data-delay="0.8">11 треков</div>
+    <a class="play open fx" data-delay="1.0" href="neural-lullabies/"><svg class="ico" viewBox="0 0 10 10"><path d="M2 1v8l7-4z"/></svg><span class="lbl">открыть альбом</span></a>
+    <div class="platforms small fx" data-delay="1.1"><a href="https://music.yandex.ru/album/43857983" target="_blank" rel="noopener">Яндекс Музыка</a><a href="https://ditto.fm/neural-lullabies" target="_blank" rel="noopener">Все платформы</a></div>
+  </section>
+  <section class="track album" id="t05" data-bg="rany-na-bumage/assets/rany" data-horizon="0.995">
+    <img class="a-cover fx" src="covers/rany-na-bumage.webp" alt="Раны на бумаге" loading="lazy" width="160" height="160">
+    <div class="num fx">альбом · 2026</div>
+    <h2 class="fx" data-fx="title" data-delay="0.1"><span class="silver">Раны на бумаге</span></h2>
+    <p class="phrase fx" data-split="words" data-delay="0.45">5 песен о любви и боли</p>
+    <div class="meta fx" data-delay="0.8">5 песен</div>
+    <a class="play open fx" data-delay="1.0" href="rany-na-bumage/"><svg class="ico" viewBox="0 0 10 10"><path d="M2 1v8l7-4z"/></svg><span class="lbl">открыть альбом</span></a>
+    <div class="platforms small fx" data-delay="1.1"><a href="https://music.yandex.ru/album/44068531" target="_blank" rel="noopener">Яндекс Музыка</a><a href="https://ditto.fm/rany-na-bumage" target="_blank" rel="noopener">Все платформы</a></div>
+  </section>
+  <section class="track album" id="t06" data-bg="covers/bg/ella" data-horizon="0.995">
+    <img class="a-cover fx" src="covers/ella.webp" alt="Ella" loading="lazy" width="160" height="160">
+    <div class="num fx">альбом</div>
+    <h2 class="fx" data-fx="title" data-delay="0.1"><span class="silver">Ella</span></h2>
+    <p class="phrase fx" data-split="words" data-delay="0.45">8 песен на испанском — о ней</p>
+    <div class="meta fx" data-delay="0.8">8 песен</div>
+    
+    <div class="platforms small fx" data-delay="1.1"><a href="https://music.yandex.ru/album/39743901" target="_blank" rel="noopener">Яндекс Музыка</a><a href="https://open.spotify.com/album/4DayA7A9pTg4we6dYCWkcG" target="_blank" rel="noopener">Spotify</a><a href="https://ditto.fm/ella_88859687" target="_blank" rel="noopener">Все платформы</a></div>
+  </section>
+  <section class="track album" id="t07" data-bg="covers/bg/p2804" data-horizon="0.995">
+    <img class="a-cover fx" src="covers/2804.webp" alt="2804" loading="lazy" width="160" height="160">
+    <div class="num fx">сингл</div>
+    <h2 class="fx" data-fx="title" data-delay="0.1"><span class="silver">2804</span></h2>
+    <p class="phrase fx" data-split="words" data-delay="0.45">Stolen Kiss · Cold · For You</p>
+    <div class="meta fx" data-delay="0.8">3 трека</div>
+    
+    <div class="platforms small fx" data-delay="1.1"><a href="https://ditto.fm/2804-espinoza" target="_blank" rel="noopener">Все платформы</a></div>
+  </section>
+
+  <section class="listen" id="listen" data-bg="andes-nights/assets/evening" data-horizon="0.62">
+    <h2 class="fx" data-fx="title"><span class="silver">Слушать везде</span></h2>
+    <p class="soon fx">Все альбомы — на Яндекс Музыке, Spotify, YouTube Music и других платформах.</p>
+    <p class="credits fx">Музыка — Espinoza · © 2026 · Все права защищены</p>
+  </section>
+</main>
+
+<a class="made" href="https://espinoza.ru" target="_blank" rel="noopener">Проект от <span>espinoza.ru</span></a>
+
+<script>window.SITE = {"first": "zen/assets/song1", "items": [{"n": "01", "t": "Тишина внутри", "tag": ""}, {"n": "02", "t": "Tuta Ukupi", "tag": ""}, {"n": "03", "t": "Andes Nights", "tag": ""}, {"n": "04", "t": "Neural Lullabies", "tag": ""}, {"n": "05", "t": "Раны на бумаге", "tag": ""}, {"n": "06", "t": "Ella", "tag": ""}, {"n": "07", "t": "2804", "tag": ""}]};</script>
+<script src="shared/core.js"></script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Andes Nights — Espinoza</title>
+<meta name="description" content="«Andes Nights» — 7 треков об Андах и о ней: рассвет, украденный поцелуй, андская ночь, долина без неё.">
+<link rel="preload" href="../shared/fonts/NotoSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../shared/fonts/CormorantGaramond-Upright-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/morning.webp" as="image">
+<link rel="stylesheet" href="../shared/style.css">
+<link rel="stylesheet" href="../shared/panel.css">
+</head>
+<body class="v2">
+<canvas id="scene"></canvas>
+<div class="veil"></div>
+<div class="grain"></div>
+
+<header class="top">
+  <a href="../" class="logo-link" aria-label="Все альбомы"><img src="../shared/logo-white.png" alt="Espinoza" class="logo"></a>
+  <div class="top-right">
+    <a class="top-cta" href="#listen"><svg viewBox="0 0 10 10"><path d="M2 1v8l7-4z"/></svg>Слушать альбом</a>
+  </div>
+</header>
+
+<!-- Menú vertical fijo: rayas + números; se marca lo que está en pantalla y lo que suena -->
+<nav class="side" id="side" aria-label="Треки"></nav>
+<div class="side-tip" id="sideTip" aria-hidden="true"></div>
+<!-- Móvil: la lista a pantalla completa, con el botón abajo (donde está el pulgar) -->
+<nav class="m-menu" id="mMenu" aria-label="Треки"></nav>
+<button class="m-btn" id="mBtn" aria-label="Треки" aria-expanded="false"><span></span><span></span></button>
+
+<main>
+  <!-- Portada: título en escalera (la 1.ª palabra entra por la izquierda, la 2.ª por la derecha) -->
+  <section class="hero" id="top" data-bg="morning" data-horizon="0.995">
+    <h1 class="stair" aria-label="Andes Nights">
+      <span class="w w1 fx" data-fx="hero-l" data-delay="0.3"><span class="silver">ANDES</span></span>
+      <span class="w w2 fx" data-fx="hero-r" data-delay="1.1"><span class="silver">NIGHTS</span></span>
+    </h1>
+    <p class="sub fx" data-split="words" data-delay="2.0">андские ночи · 7 историй о ней</p>
+    <div class="scroll-hint fx" data-delay="2.8"><span></span>листай медленно</div>
+  </section>
+
+  <!-- Manifiesto: frases palabra a palabra y una línea grande en plata -->
+  <section class="manifest" data-bg="valley" data-horizon="0.995">
+    <p class="line fx" data-split="words">Утро в горах.</p>
+    <p class="line tight fx" data-split="words">Поцелуй. Долина без неё.</p>
+    <p class="line big fx" data-fx="title"><span class="silver">Андские ночи.</span></p>
+  </section>
+
+  <!-- Pistas: cada una cambia el paisaje de fondo -->
+  <section class="track" id="t01" data-bg="morning" data-horizon="0.995">
+    <div class="num fx">01 / 7</div>
+    <h2 class="fx" data-fx="title" data-delay="0.1"><span class="silver">Good Morning</span></h2>
+    <p class="phrase fx" data-split="words" data-delay="0.45">Рассвет над Андами и первое «доброе утро»</p>
+    <div class="meta fx" data-delay="0.8">3:28 · музыка</div>
+    <button class="play fx" data-delay="1.0" data-n="01"><svg class="ico" viewBox="0 0 10 10"><path d="M2 1v8l7-4z"/></svg><span class="eq"><i></i><i></i><i></i><i></i><i></i></span><span class="lbl">слушать</span></button>
+  </section>
+  <section class="track" id="t02" data-bg="kiss" data-horizon="0.995">
+    <div class="num fx">02 / 7</div>
+    <h2 class="fx" data-fx="title" data-delay="0.1"><span class="silver">Andean Stolen Kiss</span></h2>
+    <p class="phrase fx" data-split="words" data-delay="0.45">Поцелуй, украденный у гор</p>
+    <div class="meta fx" data-delay="0.8">4:59 · музыка</div>
+    <button class="play fx" data-delay="1.0" data-n="02"><svg class="ico" viewBox="0 0 10 10"><path d="M2 1v8l7-4z"/></svg><span class="eq"><i></i><i></i><i></i><i></i><i></i></span><span class="lbl">слушать</span></button>
+  </section>
+  <section class="track" id="t03" data-bg="noche" data-horizon="0.995">
+    <div class="num fx">03 / 7</div>
+    <h2 class="fx" data-fx="title" data-delay="0.1"><span class="silver">Noche Andina</span></h2>
+    <p class="phrase fx" data-split="words" data-delay="0.45">Андская ночь: туман, огонь и звёзды</p>
+    <div class="meta fx" data-delay="0.8">2:18 · музыка</div>
+    <button class="play fx" data-delay="1.0" data-n="03"><svg class="ico" viewBox="0 0 10 10"><path d="M2 1v8l7-4z"/></svg><span class="eq"><i></i><i></i><i></i><i></i><i></i></span><span class="lbl">слушать</span></button>
+  </section>
+  <section class="track" id="t04" data-bg="valley" data-horizon="0.995">
+    <div class="num fx">04 / 7</div>
+    <h2 class="fx" data-fx="title" data-delay="0.1"><span class="silver">Valley Without Her</span></h2>
+    <p class="phrase fx" data-split="words" data-delay="0.45">Долина, в которой её больше нет</p>
+    <div class="meta fx" data-delay="0.8">5:30 · музыка</div>
+    <a class="play ext fx" data-delay="1.0" href="#listen"><svg class="ico" viewBox="0 0 10 10"><path d="M2 1v8l7-4z"/></svg><span class="lbl">полностью — на платформах</span></a>
+  </section>
+  <section class="track" id="t05" data-bg="voice" data-horizon="0.995">
+    <div class="num fx">05 / 7</div>
+    <h2 class="fx" data-fx="title" data-delay="0.1"><span class="silver">All About Her Voice</span></h2>
+    <p class="phrase fx" data-split="words" data-delay="0.45">Всё о её голосе</p>
+    <div class="meta fx" data-delay="0.8">4:29 · музыка</div>
+    <a class="play ext fx" data-delay="1.0" href="#listen"><svg class="ico" viewBox="0 0 10 10"><path d="M2 1v8l7-4z"/></svg><span class="lbl">полностью — на платформах</span></a>
+  </section>
+  <section class="track" id="t06" data-bg="evening" data-horizon="0.62">
+    <div class="num fx">06 / 7</div>
+    <h2 class="fx" data-fx="title" data-delay="0.1"><span class="silver">Good Evening</span></h2>
+    <p class="phrase fx" data-split="words" data-delay="0.45">Вечер у озера и тихое «добрый вечер»</p>
+    <div class="meta fx" data-delay="0.8">3:24 · музыка</div>
+    <a class="play ext fx" data-delay="1.0" href="#listen"><svg class="ico" viewBox="0 0 10 10"><path d="M2 1v8l7-4z"/></svg><span class="lbl">полностью — на платформах</span></a>
+  </section>
+  <section class="track" id="t07" data-bg="pain" data-horizon="0.995">
+    <div class="num fx">07 / 7</div>
+    <h2 class="fx" data-fx="title" data-delay="0.1"><span class="silver">Argument with Pain</span></h2>
+    <p class="phrase fx" data-split="words" data-delay="0.45">Спор с болью — и буря после</p>
+    <div class="meta fx" data-delay="0.8">5:30 · музыка</div>
+    <a class="play ext fx" data-delay="1.0" href="#listen"><svg class="ico" viewBox="0 0 10 10"><path d="M2 1v8l7-4z"/></svg><span class="lbl">полностью — на платформах</span></a>
+  </section>
+
+  <!-- Escuchar -->
+  <section class="listen" id="listen" data-bg="evening" data-horizon="0.62">
+    <h2 class="fx" data-fx="title"><span class="silver">Слушать альбом</span></h2>
+    <div class="platforms fx"><a href="https://open.spotify.com/album/2Yhqxs5kvCKG8h7CQNv4wx" target="_blank" rel="noopener">Spotify</a><a href="https://music.youtube.com/playlist?list=OLAK5uy_nDXBwir8gyWAkO8vMSe8HAGrO6N2vVdBg" target="_blank" rel="noopener">YouTube Music</a><a href="https://www.deezer.com/album/1104762112" target="_blank" rel="noopener">Deezer</a><a href="https://soundcloud.com/espinoza-scmusic/sets/andes-nights" target="_blank" rel="noopener">SoundCloud</a><a href="https://ditto.fm/andes-nights" target="_blank" rel="noopener">Все платформы</a></div>
+    <p class="credits fx">Музыка — Espinoza · ℗ 2026</p>
+    <p class="disclaimer fx">© 2026 Espinoza. Все права защищены.</p>
+    <p class="back fx"><a href="../">← Все альбомы</a></p>
+  </section>
+</main>
+
+<a class="made" href="https://espinoza.ru" target="_blank" rel="noopener">Проект от <span>espinoza.ru</span></a>
+
+<!-- Player: barra lateral derecha plegable (en móvil, cápsula abajo) -->
+<aside class="player phone" id="player" role="region" aria-label="Плеер">
+  <button class="ph-toggle" id="phToggle" aria-label="Свернуть плеер" aria-expanded="true"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+  <div class="ph-art">
+    <div class="p-cover" id="pCover"><span class="p-ring"></span></div>
+  </div>
+  <div class="p-info">
+    <div class="p-top">
+      <span class="p-num" id="pNum">01</span>
+      <span class="p-title" id="pTitle"></span>
+      <span class="eq"><i></i><i></i><i></i><i></i><i></i></span>
+    </div>
+    <p class="ph-phrase" id="pPhrase"></p>
+    <div class="p-bar" id="pBar" role="slider" tabindex="0" aria-label="Перемотка" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+      <span class="p-fill" id="pFill"></span><span class="p-knob" id="pKnob"></span><span class="p-tip" id="pTip">0:00</span>
+    </div>
+    <div class="p-time"><span id="pCur">0:00</span><span class="p-state" id="pState"></span><span id="pDur">0:00</span></div>
+  </div>
+  <div class="p-ctrl">
+    <button id="pPrev" aria-label="Предыдущая"><svg viewBox="0 0 24 24"><path d="M7 5v14M18 6l-8 6 8 6z"/></svg></button>
+    <button id="pPlay" class="p-play" aria-label="Играть">
+      <svg class="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg>
+      <svg class="i-pause" viewBox="0 0 24 24"><path d="M6.5 5h3.5v14H6.5zM14 5h3.5v14H14z"/></svg>
+    </button>
+    <button id="pNext" aria-label="Следующая"><svg viewBox="0 0 24 24"><path d="M17 5v14M6 6l8 6-8 6z"/></svg></button>
+  </div>
+  <input class="p-vol" id="pVol" type="range" min="0" max="1" step="0.01" value="0.7" aria-label="Громкость">
+  <a class="p-cta" href="#listen">Полный альбом →</a>
+  <button class="p-close" id="pClose" aria-label="Закрыть плеер" hidden>×</button>
+  <p class="ph-album">Andes Nights <span>3 из 7 доступно</span></p>
+  <ol class="ph-list" id="pList"></ol>
+</aside>
+
+<script>window.SITE = {"first": "morning", "items": [{"n": "01", "t": "Good Morning", "tag": "доступно"}, {"n": "02", "t": "Andean Stolen Kiss", "tag": "доступно"}, {"n": "03", "t": "Noche Andina", "tag": "доступно"}, {"n": "04", "t": "Valley Without Her", "tag": ""}, {"n": "05", "t": "All About Her Voice", "tag": ""}, {"n": "06", "t": "Good Evening", "tag": ""}, {"n": "07", "t": "Argument with Pain", "tag": ""}], "album": {"slug": "andes-nights", "title": "Andes Nights", "artist": "Espinoza", "tracks": [{"n": "01", "t": "Good Morning", "p": "Рассвет над Андами и первое «доброе утро»", "bg": "morning", "d": 208.4, "free": true}, {"n": "02", "t": "Andean Stolen Kiss", "p": "Поцелуй, украденный у гор", "bg": "kiss", "d": 299.6, "free": true}, {"n": "03", "t": "Noche Andina", "p": "Андская ночь: туман, огонь и звёзды", "bg": "noche", "d": 138.2, "free": true}, {"n": "04", "t": "Valley Without Her", "p": "Долина, в которой её больше нет", "bg": "valley", "d": 330, "free": false}, {"n": "05", "t": "All About Her Voice", "p": "Всё о её голосе", "bg": "voice", "d": 269, "free": false}, {"n": "06", "t": "Good Evening", "p": "Вечер у озера и тихое «добрый вечер»", "bg": "evening", "d": 204, "free": false}, {"n": "07", "t": "Argument with Pain", "p": "Спор с болью — и буря после", "bg": "pain", "d": 330, "free": false}]}};</script>
+<script src="../shared/core.js"></script>
+<script src="../shared/player.js"></script>
+<script src="../shared/panel.js"></script>
+</body>
+</html>

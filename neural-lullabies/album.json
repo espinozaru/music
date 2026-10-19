@@ -1,0 +1,145 @@
+{
+ "title": "Neural Lullabies",
+ "artist": "Espinoza",
+ "description": "«Neural Lullabies» — 11 колыбельных и звуков природы для спокойного глубокого сна малыша.",
+ "metaLabel": "для сна",
+ "free": 3,
+ "released": true,
+ "hero": {
+  "words": [
+   "NEURAL",
+   "LULLABIES"
+  ],
+  "label": "Neural Lullabies",
+  "sub": "11 колыбельных для глубокого сна",
+  "bg": "lullaby",
+  "horizon": 0.995
+ },
+ "manifest": {
+  "bg": "lullaby",
+  "horizon": 0.995,
+  "lines": [
+   "Сердце мамы. Дождь. Волны.",
+   "Мягкие звуки природы."
+  ],
+  "big": "Спокойный сон."
+ },
+ "tracks": [
+  {
+   "n": "01",
+   "t": "Neural Lullabies",
+   "p": "Мягкая колыбельная для засыпания",
+   "bg": "lullaby",
+   "h": 0.995,
+   "d": 183.0
+  },
+  {
+   "n": "02",
+   "t": "Ocean Cradle Waves",
+   "p": "Колыбель из морских волн",
+   "bg": "lullaby",
+   "h": 0.995,
+   "d": 233.0
+  },
+  {
+   "n": "03",
+   "t": "Chest Heart Lullaby",
+   "p": "Как на груди у мамы: тихий стук сердца",
+   "bg": "lullaby",
+   "h": 0.995,
+   "d": 302.8
+  },
+  {
+   "n": "04",
+   "t": "Night Garden Crickets",
+   "p": "Ночной сад и сверчки",
+   "bg": "lullaby",
+   "h": 0.995,
+   "d": 224
+  },
+  {
+   "n": "05",
+   "t": "Wind Whispers Meadow",
+   "p": "Ветер шепчет над лугом",
+   "bg": "lullaby",
+   "h": 0.995,
+   "d": 290
+  },
+  {
+   "n": "06",
+   "t": "Gentle Stream Flow",
+   "p": "Тихий ручей",
+   "bg": "lullaby",
+   "h": 0.995,
+   "d": 185
+  },
+  {
+   "n": "07",
+   "t": "Tender Rain Fireflies",
+   "p": "Нежный дождь и светлячки",
+   "bg": "lullaby",
+   "h": 0.995,
+   "d": 429
+  },
+  {
+   "n": "08",
+   "t": "Moonlit Brooks & Streams",
+   "p": "Ручьи под луной",
+   "bg": "lullaby",
+   "h": 0.995,
+   "d": 452
+  },
+  {
+   "n": "09",
+   "t": "Soft Night Sky Glow",
+   "p": "Мягкое сияние ночного неба",
+   "bg": "lullaby",
+   "h": 0.995,
+   "d": 329
+  },
+  {
+   "n": "10",
+   "t": "Womb Clouds",
+   "p": "Облака, как в мамином животике",
+   "bg": "lullaby",
+   "h": 0.995,
+   "d": 362
+  },
+  {
+   "n": "11",
+   "t": "Deep Sleep Breeze",
+   "p": "Лёгкий бриз глубокого сна",
+   "bg": "lullaby",
+   "h": 0.995,
+   "d": 308
+  }
+ ],
+ "listen": {
+  "bg": "lullaby",
+  "horizon": 0.995,
+  "platforms": [
+   {
+    "name": "Яндекс Музыка",
+    "url": "https://music.yandex.ru/album/43857983"
+   },
+   {
+    "name": "Spotify",
+    "url": "https://open.spotify.com/album/736XoHBL4wfmTtTkELFwDi"
+   },
+   {
+    "name": "YouTube Music",
+    "url": "https://music.youtube.com/playlist?list=OLAK5uy_nV13P8uC09iLl6Vql_ub7aO7K9S40j88s"
+   },
+   {
+    "name": "Deezer",
+    "url": "https://www.deezer.com/album/1115168292"
+   },
+   {
+    "name": "Все платформы",
+    "url": "https://ditto.fm/neural-lullabies"
+   }
+  ],
+  "credits": "Музыка — Espinoza · ℗ 2026",
+  "disclaimer": "Слушайте на комфортной, тихой громкости и не ставьте динамик рядом с головой малыша.<br>© 2026 Espinoza. Все права защищены."
+ }
+}

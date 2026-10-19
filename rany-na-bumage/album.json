@@ -1,0 +1,97 @@
+{
+ "title": "Раны на бумаге",
+ "artist": "Espinoza",
+ "description": "«Раны на бумаге» — 5 песен о любви и боли на русском языке.",
+ "metaLabel": "песня",
+ "free": 3,
+ "released": true,
+ "hero": {
+  "words": [
+   "РАНЫ НА",
+   "БУМАГЕ"
+  ],
+  "label": "Раны на бумаге",
+  "sub": "5 песен о любви и боли",
+  "bg": "rany",
+  "horizon": 0.995
+ },
+ "manifest": {
+  "bg": "rany",
+  "horizon": 0.995,
+  "lines": [
+   "Слова, которые не отправил.",
+   "Письма, которые болят."
+  ],
+  "big": "Раны на бумаге."
+ },
+ "tracks": [
+  {
+   "n": "01",
+   "t": "Я больше не хочу любить",
+   "p": "Когда любовь стала раной",
+   "bg": "rany",
+   "h": 0.995,
+   "d": 283.2
+  },
+  {
+   "n": "02",
+   "t": "Вспомни обо мне",
+   "p": "Просьба, которую некому услышать",
+   "bg": "rany",
+   "h": 0.995,
+   "d": 397.6
+  },
+  {
+   "n": "03",
+   "t": "Поэт — любимой",
+   "p": "Стихи, написанные для неё",
+   "bg": "rany",
+   "h": 0.995,
+   "d": 309.2
+  },
+  {
+   "n": "04",
+   "t": "Вернись",
+   "p": "Одно слово, сказанное слишком поздно",
+   "bg": "rany",
+   "h": 0.995,
+   "d": 391
+  },
+  {
+   "n": "05",
+   "t": "Зачем я снова тебя увидел",
+   "p": "Встреча, которая открыла старую рану",
+   "bg": "rany",
+   "h": 0.995,
+   "d": 431
+  }
+ ],
+ "listen": {
+  "bg": "rany",
+  "horizon": 0.995,
+  "platforms": [
+   {
+    "name": "Яндекс Музыка",
+    "url": "https://music.yandex.ru/album/44068531"
+   },
+   {
+    "name": "Spotify",
+    "url": "https://open.spotify.com/album/6cx93Y7WQwBg89eeAiRVmj"
+   },
+   {
+    "name": "YouTube Music",
+    "url": "https://music.youtube.com/playlist?list=OLAK5uy_nQwnMgERc8YOg8CywKcogFY63aoo9rwhg"
+   },
+   {
+    "name": "Deezer",
+    "url": "https://www.deezer.com/album/1100691502"
+   },
+   {
+    "name": "Все платформы",
+    "url": "https://ditto.fm/rany-na-bumage"
+   }
+  ],
+  "credits": "Слова и музыка — Espinoza · ℗ 2026",
+  "disclaimer": "© 2026 Espinoza. Все права защищены."
+ }
+}

@@ -1,0 +1,170 @@
+/* v2 · el player es una barra lateral a la derecha, de arriba abajo (estilo Yandex Музыка, mejorado); el contenido se corre a la izquierda */
+@property --ring-a { syntax: '<angle>'; inherits: false; initial-value: 0deg; }
+@keyframes ring-turn { to { --ring-a: 360deg; } }
+@media (prefers-reduced-motion: reduce) { .v2 .playing .ph-art .p-ring::after { animation: none; } }
+
+:root { --panel-w: clamp(340px, 26vw, 420px); --panel-gap: 28px; --strip-w: 92px; }
+
+@media (min-width: 981px) {
+  .v2 section { padding-right: calc(var(--panel-w) + var(--panel-gap) * 2.5); padding-left: 120px; padding-bottom: 90px; transition: padding-right .6s cubic-bezier(.4, 0, .2, 1); }
+  .v2.ph-min section { padding-right: calc(var(--strip-w) + 90px); } /* plegado: el contenido recupera el ancho */
+  .v2 .made { right: auto; left: 30px; }
+  /* cabecera (solo escritorio): «Слушать альбом» a la izquierda y el logo centrado sobre el contenido (sin contar el panel).
+     En móvil se queda como antes: logo a la izquierda, botón a la derecha */
+  .v2 .top-right { order: -1; }
+  .v2 .top .logo { position: absolute; top: 50%; translate: -50% -50%; }
+  .v2 .top .logo { left: calc((100% - var(--panel-w)) / 2); transition: left .6s cubic-bezier(.4, 0, .2, 1); }
+  .v2.ph-min .top .logo { left: calc((100% - var(--strip-w)) / 2); }
+
+  /* menú: números más grandes, ahora hay sitio */
+  .v2 .side { left: 34px; }
+  .v2 .side a { height: calc(32px * var(--s)); font-size: calc(19px * var(--s)); }
+  .v2 .side a::before { width: calc(16px * var(--s)); }
+  .v2 .side a.active::before { width: 40px; }
+
+  /* el panel */
+  .v2 .player.phone {
+    left: auto; right: 0; top: 0; bottom: 0; width: var(--panel-w); transform: none; opacity: 1;
+    flex-direction: column; align-items: stretch; gap: 0; padding: 26px 24px 14px; border-radius: 0;
+    background: rgba(8, 12, 22, .5); border: none; border-left: 1px solid rgba(255, 255, 255, .12); overscroll-behavior: contain;
+    backdrop-filter: blur(24px) saturate(1.2); -webkit-backdrop-filter: blur(24px) saturate(1.2); overflow: visible;
+    transition: width .55s cubic-bezier(.4, 0, .2, 1);
+  }
+  .v2 .player.phone { animation: ph-in .5s cubic-bezier(.2, .7, .2, 1); }
+  @keyframes ph-in { from { opacity: 0; transform: translateX(24px); } }
+
+  /* plegar / desplegar: pestaña pegada al borde izquierdo del panel, a media altura (como un cajón) */
+  .v2 .ph-toggle { position: absolute; left: -26px; top: 50%; translate: 0 -50%; z-index: 2; width: 26px; height: 72px; display: grid; place-items: center;
+    border-radius: 14px 0 0 14px; background: rgba(255, 255, 255, .7); border: none; box-shadow: -4px 0 18px rgba(0, 0, 0, .25);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); transition: background .3s; } /* blanca al 70 %: se nota sobre cualquier fondo */
+  .v2 .ph-toggle:hover { background: rgba(255, 255, 255, .92); }
+  .v2 .ph-toggle svg { width: 16px; height: 16px; fill: none; stroke: #4a5a70; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; transition: transform .5s; transform: rotate(-90deg); }
+
+  /* al plegar/desplegar: el contenido se funde, el panel cambia de ancho y el contenido vuelve */
+  .v2 .player.phone > :not(.ph-toggle) { transition: opacity .2s; }
+  .v2 .player.phone.ph-fade > :not(.ph-toggle) { opacity: 0; }
+
+  /* portada grande cuadrada, con el anillo y las notas */
+  .v2 .ph-art { position: relative; margin: 0 0 16px; }
+  .v2 .ph-art .p-cover { width: min(100%, 36vh); margin: 0 auto; height: auto; aspect-ratio: 1; border-radius: 26px; box-shadow: 0 20px 50px rgba(0, 0, 0, .45); }
+  /* borde de la portada: sonando .5; en pausa se queda, pero tenue (30 % de eso) */
+  .v2 .ph-art .p-ring { inset: -1px; border-radius: 26px; border: 1px solid rgba(255, 255, 255, .15); opacity: 1; }
+  .v2 .playing .ph-art .p-ring { animation: none; border-color: rgba(255, 255, 255, .22); }
+  /* sonando: una luz en degradado recorre el borde de la portada, como el anillo de móvil pero siguiendo el cuadrado */
+  .v2 .ph-art .p-ring::after { content: ''; position: absolute; inset: -1px; border-radius: inherit; padding: 1.5px; opacity: 0; transition: opacity .8s;
+    background: conic-gradient(from var(--ring-a), rgba(220, 230, 245, 0) 0deg 200deg, rgba(220, 230, 245, .4) 300deg, #fff 356deg, rgba(220, 230, 245, 0) 360deg);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor;
+    mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0); }
+  .v2 .playing .ph-art .p-ring::after { opacity: 1; animation: ring-turn 9s linear infinite; }
+  .v2.ph-min .ph-art .p-ring::after { display: none; }
+
+  .v2 .p-info { flex: none; }
+  .v2 .p-top { gap: 10px; }
+  .v2 .p-num { font-size: 13px; }
+  .v2 .p-title { font-size: 16px; font-weight: 500; white-space: normal; line-height: 1.3; }
+  .v2 .ph-phrase { margin: 6px 0 10px; font-size: 13px; line-height: 1.45; opacity: .65; min-height: 2.9em; }
+  .v2 .p-ctrl { justify-content: center; gap: 22px; margin: 8px 0 6px; }
+  .v2 .p-ctrl .p-play { width: 62px; height: 62px; background: rgba(255, 255, 255, .9); color: #0a0f19; border: none; }
+  .v2 .p-ctrl .p-play:hover { background: #fff; }
+  .v2 .p-ctrl .p-play svg { width: 22px; height: 22px; }
+  .v2 .p-vol { width: 60%; align-self: center; margin: 2px 0 10px; opacity: .35; height: 14px; transition: opacity .4s; }
+  .v2 .p-vol:hover { opacity: .8; }
+  .v2 .p-cta { align-self: center; margin: 0 0 10px; }
+
+  /* nombre del álbum, nítido (blanco pleno, sin transparencia), como cabecera de la lista */
+  .v2 .ph-album { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; margin: 6px 0 0; padding: 12px 2px 8px; border-top: 1px solid rgba(255, 255, 255, .1);
+    font-family: 'Cormorant', Georgia, serif; font-weight: 600; font-size: 21px; letter-spacing: .02em; color: #fff; white-space: nowrap; }
+  .v2 .ph-album span { font-family: 'Noto Sans Web', sans-serif; font-weight: 400; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: #c9ced6; }
+
+  /* lista de pistas dentro del panel */
+  .v2 .ph-list { list-style: none; margin: 0 -8px; padding: 0; overflow-y: auto; flex: 1; min-height: 0; scrollbar-width: thin; overscroll-behavior: contain; }
+  .v2 .ph-list li { display: flex; align-items: center; gap: 12px; padding: 8px 10px; border-radius: 14px; font-size: 13px; cursor: pointer; transition: background .4s; }
+  .v2 .ph-list li:hover { background: rgba(255, 255, 255, .06); }
+  .v2 .ph-list .ln { font-family: 'Cormorant', Georgia, serif; font-size: 15px; width: 22px; opacity: .55; }
+  .v2 .ph-list .lt { flex: 1; line-height: 1.3; }
+  .v2 .ph-list .ld { font-size: 11px; opacity: .45; }
+  /* cerradas: número y título en gris, como desactivadas; solo el botón «Слушать альбом» está vivo */
+  .v2 .ph-list li.locked { cursor: default; }
+  .v2 .ph-list li.locked:hover { background: none; }
+  .v2 .ph-list li.locked .ln, .v2 .ph-list li.locked .lt { opacity: .35; }
+  .v2 .ph-rel { flex: none; color: var(--text); text-decoration: none; font-size: 9px; letter-spacing: .14em; text-transform: uppercase; white-space: nowrap;
+    border: 1px solid #ffffff45; border-radius: 20px; padding: 5px 10px; opacity: .8; transition: background .3s, opacity .3s, border-color .3s; }
+  .v2 .ph-rel:hover { opacity: 1; background: #ffffff18; border-color: #ffffff90; }
+  .v2 .ph-list li.current { background: rgba(255, 255, 255, .1); }
+  .v2 .ph-list li.current .ln { opacity: 1; }
+  .v2 .ph-list .eq { display: none; height: 12px; }
+  .v2 .ph-list li.current.on .eq { display: flex; }
+  .v2 .ph-list li.current.on .ld { display: none; }
+
+  /* plegado: franja estrecha a la derecha (portada · anterior · play · siguiente); clic en ella o en la pestaña la abre */
+  .v2.ph-min .player.phone { width: var(--strip-w); padding: 26px 0; align-items: center; cursor: pointer; }
+  .v2.ph-min .ph-art { margin: 0 0 18px; }
+  /* portada redonda como en móvil, con el mismo anillo en degradado girando mientras suena */
+  .v2.ph-min .ph-art .p-cover { width: 56px; border-radius: 50%; box-shadow: none; }
+  .v2.ph-min .ph-art .p-ring { inset: -5px; border-radius: 50%; border: none;
+    background: conic-gradient(rgba(220, 230, 245, 0) 0deg 140deg, rgba(220, 230, 245, .35) 270deg, rgba(255, 255, 255, .95) 356deg, rgba(220, 230, 245, 0) 360deg);
+    -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 1.6px), #000 calc(100% - 1.2px));
+    mask: radial-gradient(farthest-side, transparent calc(100% - 1.6px), #000 calc(100% - 1.2px)); }
+  .v2.ph-min .ph-art .p-ring { opacity: 0; }
+  .v2.ph-min .playing .ph-art .p-ring { opacity: 1; animation: spin 9s linear infinite; }
+  .v2.ph-min .p-info, .v2.ph-min .p-vol, .v2.ph-min .p-cta, .v2.ph-min .ph-album, .v2.ph-min .ph-list { display: none; }
+  .v2.ph-min .p-ctrl { flex-direction: column; margin: 0; gap: 14px; }
+  .v2.ph-min .p-ctrl .p-play { width: 50px; height: 50px; }
+  .v2.ph-min .p-ctrl .p-play svg { width: 18px; height: 18px; }
+  .v2.ph-min .ph-toggle svg { transform: rotate(90deg); }
+}
+
+/* móvil: se queda la cápsula de siempre; lo del «teléfono» no aplica */
+@media (max-width: 980px) {
+  /* anillo de la portada: arco en degradado que se desvanece como una estela (antes, borde seco a medias) */
+  .v2 .p-ring { border: none; background: conic-gradient(rgba(220, 230, 245, 0) 0deg 140deg, rgba(220, 230, 245, .35) 270deg, rgba(255, 255, 255, .95) 356deg, rgba(220, 230, 245, 0) 360deg);
+    -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 1.6px), #000 calc(100% - 1.2px));
+    mask: radial-gradient(farthest-side, transparent calc(100% - 1.6px), #000 calc(100% - 1.2px)); }
+  .v2 .playing .p-ring { animation-duration: 9s; }
+  .v2 .ph-toggle, .v2 .ph-album, .v2 .ph-list, .v2 .ph-phrase { display: none; }
+  .v2 .ph-art { flex: none; }
+}
+
+/* botón play de cada bloque: crece al pasar el ratón y anuncia la acción (слушать / продолжить / пауза) con su icono a la derecha.
+   «scale» va aparte de «transform» (que lo usa la animación de aparición) */
+.v2 #pPlay { position: relative; }
+.v2 .track .play[data-n] { position: relative; transition: background .8s, border-color .8s, box-shadow .8s, scale .6s cubic-bezier(.2, .8, .2, 1); }
+.v2 .track .play[data-n]:hover:not(.on) { scale: 1.08; } /* si el clic va a pausar, no crece */
+/* ancho fijo: nada cambia de tamaño al pasar el ratón (si no, el botón «tiembla» y corta las notas).
+   Icono de reposo a la izquierda (▶ o ecualizador), icono de la acción a la derecha; el texto, centrado, cambia en su sitio */
+.v2 .track .play[data-n] { width: 216px; justify-content: center; padding-left: 0; padding-right: 0; }
+.v2 .track .play > .ico, .v2 .track .play > .eq { position: absolute; left: 30px; top: 50%; translate: 0 -50%; transition: opacity .35s; }
+.v2 .track .play:hover > .ico, .v2 .track .play:hover > .eq { opacity: 0; }
+.v2 .lbls { display: grid; }
+.v2 .lbls > span { grid-area: 1 / 1; text-align: center; transition: opacity .35s, transform .45s cubic-bezier(.2, .8, .2, 1); }
+.v2 .lbl-h { opacity: 0; transform: translateY(7px); }
+.v2 .track .play:hover .lbl { opacity: 0; transform: translateY(-7px); }
+.v2 .track .play:hover .lbl-h { opacity: 1; transform: none; }
+.v2 .ico-h { position: absolute; right: 30px; top: 50%; display: grid; opacity: 0; transform: translate(-8px, -50%); transition: opacity .4s, transform .45s cubic-bezier(.2, .8, .2, 1); }
+.v2 .ico-h svg { grid-area: 1 / 1; width: 10px; height: 10px; fill: currentColor; }
+.v2 .ico-h .h-pause, .v2 .play.on .ico-h .h-play { display: none; }
+.v2 .play.on .ico-h .h-pause { display: block; }
+.v2 .track .play:hover .ico-h { opacity: 1; transform: translate(0, -50%); }
+
+/* notas musicales: salen alrededor del botón, suben, se mecen y se desvanecen */
+.notes { position: absolute; inset: 0; pointer-events: none; overflow: visible; }
+.note { position: absolute; bottom: 80%; color: #fff; font-family: 'Cormorant', Georgia, serif; opacity: 0;
+  text-shadow: 0 0 14px rgba(220, 230, 245, .55); animation: note-rise var(--d, 6s) cubic-bezier(.25, .1, .25, 1) forwards; will-change: transform, opacity; }
+@keyframes note-rise {
+  0%   { opacity: 0; transform: translate(0, 0) rotate(var(--r0, -8deg)) scale(.7); }
+  15%  { opacity: .85; }
+  50%  { transform: translate(var(--dx1, 10px), -45%) rotate(var(--r1, 6deg)) scale(1); }
+  100% { opacity: 0; transform: translate(var(--dx2, -6px), -110px) rotate(var(--r2, -4deg)) scale(1.05); filter: blur(3px); }
+}
+@media (prefers-reduced-motion: reduce) { .note { display: none; } .v2 .track .play[data-n]:hover { scale: 1; } }
+
+
+/* barra de avance como un cometa: recorrido tenue, estela que se enciende hacia la punta y cabeza luminosa que respira al sonar */
+.v2 .p-fill { background: rgba(255, 255, 255, .32); overflow: visible; }
+.v2 .p-fill::before { content: ''; position: absolute; right: 0; top: 50%; translate: 0 -50%; width: min(100%, 90px); height: 2px; border-radius: 2px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(230, 238, 250, .9)); box-shadow: 0 0 8px rgba(210, 225, 245, .45); }
+.v2 .p-fill::after { content: ''; position: absolute; right: -3px; top: 50%; translate: 0 -50%; width: 6px; height: 6px; border-radius: 50%; background: #fff;
+  box-shadow: 0 0 6px 2px rgba(255, 255, 255, .85), 0 0 18px 5px rgba(200, 215, 240, .45); opacity: 0; transition: opacity .8s; }
+.v2 .playing .p-fill::after { opacity: 1; animation: comet 2.6s ease-in-out infinite; }
+@keyframes comet { 50% { box-shadow: 0 0 8px 3px rgba(255, 255, 255, .95), 0 0 26px 8px rgba(200, 215, 240, .6); } }
+@media (prefers-reduced-motion: reduce) { .v2 .playing .p-fill::after { animation: none; } }

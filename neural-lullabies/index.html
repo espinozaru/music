@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Neural Lullabies — Espinoza</title>
+<meta name="description" content="«Neural Lullabies» — 11 колыбельных и звуков природы для спокойного глубокого сна малыша.">
+<link rel="preload" href="../shared/fonts/NotoSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../shared/fonts/CormorantGaramond-Upright-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/lullaby.webp" as="image">
+<link rel="stylesheet" href="../shared/style.css">
+<link rel="stylesheet" href="../shared/panel.css">
+</head>
+<body class="v2">
+<canvas id="scene"></canvas>
+<div class="veil"></div>
+<div class="grain"></div>
+
+<header class="top">
+  <a href="../" class="logo-link" aria-label="Все альбомы"><img src="../shared/logo-white.png" alt="Espinoza" class="logo"></a>
+  <div class="top-right">
+    <a class="top-cta" href="#listen"><svg viewBox="0 0 10 10"><path d="M2 1v8l7-4z"/></svg>Слушать альбом</a>
+  </div>
+</header>
+
+<!-- Menú vertical fijo: rayas + números; se marca lo que está en pantalla y lo que suena -->
+<nav class="side" id="side" aria-label="Треки"></nav>
+<div class="side-tip" id="sideTip" aria-hidden="true"></div>
+<!-- Móvil: la lista a pantalla completa, con el botón abajo (donde está el pulgar) -->
+<nav class="m-menu" id="mMenu" aria-label="Треки"></nav>
+<button class="m-btn" id="mBtn" aria-label="Треки" aria-expanded="false"><span></span><span></span></button>
+
+<main>
+  <!-- Portada: título en escalera (la 1.ª palabra entra por la izquierda, la 2.ª por la derecha) -->
+  <section class="hero" id="top" data-bg="lullaby" data-horizon="0.995">
+    <h1 class="stair" aria-label="Neural Lullabies">
+      <span class="w w1 fx" data-fx="hero-l" data-delay="0.3"><span class="silver">NEURAL</span></span>
+      <span class="w w2 fx" data-fx="hero-r" data-delay="1.1"><span class="silver">LULLABIES</span></span>
+    </h1>
+    <p class="sub fx" data-split="words" data-delay="2.0">11 колыбельных для глубокого сна</p>
+    <div class="scroll-hint fx" data-delay="2.8"><span></span>листай медленно</div>
+  </section>
+
+  <!-- Manifiesto: frases palabra a palabra y una línea grande en plata -->
+  <section class="manifest" data-bg="lullaby" data-horizon="0.995">
+    <p class="line fx" data-split="words">Сердце мамы. Дождь. Волны.</p>
+    <p class="line tight fx" data-split="words">Мягкие звуки природы.</p>
+    <p class="line big fx" data-fx="title"><span class="silver">Спокойный сон.</span></p>
+  </section>
+
+  <!-- Pistas: cada una cambia el paisaje de fondo -->
+  <section class="track" id="t01" data-bg="lullaby" data-horizon="0.995">
+    <div class="num fx">01 / 11</div>
+    <h2 class="fx" data-fx="title" data-delay="0.1"><span class="silver">Neural Lullabies</span></h2>
+    <p class="phrase fx" data-split="words" data-delay="0.45">Мягкая колыбельная для засыпания</p>
+    <div class="meta fx" data-delay="0.8">3:03 · для сна</div>
+    <button class="play fx" data-delay="1.0" data-n="01"><svg class="ico" viewBox="0 0 10 10"><path d="M2 1v8l7-4z"/></svg><span class="eq"><i></i><i></i><i></i><i></i><i></i></span><span class="lbl">слушать</span></button>
+  </section>
+  <section class="track" id="t02" data-bg="lullaby" data-horizon="0.995">
+    <div class="num fx">02 / 11</div>
+    <h2 class="fx" data-fx="title" data-delay="0.1"><span class="silver">Ocean Cradle Waves</span></h2>
+    <p class="phrase fx" data-split="words" data-delay="0.45">Колыбель из морских волн</p>
+    <div class="meta fx" data-delay="0.8">3:53 · для сна</div>
+    <button class="play fx" data-delay="1.0" data-n="02"><svg class="ico" viewBox="0 0 10 10"><path d="M2 1v8l7-4z"/></svg><span class="eq"><i></i><i></i><i></i><i></i><i></i></span><span class="lbl">слушать</span></button>
+  </section>
+  <section class="track" id="t03" data-bg="lullaby" data-horizon="0.995">
+    <div class="num fx">03 / 11</div>
+    <h2 class="fx" data-fx="title" data-delay="0.1"><span class="silver">Chest Heart Lullaby</span></h2>
+    <p class="phrase fx" data-split="words" data-delay="0.45">Как на груди у мамы: тихий стук сердца</p>
+    <div class="meta fx" data-delay="0.8">5:02 · для сна</div>
+    <button class="play fx" data-delay="1.0" data-n="03"><svg class="ico" viewBox="0 0 10 10"><path d="M2 1v8l7-4z"/></svg><span class="eq"><i></i><i></i><i></i><i></i><i></i></span><span class="lbl">слушать</span></button>
+  </section>
+  <section class="track" id="t04" data-bg="lullaby" data-horizon="0.995">
+    <div class="num fx">04 / 11</div>
+    <h2 class="fx" data-fx="title" data-delay="0.1"><span class="silver">Night Garden Crickets</span></h2>
+    <p class="phrase fx" data-split="words" data-delay="0.45">Ночной сад и сверчки</p>
+    <div class="meta fx" data-delay="0.8">3:44 · для сна</div>
+    <a class="play ext fx" data-delay="1.0" href="#listen"><svg class="ico" viewBox="0 0 10 10"><path d="M2 1v8l7-4z"/></svg><span class="lbl">полностью — на платформах</span></a>
+  </section>
+  <section class="track" id="t05" data-bg="lullaby" data-horizon="0.995">
+    <div class="num fx">05 / 11</div>
+    <h2 class="fx" data-fx="title" data-delay="0.1"><span class="silver">Wind Whispers Meadow</span></h2>
+    <p class="phrase fx" data-split="words" data-delay="0.45">Ветер шепчет над лугом</p>
+    <div class="meta fx" data-delay="0.8">4:50 · для сна</div>
+    <a class="play ext fx" data-delay="1.0" href="#listen"><svg class="ico" viewBox="0 0 10 10"><path d="M2 1v8l7-4z"/></svg><span class="lbl">полностью — на платформах</span></a>
+  </section>
+  <section class="track" id="t06" data-bg="lullaby" data-horizon="0.995">
+    <div class="num fx">06 / 11</div>
+    <h2 class="fx" data-fx="title" data-delay="0.1"><span class="silver">Gentle Stream Flow</span></h2>
+    <p class="phrase fx" data-split="words" data-delay="0.45">Тихий ручей</p>
+    <div class="meta fx" data-delay="0.8">3:05 · для сна</div>
+    <a class="play ext fx" data-delay="1.0" href="#listen"><svg class="ico" viewBox="0 0 10 10"><path d="M2 1v8l7-4z"/></svg><span class="lbl">полностью — на платформах</span></a>
+  </section>
+  <section class="track" id="t07" data-bg="lullaby" data-horizon="0.995">
+    <div class="num fx">07 / 11</div>
+    <h2 class="fx" data-fx="title" data-delay="0.1"><span class="silver">Tender Rain Fireflies</span></h2>
+    <p class="phrase fx" data-split="words" data-delay="0.45">Нежный дождь и светлячки</p>
+    <div class="meta fx" data-delay="0.8">7:09 · для сна</div>
+    <a class="play ext fx" data-delay="1.0" href="#listen"><svg class="ico" viewBox="0 0 10 10"><path d="M2 1v8l7-4z"/></svg><span class="lbl">полностью — на платформах</span></a>
+  </section>
+  <section class="track" id="t08" data-bg="lullaby" data-horizon="0.995">
+    <div class="num fx">08 / 11</div>
+    <h2 class="fx" data-fx="title" data-delay="0.1"><span class="silver">Moonlit Brooks &amp; Streams</span></h2>
+    <p class="phrase fx" data-split="words" data-delay="0.45">Ручьи под луной</p>
+    <div class="meta fx" data-delay="0.8">7:32 · для сна</div>
+    <a class="play ext fx" data-delay="1.0" href="#listen"><svg class="ico" viewBox="0 0 10 10"><path d="M2 1v8l7-4z"/></svg><span class="lbl">полностью — на платформах</span></a>
+  </section>
+  <section class="track" id="t09" data-bg="lullaby" data-horizon="0.995">
+    <div class="num fx">09 / 11</div>
+    <h2 class="fx" data-fx="title" data-delay="0.1"><span class="silver">Soft Night Sky Glow</span></h2>
+    <p class="phrase fx" data-split="words" data-delay="0.45">Мягкое сияние ночного неба</p>
+    <div class="meta fx" data-delay="0.8">5:29 · для сна</div>
+    <a class="play ext fx" data-delay="1.0" href="#listen"><svg class="ico" viewBox="0 0 10 10"><path d="M2 1v8l7-4z"/></svg><span class="lbl">полностью — на платформах</span></a>
+  </section>
+  <section class="track" id="t10" data-bg="lullaby" data-horizon="0.995">
+    <div class="num fx">10 / 11</div>
+    <h2 class="fx" data-fx="title" data-delay="0.1"><span class="silver">Womb Clouds</span></h2>
+    <p class="phrase fx" data-split="words" data-delay="0.45">Облака, как в мамином животике</p>
+    <div class="meta fx" data-delay="0.8">6:02 · для сна</div>
+    <a class="play ext fx" data-delay="1.0" href="#listen"><svg class="ico" viewBox="0 0 10 10"><path d="M2 1v8l7-4z"/></svg><span class="lbl">полностью — на платформах</span></a>
+  </section>
+  <section class="track" id="t11" data-bg="lullaby" data-horizon="0.995">
+    <div class="num fx">11 / 11</div>
+    <h2 class="fx" data-fx="title" data-delay="0.1"><span class="silver">Deep Sleep Breeze</span></h2>
+    <p class="phrase fx" data-split="words" data-delay="0.45">Лёгкий бриз глубокого сна</p>
+    <div class="meta fx" data-delay="0.8">5:08 · для сна</div>
+    <a class="play ext fx" data-delay="1.0" href="#listen"><svg class="ico" viewBox="0 0 10 10"><path d="M2 1v8l7-4z"/></svg><span class="lbl">полностью — на платформах</span></a>
+  </section>
+
+  <!-- Escuchar -->
+  <section class="listen" id="listen" data-bg="lullaby" data-horizon="0.995">
+    <h2 class="fx" data-fx="title"><span class="silver">Слушать альбом</span></h2>
+    <div class="platforms fx"><a href="https://music.yandex.ru/album/43857983" target="_blank" rel="noopener">Яндекс Музыка</a><a href="https://open.spotify.com/album/736XoHBL4wfmTtTkELFwDi" target="_blank" rel="noopener">Spotify</a><a href="https://music.youtube.com/playlist?list=OLAK5uy_nV13P8uC09iLl6Vql_ub7aO7K9S40j88s" target="_blank" rel="noopener">YouTube Music</a><a href="https://www.deezer.com/album/1115168292" target="_blank" rel="noopener">Deezer</a><a href="https://ditto.fm/neural-lullabies" target="_blank" rel="noopener">Все платформы</a></div>
+    <p class="credits fx">Музыка — Espinoza · ℗ 2026</p>
+    <p class="disclaimer fx">Слушайте на комфортной, тихой громкости и не ставьте динамик рядом с головой малыша.<br>© 2026 Espinoza. Все права защищены.</p>
+    <p class="back fx"><a href="../">← Все альбомы</a></p>
+  </section>
+</main>
+
+<a class="made" href="https://espinoza.ru" target="_blank" rel="noopener">Проект от <span>espinoza.ru</span></a>
+
+<!-- Player: barra lateral derecha plegable (en móvil, cápsula abajo) -->
+<aside class="player phone" id="player" role="region" aria-label="Плеер">
+  <button class="ph-toggle" id="phToggle" aria-label="Свернуть плеер" aria-expanded="true"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+  <div class="ph-art">
+    <div class="p-cover" id="pCover"><span class="p-ring"></span></div>
+  </div>
+  <div class="p-info">
+    <div class="p-top">
+      <span class="p-num" id="pNum">01</span>
+      <span class="p-title" id="pTitle"></span>
+      <span class="eq"><i></i><i></i><i></i><i></i><i></i></span>
+    </div>
+    <p class="ph-phrase" id="pPhrase"></p>
+    <div class="p-bar" id="pBar" role="slider" tabindex="0" aria-label="Перемотка" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+      <span class="p-fill" id="pFill"></span><span class="p-knob" id="pKnob"></span><span class="p-tip" id="pTip">0:00</span>
+    </div>
+    <div class="p-time"><span id="pCur">0:00</span><span class="p-state" id="pState"></span><span id="pDur">0:00</span></div>
+  </div>
+  <div class="p-ctrl">
+    <button id="pPrev" aria-label="Предыдущая"><svg viewBox="0 0 24 24"><path d="M7 5v14M18 6l-8 6 8 6z"/></svg></button>
+    <button id="pPlay" class="p-play" aria-label="Играть">
+      <svg class="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg>
+      <svg class="i-pause" viewBox="0 0 24 24"><path d="M6.5 5h3.5v14H6.5zM14 5h3.5v14H14z"/></svg>
+    </button>
+    <button id="pNext" aria-label="Следующая"><svg viewBox="0 0 24 24"><path d="M17 5v14M6 6l8 6-8 6z"/></svg></button>
+  </div>
+  <input class="p-vol" id="pVol" type="range" min="0" max="1" step="0.01" value="0.7" aria-label="Громкость">
+  <a class="p-cta" href="#listen">Полный альбом →</a>
+  <button class="p-close" id="pClose" aria-label="Закрыть плеер" hidden>×</button>
+  <p class="ph-album">Neural Lullabies <span>3 из 11 доступно</span></p>
+  <ol class="ph-list" id="pList"></ol>
+</aside>
+
+<script>window.SITE = {"first": "lullaby", "items": [{"n": "01", "t": "Neural Lullabies", "tag": "доступно"}, {"n": "02", "t": "Ocean Cradle Waves", "tag": "доступно"}, {"n": "03", "t": "Chest Heart Lullaby", "tag": "доступно"}, {"n": "04", "t": "Night Garden Crickets", "tag": ""}, {"n": "05", "t": "Wind Whispers Meadow", "tag": ""}, {"n": "06", "t": "Gentle Stream Flow", "tag": ""}, {"n": "07", "t": "Tender Rain Fireflies", "tag": ""}, {"n": "08", "t": "Moonlit Brooks & Streams", "tag": ""}, {"n": "09", "t": "Soft Night Sky Glow", "tag": ""}, {"n": "10", "t": "Womb Clouds", "tag": ""}, {"n": "11", "t": "Deep Sleep Breeze", "tag": ""}], "album": {"slug": "neural-lullabies", "title": "Neural Lullabies", "artist": "Espinoza", "tracks": [{"n": "01", "t": "Neural Lullabies", "p": "Мягкая колыбельная для засыпания", "bg": "lullaby", "d": 183.0, "free": true}, {"n": "02", "t": "Ocean Cradle Waves", "p": "Колыбель из морских волн", "bg": "lullaby", "d": 233.0, "free": true}, {"n": "03", "t": "Chest Heart Lullaby", "p": "Как на груди у мамы: тихий стук сердца", "bg": "lullaby", "d": 302.8, "free": true}, {"n": "04", "t": "Night Garden Crickets", "p": "Ночной сад и сверчки", "bg": "lullaby", "d": 224, "free": false}, {"n": "05", "t": "Wind Whispers Meadow", "p": "Ветер шепчет над лугом", "bg": "lullaby", "d": 290, "free": false}, {"n": "06", "t": "Gentle Stream Flow", "p": "Тихий ручей", "bg": "lullaby", "d": 185, "free": false}, {"n": "07", "t": "Tender Rain Fireflies", "p": "Нежный дождь и светлячки", "bg": "lullaby", "d": 429, "free": false}, {"n": "08", "t": "Moonlit Brooks & Streams", "p": "Ручьи под луной", "bg": "lullaby", "d": 452, "free": false}, {"n": "09", "t": "Soft Night Sky Glow", "p": "Мягкое сияние ночного неба", "bg": "lullaby", "d": 329, "free": false}, {"n": "10", "t": "Womb Clouds", "p": "Облака, как в мамином животике", "bg": "lullaby", "d": 362, "free": false}, {"n": "11", "t": "Deep Sleep Breeze", "p": "Лёгкий бриз глубокого сна", "bg": "lullaby", "d": 308, "free": false}]}};</script>
+<script src="../shared/core.js"></script>
+<script src="../shared/player.js"></script>
+<script src="../shared/panel.js"></script>
+</body>
+</html>

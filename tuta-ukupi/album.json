@@ -1,0 +1,130 @@
+{
+ "title": "Tuta Ukupi",
+ "artist": "Espinoza",
+ "description": "«Tuta Ukupi» — «внутри ночи» на языке кечуа. 9 треков андской музыки: вода, дыхание, огонь, сердце, луна, память, горы, солнце и ветер.",
+ "metaLabel": "музыка",
+ "free": 3,
+ "released": true,
+ "hero": {
+  "words": [
+   "TUTA",
+   "UKUPI"
+  ],
+  "label": "Tuta Ukupi",
+  "sub": "внутри ночи · андская музыка",
+  "bg": "yaku",
+  "horizon": 0.56
+ },
+ "manifest": {
+  "bg": "apu",
+  "horizon": 0.995,
+  "lines": [
+   "Вода. Огонь. Ветер.",
+   "Сердце, луна и горы."
+  ],
+  "big": "Ночь, которая внутри."
+ },
+ "tracks": [
+  {
+   "n": "01",
+   "t": "Yaku Ukupi",
+   "p": "Yaku — вода. Тихое течение внутри ночи",
+   "bg": "yaku",
+   "h": 0.56,
+   "d": 362.4
+  },
+  {
+   "n": "02",
+   "t": "Samay Ukupi",
+   "p": "Samay — дыхание. Покой высокогорья",
+   "bg": "samay",
+   "h": 0.995,
+   "d": 319.2
+  },
+  {
+   "n": "03",
+   "t": "Nina Ukupi",
+   "p": "Nina — огонь. Тепло костра и чаранго",
+   "bg": "nina",
+   "h": 0.995,
+   "d": 367.6
+  },
+  {
+   "n": "04",
+   "t": "Sonqo Ukupi",
+   "p": "Sonqo — сердце. То, что бьётся внутри",
+   "bg": "sonqo",
+   "h": 0.995,
+   "d": 408
+  },
+  {
+   "n": "05",
+   "t": "Killa Ukupi",
+   "p": "Killa — луна. Каменная тропа в лунном свете",
+   "bg": "killa",
+   "h": 0.995,
+   "d": 397
+  },
+  {
+   "n": "06",
+   "t": "Yuyay Ukupi",
+   "p": "Yuyay — память. Мысли, которые возвращаются",
+   "bg": "yuyay",
+   "h": 0.995,
+   "d": 362
+  },
+  {
+   "n": "07",
+   "t": "Apu Ukupi",
+   "p": "Apu — дух горы. Мачу-Пикчу над облаками",
+   "bg": "apu",
+   "h": 0.995,
+   "d": 380
+  },
+  {
+   "n": "08",
+   "t": "Intip Churinkuna",
+   "p": "Дети солнца. Закат над древними руинами",
+   "bg": "inti",
+   "h": 0.995,
+   "d": 376
+  },
+  {
+   "n": "09",
+   "t": "Wayra Ukupi",
+   "p": "Wayra — ветер. Раствориться в тумане",
+   "bg": "wayra",
+   "h": 0.995,
+   "d": 385,
+   "light": true
+  }
+ ],
+ "listen": {
+  "bg": "wayra",
+  "horizon": 0.995,
+  "platforms": [
+   {
+    "name": "Spotify",
+    "url": "https://open.spotify.com/album/4WDrTfD6ZwgyE5UHjYSFoL"
+   },
+   {
+    "name": "YouTube Music",
+    "url": "https://music.youtube.com/playlist?list=OLAK5uy_nXwG5BnrIuL1DP-s5Pw83wXCTQmCqacNg"
+   },
+   {
+    "name": "Deezer",
+    "url": "https://www.deezer.com/album/110496535"
+   },
+   {
+    "name": "SoundCloud",
+    "url": "https://soundcloud.com/espinoza-scmusic/sets/tuta-ukupi-1"
+   },
+   {
+    "name": "Все платформы",
+    "url": "https://ditto.fm/tuta-ukupi"
+   }
+  ],
+  "credits": "Музыка — Espinoza · ℗ 2026",
+  "disclaimer": "© 2026 Espinoza. Все права защищены."
+ }
+}

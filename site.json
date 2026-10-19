@@ -1,0 +1,165 @@
+{
+ "title": "Espinoza — музыка",
+ "description": "Альбомы Espinoza: медитации «Тишина внутри», андская музыка Tuta Ukupi и Andes Nights, колыбельные Neural Lullabies, песни «Раны на бумаге», Ella, 2804.",
+ "hero": {
+  "words": [
+   "МУЗЫКА",
+   "ESPINOZA"
+  ],
+  "label": "Музыка Espinoza",
+  "sub": "альбомы · медитации · андская музыка",
+  "bg": "zen/assets/song1",
+  "horizon": 0.67
+ },
+ "albums": [
+  {
+   "slug": "zen",
+   "page": true,
+   "title": "Тишина внутри",
+   "cover": "covers/zen.webp",
+   "bg": "zen/assets/song1",
+   "h": 0.67,
+   "kind": "медитации",
+   "year": 2026,
+   "p": "11 медитаций для тела, ума и сна",
+   "meta": "11 треков · голос и музыка"
+  },
+  {
+   "slug": "tuta-ukupi",
+   "page": true,
+   "title": "Tuta Ukupi",
+   "cover": "covers/tuta-ukupi.webp",
+   "bg": "tuta-ukupi/assets/yaku",
+   "h": 0.56,
+   "kind": "альбом",
+   "year": 2026,
+   "p": "Внутри ночи — андская музыка на кечуа",
+   "meta": "9 треков",
+   "platforms": [
+    {
+     "name": "Spotify",
+     "url": "https://open.spotify.com/album/4WDrTfD6ZwgyE5UHjYSFoL"
+    },
+    {
+     "name": "Все платформы",
+     "url": "https://ditto.fm/tuta-ukupi"
+    }
+   ]
+  },
+  {
+   "slug": "andes-nights",
+   "page": true,
+   "title": "Andes Nights",
+   "cover": "covers/andes-nights.webp",
+   "bg": "andes-nights/assets/morning",
+   "h": 0.995,
+   "kind": "альбом",
+   "year": 2026,
+   "p": "Андские ночи — 7 историй о ней",
+   "meta": "7 треков",
+   "platforms": [
+    {
+     "name": "Spotify",
+     "url": "https://open.spotify.com/album/2Yhqxs5kvCKG8h7CQNv4wx"
+    },
+    {
+     "name": "Все платформы",
+     "url": "https://ditto.fm/andes-nights"
+    }
+   ]
+  },
+  {
+   "slug": "neural-lullabies",
+   "page": true,
+   "title": "Neural Lullabies",
+   "cover": "covers/neural-lullabies.webp",
+   "bg": "neural-lullabies/assets/lullaby",
+   "h": 0.995,
+   "kind": "альбом",
+   "year": 2026,
+   "p": "Колыбельные и звуки природы для глубокого сна малыша",
+   "meta": "11 треков",
+   "platforms": [
+    {
+     "name": "Яндекс Музыка",
+     "url": "https://music.yandex.ru/album/43857983"
+    },
+    {
+     "name": "Все платформы",
+     "url": "https://ditto.fm/neural-lullabies"
+    }
+   ]
+  },
+  {
+   "slug": "rany-na-bumage",
+   "page": true,
+   "title": "Раны на бумаге",
+   "cover": "covers/rany-na-bumage.webp",
+   "bg": "rany-na-bumage/assets/rany",
+   "h": 0.995,
+   "kind": "альбом",
+   "year": 2026,
+   "p": "5 песен о любви и боли",
+   "meta": "5 песен",
+   "platforms": [
+    {
+     "name": "Яндекс Музыка",
+     "url": "https://music.yandex.ru/album/44068531"
+    },
+    {
+     "name": "Все платформы",
+     "url": "https://ditto.fm/rany-na-bumage"
+    }
+   ]
+  },
+  {
+   "slug": "ella",
+   "page": false,
+   "title": "Ella",
+   "cover": "covers/ella.webp",
+   "bg": "covers/bg/ella",
+   "h": 0.995,
+   "kind": "альбом",
+   "p": "8 песен на испанском — о ней",
+   "meta": "8 песен",
+   "platforms": [
+    {
+     "name": "Яндекс Музыка",
+     "url": "https://music.yandex.ru/album/39743901"
+    },
+    {
+     "name": "Spotify",
+     "url": "https://open.spotify.com/album/4DayA7A9pTg4we6dYCWkcG"
+    },
+    {
+     "name": "Все платформы",
+     "url": "https://ditto.fm/ella_88859687"
+    }
+   ]
+  },
+  {
+   "slug": "2804",
+   "page": false,
+   "title": "2804",
+   "cover": "covers/2804.webp",
+   "bg": "covers/bg/p2804",
+   "h": 0.995,
+   "kind": "сингл",
+   "p": "Stolen Kiss · Cold · For You",
+   "meta": "3 трека",
+   "platforms": [
+    {
+     "name": "Все платформы",
+     "url": "https://ditto.fm/2804-espinoza"
+    }
+   ]
+  }
+ ],
+ "outro": {
+  "bg": "andes-nights/assets/evening",
+  "horizon": 0.62,
+  "title": "Слушать везде",
+  "text": "Все альбомы — на Яндекс Музыке, Spotify, YouTube Music и других платформах.",
+  "credits": "Музыка — Espinoza · © 2026 · Все права защищены"
+ }
+}

@@ -1,0 +1,113 @@
+{
+ "title": "Andes Nights",
+ "artist": "Espinoza",
+ "description": "«Andes Nights» — 7 треков об Андах и о ней: рассвет, украденный поцелуй, андская ночь, долина без неё.",
+ "metaLabel": "музыка",
+ "free": 3,
+ "released": true,
+ "hero": {
+  "words": [
+   "ANDES",
+   "NIGHTS"
+  ],
+  "label": "Andes Nights",
+  "sub": "андские ночи · 7 историй о ней",
+  "bg": "morning",
+  "horizon": 0.995
+ },
+ "manifest": {
+  "bg": "valley",
+  "horizon": 0.995,
+  "lines": [
+   "Утро в горах.",
+   "Поцелуй. Долина без неё."
+  ],
+  "big": "Андские ночи."
+ },
+ "tracks": [
+  {
+   "n": "01",
+   "t": "Good Morning",
+   "p": "Рассвет над Андами и первое «доброе утро»",
+   "bg": "morning",
+   "h": 0.995,
+   "d": 208.4
+  },
+  {
+   "n": "02",
+   "t": "Andean Stolen Kiss",
+   "p": "Поцелуй, украденный у гор",
+   "bg": "kiss",
+   "h": 0.995,
+   "d": 299.6
+  },
+  {
+   "n": "03",
+   "t": "Noche Andina",
+   "p": "Андская ночь: туман, огонь и звёзды",
+   "bg": "noche",
+   "h": 0.995,
+   "d": 138.2
+  },
+  {
+   "n": "04",
+   "t": "Valley Without Her",
+   "p": "Долина, в которой её больше нет",
+   "bg": "valley",
+   "h": 0.995,
+   "d": 330
+  },
+  {
+   "n": "05",
+   "t": "All About Her Voice",
+   "p": "Всё о её голосе",
+   "bg": "voice",
+   "h": 0.995,
+   "d": 269
+  },
+  {
+   "n": "06",
+   "t": "Good Evening",
+   "p": "Вечер у озера и тихое «добрый вечер»",
+   "bg": "evening",
+   "h": 0.62,
+   "d": 204
+  },
+  {
+   "n": "07",
+   "t": "Argument with Pain",
+   "p": "Спор с болью — и буря после",
+   "bg": "pain",
+   "h": 0.995,
+   "d": 330
+  }
+ ],
+ "listen": {
+  "bg": "evening",
+  "horizon": 0.62,
+  "platforms": [
+   {
+    "name": "Spotify",
+    "url": "https://open.spotify.com/album/2Yhqxs5kvCKG8h7CQNv4wx"
+   },
+   {
+    "name": "YouTube Music",
+    "url": "https://music.youtube.com/playlist?list=OLAK5uy_nDXBwir8gyWAkO8vMSe8HAGrO6N2vVdBg"
+   },
+   {
+    "name": "Deezer",
+    "url": "https://www.deezer.com/album/1104762112"
+   },
+   {
+    "name": "SoundCloud",
+    "url": "https://soundcloud.com/espinoza-scmusic/sets/andes-nights"
+   },
+   {
+    "name": "Все платформы",
+    "url": "https://ditto.fm/andes-nights"
+   }
+  ],
+  "credits": "Музыка — Espinoza · ℗ 2026",
+  "disclaimer": "© 2026 Espinoza. Все права защищены."
+ }
+}
