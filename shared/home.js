@@ -32,11 +32,7 @@
   const io = new IntersectionObserver((entries) => {
     for (const en of entries) {
       if (en.isIntersecting) en.target.classList.add('in');
-      if (touch) {
-        const live = en.isIntersecting && en.intersectionRatio > 0.6;
-        en.target.classList.toggle('live', live);
-        if (live) setBg(en.target.dataset.bg);
-      }
+      if (touch && en.isIntersecting && en.intersectionRatio > 0.6) setBg(en.target.dataset.bg); // solo el fondo; el vinilo no se mueve
     }
   }, {threshold: [0.15, 0.6]});
   discs.forEach((d) => io.observe(d));

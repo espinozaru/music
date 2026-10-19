@@ -37,7 +37,7 @@
 .sleeve::after { content: ''; position: absolute; inset: 0; background: linear-gradient(115deg, rgba(255, 255, 255, .12), transparent 40%); }
 
 .disc a:hover .vinyl-slide, .disc a:focus-visible .vinyl-slide { transform: translateX(46%); }
-.disc a:hover .vinyl, .disc a:focus-visible .vinyl { animation-play-state: running; }
+@media (hover: hover) { .disc a:hover .vinyl { animation-play-state: running; } } /* gira solo con el ratón encima */
 .disc a:hover .sleeve, .disc a:focus-visible .sleeve { transform: translateX(-4%) rotate(-1.5deg); box-shadow: 0 40px 90px rgba(0, 0, 0, .7), 0 0 0 1px rgba(255, 255, 255, .14); }
 
 .disc .info { margin-top: 30px; }
@@ -58,9 +58,6 @@
 }
 @media (prefers-reduced-motion: reduce) { .vinyl { animation: none; } .disc { transition: none; opacity: 1; transform: none; } }
 
-/* teléfono: el disco del centro de la pantalla hace lo del hover (vinilo fuera y girando) */
-.disc.live .vinyl-slide { transform: translateX(46%); }
-.disc.live .vinyl { animation-play-state: running; }
 /* la firma va al final de la página, no fija encima de los discos */
 .home { position: relative; }
 .home .made { position: absolute; bottom: 48px; }
