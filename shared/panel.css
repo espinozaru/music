@@ -26,7 +26,8 @@
     backdrop-filter: blur(24px) saturate(1.2); -webkit-backdrop-filter: blur(24px) saturate(1.2); overflow: visible;
     transition: width .55s cubic-bezier(.4, 0, .2, 1);
   }
-  .v2 .player.phone { animation: ph-in .5s cubic-bezier(.2, .7, .2, 1); }
+  .v2 .player.phone { animation: none; } /* el panel no «respira» (se veía como un parpadeo) */
+  .v2 .player.phone.ph-enter { animation: ph-in .5s cubic-bezier(.2, .7, .2, 1); } /* entrada suave solo al abrir la web */
   @keyframes ph-in { from { opacity: 0; transform: translateX(24px); } }
 
   /* plegar / desplegar: pestaña pegada al borde izquierdo del panel, a media altura (como un cajón) */

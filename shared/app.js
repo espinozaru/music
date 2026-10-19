@@ -340,12 +340,19 @@ void main(){
   const sameAlbum = () => Q && SITE.type === 'album' && Q.slug === SITE.album.slug;
   const started = () => idx >= 0 && (!audio.paused || audio.currentTime > 0.5);
 
+  function swapBg(el, url) {
+    if (el.dataset.src === url) return;
+    el.dataset.src = url;
+    const im = new Image();
+    im.onload = () => { if (el.dataset.src === url) el.style.backgroundImage = `url("${url}")`; };
+    im.src = url;
+  }
   function setQueue(al) {
     if (Q && idx >= 0) store.set(FREE[idx].n, audio.currentTime);
     Q = al; FREE = al.tracks.filter((t) => t.free); idx = -1;
     $('pAlbT').textContent = al.title;
     const meta = (SITE.albums || []).find((x) => x.slug === al.slug);
-    if (meta) $('pAlbCov').style.backgroundImage = `url(${new URL(meta.cover, ROOT).href})`;
+    if (meta) swapBg($('pAlbCov'), new URL(meta.cover, ROOT).href);
     $('pAlbSw').dataset.tip = al.title;
     $('pAlbSw').title = 'Сменить альбом';
     $('pAlbList').querySelectorAll('a').forEach((a) => a.classList.toggle('cur', a.dataset.slug === al.slug));
@@ -376,7 +383,7 @@ void main(){
     $('pDur').textContent = fmt(tr.d);
     $('pCur').textContent = fmt(pendingSeek);
     const art = `${Q.base}assets/${tr.bg}.webp`;
-    $('pCover').style.backgroundImage = `url(${art})`;
+    swapBg($('pCover'), art); // sin parpadeo: la portada nueva entra cuando ya está cargada
     setProgress(pendingSeek / tr.d);
     player.classList.remove('end', 'error');
     if ('mediaSession' in navigator) {
@@ -730,9 +737,10 @@ void main(){
     const t = sc.textContent;
     window.SITE = JSON.parse(t.slice(t.indexOf('{'), t.lastIndexOf('}') + 1));
     document.title = doc.title;
-    const keepMin = document.body.classList.contains('ph-min');
+    // clases de estado del player/navegación: se conservan (si se quitaran un instante, el panel parpadearía)
+    const keep = ['ph-min', 'has-panel', 'nav-out'].filter((c) => document.body.classList.contains(c));
     document.body.className = doc.body.className;
-    document.body.classList.toggle('ph-min', keepMin);
+    keep.forEach((c) => document.body.classList.add(c));
     document.body.dataset.bg = doc.body.dataset.bg || '';
     [...document.body.children].forEach((el) => { if (!('keep' in el.dataset) && el.tagName !== 'SCRIPT') el.remove(); });
     const anchor = player;
@@ -773,5 +781,7 @@ void main(){
     updateActive();
   }
   initPage();
+  player.classList.add('ph-enter');
+  setTimeout(() => player.classList.remove('ph-enter'), 700);
   requestAnimationFrame(loop);
 })();
