@@ -212,3 +212,31 @@
 .share-pop.open { opacity: 1; visibility: visible; transform: none; }
 .share-pop button { text-align: left; padding: 10px 12px; border-radius: 10px; color: var(--text); font: inherit; font-size: 13px; }
 .share-pop button:hover { background: rgba(255, 255, 255, .1); }
+
+/* ===== panel en todas las páginas: visible si el álbum tiene audio aquí o si algo está sonando ===== */
+@media (min-width: 981px) {
+  .v2:not(.has-panel) .player.phone { display: none; }
+  .v2:not(.has-panel) section { padding-right: 120px; }
+  .v2.noplay.has-panel section { padding-right: calc(var(--panel-w) + var(--panel-gap) * 2.5); }
+  .v2.noplay.has-panel.ph-min section { padding-right: calc(var(--strip-w) + 40px); }
+  /* índice con el panel: todo el contenido se corre a la izquierda (no se estrecha cada bloque) */
+  .home main { transition: padding-right .6s cubic-bezier(.4, 0, .2, 1); }
+  .home.has-panel main { padding-right: var(--panel-w); }
+  .home.has-panel.ph-min main { padding-right: var(--strip-w); }
+  .has-panel .top .hd-switch { display: none; } /* el selector de álbumes está dentro del panel */
+  .v2 .ph-toggle[hidden] { display: none; }
+
+  /* barra del álbum que suena, arriba del panel */
+  .v2 .ph-albumbar { display: flex; align-items: center; gap: 6px; margin: -6px 0 14px; position: relative; }
+  .v2 .ph-alb { flex: 1; min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 2px; text-align: left; color: var(--text); padding: 4px 8px; margin-left: -8px; border-radius: 12px; transition: background .3s; }
+  .v2 .ph-alb:hover { background: rgba(255, 255, 255, .07); }
+  .v2 .pa-k { font-size: 9px; letter-spacing: .3em; text-transform: uppercase; color: var(--dim); opacity: 0; max-height: 0; transition: opacity .4s, max-height .4s; }
+  .v2 .player.other .pa-k { opacity: .7; max-height: 14px; } /* «сейчас играет» solo cuando suena otro álbum */
+  .v2 .pa-t { font-family: 'Unbounded', 'Noto Sans Web', sans-serif; font-weight: 300; font-size: 15px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+  .v2 .ph-albumbar .sw-menu { left: auto; right: 0; top: calc(100% + 8px); z-index: 6; }
+  /* plegado: solo el ⇅ arriba de la franja; la lista de álbumes se abre hacia la izquierda */
+  .v2.ph-min .ph-albumbar { margin: 0 0 16px; justify-content: center; }
+  .v2.ph-min .ph-alb { display: none; }
+  .v2.ph-min .ph-albumbar .sw-menu { right: calc(100% + 14px); top: 0; }
+}
+.ph-albumbar { display: none; }

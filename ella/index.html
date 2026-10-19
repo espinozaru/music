@@ -10,11 +10,14 @@
 <link rel="preload" href="assets/spot.webp" as="image">
 <link rel="stylesheet" href="../shared/style.css">
 <link rel="stylesheet" href="../shared/panel.css">
+<link rel="stylesheet" href="../shared/home.css">
 </head>
 <body class="v2 unb noplay">
-<canvas id="scene"></canvas>
-<div class="veil"></div>
-<div class="grain"></div>
+<!-- fijo (data-keep): no cambia al navegar entre páginas -->
+<canvas id="scene" data-keep></canvas>
+<div class="bg" data-keep></div><div class="bg" data-keep></div>
+<div class="veil" data-keep></div>
+<div class="grain" data-keep></div>
 
 <header class="top">
   <!-- atrás · logo · selector para saltar a otro álbum -->
@@ -144,11 +147,71 @@
 
 <a class="made" href="https://espinoza.ru" target="_blank" rel="noopener">Проект от <span>espinoza.ru</span></a>
 
+<!-- Player: barra lateral derecha plegable (en móvil, cápsula abajo) -->
+<aside class="player phone" id="player" role="region" aria-label="Плеер" data-keep>
+  <button class="ph-toggle" id="phToggle" aria-label="Свернуть плеер" aria-expanded="true"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+  <!-- álbum que suena (clic = ir a su página) · ⇅ otros álbumes -->
+  <div class="ph-albumbar hd-switch">
+    <button class="ph-alb" id="pAlb"><span class="pa-k">сейчас играет</span><span class="pa-t" id="pAlbT"></span></button>
+    <button class="hd-btn" id="pAlbSw" aria-label="Другие альбомы" aria-haspopup="true" aria-expanded="false"><svg viewBox="0 0 24 24"><path d="M8 9l4-4 4 4M8 15l4 4 4-4"/></svg></button>
+    <nav class="sw-menu" id="pAlbList" aria-label="Альбомы">
+      <a href="../zen/" data-slug="zen"><img src="../covers/zen.webp" alt="" width="40" height="40"><span>Тишина внутри<small>медитации</small></span></a>
+      <a href="../tuta-ukupi/" data-slug="tuta-ukupi"><img src="../covers/tuta-ukupi.webp" alt="" width="40" height="40"><span>Tuta Ukupi<small>альбом</small></span></a>
+      <a href="../andes-nights/" data-slug="andes-nights"><img src="../covers/andes-nights.webp" alt="" width="40" height="40"><span>Andes Nights<small>альбом</small></span></a>
+      <a href="../neural-lullabies/" data-slug="neural-lullabies"><img src="../covers/neural-lullabies.webp" alt="" width="40" height="40"><span>Neural Lullabies<small>альбом</small></span></a>
+      <a href="../rany-na-bumage/" data-slug="rany-na-bumage"><img src="../covers/rany-na-bumage.webp" alt="" width="40" height="40"><span>Раны на бумаге<small>альбом</small></span></a>
+      <a href="../ella/" data-slug="ella"><img src="../covers/ella.webp" alt="" width="40" height="40"><span>Ella<small>альбом</small></span></a>
+      <a href="../2804/" data-slug="2804"><img src="../covers/2804.webp" alt="" width="40" height="40"><span>2804<small>сингл</small></span></a>
+    </nav>
+  </div>
+  <div class="ph-art">
+    <div class="p-cover" id="pCover"><span class="p-ring"></span></div>
+  </div>
+  <div class="p-info">
+    <div class="p-top">
+      <span class="p-num" id="pNum">01</span>
+      <span class="p-title" id="pTitle"></span>
+      <span class="eq"><i></i><i></i><i></i><i></i><i></i></span>
+    </div>
+    <p class="ph-phrase" id="pPhrase"></p>
+    <div class="p-bar" id="pBar" role="slider" tabindex="0" aria-label="Перемотка" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+      <span class="p-fill" id="pFill"></span><span class="p-knob" id="pKnob"></span><span class="p-tip" id="pTip">0:00</span>
+    </div>
+    <div class="p-time"><span id="pCur">0:00</span><span class="p-state" id="pState"></span><span id="pDur">0:00</span></div>
+  </div>
+  <div class="p-ctrl">
+    <button id="pPrev" aria-label="Предыдущая"><svg viewBox="0 0 24 24"><path d="M7 5v14M18 6l-8 6 8 6z"/></svg></button>
+    <button id="pPlay" class="p-play" aria-label="Играть">
+      <svg class="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg>
+      <svg class="i-pause" viewBox="0 0 24 24"><path d="M6.5 5h3.5v14H6.5zM14 5h3.5v14H14z"/></svg>
+    </button>
+    <button id="pNext" aria-label="Следующая"><svg viewBox="0 0 24 24"><path d="M17 5v14M6 6l8 6-8 6z"/></svg></button>
+  </div>
+  <!-- volumen: altavoz (clic = silencio) · barra · cifra que se anima al moverla -->
+  <div class="ph-vol">
+    <button class="ph-mute" id="pMute" aria-label="Без звука" aria-pressed="false"><svg viewBox="0 0 24 24"><path class="spk" d="M4 9h4l5-4v14l-5-4H4z"/><path class="w1" d="M16 9.5a3.5 3.5 0 0 1 0 5"/><path class="w2" d="M18.5 7a7 7 0 0 1 0 10"/><path class="x" d="M16 9.5l5 5M21 9.5l-5 5"/></svg></button>
+    <input class="p-vol" id="pVol" type="range" min="0" max="1" step="0.01" value="0.7" aria-label="Громкость">
+    <span class="ph-vol-val" id="pVolVal" aria-hidden="true">70%</span>
+  </div>
+  <!-- como en una app: repetir la lista y temporizador de apagado (10 · 20 · 30 мин) -->
+  <div class="ph-tools">
+    <button class="ph-tool" id="pLoop" aria-pressed="false" title="Повтор: после последнего трека — снова первый"><svg viewBox="0 0 24 24"><path d="M17 2l3 3-3 3M4 11V9a4 4 0 0 1 4-4h12M7 22l-3-3 3-3M20 13v2a4 4 0 0 1-4 4H4"/></svg><span>повтор</span></button>
+    <button class="ph-tool" id="pTimer" aria-pressed="false" title="Таймер сна"><svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg><span id="pTimerLbl">таймер</span></button>
+    <div class="share-wrap">
+      <button class="ph-tool" id="pShare" aria-haspopup="true" aria-expanded="false" title="Поделиться"><svg viewBox="0 0 24 24"><path d="M12 15V3M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg><span>поделиться</span></button>
+      <div class="share-pop" id="sharePop" role="menu">
+        <button data-share-album>Ссылка на альбом</button>
+        <button data-share-song>Ссылка на эту песню</button>
+      </div>
+    </div>
+  </div>
+  <a class="p-cta" href="#listen">Полный альбом →</a>
+  <button class="p-close" id="pClose" aria-label="Закрыть плеер" hidden>×</button>
+  <p class="ph-album" id="phAlbum"></p>
+  <ol class="ph-list" id="pList"></ol>
+</aside>
 
-<script>window.SITE = {"still": true, "first": "spot", "items": [{"n": "01", "t": "Todo lo que Soy", "tag": ""}, {"n": "02", "t": "Una noche más sin ti", "tag": ""}, {"n": "03", "t": "La Verdad", "tag": ""}, {"n": "04", "t": "Fiebre", "tag": ""}, {"n": "05", "t": "Gravedad", "tag": ""}, {"n": "06", "t": "Fuego lento", "tag": ""}, {"n": "07", "t": "Al otro lado", "tag": ""}, {"n": "08", "t": "Aunque me pienses", "tag": ""}], "album": {"slug": "ella", "title": "Ella", "artist": "Espinoza", "tracks": [{"n": "01", "t": "Todo lo que Soy", "p": "Всё, что я есть — для неё", "bg": "red", "d": 229, "free": false}, {"n": "02", "t": "Una noche más sin ti", "p": "Ещё одна ночь без тебя", "bg": "blue", "d": 225, "free": false}, {"n": "03", "t": "La Verdad", "p": "Правда, которую трудно сказать", "bg": "top0", "d": 275, "free": false}, {"n": "04", "t": "Fiebre", "p": "Жар, от которого не спрятаться", "bg": "clear", "d": 266, "free": false}, {"n": "05", "t": "Gravedad", "p": "Притяжение сильнее меня", "bg": "top1", "d": 210, "free": false}, {"n": "06", "t": "Fuego lento", "p": "Медленный огонь", "bg": "andean", "d": 262, "free": false}, {"n": "07", "t": "Al otro lado", "p": "По ту сторону", "bg": "worn", "d": 249, "free": false}, {"n": "08", "t": "Aunque me pienses", "p": "Даже если ты думаешь обо мне", "bg": "spot", "d": 251, "free": false}]}};</script>
-<script src="../shared/core.js"></script>
-
-<script src="../shared/header.js"></script>
-<script src="../shared/share.js"></script>
+<script>window.SITE = {"type": "album", "albums": [{"slug": "zen", "title": "Тишина внутри", "kind": "медитации", "cover": "covers/zen.webp"}, {"slug": "tuta-ukupi", "title": "Tuta Ukupi", "kind": "альбом", "cover": "covers/tuta-ukupi.webp"}, {"slug": "andes-nights", "title": "Andes Nights", "kind": "альбом", "cover": "covers/andes-nights.webp"}, {"slug": "neural-lullabies", "title": "Neural Lullabies", "kind": "альбом", "cover": "covers/neural-lullabies.webp"}, {"slug": "rany-na-bumage", "title": "Раны на бумаге", "kind": "альбом", "cover": "covers/rany-na-bumage.webp"}, {"slug": "ella", "title": "Ella", "kind": "альбом", "cover": "covers/ella.webp"}, {"slug": "2804", "title": "2804", "kind": "сингл", "cover": "covers/2804.webp"}], "still": true, "first": "spot", "items": [{"n": "01", "t": "Todo lo que Soy", "tag": ""}, {"n": "02", "t": "Una noche más sin ti", "tag": ""}, {"n": "03", "t": "La Verdad", "tag": ""}, {"n": "04", "t": "Fiebre", "tag": ""}, {"n": "05", "t": "Gravedad", "tag": ""}, {"n": "06", "t": "Fuego lento", "tag": ""}, {"n": "07", "t": "Al otro lado", "tag": ""}, {"n": "08", "t": "Aunque me pienses", "tag": ""}], "album": {"slug": "ella", "title": "Ella", "artist": "Espinoza", "tracks": [{"n": "01", "t": "Todo lo que Soy", "p": "Всё, что я есть — для неё", "bg": "red", "d": 229, "free": false}, {"n": "02", "t": "Una noche más sin ti", "p": "Ещё одна ночь без тебя", "bg": "blue", "d": 225, "free": false}, {"n": "03", "t": "La Verdad", "p": "Правда, которую трудно сказать", "bg": "top0", "d": 275, "free": false}, {"n": "04", "t": "Fiebre", "p": "Жар, от которого не спрятаться", "bg": "clear", "d": 266, "free": false}, {"n": "05", "t": "Gravedad", "p": "Притяжение сильнее меня", "bg": "top1", "d": 210, "free": false}, {"n": "06", "t": "Fuego lento", "p": "Медленный огонь", "bg": "andean", "d": 262, "free": false}, {"n": "07", "t": "Al otro lado", "p": "По ту сторону", "bg": "worn", "d": 249, "free": false}, {"n": "08", "t": "Aunque me pienses", "p": "Даже если ты думаешь обо мне", "bg": "spot", "d": 251, "free": false}]}};</script>
+<script src="../shared/app.js" data-keep></script>
 </body>
 </html>

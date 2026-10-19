@@ -28,6 +28,8 @@ def head(title, desc, first_bg, base, font='Unbounded-Variable.woff2'):
 <link rel="preload" href="{base}shared/fonts/{font}" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="{e(first_bg)}" as="image">
 <link rel="stylesheet" href="{base}shared/style.css">
+<link rel="stylesheet" href="{base}shared/panel.css">
+<link rel="stylesheet" href="{base}shared/home.css">
 '''
 
 
@@ -91,8 +93,15 @@ ICO_PLAY = '<svg class="ico" viewBox="0 0 10 10"><path d="M2 1v8l7-4z"/></svg>'
 EQ = '<span class="eq"><i></i><i></i><i></i><i></i><i></i></span>'
 
 PLAYER = '''<!-- Player: barra lateral derecha plegable (en móvil, cápsula abajo) -->
-<aside class="player phone" id="player" role="region" aria-label="Плеер">
+<aside class="player phone" id="player" role="region" aria-label="Плеер" data-keep>
   <button class="ph-toggle" id="phToggle" aria-label="Свернуть плеер" aria-expanded="true"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+  <!-- álbum que suena (clic = ir a su página) · ⇅ otros álbumes -->
+  <div class="ph-albumbar hd-switch">
+    <button class="ph-alb" id="pAlb"><span class="pa-k">сейчас играет</span><span class="pa-t" id="pAlbT"></span></button>
+    <button class="hd-btn" id="pAlbSw" aria-label="Другие альбомы" aria-haspopup="true" aria-expanded="false"><svg viewBox="0 0 24 24"><path d="M8 9l4-4 4 4M8 15l4 4 4-4"/></svg></button>
+    <nav class="sw-menu" id="pAlbList" aria-label="Альбомы">
+{albums}    </nav>
+  </div>
   <div class="ph-art">
     <div class="p-cover" id="pCover"><span class="p-ring"></span></div>
   </div>
@@ -136,10 +145,28 @@ PLAYER = '''<!-- Player: barra lateral derecha plegable (en móvil, cápsula aba
   </div>
   <a class="p-cta" href="#listen">Полный альбом →</a>
   <button class="p-close" id="pClose" aria-label="Закрыть плеер" hidden>×</button>
-  <p class="ph-album">{title} <span>{free} из {total} доступно</span></p>
+  <p class="ph-album" id="phAlbum"></p>
   <ol class="ph-list" id="pList"></ol>
 </aside>
 '''
+
+
+def player_html(albums, base):
+    items = ''.join(f'      <a href="{base}{al["slug"]}/" data-slug="{al["slug"]}"><img src="{base}{e(al["cover"])}" alt="" width="40" height="40"><span>{e(al["title"])}<small>{e(al.get("kind", "альбом"))}</small></span></a>\n'
+                    for al in albums if al.get('page'))
+    return PLAYER.replace('{albums}', items)
+
+
+SHELL_TOP = '''<!-- fijo (data-keep): no cambia al navegar entre páginas -->
+<canvas id="scene" data-keep></canvas>
+<div class="bg" data-keep></div><div class="bg" data-keep></div>
+<div class="veil" data-keep></div>
+<div class="grain" data-keep></div>
+'''
+
+
+def site_albums(albums):
+    return [{'slug': al['slug'], 'title': al['title'], 'kind': al.get('kind', 'альбом'), 'cover': al['cover']} for al in albums if al.get('page')]
 
 
 def switch_menu(slug, albums, base='../'):
@@ -204,6 +231,7 @@ def album_page(slug, a, albums):
     soon = f'    <p class="soon fx">{L["soon"]}</p>\n' if L.get('soon') else ''
     disclaimer = f'    <p class="disclaimer fx">{L["disclaimer"]}</p>\n' if L.get('disclaimer') else ''
     site = {
+        'type': 'album', 'albums': site_albums(albums),
         'still': a.get('motion') != 'parallax',  # fondo fijo salvo que el álbum pida parallax (zen)
         'first': a['hero']['bg'],
         'items': [{'n': t['n'], 't': t['t'], 'tag': 'доступно' if t['free'] else ''} for t in tracks],
@@ -212,13 +240,9 @@ def album_page(slug, a, albums):
     }
     out = head(f'{a["title"]} — {a["artist"]}', a['description'], f'assets/{a["hero"]["bg"]}.webp', '../',
                'CormorantGaramond-Upright-Variable.woff2' if a.get('font') == 'serif' else 'Unbounded-Variable.woff2')
-    out += f'''<link rel="stylesheet" href="../shared/panel.css">
-</head>
+    out += f'''</head>
 <body class="v2{" unb" if a.get("font") != "serif" else ""}{"" if free_n else " noplay"}">
-<canvas id="scene"></canvas>
-<div class="veil"></div>
-<div class="grain"></div>
-
+{SHELL_TOP}
 <header class="top">
   <!-- atrás · logo · selector para saltar a otro álbum -->
 {brand(slug, albums, '../')}  <div class="top-right">
@@ -242,12 +266,9 @@ def album_page(slug, a, albums):
 
 <a class="made" href="https://espinoza.ru" target="_blank" rel="noopener">Проект от <span>espinoza.ru</span></a>
 
-{PLAYER.format(title=e(a['title']), free=free_n, total=total) if free_n else ''}
+{player_html(albums, '../')}
 <script>window.SITE = {json.dumps(site, ensure_ascii=False)};</script>
-<script src="../shared/core.js"></script>
-{'<script src="../shared/player.js"></script>' + chr(10) + '<script src="../shared/panel.js"></script>' if free_n else ''}
-<script src="../shared/header.js"></script>
-<script src="../shared/share.js"></script>
+<script src="../shared/app.js" data-keep></script>
 </body>
 </html>
 '''
@@ -287,13 +308,9 @@ def home_page(s):
         foot += f'      <div class="foot-col"><span class="foot-label">{e(f["label"])}</span><a href="{e(f["url"])}"{ext}>{e(f["text"])}</a>{extra}</div>\n'
     h = s['hero']
     out = head(s['title'], s['description'], h['bg'] + '.webp', '')
-    out += f'''<link rel="stylesheet" href="shared/home.css">
-</head>
-<body class="home unb" data-bg="{e(h['bg'])}.webp">
-<div class="bg"></div><div class="bg"></div>
-<div class="veil"></div>
-<div class="grain"></div>
-
+    out += f'''</head>
+<body class="home unb v2" data-bg="{e(h['bg'])}.webp">
+{SHELL_TOP}
 <header class="top home-top">
   <img src="shared/logo-white.png" alt="Espinoza" class="logo">
 </header>
@@ -315,7 +332,9 @@ def home_page(s):
   </footer>
 </main>
 
-<script src="shared/home.js"></script>
+{player_html(s['albums'], '')}
+<script>window.SITE = {json.dumps({'type': 'home', 'albums': site_albums(s['albums'])}, ensure_ascii=False)};</script>
+<script src="shared/app.js" data-keep></script>
 </body>
 </html>
 '''
