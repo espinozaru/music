@@ -73,10 +73,22 @@
 /* frase discreta de apoyo al final de la presentación */
 .intro-support { color: var(--text); text-decoration: underline; text-decoration-color: rgba(255, 255, 255, .35); text-underline-offset: 4px; transition: text-decoration-color .3s; }
 .intro-support:hover { text-decoration-color: rgba(255, 255, 255, .9); }
-/* QR de apoyo: solo en escritorio (en el móvil se pulsa el botón) */
-.support-qr { display: none; }
+/* pie en 5 columnas: apoyar (texto · botón · QR) + 4 contactos con icono */
+.foot-cols { grid-template-columns: 1.3fr repeat(4, 1fr); align-items: start; }
+.foot-support p { margin: 0 0 14px; font-size: 14px; line-height: 1.5; color: #dfe3e7; }
+.foot-support .support-btn { padding: 11px 22px; font-size: 12px; }
+.support-qr-link { display: none; }
+.foot-col a { display: inline-flex; align-items: center; gap: 9px; }
+.fi { width: 16px; height: 16px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; opacity: .8; }
 @media (min-width: 981px) {
-  .disco-foot .support { display: flex; align-items: center; justify-content: center; gap: 28px; text-align: left; }
-  .support-qr { display: block; width: 140px; height: 140px; border-radius: 14px; background: #fff; padding: 6px; image-rendering: pixelated; }
-  .disco-foot .support-txt p { margin-bottom: 14px; }
+  .support-qr-link { display: block; margin-top: 18px; width: fit-content; }
+  .support-qr { display: block; width: 120px; height: 120px; border-radius: 12px; background: #fff; padding: 5px; image-rendering: pixelated; }
 }
+@media (max-width: 980px) {
+  .foot-cols { grid-template-columns: 1fr 1fr; }
+  .foot-support { grid-column: 1 / -1; text-align: center; margin-bottom: 10px; }
+  .foot-support .support-btn { margin: 0 auto; }
+}
+.foot-col a.support-btn { color: #0a0f19; opacity: 1; display: inline-flex; }
+.foot-col a.support-btn:hover { text-decoration: none; }
+.foot-col a.support-qr-link:hover { text-decoration: none; }

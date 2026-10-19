@@ -315,14 +315,26 @@ def home_page(s):
     </a>
   </li>
 ''')
+    ICONS = {  # iconos de línea, pequeños, del mismo trazo
+        'telegram': '<path d="M21.5 3.5 2.8 10.9c-.9.4-.9 1.6.1 1.9l4.6 1.4 1.8 5.6c.3.9 1.4 1.1 2 .4l2.6-2.8 4.8 3.5c.8.6 1.9.1 2.1-.8l3-14.1c.2-1.1-.9-2-1.9-1.5z"/><path d="m7.5 14.2 9.8-6.6"/>',
+        'person': '<circle cx="12" cy="8" r="4"/><path d="M4 21c1.4-4 4.4-6 8-6s6.6 2 8 6"/>',
+        'globe': '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.8 3 2.8 15 0 18M12 3c-2.8 3-2.8 15 0 18"/>',
+        'laptop': '<rect x="4" y="4.5" width="16" height="11" rx="1.6"/><path d="M2 19.5h20"/>',
+        'phone': '<path d="M6.6 3.5h3l1.6 4.2-2.1 1.5a11 11 0 0 0 5.7 5.7l1.5-2.1 4.2 1.6v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.6 5.7a2 2 0 0 1 2-2.2z"/>',
+    }
+    ico = lambda k: f'<svg class="fi" viewBox="0 0 24 24" aria-hidden="true">{ICONS[k]}</svg>' if k in ICONS else ''
     foot = ''
+    if s.get('support'):  # 1.ª columna: apoyar (texto, botón y, en escritorio, el QR)
+        foot += (f'      <div class="foot-col foot-support"><p>Если музыка откликается —<br>можно поддержать</p>'
+                 f'<a class="support-btn" href="{e(s["support"])}" target="_blank" rel="noopener">Поддержать <span aria-hidden="true">☕</span></a>'
+                 f'<a class="support-qr-link" href="{e(s["support"])}" target="_blank" rel="noopener"><img class="support-qr" src="shared/support-qr.png" alt="QR — поддержать" width="120" height="120" loading="lazy"></a></div>\n')
     for f in s.get('footer', []):
         ext = '' if f['url'].startswith('tel:') else ' target="_blank" rel="noopener"'
         extra = ''
         if f.get('extra'):
             x = f['extra']
-            extra = f'<a href="{e(x["url"])}">{e(x["text"])}</a>'
-        foot += f'      <div class="foot-col"><span class="foot-label">{e(f["label"])}</span><a href="{e(f["url"])}"{ext}>{e(f["text"])}</a>{extra}</div>\n'
+            extra = f'<a href="{e(x["url"])}">{ico(x.get("icon"))}{e(x["text"])}</a>'
+        foot += f'      <div class="foot-col"><span class="foot-label">{e(f["label"])}</span><a href="{e(f["url"])}"{ext}>{ico(f.get("icon"))}{e(f["text"])}</a>{extra}</div>\n'
     h = s['hero']
     out = head(s['title'], s['description'], h['bg'] + '.webp', '')
     out += f'''</head>
@@ -343,7 +355,6 @@ def home_page(s):
 {''.join(cards)}  </ul>
 
   <footer class="disco-foot">
-    {f'<div class="support"><img class="support-qr" src="shared/support-qr.png" alt="QR — поддержать" width="140" height="140" loading="lazy"><div class="support-txt"><p>Если музыка откликается — можно поддержать</p><a class="support-btn" href="{e(s["support"])}" target="_blank" rel="noopener">Поддержать <span aria-hidden="true">☕</span></a></div></div>' if s.get('support') else ''}
     <div class="foot-cols">
 {foot}    </div>
     <p class="credits">{s['outro']['credits']}</p>

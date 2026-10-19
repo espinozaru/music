@@ -176,17 +176,20 @@
   {
    "label": "Telegram",
    "text": "@espinozadesign",
-   "url": "https://t.me/espinozadesign"
+   "url": "https://t.me/espinozadesign",
+   "icon": "telegram"
   },
   {
    "label": "Личный сайт",
    "text": "denis.espinoza.ru",
-   "url": "https://denis.espinoza.ru"
+   "url": "https://denis.espinoza.ru",
+   "icon": "person"
   },
   {
    "label": "Студия",
    "text": "espinoza.ru",
-   "url": "https://espinoza.ru"
+   "url": "https://espinoza.ru",
+   "icon": "globe"
   },
   {
    "label": "Для проектов",
@@ -194,8 +197,10 @@
    "url": "https://t.me/espinozadenis",
    "extra": {
     "text": "+7 925 891 1980",
-    "url": "tel:+79258911980"
-   }
+    "url": "tel:+79258911980",
+    "icon": "phone"
+   },
+   "icon": "laptop"
   }
  ],
  "support": "https://pay.cloudtips.ru/p/945dde54"
