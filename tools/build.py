@@ -120,7 +120,7 @@ def switch_menu(slug, albums):
             continue
         cur = ' class="cur" aria-current="page"' if al['slug'] == slug else ''
         out.append(f'        <a href="../{al["slug"]}/"{cur}><img src="../{e(al["cover"])}" alt="" width="40" height="40"><span>{e(al["title"])}<small>{e(al.get("kind", "альбом"))}</small></span></a>\n')
-    out.append('        <a href="../" class="all"><span>Все альбомы →</span></a>\n')
+    out.append('        <a href="../" class="all"><span>← Все альбомы</span></a>\n')
     return ''.join(out)
 
 

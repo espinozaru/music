@@ -167,9 +167,11 @@
 
 /* cabecera de álbum: ← atrás · logo · ⇅ selector de álbumes (desplegable) */
 .brand { display: flex; align-items: center; gap: 14px; }
-.hd-btn { width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; color: var(--text); background: rgba(8, 12, 22, .35);
-  border: 1px solid rgba(255, 255, 255, .18); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); cursor: pointer; transition: background .3s, border-color .3s; }
-.hd-btn:hover, .hd-btn[aria-expanded="true"] { background: rgba(255, 255, 255, .14); border-color: rgba(255, 255, 255, .45); }
+/* sin borde ni fondo en reposo; al pasar el ratón (o abierto) aparece un círculo suave */
+.hd-btn { width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; color: var(--text); background: transparent;
+  border: none; outline: none; cursor: pointer; opacity: .8; transition: background .3s, opacity .3s; }
+.hd-btn:hover, .hd-btn[aria-expanded="true"] { background: rgba(255, 255, 255, .12); opacity: 1; }
+.hd-btn:focus-visible { box-shadow: 0 0 0 1px rgba(255, 255, 255, .5); }
 .hd-btn svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .hd-switch { position: relative; }
 .sw-menu { position: absolute; top: calc(100% + 12px); left: 0; min-width: 270px; padding: 8px; border-radius: 18px; display: flex; flex-direction: column; gap: 2px;
