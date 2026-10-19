@@ -27,6 +27,16 @@
  "tracks": [
   {
    "n": "01",
+   "t": "Wayra Ukupi",
+   "p": "Wayra — ветер. Раствориться в тумане",
+   "bg": "wayra",
+   "h": 0.995,
+   "d": 384.8,
+   "light": true,
+   "video": "https://www.youtube.com/watch?v=S4P9m7ATFfk"
+  },
+  {
+   "n": "02",
    "t": "Yaku Ukupi",
    "p": "Yaku — вода. Тихое течение внутри ночи",
    "bg": "yaku",
@@ -34,7 +44,7 @@
    "d": 362.4
   },
   {
-   "n": "02",
+   "n": "03",
    "t": "Samay Ukupi",
    "p": "Samay — дыхание. Покой высокогорья",
    "bg": "samay",
@@ -42,7 +52,7 @@
    "d": 319.2
   },
   {
-   "n": "03",
+   "n": "04",
    "t": "Nina Ukupi",
    "p": "Nina — огонь. Тепло костра и чаранго",
    "bg": "nina",
@@ -50,7 +60,7 @@
    "d": 367.6
   },
   {
-   "n": "04",
+   "n": "05",
    "t": "Sonqo Ukupi",
    "p": "Sonqo — сердце. То, что бьётся внутри",
    "bg": "sonqo",
@@ -58,7 +68,7 @@
    "d": 408
   },
   {
-   "n": "05",
+   "n": "06",
    "t": "Killa Ukupi",
    "p": "Killa — луна. Каменная тропа в лунном свете",
    "bg": "killa",
@@ -66,7 +76,7 @@
    "d": 397
   },
   {
-   "n": "06",
+   "n": "07",
    "t": "Yuyay Ukupi",
    "p": "Yuyay — память. Мысли, которые возвращаются",
    "bg": "yuyay",
@@ -74,7 +84,7 @@
    "d": 362
   },
   {
-   "n": "07",
+   "n": "08",
    "t": "Apu Ukupi",
    "p": "Apu — дух горы. Мачу-Пикчу над облаками",
    "bg": "apu",
@@ -82,27 +92,22 @@
    "d": 380
   },
   {
-   "n": "08",
+   "n": "09",
    "t": "Intip Churinkuna",
    "p": "Дети солнца. Закат над древними руинами",
    "bg": "inti",
    "h": 0.995,
    "d": 376
-  },
-  {
-   "n": "09",
-   "t": "Wayra Ukupi",
-   "p": "Wayra — ветер. Раствориться в тумане",
-   "bg": "wayra",
-   "h": 0.995,
-   "d": 385,
-   "light": true
   }
  ],
  "listen": {
   "bg": "wayra",
   "horizon": 0.995,
   "platforms": [
+   {
+    "name": "Яндекс Музыка",
+    "url": "https://music.yandex.ru/album/44050925"
+   },
    {
     "name": "Spotify",
     "url": "https://open.spotify.com/album/4WDrTfD6ZwgyE5UHjYSFoL"

@@ -37,6 +37,10 @@
    "meta": "9 треков",
    "platforms": [
     {
+     "name": "Яндекс Музыка",
+     "url": "https://music.yandex.ru/album/44050925"
+    },
+    {
      "name": "Spotify",
      "url": "https://open.spotify.com/album/4WDrTfD6ZwgyE5UHjYSFoL"
     },
@@ -58,6 +62,10 @@
    "p": "Андские ночи — 7 историй о ней",
    "meta": "7 треков",
    "platforms": [
+    {
+     "name": "Яндекс Музыка",
+     "url": "https://music.yandex.ru/album/44164655"
+    },
     {
      "name": "Spotify",
      "url": "https://open.spotify.com/album/2Yhqxs5kvCKG8h7CQNv4wx"

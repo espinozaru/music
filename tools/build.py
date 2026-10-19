@@ -135,6 +135,7 @@ def album_page(slug, a):
     <p class="phrase fx" data-split="words" data-delay="0.45">{e(t["p"])}</p>
     <div class="meta fx" data-delay="0.8">{fmt(t["d"])} · {e(meta)}</div>
     {btn}
+    {f'<a class="vid fx" data-delay="1.2" href="{e(t["video"])}" target="_blank" rel="noopener">{ICO_PLAY}клип на YouTube</a>' if t.get("video") else ''}
   </section>
 ''')
     L = a['listen']

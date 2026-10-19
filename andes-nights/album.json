@@ -87,6 +87,10 @@
   "horizon": 0.62,
   "platforms": [
    {
+    "name": "Яндекс Музыка",
+    "url": "https://music.yandex.ru/album/44164655"
+   },
+   {
     "name": "Spotify",
     "url": "https://open.spotify.com/album/2Yhqxs5kvCKG8h7CQNv4wx"
    },
