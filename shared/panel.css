@@ -164,5 +164,3 @@
 .v2 .playing .p-fill::after { opacity: 1; animation: comet 2.6s ease-in-out infinite; }
 @keyframes comet { 50% { box-shadow: 0 0 8px 3px rgba(255, 255, 255, .95), 0 0 26px 8px rgba(200, 215, 240, .6); } }
 @media (prefers-reduced-motion: reduce) { .v2 .playing .p-fill::after { animation: none; } }
-
-}

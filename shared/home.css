@@ -9,6 +9,9 @@
 .home main { position: relative; z-index: 3; }
 /* cabecera del índice: solo el logo, centrado */
 .home-top { justify-content: center; }
+.home-top { padding-top: 40px; }
+.home-top .logo { width: 220px; } /* en el índice, el logo manda */
+@media (max-width: 700px) { .home-top .logo { width: 160px; } }
 .intro { max-width: 620px; margin: 0 auto; padding: 150px 24px 0; text-align: center; }
 .intro .eyebrow { margin: 0; font-size: 11px; font-weight: 400; letter-spacing: .4em; text-transform: uppercase; color: var(--dim); opacity: .7; }
 .intro p { margin: 22px 0 0; font-size: 16px; line-height: 1.7; color: #dfe3e7; opacity: .85; }

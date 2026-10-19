@@ -16,7 +16,7 @@ def fmt(s):
     return f'{s // 60}:{s % 60:02d}'
 
 
-def head(title, desc, first_bg, base):
+def head(title, desc, first_bg, base, font='Unbounded-Variable.woff2'):
     return f'''<!doctype html>
 <html lang="ru">
 <head>
@@ -25,7 +25,7 @@ def head(title, desc, first_bg, base):
 <title>{e(title)}</title>
 <meta name="description" content="{e(desc)}">
 <link rel="preload" href="{base}shared/fonts/NotoSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="{base}shared/fonts/CormorantGaramond-Upright-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{base}shared/fonts/{font}" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="{e(first_bg)}" as="image">
 <link rel="stylesheet" href="{base}shared/style.css">
 '''
@@ -177,10 +177,11 @@ def album_page(slug, a, albums):
         'album': {'slug': slug, 'title': a['title'], 'artist': a['artist'],
                   'tracks': [{k: t[k] for k in ('n', 't', 'p', 'bg', 'd', 'free')} for t in tracks]},
     }
-    out = head(f'{a["title"]} — {a["artist"]}', a['description'], f'assets/{a["hero"]["bg"]}.webp', '../')
+    out = head(f'{a["title"]} — {a["artist"]}', a['description'], f'assets/{a["hero"]["bg"]}.webp', '../',
+               'CormorantGaramond-Upright-Variable.woff2' if a.get('font') == 'serif' else 'Unbounded-Variable.woff2')
     out += f'''<link rel="stylesheet" href="../shared/panel.css">
 </head>
-<body class="v2">
+<body class="v2{" unb" if a.get("font") != "serif" else ""}">
 <canvas id="scene"></canvas>
 <div class="veil"></div>
 <div class="grain"></div>
@@ -248,7 +249,7 @@ def home_page(s):
     out = head(s['title'], s['description'], h['bg'] + '.webp', '')
     out += f'''<link rel="stylesheet" href="shared/home.css">
 </head>
-<body class="home" data-bg="{e(h['bg'])}.webp">
+<body class="home unb" data-bg="{e(h['bg'])}.webp">
 <div class="bg"></div><div class="bg"></div>
 <div class="veil"></div>
 <div class="grain"></div>

@@ -1,5 +1,6 @@
 /* Serif (Cormorant Garamond) solo para números y títulos grandes; todo lo que se lee, en Noto Sans. WOFF2 con latín + cirílico. */
 @font-face { font-family: 'Cormorant'; src: url(fonts/CormorantGaramond-Upright-Variable.woff2) format('woff2'); font-weight: 300 700; font-display: swap; }
+@font-face { font-family: 'Unbounded'; src: url(fonts/Unbounded-Variable.woff2) format('woff2'); font-weight: 200 900; font-display: swap; }
 @font-face { font-family: 'Noto Sans Web'; src: url(fonts/NotoSans-Variable.woff2) format('woff2'); font-weight: 100 900; font-display: swap; }
 
 :root {
@@ -281,5 +282,23 @@ body:has(.player.show) .m-btn { bottom: calc(112px + env(safe-area-inset-bottom)
   .hd-btn { width: 32px; height: 32px; }
   .brand .logo { width: 84px; }
   .sw-menu { min-width: 240px; }
+}
 /* el logo tiene la letra arriba y la raya abajo: bajarlo un poco para que su centro óptico quede alineado con los iconos */
 .brand .logo { translate: 0 4px; }
+
+/* ===== tipografía general: Unbounded (índice y álbumes); «Тишина внутри» se queda con la serif (Cormorant) ===== */
+.unb .stair, .unb .track h2, .unb .listen h2, .unb .manifest .line.big, .unb .track .num, .unb .side .sn, .unb .p-num,
+.unb .m-menu .mn, .unb .ph-album, .unb .ph-list .ln, .unb .disc h2 { font-family: 'Unbounded', 'Noto Sans Web', sans-serif; }
+.unb .stair { font-weight: 300; }
+.unb .stair .w1 { font-size: clamp(26px, 4.6vw, 78px); }
+.unb .stair .w2 { font-size: clamp(38px, 7.6vw, 130px); }
+.unb .track h2, .unb .listen h2 { font-weight: 300; font-size: clamp(28px, 3.8vw, 60px); letter-spacing: 0; line-height: 1.12; }
+.unb .manifest .line.big { font-weight: 300; font-size: clamp(26px, 3.6vw, 52px); }
+.unb .track .num, .unb .side .sn, .unb .m-menu .mn, .unb .ph-list .ln, .unb .p-num { font-weight: 300; letter-spacing: .04em; }
+.unb .side .sn { font-size: calc(11px * var(--s)); }
+.unb .ph-album { font-weight: 400; font-size: 15px; }
+.unb .disc h2 { font-weight: 300; font-size: 24px; letter-spacing: 0; }
+@media (max-width: 980px) {
+  .unb .stair .w1 { font-size: 9vw; }
+  .unb .stair .w2 { font-size: 13vw; }
+}
