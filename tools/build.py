@@ -245,6 +245,14 @@ def home_page(s):
     </a>
   </li>
 ''')
+    foot = ''
+    for f in s.get('footer', []):
+        ext = '' if f['url'].startswith('tel:') else ' target="_blank" rel="noopener"'
+        extra = ''
+        if f.get('extra'):
+            x = f['extra']
+            extra = f'<a href="{e(x["url"])}">{e(x["text"])}</a>'
+        foot += f'      <div class="foot-col"><span class="foot-label">{e(f["label"])}</span><a href="{e(f["url"])}"{ext}>{e(f["text"])}</a>{extra}</div>\n'
     h = s['hero']
     out = head(s['title'], s['description'], h['bg'] + '.webp', '')
     out += f'''<link rel="stylesheet" href="shared/home.css">
@@ -269,11 +277,12 @@ def home_page(s):
 {''.join(cards)}  </ul>
 
   <footer class="disco-foot">
+    <div class="foot-cols">
+{foot}    </div>
     <p class="credits">{s['outro']['credits']}</p>
   </footer>
 </main>
 
-<a class="made" href="https://espinoza.ru" target="_blank" rel="noopener">Проект от <span>espinoza.ru</span></a>
 <script src="shared/home.js"></script>
 </body>
 </html>

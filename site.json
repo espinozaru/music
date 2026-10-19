@@ -169,5 +169,31 @@
  "intro": {
   "eyebrow": "дискография",
   "text": "Я Денис Эспиноза, бренд-дизайнер. Эту музыку я сначала писал для себя — чтобы слушать за работой, в дороге и перед сном. А потом решил ею поделиться."
- }
+ },
+ "footer": [
+  {
+   "label": "Telegram",
+   "text": "@espinozadesign",
+   "url": "https://t.me/espinozadesign"
+  },
+  {
+   "label": "Личный сайт",
+   "text": "denis.espinoza.ru",
+   "url": "https://denis.espinoza.ru"
+  },
+  {
+   "label": "Студия",
+   "text": "espinoza.ru",
+   "url": "https://espinoza.ru"
+  },
+  {
+   "label": "Для проектов",
+   "text": "@espinozadenis",
+   "url": "https://t.me/espinozadenis",
+   "extra": {
+    "text": "+7 925 891 1980",
+    "url": "tel:+79258911980"
+   }
+  }
+ ]
 }

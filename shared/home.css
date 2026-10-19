@@ -51,8 +51,15 @@
 .disc .go { display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; opacity: .55; transition: opacity .4s, gap .4s; }
 .disc a:hover .go { opacity: 1; gap: 14px; }
 
-.disco-foot { text-align: center; padding: 0 24px 140px; }
-.disco-foot .credits { margin-top: 0; }
+/* pie: redes y contacto */
+.disco-foot { max-width: 1280px; margin: 0 auto; padding: 60px 40px 70px; border-top: 1px solid rgba(255, 255, 255, .1); }
+.foot-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
+.foot-col { display: flex; flex-direction: column; gap: 8px; }
+.foot-label { font-size: 10px; letter-spacing: .3em; text-transform: uppercase; color: var(--dim); opacity: .55; }
+.foot-col a { color: var(--text); text-decoration: none; font-size: 15px; opacity: .85; transition: opacity .3s; width: fit-content; }
+.foot-col a:hover { opacity: 1; text-decoration: underline; text-underline-offset: 4px; }
+.disco-foot .credits { margin-top: 50px; text-align: center; }
+@media (max-width: 700px) { .foot-cols { grid-template-columns: 1fr 1fr; gap: 28px 20px; } .disco-foot { padding: 50px 28px 60px; } }
 
 @media (max-width: 700px) {
   .discs { grid-template-columns: 1fr; padding: 70px 28px 110px; gap: 70px; }
@@ -63,6 +70,3 @@
 }
 @media (prefers-reduced-motion: reduce) { .vinyl { animation: none; } .disc { transition: none; opacity: 1; transform: none; } }
 
-/* la firma va al final de la página, no fija encima de los discos */
-.home { position: relative; }
-.home .made { position: absolute; bottom: 48px; }
