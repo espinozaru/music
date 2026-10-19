@@ -70,3 +70,6 @@
 }
 @media (prefers-reduced-motion: reduce) { .vinyl { animation: none; } .disc { transition: none; opacity: 1; transform: none; } }
 
+/* frase discreta de apoyo al final de la presentación */
+.intro-support { color: var(--text); text-decoration: underline; text-decoration-color: rgba(255, 255, 255, .35); text-underline-offset: 4px; transition: text-decoration-color .3s; }
+.intro-support:hover { text-decoration-color: rgba(255, 255, 255, .9); }

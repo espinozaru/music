@@ -335,7 +335,7 @@ def home_page(s):
 <main>
   <div class="intro">
     <h1 class="eyebrow">{e(s['intro']['eyebrow'])}</h1>
-    <p>{e(s['intro']['text'])}</p>
+    <p>{e(s['intro']['text'])}{f' <a class="intro-support" href="{e(s["support"])}" target="_blank" rel="noopener">Если музыка откликается — её можно поддержать.</a>' if s.get('support') else ''}</p>
   </div>
 
   <!-- Discos: funda + vinilo; al pasar el ratón el vinilo sale y el fondo pasa al paisaje del álbum -->
