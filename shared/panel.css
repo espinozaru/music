@@ -308,3 +308,8 @@
   .v2.ph-min .ph-albumbar { z-index: 3; }
   .v2.ph-min .ph-albsel::after { right: calc(100% + 46px); z-index: 3; }
 }
+/* si lo que suena es de otro álbum que el de la página, el panel proyecta una sombra (va «por su cuenta»); si coinciden, sin sombra */
+@media (min-width: 981px) {
+  .v2 .player.phone { transition: width .55s cubic-bezier(.4, 0, .2, 1), box-shadow .6s ease; }
+  .v2 .player.phone.other { box-shadow: -26px 0 60px rgba(0, 0, 0, .6), -2px 0 0 rgba(0, 0, 0, .25); }
+}
