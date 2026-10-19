@@ -263,3 +263,5 @@
   .v2 .ph-toggle { top: 20px; translate: none; height: 54px; }
   .v2.ph-min .ph-toggle { top: 26px; height: 50px; }
 }
+/* álbum sin audio aquí (Ella) con el panel visible: el botón de arriba quedaría encima del panel → fuera (abajo están los links) */
+@media (min-width: 981px) { .v2.noplay.has-panel .top-cta { display: none; } }
