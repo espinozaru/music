@@ -7,13 +7,12 @@
 .home .veil { background: radial-gradient(120% 90% at 50% 30%, rgba(8, 12, 22, .2), rgba(8, 12, 22, .85) 75%); }
 
 .home main { position: relative; z-index: 3; }
-.disco-hero { min-height: 62vh; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; text-align: center; padding: 120px 24px 70px; }
-.disco-hero .eyebrow { font-size: 11px; letter-spacing: .4em; text-transform: uppercase; color: var(--dim); opacity: .7; }
-.disco-hero h1 { font-family: 'Cormorant', Georgia, serif; font-weight: 500; font-size: clamp(56px, 10vw, 150px); letter-spacing: .08em; line-height: 1; margin: 18px 0 0; }
-.disco-hero .sub { margin-top: 26px; }
+/* cabecera del índice: solo el logo, centrado */
+.home-top { justify-content: center; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
 /* rejilla de discos */
-.discs { list-style: none; margin: 0 auto; padding: 0 40px 120px; max-width: 1280px;
+.discs { list-style: none; margin: 0 auto; padding: 150px 40px 120px; max-width: 1280px;
   display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 90px 70px; }
 .disc { opacity: 0; transform: translateY(40px); transition: opacity 1s ease, transform 1.2s cubic-bezier(.2, .7, .2, 1); }
 .disc.in { opacity: 1; transform: none; }
@@ -51,10 +50,9 @@
 .disco-foot .credits { margin-top: 0; }
 
 @media (max-width: 700px) {
-  .discs { grid-template-columns: 1fr; padding: 0 28px 110px; gap: 70px; }
+  .discs { grid-template-columns: 1fr; padding: 110px 28px 110px; gap: 70px; }
   .sleeve-box { width: 72%; }
   .vinyl-slide { transform: translateX(26%); } /* en el teléfono no hay ratón: el vinilo asoma más */
-  .disco-hero { min-height: 52vh; padding-bottom: 50px; }
 }
 @media (prefers-reduced-motion: reduce) { .vinyl { animation: none; } .disc { transition: none; opacity: 1; transform: none; } }
 

@@ -113,15 +113,34 @@ PLAYER = '''<!-- Player: barra lateral derecha plegable (en móvil, cápsula aba
 '''
 
 
-def switch_menu(slug, albums):
+def switch_menu(slug, albums, base='../'):
     out = []
     for al in albums:
         if not al.get('page'):
             continue
         cur = ' class="cur" aria-current="page"' if al['slug'] == slug else ''
-        out.append(f'        <a href="../{al["slug"]}/"{cur}><img src="../{e(al["cover"])}" alt="" width="40" height="40"><span>{e(al["title"])}<small>{e(al.get("kind", "альбом"))}</small></span></a>\n')
-    out.append('        <a href="../" class="all"><span>← Все альбомы</span></a>\n')
+        out.append(f'        <a href="{base}{al["slug"]}/"{cur}><img src="{base}{e(al["cover"])}" alt="" width="40" height="40"><span>{e(al["title"])}<small>{e(al.get("kind", "альбом"))}</small></span></a>\n')
+    if slug:  # en un álbum: volver al índice
+        out.append('        <a href="../" class="all"><span>← Все альбомы</span></a>\n')
     return ''.join(out)
+
+
+def brand(slug, albums, base):
+    """Cabecera de álbum: ← atrás · logo · ⇅ selector de álbumes"""
+    back = '<a class="hd-btn hd-back" href="../" aria-label="Все альбомы"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></a>'
+    logo = f'<img src="{base}shared/logo-white.png" alt="Espinoza" class="logo">'
+    if slug:
+        logo = f'<a href="../" class="logo-link" aria-label="Все альбомы">{logo}</a>'
+    return f'''  <div class="brand">
+    {back}
+    {logo}
+    <div class="hd-switch">
+      <button class="hd-btn" id="albSw" aria-label="Другие альбомы" aria-haspopup="true" aria-expanded="false"><svg viewBox="0 0 24 24"><path d="M8 9l4-4 4 4M8 15l4 4 4-4"/></svg></button>
+      <nav class="sw-menu" id="swMenu" aria-label="Альбомы">
+{switch_menu(slug, albums, base)}      </nav>
+    </div>
+  </div>
+'''
 
 
 def album_page(slug, a, albums):
@@ -168,16 +187,7 @@ def album_page(slug, a, albums):
 
 <header class="top">
   <!-- atrás · logo · selector para saltar a otro álbum -->
-  <div class="brand">
-    <a class="hd-btn hd-back" href="../" aria-label="Все альбомы"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></a>
-    <a href="../" class="logo-link" aria-label="Все альбомы"><img src="../shared/logo-white.png" alt="Espinoza" class="logo"></a>
-    <div class="hd-switch">
-      <button class="hd-btn" id="albSw" aria-label="Другие альбомы" aria-haspopup="true" aria-expanded="false"><svg viewBox="0 0 24 24"><path d="M8 9l4-4 4 4M8 15l4 4 4-4"/></svg></button>
-      <nav class="sw-menu" id="swMenu" aria-label="Альбомы">
-{switch_menu(slug, albums)}      </nav>
-    </div>
-  </div>
-  <div class="top-right">
+{brand(slug, albums, '../')}  <div class="top-right">
     <a class="top-cta" href="#listen">{SVG_PLAY}Слушать альбом</a>
   </div>
 </header>
@@ -204,6 +214,7 @@ def album_page(slug, a, albums):
 <script src="../shared/core.js"></script>
 <script src="../shared/player.js"></script>
 <script src="../shared/panel.js"></script>
+<script src="../shared/header.js"></script>
 </body>
 </html>
 '''
@@ -242,16 +253,12 @@ def home_page(s):
 <div class="veil"></div>
 <div class="grain"></div>
 
-<header class="top">
+<header class="top home-top">
   <img src="shared/logo-white.png" alt="Espinoza" class="logo">
 </header>
 
 <main>
-  <section class="disco-hero">
-    <div class="eyebrow">{e(h['eyebrow'])}</div>
-    <h1><span class="silver">{e(h['title'])}</span></h1>
-    <p class="sub">{e(h['sub'])}</p>
-  </section>
+  <h1 class="sr-only">Espinoza — дискография</h1>
 
   <!-- Discos: funda + vinilo; al pasar el ratón el vinilo sale y el fondo pasa al paisaje del álbum -->
   <ul class="discs">
