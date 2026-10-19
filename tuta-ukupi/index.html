@@ -8,9 +8,9 @@
 <link rel="preload" href="../shared/fonts/NotoSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../shared/fonts/Unbounded-Variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/yaku.webp" as="image">
-<link rel="stylesheet" href="../shared/style.css?v=55ab130a">
-<link rel="stylesheet" href="../shared/panel.css?v=55ab130a">
-<link rel="stylesheet" href="../shared/home.css?v=55ab130a">
+<link rel="stylesheet" href="../shared/style.css?v=500d886b">
+<link rel="stylesheet" href="../shared/panel.css?v=500d886b">
+<link rel="stylesheet" href="../shared/home.css?v=500d886b">
 </head>
 <body class="v2 unb">
 <!-- fijo (data-keep): no cambia al navegar entre páginas -->
@@ -207,7 +207,7 @@
   </div>
   <!-- como en una app: repetir la lista y temporizador de apagado (10 · 20 · 30 мин) -->
   <div class="ph-tools">
-    <button class="ph-tool" id="pLoop" aria-pressed="false" title="Повтор: после последнего трека — снова первый"><svg viewBox="0 0 24 24"><path d="M17 2l3 3-3 3M4 11V9a4 4 0 0 1 4-4h12M7 22l-3-3 3-3M20 13v2a4 4 0 0 1-4 4H4"/></svg><span>повтор</span></button>
+    <button class="ph-tool" id="pLoop" aria-pressed="false" title="Повтор: выкл · альбом · трек"><svg viewBox="0 0 24 24"><path d="M17 2l3 3-3 3M4 11V9a4 4 0 0 1 4-4h12M7 22l-3-3 3-3M20 13v2a4 4 0 0 1-4 4H4"/><text class="one" x="12" y="15.5" text-anchor="middle">1</text></svg><span>повтор</span></button>
     <button class="ph-tool" id="pTimer" aria-pressed="false" title="Таймер сна"><svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg><span id="pTimerLbl">таймер</span></button>
     <div class="share-wrap">
       <button class="ph-tool" id="pShare" aria-haspopup="true" aria-expanded="false" title="Поделиться"><svg viewBox="0 0 24 24"><path d="M12 15V3M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg><span>поделиться</span></button>
@@ -224,6 +224,6 @@
 </aside>
 
 <script>window.SITE = {"type": "album", "albums": [{"slug": "zen", "title": "Тишина внутри", "kind": "медитации", "cover": "covers/zen.webp"}, {"slug": "tuta-ukupi", "title": "Tuta Ukupi", "kind": "альбом", "cover": "covers/tuta-ukupi.webp"}, {"slug": "andes-nights", "title": "Andes Nights", "kind": "альбом", "cover": "covers/andes-nights.webp"}, {"slug": "neural-lullabies", "title": "Neural Lullabies", "kind": "альбом", "cover": "covers/neural-lullabies.webp"}, {"slug": "rany-na-bumage", "title": "Раны на бумаге", "kind": "альбом", "cover": "covers/rany-na-bumage.webp"}, {"slug": "ella", "title": "Ella", "kind": "альбом", "cover": "covers/ella.webp"}, {"slug": "2804", "title": "2804", "kind": "сингл", "cover": "covers/2804.webp"}], "still": true, "first": "yaku", "items": [{"n": "01", "t": "Wayra Ukupi", "tag": "доступно"}, {"n": "02", "t": "Yaku Ukupi", "tag": "доступно"}, {"n": "03", "t": "Samay Ukupi", "tag": "доступно"}, {"n": "04", "t": "Nina Ukupi", "tag": ""}, {"n": "05", "t": "Sonqo Ukupi", "tag": ""}, {"n": "06", "t": "Killa Ukupi", "tag": ""}, {"n": "07", "t": "Yuyay Ukupi", "tag": ""}, {"n": "08", "t": "Apu Ukupi", "tag": ""}, {"n": "09", "t": "Intip Churinkuna", "tag": ""}], "album": {"slug": "tuta-ukupi", "title": "Tuta Ukupi", "artist": "Espinoza", "tracks": [{"n": "01", "t": "Wayra Ukupi", "p": "Wayra — ветер. Раствориться в тумане", "bg": "wayra", "d": 384.8, "free": true}, {"n": "02", "t": "Yaku Ukupi", "p": "Yaku — вода. Тихое течение внутри ночи", "bg": "yaku", "d": 362.4, "free": true}, {"n": "03", "t": "Samay Ukupi", "p": "Samay — дыхание. Покой высокогорья", "bg": "samay", "d": 319.2, "free": true}, {"n": "04", "t": "Nina Ukupi", "p": "Nina — огонь. Тепло костра и чаранго", "bg": "nina", "d": 367.6, "free": false}, {"n": "05", "t": "Sonqo Ukupi", "p": "Sonqo — сердце. То, что бьётся внутри", "bg": "sonqo", "d": 408, "free": false}, {"n": "06", "t": "Killa Ukupi", "p": "Killa — луна. Каменная тропа в лунном свете", "bg": "killa", "d": 397, "free": false}, {"n": "07", "t": "Yuyay Ukupi", "p": "Yuyay — память. Мысли, которые возвращаются", "bg": "yuyay", "d": 362, "free": false}, {"n": "08", "t": "Apu Ukupi", "p": "Apu — дух горы. Мачу-Пикчу над облаками", "bg": "apu", "d": 380, "free": false}, {"n": "09", "t": "Intip Churinkuna", "p": "Дети солнца. Закат над древними руинами", "bg": "inti", "d": 376, "free": false}]}};</script>
-<script src="../shared/app.js?v=55ab130a" data-keep></script>
+<script src="../shared/app.js?v=500d886b" data-keep></script>
 </body>
 </html>

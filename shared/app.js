@@ -409,7 +409,7 @@ void main(){
   }
   function next(auto) {
     if (idx < FREE.length - 1) playIndex(idx + 1);
-    else if (auto === true && !loopOn) showEnd();
+    else if (auto === true && loopMode !== 'all') showEnd();
     else playIndex(0);
   }
   function prev() { if (audio.currentTime > 5 || idx <= 0) { audio.currentTime = 0; return; } playIndex(idx - 1); }
@@ -488,7 +488,11 @@ void main(){
     $('pCur').textContent = fmt(audio.currentTime);
     if (audio.currentTime - lastSave > 5 || audio.currentTime < lastSave) { lastSave = audio.currentTime; store.set(FREE[idx].n, audio.currentTime); }
   });
-  audio.addEventListener('ended', () => { store.set(FREE[idx].n, 0); next(true); });
+  audio.addEventListener('ended', () => {
+    store.set(FREE[idx].n, 0);
+    if (loopMode === 'one') { audio.currentTime = 0; play(); return; } // la misma canción otra vez
+    next(true);
+  });
   audio.addEventListener('error', setError);
   pPlay.addEventListener('click', toggle);
   $('pNext').addEventListener('click', () => next());
@@ -556,10 +560,20 @@ void main(){
   addEventListener('pagehide', () => { if (Q && idx >= 0) store.set(FREE[idx].n, audio.currentTime); });
 
   // repetir + temporizador
-  let loopOn = prefs.get('espinoza-loop') === '1';
+  // repetir, como en Yandex: apagado → todo el álbum → una canción (cada clic pasa al siguiente)
+  const LOOP = {off: 'повтор', all: 'повтор альбома', one: 'повтор трека'};
+  let loopMode = {1: 'all', all: 'all', one: 'one'}[prefs.get('espinoza-loop')] || 'off';
   const pLoop = $('pLoop'), pTimer = $('pTimer'), pTimerLbl = $('pTimerLbl');
-  const showLoop = () => pLoop.setAttribute('aria-pressed', String(loopOn));
-  pLoop.addEventListener('click', () => { loopOn = !loopOn; prefs.set('espinoza-loop', loopOn ? '1' : '0'); showLoop(); });
+  const showLoop = () => {
+    pLoop.setAttribute('aria-pressed', String(loopMode !== 'off'));
+    pLoop.dataset.mode = loopMode;
+    pLoop.querySelector('span').textContent = LOOP[loopMode];
+  };
+  pLoop.addEventListener('click', () => {
+    loopMode = {off: 'all', all: 'one', one: 'off'}[loopMode];
+    prefs.set('espinoza-loop', loopMode);
+    showLoop();
+  });
   showLoop();
   const STEPS = [10, 20, 30];
   let timerEnd = 0, timerStep = -1, timerTick = 0;

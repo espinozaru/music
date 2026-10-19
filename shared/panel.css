@@ -266,3 +266,7 @@
 }
 /* álbum sin audio aquí (Ella) con el panel visible: el botón de arriba quedaría encima del panel → fuera (abajo están los links) */
 @media (min-width: 981px) { .v2.noplay.has-panel .top-cta { display: none; } }
+
+/* repetir: el «1» dentro del icono solo en «повтор трека» */
+.ph-tool .one { display: none; font: 600 8px/1 'Noto Sans Web', sans-serif; fill: currentColor; stroke: none; }
+.ph-tool[data-mode="one"] .one { display: inline; }

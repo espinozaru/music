@@ -8,9 +8,9 @@
 <link rel="preload" href="../shared/fonts/NotoSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../shared/fonts/CormorantGaramond-Upright-Variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/song1.webp" as="image">
-<link rel="stylesheet" href="../shared/style.css?v=55ab130a">
-<link rel="stylesheet" href="../shared/panel.css?v=55ab130a">
-<link rel="stylesheet" href="../shared/home.css?v=55ab130a">
+<link rel="stylesheet" href="../shared/style.css?v=500d886b">
+<link rel="stylesheet" href="../shared/panel.css?v=500d886b">
+<link rel="stylesheet" href="../shared/home.css?v=500d886b">
 </head>
 <body class="v2">
 <!-- fijo (data-keep): no cambia al navegar entre páginas -->
@@ -226,7 +226,7 @@
   </div>
   <!-- como en una app: repetir la lista y temporizador de apagado (10 · 20 · 30 мин) -->
   <div class="ph-tools">
-    <button class="ph-tool" id="pLoop" aria-pressed="false" title="Повтор: после последнего трека — снова первый"><svg viewBox="0 0 24 24"><path d="M17 2l3 3-3 3M4 11V9a4 4 0 0 1 4-4h12M7 22l-3-3 3-3M20 13v2a4 4 0 0 1-4 4H4"/></svg><span>повтор</span></button>
+    <button class="ph-tool" id="pLoop" aria-pressed="false" title="Повтор: выкл · альбом · трек"><svg viewBox="0 0 24 24"><path d="M17 2l3 3-3 3M4 11V9a4 4 0 0 1 4-4h12M7 22l-3-3 3-3M20 13v2a4 4 0 0 1-4 4H4"/><text class="one" x="12" y="15.5" text-anchor="middle">1</text></svg><span>повтор</span></button>
     <button class="ph-tool" id="pTimer" aria-pressed="false" title="Таймер сна"><svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg><span id="pTimerLbl">таймер</span></button>
     <div class="share-wrap">
       <button class="ph-tool" id="pShare" aria-haspopup="true" aria-expanded="false" title="Поделиться"><svg viewBox="0 0 24 24"><path d="M12 15V3M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg><span>поделиться</span></button>
@@ -243,6 +243,6 @@
 </aside>
 
 <script>window.SITE = {"type": "album", "albums": [{"slug": "zen", "title": "Тишина внутри", "kind": "медитации", "cover": "covers/zen.webp"}, {"slug": "tuta-ukupi", "title": "Tuta Ukupi", "kind": "альбом", "cover": "covers/tuta-ukupi.webp"}, {"slug": "andes-nights", "title": "Andes Nights", "kind": "альбом", "cover": "covers/andes-nights.webp"}, {"slug": "neural-lullabies", "title": "Neural Lullabies", "kind": "альбом", "cover": "covers/neural-lullabies.webp"}, {"slug": "rany-na-bumage", "title": "Раны на бумаге", "kind": "альбом", "cover": "covers/rany-na-bumage.webp"}, {"slug": "ella", "title": "Ella", "kind": "альбом", "cover": "covers/ella.webp"}, {"slug": "2804", "title": "2804", "kind": "сингл", "cover": "covers/2804.webp"}], "still": false, "first": "song1", "items": [{"n": "01", "t": "Глубокое расслабление тела", "tag": "доступно"}, {"n": "02", "t": "Успокоить дыхание и мысли", "tag": "доступно"}, {"n": "03", "t": "Снять тревогу и сильные эмоции", "tag": "доступно"}, {"n": "04", "t": "Утреннее пробуждение и ясность", "tag": ""}, {"n": "05", "t": "Глубокий фокус перед работой", "tag": ""}, {"n": "06", "t": "Спокойная уверенность перед важным событием", "tag": ""}, {"n": "07", "t": "Восстановить энергию после тяжёлого дня", "tag": ""}, {"n": "08", "t": "Не бороться с собой", "tag": ""}, {"n": "09", "t": "Глубокое расслабление перед сном", "tag": ""}, {"n": "10", "t": "Перестать думать перед сном", "tag": ""}, {"n": "11", "t": "Кто наблюдает?", "tag": ""}], "album": {"slug": "zen", "title": "Тишина внутри", "artist": "Espinoza Meditation", "tracks": [{"n": "01", "t": "Глубокое расслабление тела", "p": "Отпусти напряжение — шаг за шагом", "bg": "song1", "d": 359.6, "free": true}, {"n": "02", "t": "Успокоить дыхание и мысли", "p": "Древняя практика «Со Хам» для тихого ума", "bg": "song2", "d": 344.4, "free": true}, {"n": "03", "t": "Снять тревогу и сильные эмоции", "p": "Вернуться в тело, когда эмоции слишком сильные", "bg": "song4", "d": 344.4, "free": true}, {"n": "04", "t": "Утреннее пробуждение и ясность", "p": "Ясная голова и спокойный старт дня", "bg": "song5", "d": 339.6, "free": false}, {"n": "05", "t": "Глубокий фокус перед работой", "p": "Одна задача. Полное внимание", "bg": "song5new", "d": 339.6, "free": false}, {"n": "06", "t": "Спокойная уверенность перед важным событием", "p": "Перед встречей, выступлением, важным разговором", "bg": "song6forest", "d": 338.8, "free": false}, {"n": "07", "t": "Восстановить энергию после тяжёлого дня", "p": "Стряхнуть тяжёлый день и вернуть силы", "bg": "song7new", "d": 339.6, "free": false}, {"n": "08", "t": "Не бороться с собой", "p": "Говорить с собой как с близким человеком", "bg": "song9", "d": 339.9, "free": false}, {"n": "09", "t": "Глубокое расслабление перед сном", "p": "Йога-нидра для мягкого засыпания", "bg": "song9new", "d": 339.6, "free": false}, {"n": "10", "t": "Перестать думать перед сном", "p": "Когда мысли не дают уснуть", "bg": "song11", "d": 339.4, "free": false}, {"n": "11", "t": "Кто наблюдает?", "p": "Глубокая медитация «нети, нети»", "bg": "song12", "d": 313.4, "free": false}]}};</script>
-<script src="../shared/app.js?v=55ab130a" data-keep></script>
+<script src="../shared/app.js?v=500d886b" data-keep></script>
 </body>
 </html>
