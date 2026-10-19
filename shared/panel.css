@@ -230,7 +230,9 @@
   .v2 .ph-albsel:hover, .v2 .ph-albsel[aria-expanded="true"] { background: rgba(255, 255, 255, .11); border-color: rgba(255, 255, 255, .3); }
   .v2 .ph-albsel svg { flex: none; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
   /* portada del álbum en el selector, con ⇅ en la esquina */
-  .v2 .pa-cover { position: relative; flex: none; width: 34px; height: 34px; border-radius: 8px; background: #222 center / cover; box-shadow: 0 0 0 1px rgba(255, 255, 255, .15); }
+  .v2 .pa-cover { position: relative; flex: none; width: 34px; height: 34px; border-radius: 8px; background: #222 center / cover; transition: box-shadow .4s; }
+  /* línea alrededor solo si lo que suena es de otro álbum que el de la página; sin línea si coincide */
+  .v2 .player.other .pa-cover { box-shadow: 0 0 0 1.5px rgba(255, 255, 255, .75); }
   .v2 .pa-badge { position: absolute; right: -5px; bottom: -5px; width: 16px !important; height: 16px !important; padding: 2px; border-radius: 50%;
     background: #fff; color: #0a0f19; stroke-width: 2.4 !important; box-shadow: 0 2px 6px rgba(0, 0, 0, .4); display: none; }
   .v2 .pa-chev { width: 16px; height: 16px; opacity: .7; }
