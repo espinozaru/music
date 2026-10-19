@@ -239,6 +239,8 @@
   .v2 .pa-k { font-size: 9px; letter-spacing: .3em; text-transform: uppercase; color: var(--dim); opacity: .7; }
   .v2 .pa-t { font-family: 'Unbounded', 'Noto Sans Web', sans-serif; font-weight: 300; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .v2 .pa-l { opacity: .55; }
+  .v2 .pa-k .k-on, .v2 .playing .pa-k .k-off { display: none; }  /* «сейчас играет» solo mientras suena; en pausa «в плеере» */
+  .v2 .playing .pa-k .k-on { display: inline; }
   .v2 .ph-albumbar .sw-menu { left: auto; right: 0; top: calc(100% + 8px); z-index: 6; }
   /* plegado: solo el ⇅ arriba de la franja; la lista de álbumes se abre hacia la izquierda */
   .v2.ph-min .ph-albumbar { margin: 0 0 16px; justify-content: center; }
