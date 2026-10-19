@@ -456,7 +456,7 @@ void main(){
     const own = !!pageAlbum();
     const show = own || (Q && started());
     document.body.classList.toggle('has-panel', !!show);
-    if (show && wide.matches) player.classList.add('show');
+    if (show) player.classList.add('show'); // también en el móvil: el mini-player abajo está siempre que hay algo en el player
     if (!show) player.classList.remove('show');
     document.body.classList.toggle('ph-min', prefs.get(MINKEY) === '1'); // abierto o plegado: lo que elegiste, en todas las páginas
   }
@@ -603,9 +603,40 @@ void main(){
       setTimeout(() => { player.classList.remove('ph-fade'); busy = false; dispatchEvent(new Event('resize')); }, 560);
     }, 200);
   }
-  toggleBtn.addEventListener('click', (e) => { e.stopPropagation(); setMin(!document.body.classList.contains('ph-min')); });
+  // MÓVIL: ↑ abre la tarjeta desde abajo con el player completo; ↓, tocar fuera o deslizar hacia abajo la cierra
+  const setSheet = (open) => {
+    document.body.classList.toggle('sheet-open', open);
+    toggleBtn.setAttribute('aria-label', open ? 'Свернуть плеер' : 'Развернуть плеер');
+    player.style.transform = '';
+  };
+  toggleBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (!wide.matches) { setSheet(!document.body.classList.contains('sheet-open')); return; }
+    setMin(!document.body.classList.contains('ph-min'));
+  });
   player.addEventListener('click', (e) => {
-    if (document.body.classList.contains('ph-min') && !e.target.closest('button, input, a, .p-bar, nav')) setMin(false);
+    if (e.target.closest('button, input, a, .p-bar, nav, li')) return;
+    if (!wide.matches) { if (!document.body.classList.contains('sheet-open')) setSheet(true); return; }
+    if (document.body.classList.contains('ph-min')) setMin(false);
+  });
+  document.addEventListener('click', (e) => {
+    if (document.body.classList.contains('sheet-open') && !e.target.closest('#player')) setSheet(false);
+  });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setSheet(false); });
+  wide.addEventListener('change', () => setSheet(false));
+  // deslizar hacia abajo desde arriba de la tarjeta
+  let dragY = null;
+  player.addEventListener('touchstart', (e) => { if (document.body.classList.contains('sheet-open') && player.scrollTop <= 0) dragY = e.touches[0].clientY; }, {passive: true});
+  player.addEventListener('touchmove', (e) => {
+    if (dragY === null) return;
+    const dy = e.touches[0].clientY - dragY;
+    if (dy > 0) player.style.transform = `translateY(${dy}px)`;
+  }, {passive: true});
+  player.addEventListener('touchend', (e) => {
+    if (dragY === null) return;
+    const dy = e.changedTouches[0].clientY - dragY;
+    dragY = null;
+    if (dy > 90) setSheet(false); else player.style.transform = '';
   });
   // rueda dentro del panel: solo desplaza la lista
   player.addEventListener('wheel', (e) => {
@@ -777,7 +808,7 @@ void main(){
       return;
     }
     document.querySelectorAll('.sw-menu.open').forEach((m) => m.classList.remove('open'));
-    document.body.classList.remove('m-open');
+    document.body.classList.remove('m-open', 'sheet-open');
     go(u.href);
   });
   let lastPath = location.pathname;
