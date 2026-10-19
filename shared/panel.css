@@ -220,7 +220,6 @@
   .v2.noplay.has-panel section { padding-right: calc(var(--panel-w) + var(--panel-gap) * 2.5); }
   .v2.noplay.has-panel.ph-min section { padding-right: calc(var(--strip-w) + 40px); }
   /* índice: el panel se superpone al contenido (no lo empuja ni lo estrecha) */
-  .has-panel .top .hd-switch { display: none; } /* el selector de álbumes está dentro del panel */
   .v2 .ph-toggle[hidden] { display: none; }
 
   /* selector de álbum arriba del panel: recuadro tipo «select» (disco · альбом / título · ⇅) */

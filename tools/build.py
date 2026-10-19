@@ -156,7 +156,7 @@ PLAYER = '''<!-- Player: barra lateral derecha plegable (en móvil, cápsula aba
 
 def player_html(albums, base):
     items = ''.join(f'      <a href="{base}{al["slug"]}/" data-slug="{al["slug"]}"><img src="{base}{e(al["cover"])}" alt="" width="40" height="40"><span>{e(al["title"])}<small>{e(al.get("kind", "альбом"))}</small></span></a>\n'
-                    for al in albums if al.get('page'))
+                    for al in albums if al.get('page') and al.get('playable'))  # en el player solo los que suenan aquí
     return PLAYER.replace('{albums}', items)
 
 
@@ -346,6 +346,9 @@ def home_page(s):
 
 def main():
     s = json.load(open(os.path.join(ROOT, 'site.json'), encoding='utf-8'))
+    for al in s['albums']:  # ¿tiene pistas que suenan aquí? (para el selector del player)
+        p = os.path.join(ROOT, al['slug'], 'album.json')
+        al['playable'] = bool(al.get('page') and os.path.exists(p) and json.load(open(p, encoding='utf-8')).get('free', 3) > 0)
     for al in s['albums']:
         p = os.path.join(ROOT, al['slug'], 'album.json')
         if al.get('page') and os.path.exists(p):
