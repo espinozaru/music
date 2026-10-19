@@ -257,3 +257,9 @@
   .v2.ph-min .ph-albumbar .sw-menu { right: calc(100% + 14px); top: 0; }
 }
 .ph-albumbar { display: none; }
+
+/* pestaña de plegar: arriba, a la altura del selector de álbum y con su mismo alto */
+@media (min-width: 981px) {
+  .v2 .ph-toggle { top: 20px; translate: none; height: 54px; }
+  .v2.ph-min .ph-toggle { top: 26px; height: 50px; }
+}
