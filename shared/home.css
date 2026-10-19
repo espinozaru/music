@@ -73,3 +73,10 @@
 /* frase discreta de apoyo al final de la presentación */
 .intro-support { color: var(--text); text-decoration: underline; text-decoration-color: rgba(255, 255, 255, .35); text-underline-offset: 4px; transition: text-decoration-color .3s; }
 .intro-support:hover { text-decoration-color: rgba(255, 255, 255, .9); }
+/* QR de apoyo: solo en escritorio (en el móvil se pulsa el botón) */
+.support-qr { display: none; }
+@media (min-width: 981px) {
+  .disco-foot .support { display: flex; align-items: center; justify-content: center; gap: 28px; text-align: left; }
+  .support-qr { display: block; width: 140px; height: 140px; border-radius: 14px; background: #fff; padding: 6px; image-rendering: pixelated; }
+  .disco-foot .support-txt p { margin-bottom: 14px; }
+}

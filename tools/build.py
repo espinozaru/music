@@ -343,7 +343,7 @@ def home_page(s):
 {''.join(cards)}  </ul>
 
   <footer class="disco-foot">
-    {f'<div class="support"><p>Если музыка откликается — можно поддержать</p><a class="support-btn" href="{e(s["support"])}" target="_blank" rel="noopener">Поддержать <span aria-hidden="true">☕</span></a></div>' if s.get('support') else ''}
+    {f'<div class="support"><img class="support-qr" src="shared/support-qr.png" alt="QR — поддержать" width="140" height="140" loading="lazy"><div class="support-txt"><p>Если музыка откликается — можно поддержать</p><a class="support-btn" href="{e(s["support"])}" target="_blank" rel="noopener">Поддержать <span aria-hidden="true">☕</span></a></div></div>' if s.get('support') else ''}
     <div class="foot-cols">
 {foot}    </div>
     <p class="credits">{s['outro']['credits']}</p>
