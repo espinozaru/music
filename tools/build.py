@@ -41,8 +41,9 @@ def menus(label):
 '''
 
 
-def hero(h, bg_attr):
+def hero(h, bg_attr, note=''):
     words = h['words']
+    note_html = f'    <p class="hero-note fx" data-split="words" data-delay="2.3">{e(note)}</p>\n' if note else ''
     if len(words) == 1:  # una sola palabra (Ella, 2804): solo la grande, centrada
         return f'''  <!-- Portada: una palabra grande que entra por la derecha -->
   <section class="hero" id="top" data-bg="{e(bg_attr)}" data-horizon="{h.get('horizon', 0.67)}">
@@ -50,7 +51,7 @@ def hero(h, bg_attr):
       <span class="w w2 fx" data-fx="hero-r" data-delay="0.4"><span class="silver">{e(words[0])}</span></span>
     </h1>
     <p class="sub fx" data-split="words" data-delay="1.6">{e(h['sub'])}</p>
-    <div class="scroll-hint fx" data-delay="2.4"><span></span>{e(h.get('hint', 'листай медленно'))}</div>
+{note_html}    <div class="scroll-hint fx" data-delay="2.8"><span></span>{e(h.get('hint', 'листай медленно'))}</div>
   </section>
 '''
     w1, w2 = words
@@ -61,7 +62,7 @@ def hero(h, bg_attr):
       <span class="w w2 fx" data-fx="hero-r" data-delay="1.1"><span class="silver">{e(w2)}</span></span>
     </h1>
     <p class="sub fx" data-split="words" data-delay="2.0">{e(h['sub'])}</p>
-    <div class="scroll-hint fx" data-delay="2.8"><span></span>{e(h.get('hint', 'листай медленно'))}</div>
+{note_html}    <div class="scroll-hint fx" data-delay="3.2"><span></span>{e(h.get('hint', 'листай медленно'))}</div>
   </section>
 '''
 
@@ -215,8 +216,7 @@ def album_page(slug, a, albums):
 
 {menus(a.get('menuLabel', 'Треки'))}
 <main>
-{hero(a['hero'], a['hero']['bg'])}
-{manifest(a['manifest'], a['manifest']['bg'])}
+{hero(a['hero'], a['hero']['bg'], ' '.join(a['manifest']['lines'] + [a['manifest']['big']]) if a.get('manifest') else '')}
   <!-- Pistas: cada una cambia el paisaje de fondo -->
 {''.join(secs)}
   <!-- Escuchar -->

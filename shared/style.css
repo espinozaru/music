@@ -315,3 +315,21 @@ body:has(.player.show) .m-btn { bottom: calc(112px + env(safe-area-inset-bottom)
 .track .tlinks a:first-of-type { border-color: rgba(255, 255, 255, .45); }
 .stair.one { align-items: center; }
 .stair.one .w2 { align-self: center; }
+
+/* portada: el texto que antes era un bloque aparte («manifiesto») va aquí, debajo del subtítulo */
+.hero-note { margin: 22px auto 0; max-width: 46ch; font-size: clamp(14px, 1.25vw, 18px); line-height: 1.6; color: #dfe3e7; opacity: .85; }
+
+/* scroll imantado (scroll snap): al soltar, la página se centra en el bloque más cercano */
+html:has(body.v2) { scroll-snap-type: y mandatory; }
+.v2 main > section { scroll-snap-align: center; scroll-snap-stop: normal; }
+.v2 .track { min-height: 100vh; }
+/* móvil: bloques compactos, sin grandes vacíos entre canciones (el imán sigue centrando cada uno) */
+@media (max-width: 980px) {
+  .v2 main > section { padding: 56px 22px 96px; }
+  .v2 .track { min-height: 72svh; }
+  .v2 .hero { min-height: 100svh; }
+  .v2 .listen { min-height: 80svh; }
+  .v2 .track .play { margin-top: 22px; }
+  .v2 .track .tlinks { margin-top: 16px; }
+}
+@media (prefers-reduced-motion: reduce) { html:has(body.v2) { scroll-snap-type: none; } }
