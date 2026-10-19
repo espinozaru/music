@@ -354,7 +354,6 @@ void main(){
     const meta = (SITE.albums || []).find((x) => x.slug === al.slug);
     if (meta) swapBg($('pAlbCov'), new URL(meta.cover, ROOT).href);
     $('pAlbSw').dataset.tip = al.title;
-    $('pAlbSw').title = 'Сменить альбом';
     $('pAlbList').querySelectorAll('a').forEach((a) => a.classList.toggle('cur', a.dataset.slug === al.slug));
     $('phAlbum').innerHTML = `${esc(al.title)} <span>${FREE.length} из ${al.tracks.length} доступно</span>`;
     list.innerHTML = al.tracks.map((tr) => `<li class="${tr.free ? 'free' : 'locked'}" data-n="${tr.n}">

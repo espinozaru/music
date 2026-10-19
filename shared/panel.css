@@ -303,3 +303,8 @@
   .v2.ph-min .ph-art::after { display: none; }
 }
 @media (min-width: 981px) { .v2 .ph-tool { white-space: nowrap; flex: none; } .v2 .ph-tools { flex-wrap: nowrap; } } /* nunca en dos líneas */
+@media (min-width: 981px) {
+  /* etiqueta «Сменить альбом» del player plegado: por delante de la pestaña de plegar y a su izquierda */
+  .v2.ph-min .ph-albumbar { z-index: 3; }
+  .v2.ph-min .ph-albsel::after { right: calc(100% + 46px); z-index: 3; }
+}
