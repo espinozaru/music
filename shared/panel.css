@@ -226,17 +226,25 @@
   .has-panel .top .hd-switch { display: none; } /* el selector de álbumes está dentro del panel */
   .v2 .ph-toggle[hidden] { display: none; }
 
-  /* barra del álbum que suena, arriba del panel */
-  .v2 .ph-albumbar { display: flex; align-items: center; gap: 6px; margin: -6px 0 14px; position: relative; }
-  .v2 .ph-alb { flex: 1; min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 2px; text-align: left; color: var(--text); padding: 4px 8px; margin-left: -8px; border-radius: 12px; transition: background .3s; }
-  .v2 .ph-alb:hover { background: rgba(255, 255, 255, .07); }
-  .v2 .pa-k { font-size: 9px; letter-spacing: .3em; text-transform: uppercase; color: var(--dim); opacity: 0; max-height: 0; transition: opacity .4s, max-height .4s; }
-  .v2 .player.other .pa-k { opacity: .7; max-height: 14px; } /* «сейчас играет» solo cuando suena otro álbum */
-  .v2 .pa-t { font-family: 'Unbounded', 'Noto Sans Web', sans-serif; font-weight: 300; font-size: 15px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+  /* selector de álbum arriba del panel: recuadro tipo «select» (disco · альбом / título · ⇅) */
+  .v2 .ph-albumbar { display: flex; margin: -6px 0 14px; position: relative; }
+  .v2 .ph-albsel { flex: 1; min-width: 0; display: flex; align-items: center; gap: 12px; padding: 9px 12px 9px 10px; border-radius: 14px; color: var(--text); text-align: left;
+    background: rgba(255, 255, 255, .06); border: 1px solid rgba(255, 255, 255, .14); transition: background .3s, border-color .3s; cursor: pointer; }
+  .v2 .ph-albsel:hover, .v2 .ph-albsel[aria-expanded="true"] { background: rgba(255, 255, 255, .11); border-color: rgba(255, 255, 255, .3); }
+  .v2 .ph-albsel svg { flex: none; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+  .v2 .pa-disc { width: 22px; height: 22px; opacity: .8; }
+  .v2 .playing .pa-disc { animation: spin 6s linear infinite; }
+  .v2 .pa-chev { width: 16px; height: 16px; opacity: .7; }
+  .v2 .pa-txt { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+  .v2 .pa-k { font-size: 9px; letter-spacing: .3em; text-transform: uppercase; color: var(--dim); opacity: .7; }
+  .v2 .pa-k .k-now, .v2 .player.other .pa-k .k-al { display: none; }
+  .v2 .player.other .pa-k .k-now { display: inline; } /* «сейчас играет» cuando suena otro álbum que el de la página */
+  .v2 .pa-t { font-family: 'Unbounded', 'Noto Sans Web', sans-serif; font-weight: 300; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .v2 .ph-albumbar .sw-menu { left: auto; right: 0; top: calc(100% + 8px); z-index: 6; }
   /* plegado: solo el ⇅ arriba de la franja; la lista de álbumes se abre hacia la izquierda */
   .v2.ph-min .ph-albumbar { margin: 0 0 16px; justify-content: center; }
-  .v2.ph-min .ph-alb { display: none; }
+  .v2.ph-min .ph-albsel { flex: none; width: 50px; height: 50px; padding: 0; justify-content: center; gap: 0; }
+  .v2.ph-min .ph-albsel .pa-txt, .v2.ph-min .ph-albsel .pa-chev { display: none; }
   .v2.ph-min .ph-albumbar .sw-menu { right: calc(100% + 14px); top: 0; }
 }
 .ph-albumbar { display: none; }

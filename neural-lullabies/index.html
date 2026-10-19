@@ -180,8 +180,11 @@
   <button class="ph-toggle" id="phToggle" aria-label="Свернуть плеер" aria-expanded="true"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
   <!-- álbum que suena (clic = ir a su página) · ⇅ otros álbumes -->
   <div class="ph-albumbar hd-switch">
-    <button class="ph-alb" id="pAlb"><span class="pa-k">сейчас играет</span><span class="pa-t" id="pAlbT"></span></button>
-    <button class="hd-btn" id="pAlbSw" aria-label="Другие альбомы" aria-haspopup="true" aria-expanded="false"><svg viewBox="0 0 24 24"><path d="M8 9l4-4 4 4M8 15l4 4 4-4"/></svg></button>
+    <button class="ph-albsel" id="pAlbSw" aria-label="Выбрать альбом" aria-haspopup="true" aria-expanded="false">
+      <svg class="pa-disc" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.5"/><path d="M12 6.5a5.5 5.5 0 0 0-5.5 5.5"/></svg>
+      <span class="pa-txt"><span class="pa-k"><span class="k-al">альбом</span><span class="k-now">сейчас играет</span></span><span class="pa-t" id="pAlbT"></span></span>
+      <svg class="pa-chev" viewBox="0 0 24 24"><path d="M8 9l4-4 4 4M8 15l4 4 4-4"/></svg>
+    </button>
     <nav class="sw-menu" id="pAlbList" aria-label="Альбомы">
       <a href="../zen/" data-slug="zen"><img src="../covers/zen.webp" alt="" width="40" height="40"><span>Тишина внутри<small>медитации</small></span></a>
       <a href="../tuta-ukupi/" data-slug="tuta-ukupi"><img src="../covers/tuta-ukupi.webp" alt="" width="40" height="40"><span>Tuta Ukupi<small>альбом</small></span></a>

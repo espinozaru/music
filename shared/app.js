@@ -592,11 +592,10 @@ void main(){
     e.preventDefault();
   }, {passive: false});
 
-  // selector de álbumes dentro del panel (escritorio): el título es «lo que suena»; ⇅ abre la lista de álbumes
+  // selector de álbumes dentro del panel (escritorio): un recuadro «альбом · título ⇅» que abre la lista de álbumes
   // la lista de álbumes del panel vive entre páginas: sus enlaces e imágenes, absolutos
   $('pAlbList').querySelectorAll('a').forEach((a) => { a.href = ROOT + a.dataset.slug + '/'; const im = a.querySelector('img'); im.src = im.src; });
   $('pAlbSw').addEventListener('click', (e) => { e.stopPropagation(); const m = $('pAlbList'), o = !m.classList.contains('open'); m.classList.toggle('open', o); $('pAlbSw').setAttribute('aria-expanded', String(o)); });
-  $('pAlb').addEventListener('click', () => { if (Q) go(Q.base); });
 
   // notas musicales al pasar el ratón por un play (solo si el clic va a hacer sonar)
   const GLYPHS = ['♪', '♫', '♩', '♬'];
