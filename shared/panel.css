@@ -291,6 +291,10 @@
   .v2 .ph-art .p-cover { border-radius: 50%; box-shadow: 0 18px 44px rgba(0, 0, 0, .55), 0 0 0 1px rgba(255, 255, 255, .14);
     animation: spin 9s linear infinite; animation-play-state: paused; }
   .v2 .playing .ph-art .p-cover { animation-play-state: running; }
+  /* el agujero del centro, como un disco */
+  .v2 .ph-art .p-cover::after { content: ''; position: absolute; left: 50%; top: 50%; width: 7%; height: 7%; translate: -50% -50%; border-radius: 50%;
+    background: #0b0c0f; box-shadow: 0 0 0 2px rgba(255, 255, 255, .18); }
+  .v2.ph-min .ph-art .p-cover::after { display: none; }
   .v2 .ph-art .p-ring { border-radius: 50%; }
   /* el brillo del disco no gira con él: va encima, fijo */
   .v2 .ph-art { position: relative; }
