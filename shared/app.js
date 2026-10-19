@@ -715,7 +715,7 @@ void main(){
     [...doc.body.children].forEach((el) => { if (!('keep' in el.dataset) && el.tagName !== 'SCRIPT') document.body.insertBefore(document.adoptNode(el), anchor); });
     const target = url.hash && document.querySelector(url.hash);
     if (target) target.scrollIntoView({block: 'center'}); else scrollTo(0, 0);
-    initPage();
+    try { initPage(); } catch (err) { console.error(err); } // pase lo que pase, la página no se queda a medias
     requestAnimationFrame(() => document.body.classList.remove('nav-out'));
   }
   document.addEventListener('click', (e) => {
@@ -723,8 +723,13 @@ void main(){
     if (!a || a.target === '_blank' || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
     const u = new URL(a.getAttribute('href'), location.href);
     if (!isPage(u)) return;
-    if (u.pathname === location.pathname) return; // mismo documento: ancla normal
     e.preventDefault();
+    if (u.pathname === location.pathname) { // la misma página: nunca recargar (cortaría la música); solo ir al ancla o arriba
+      document.querySelectorAll('.sw-menu.open').forEach((m) => m.classList.remove('open'));
+      const t = u.hash && document.querySelector(u.hash);
+      if (t) t.scrollIntoView({behavior: 'smooth', block: 'center'}); else scrollTo({top: 0, behavior: 'smooth'});
+      return;
+    }
     document.querySelectorAll('.sw-menu.open').forEach((m) => m.classList.remove('open'));
     document.body.classList.remove('m-open');
     go(u.href);
