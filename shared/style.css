@@ -333,3 +333,18 @@ html:has(body.v2) { scroll-snap-type: y mandatory; }
   .v2 .track .tlinks { margin-top: 16px; }
 }
 @media (prefers-reduced-motion: reduce) { html:has(body.v2) { scroll-snap-type: none; } }
+
+/* título en escalera: asimétrico pero centrado. El bloque mide lo que miden las palabras (no todo el ancho) y la 2.ª
+   palabra se desplaza a la derecha un tramo fijo; así no quedan pegadas a los bordes con un hueco enorme en medio */
+.stair { width: fit-content; max-width: 100%; margin-left: auto; margin-right: auto; }
+.stair .w2 { padding-left: clamp(36px, 7vw, 130px); }
+.stair.one .w2 { padding-left: 0; }
+
+/* compartir una canción (junto a la duración) y aviso «ссылка скопирована» */
+.share-t { display: inline-flex; align-items: center; gap: 5px; color: inherit; font: inherit; letter-spacing: inherit; text-transform: inherit; opacity: .9; cursor: pointer; transition: opacity .3s; }
+.share-t:hover { opacity: 1; text-decoration: underline; text-underline-offset: 3px; }
+.share-t svg { width: 11px; height: 11px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.toast { position: fixed; left: 50%; bottom: calc(110px + env(safe-area-inset-bottom)); z-index: 60; translate: -50% 0; padding: 11px 20px; border-radius: 30px;
+  background: rgba(10, 14, 24, .9); border: 1px solid rgba(255, 255, 255, .18); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  font-size: 13px; color: var(--text); opacity: 0; transform: translateY(10px); transition: opacity .3s, transform .4s cubic-bezier(.2, .8, .2, 1); pointer-events: none; }
+.toast.show { opacity: 1; transform: none; }

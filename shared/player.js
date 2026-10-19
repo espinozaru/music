@@ -118,7 +118,26 @@ audio.addEventListener('error', setError);
 pPlay.addEventListener('click', toggle);
 $('pNext').addEventListener('click', () => next());
 $('pPrev').addEventListener('click', prev);
-$('pVol').addEventListener('input', (e) => { userVol = parseFloat(e.target.value); try { audio.volume = userVol; } catch { /* iOS */ } });
+// volumen: barra + cifra en % que se anima al moverla + altavoz que silencia (también la tecla M)
+const pVol = $('pVol'), pVolVal = $('pVolVal'), pMute = $('pMute');
+function showVol(bump) {
+  const pct = Math.round((audio.muted ? 0 : userVol) * 100);
+  pVol.style.setProperty('--v', pct + '%');
+  if (pVolVal) {
+    pVolVal.textContent = pct + '%';
+    if (bump) { pVolVal.classList.remove('bump'); void pVolVal.offsetWidth; pVolVal.classList.add('bump'); }
+  }
+  if (pMute) { pMute.setAttribute('aria-pressed', String(audio.muted || userVol === 0)); pMute.dataset.level = audio.muted || userVol === 0 ? '0' : userVol < 0.5 ? '1' : '2'; }
+}
+pVol.addEventListener('input', (e) => {
+  userVol = parseFloat(e.target.value);
+  audio.muted = false;
+  try { audio.volume = userVol; } catch { /* iOS */ }
+  showVol(true);
+});
+if (pMute) pMute.addEventListener('click', () => { audio.muted = !audio.muted; showVol(true); });
+audio.addEventListener('volumechange', () => showVol(false));
+showVol(false);
 $('pClose').addEventListener('click', () => { pause(); player.classList.remove('show'); });
 
 document.addEventListener('click', (e) => {

@@ -195,7 +195,9 @@ function fitStair() {
     w.style.fontSize = '';
     const ls = w.style.letterSpacing;
     w.style.letterSpacing = '0.06em'; // medir con el espaciado final, no con el de la animación de entrada
-    const box = w.parentElement.clientWidth, word = w.firstElementChild.offsetWidth; // offsetWidth: ancho real, sin transformaciones
+    const sec = w.closest('section'), cs = getComputedStyle(sec);
+    const box = sec.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight); // hueco libre (el bloque se ajusta a las palabras)
+    const word = w.offsetWidth; // ancho real con su desplazamiento, sin transformaciones
     w.style.letterSpacing = ls;
     if (word > box) w.style.fontSize = `${(parseFloat(getComputedStyle(w).fontSize) * box / word * 0.98).toFixed(1)}px`;
   }

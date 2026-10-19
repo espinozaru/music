@@ -116,11 +116,23 @@ PLAYER = '''<!-- Player: barra lateral derecha plegable (en móvil, cápsula aba
     </button>
     <button id="pNext" aria-label="Следующая"><svg viewBox="0 0 24 24"><path d="M17 5v14M6 6l8 6-8 6z"/></svg></button>
   </div>
-  <input class="p-vol" id="pVol" type="range" min="0" max="1" step="0.01" value="0.7" aria-label="Громкость">
+  <!-- volumen: altavoz (clic = silencio) · barra · cifra que se anima al moverla -->
+  <div class="ph-vol">
+    <button class="ph-mute" id="pMute" aria-label="Без звука" aria-pressed="false"><svg viewBox="0 0 24 24"><path class="spk" d="M4 9h4l5-4v14l-5-4H4z"/><path class="w1" d="M16 9.5a3.5 3.5 0 0 1 0 5"/><path class="w2" d="M18.5 7a7 7 0 0 1 0 10"/><path class="x" d="M16 9.5l5 5M21 9.5l-5 5"/></svg></button>
+    <input class="p-vol" id="pVol" type="range" min="0" max="1" step="0.01" value="0.7" aria-label="Громкость">
+    <span class="ph-vol-val" id="pVolVal" aria-hidden="true">70%</span>
+  </div>
   <!-- como en una app: repetir la lista y temporizador de apagado (10 · 20 · 30 мин) -->
   <div class="ph-tools">
     <button class="ph-tool" id="pLoop" aria-pressed="false" title="Повтор: после последнего трека — снова первый"><svg viewBox="0 0 24 24"><path d="M17 2l3 3-3 3M4 11V9a4 4 0 0 1 4-4h12M7 22l-3-3 3-3M20 13v2a4 4 0 0 1-4 4H4"/></svg><span>повтор</span></button>
     <button class="ph-tool" id="pTimer" aria-pressed="false" title="Таймер сна"><svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg><span id="pTimerLbl">таймер</span></button>
+    <div class="share-wrap">
+      <button class="ph-tool" id="pShare" aria-haspopup="true" aria-expanded="false" title="Поделиться"><svg viewBox="0 0 24 24"><path d="M12 15V3M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg><span>поделиться</span></button>
+      <div class="share-pop" id="sharePop" role="menu">
+        <button data-share-album>Ссылка на альбом</button>
+        <button data-share-song>Ссылка на эту песню</button>
+      </div>
+    </div>
   </div>
   <a class="p-cta" href="#listen">Полный альбом →</a>
   <button class="p-close" id="pClose" aria-label="Закрыть плеер" hidden>×</button>
@@ -182,7 +194,7 @@ def album_page(slug, a, albums):
     <div class="num fx">{t["n"]} / {total}</div>
     <h2 class="fx" data-fx="title" data-delay="0.1"><span class="silver">{e(t["t"])}</span></h2>
     <p class="phrase fx" data-split="words" data-delay="0.45">{e(t["p"])}</p>
-    <div class="meta fx" data-delay="0.8">{fmt(t["d"])} · {e(meta)}</div>
+    <div class="meta fx" data-delay="0.8">{fmt(t["d"])} · {e(meta)} · <button class="share-t" data-share="t{t["n"]}" data-title="{e(t["t"])}"><svg viewBox="0 0 24 24"><path d="M12 15V3M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg>поделиться</button></div>
     {btn}
     {f'<a class="vid fx" data-delay="1.2" href="{e(t["video"])}" target="_blank" rel="noopener">{ICO_PLAY}клип на YouTube</a>' if t.get("video") else ''}
     {f'<div class="tlinks fx" data-delay="1.1"><span class="tl-label">{"слушать на" if not t["free"] else "эта песня на"}</span>' + ''.join(f'<a href="{e(l["url"])}" target="_blank" rel="noopener">{e(l["name"])}</a>' for l in t["links"]) + '</div>' if t.get("links") else ''}
@@ -235,6 +247,7 @@ def album_page(slug, a, albums):
 <script src="../shared/core.js"></script>
 {'<script src="../shared/player.js"></script>' + chr(10) + '<script src="../shared/panel.js"></script>' if free_n else ''}
 <script src="../shared/header.js"></script>
+<script src="../shared/share.js"></script>
 </body>
 </html>
 '''
