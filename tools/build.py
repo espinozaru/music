@@ -215,7 +215,7 @@ def brand(slug, albums, base):
 '''
 
 
-def album_page(slug, a, albums):
+def album_page(slug, a, albums, support=''):
     tracks = a['tracks']
     free_n = a.get('free', 3)
     for i, t in enumerate(tracks):
@@ -275,6 +275,7 @@ def album_page(slug, a, albums):
   <section class="listen" id="listen" data-bg="{e(L['bg'])}" data-horizon="{L.get('horizon', 0.67)}">
     <h2 class="fx" data-fx="title"><span class="silver">Слушать альбом</span></h2>
 {soon}    <div class="platforms fx">{platforms(L['platforms'])}</div>
+    {f'<div class="support fx"><p>Если музыка откликается — можно поддержать</p><a class="support-btn" href="{e(support)}" target="_blank" rel="noopener">Поддержать <span aria-hidden="true">☕</span></a></div>' if support else ''}
     <p class="credits fx">{L['credits']}</p>
 {disclaimer}    <p class="back fx"><a href="../">← Все альбомы</a></p>
   </section>
@@ -342,6 +343,7 @@ def home_page(s):
 {''.join(cards)}  </ul>
 
   <footer class="disco-foot">
+    {f'<div class="support"><p>Если музыка откликается — можно поддержать</p><a class="support-btn" href="{e(s["support"])}" target="_blank" rel="noopener">Поддержать <span aria-hidden="true">☕</span></a></div>' if s.get('support') else ''}
     <div class="foot-cols">
 {foot}    </div>
     <p class="credits">{s['outro']['credits']}</p>
@@ -368,7 +370,7 @@ def main():
         p = os.path.join(ROOT, al['slug'], 'album.json')
         if al.get('page') and os.path.exists(p):
             a = json.load(open(p, encoding='utf-8'))
-            open(os.path.join(ROOT, al['slug'], 'index.html'), 'w', encoding='utf-8').write(album_page(al['slug'], a, s['albums']))
+            open(os.path.join(ROOT, al['slug'], 'index.html'), 'w', encoding='utf-8').write(album_page(al['slug'], a, s['albums'], s.get('support', '')))
             print('álbum', al['slug'])
     open(os.path.join(ROOT, 'index.html'), 'w', encoding='utf-8').write(home_page(s))
     print('índice')

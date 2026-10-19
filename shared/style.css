@@ -356,3 +356,11 @@ html:has(body.v2) { scroll-snap-type: y mandatory; }
 main { transition: opacity .3s ease; }
 .nav-out main, .nav-out .top { opacity: 0; }
 .top { transition: opacity .3s ease; }
+
+/* «Поддержать» (CloudTips): un solo enlace para toda la web */
+.support { margin: 44px auto 0; text-align: center; }
+.support p { margin: 0 0 14px; font-size: 13px; color: var(--dim); opacity: .8; }
+.support-btn { display: inline-flex; align-items: center; gap: 10px; padding: 13px 28px; border-radius: 40px; color: #0a0f19; background: rgba(255, 255, 255, .9);
+  text-decoration: none; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; font-weight: 500; transition: background .3s, transform .4s cubic-bezier(.2, .8, .2, 1); }
+.support-btn:hover { background: #fff; transform: translateY(-2px); }
+.disco-foot .support { margin: 0 auto 50px; }
