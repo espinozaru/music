@@ -70,7 +70,11 @@ function playIndex(i) {
   play();
 }
 // el botón «siguiente» nunca pausa: tras la última gratis vuelve a la primera; solo al terminar sola invita al álbum
-function next(auto) { if (idx < FREE.length - 1) playIndex(idx + 1); else if (auto === true) showEnd(); else playIndex(0); }
+function next(auto) {
+  if (idx < FREE.length - 1) playIndex(idx + 1);
+  else if (auto === true && !loopOn) showEnd();
+  else playIndex(0); // con «повтор» la lista sigue desde la primera
+}
 function prev() { if (audio.currentTime > 5 || idx <= 0) { audio.currentTime = 0; return; } playIndex(idx - 1); }
 function showEnd() { pause(); player.classList.add('end'); }
 function setError() { player.classList.add('error'); player.classList.remove('loading'); $('pState').textContent = 'ошибка загрузки'; }
@@ -170,3 +174,37 @@ if ('mediaSession' in navigator) {
   try { ms.setActionHandler('seekto', (d) => { audio.currentTime = d.seekTime; }); } catch { /* no soportado */ }
 }
 addEventListener('pagehide', () => { if (idx >= 0) store.set(FREE[idx].n, audio.currentTime); });
+
+/* ---------- como en una app: repetir y temporizador de apagado ---------- */
+const prefs = {
+  get: (k) => { try { return localStorage.getItem('espinoza-' + k); } catch { return null; } },
+  set: (k, v) => { try { localStorage.setItem('espinoza-' + k, v); } catch { /* modo privado */ } },
+};
+let loopOn = prefs.get('loop') === '1';
+const pLoop = $('pLoop'), pTimer = $('pTimer'), pTimerLbl = $('pTimerLbl');
+function showLoop() { if (pLoop) pLoop.setAttribute('aria-pressed', String(loopOn)); }
+if (pLoop) pLoop.addEventListener('click', () => { loopOn = !loopOn; prefs.set('loop', loopOn ? '1' : '0'); showLoop(); });
+showLoop();
+
+// temporizador: cada clic pasa por 10 → 20 → 30 мин → apagado; al llegar a 0 la música se apaga con un fundido largo
+const STEPS = [10, 20, 30];
+let timerEnd = 0, timerStep = -1, timerTick = 0;
+function showTimer() {
+  if (!pTimer) return;
+  const left = timerEnd ? Math.max(0, timerEnd - Date.now()) : 0;
+  pTimer.setAttribute('aria-pressed', String(!!timerEnd));
+  pTimerLbl.textContent = timerEnd ? fmt(left / 1000) : 'таймер';
+}
+function setTimer(step) {
+  clearInterval(timerTick);
+  timerStep = step;
+  timerEnd = step >= 0 ? Date.now() + STEPS[step] * 60000 : 0;
+  if (timerEnd) {
+    timerTick = setInterval(() => {
+      if (Date.now() >= timerEnd) { setTimer(-1); if (!audio.paused) fadeTo(0, 8, () => audio.pause()); return; }
+      showTimer();
+    }, 1000);
+  }
+  showTimer();
+}
+if (pTimer) pTimer.addEventListener('click', () => setTimer(timerStep + 1 < STEPS.length ? timerStep + 1 : -1));

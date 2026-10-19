@@ -169,3 +169,16 @@
   .v2.noplay section { padding-right: 120px; }
   .v2.noplay .top-cta { display: inline-flex; }
 }
+
+/* repetir + temporizador */
+.ph-tools { display: none; }
+@media (min-width: 981px) {
+  .v2 .ph-tools { display: flex; justify-content: center; gap: 8px; margin: 0 0 12px; }
+  .v2 .ph-tool { display: inline-flex; align-items: center; gap: 7px; padding: 6px 12px; border-radius: 20px; border: 1px solid transparent; background: transparent;
+    color: var(--text); font: inherit; font-size: 11px; letter-spacing: .08em; opacity: .5; cursor: pointer; transition: opacity .3s, background .3s, border-color .3s; }
+  .v2 .ph-tool:hover { opacity: .9; background: rgba(255, 255, 255, .08); }
+  .v2 .ph-tool[aria-pressed="true"] { opacity: 1; border-color: rgba(255, 255, 255, .35); background: rgba(255, 255, 255, .1); }
+  .v2 .ph-tool svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+  .v2 #pTimerLbl { font-variant-numeric: tabular-nums; min-width: 4.2em; text-align: left; }
+  .v2.ph-min .ph-tools { display: none; }
+}
