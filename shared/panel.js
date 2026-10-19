@@ -19,6 +19,13 @@
   });
 
   // en escritorio el panel está siempre visible, con la primera pista preparada (sin sonar)
+  // selector de álbumes en la cabecera: abre/cierra; se cierra al hacer clic fuera o con Escape
+  const sw = document.getElementById('albSw'), swMenu = document.getElementById('swMenu');
+  const setSw = (open) => { swMenu.classList.toggle('open', open); sw.setAttribute('aria-expanded', String(open)); };
+  sw.addEventListener('click', (e) => { e.stopPropagation(); setSw(!swMenu.classList.contains('open')); });
+  document.addEventListener('click', (e) => { if (!e.target.closest('.hd-switch')) setSw(false); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setSw(false); });
+
   // la primera pista queda preparada (sin sonar); en escritorio el panel está siempre visible
   if (idx < 0) setTrack(0);
   const showWide = () => { if (wide.matches) player.classList.add('show'); };

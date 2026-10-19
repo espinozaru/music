@@ -113,7 +113,18 @@ PLAYER = '''<!-- Player: barra lateral derecha plegable (en móvil, cápsula aba
 '''
 
 
-def album_page(slug, a):
+def switch_menu(slug, albums):
+    out = []
+    for al in albums:
+        if not al.get('page'):
+            continue
+        cur = ' class="cur" aria-current="page"' if al['slug'] == slug else ''
+        out.append(f'        <a href="../{al["slug"]}/"{cur}><img src="../{e(al["cover"])}" alt="" width="40" height="40"><span>{e(al["title"])}<small>{e(al.get("kind", "альбом"))}</small></span></a>\n')
+    out.append('        <a href="../" class="all"><span>Все альбомы →</span></a>\n')
+    return ''.join(out)
+
+
+def album_page(slug, a, albums):
     tracks = a['tracks']
     free_n = a.get('free', 3)
     for i, t in enumerate(tracks):
@@ -156,7 +167,16 @@ def album_page(slug, a):
 <div class="grain"></div>
 
 <header class="top">
-  <a href="../" class="logo-link" aria-label="Все альбомы"><img src="../shared/logo-white.png" alt="Espinoza" class="logo"></a>
+  <!-- atrás · logo · selector para saltar a otro álbum -->
+  <div class="brand">
+    <a class="hd-btn hd-back" href="../" aria-label="Все альбомы"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></a>
+    <a href="../" class="logo-link" aria-label="Все альбомы"><img src="../shared/logo-white.png" alt="Espinoza" class="logo"></a>
+    <div class="hd-switch">
+      <button class="hd-btn" id="albSw" aria-label="Другие альбомы" aria-haspopup="true" aria-expanded="false"><svg viewBox="0 0 24 24"><path d="M8 9l4-4 4 4M8 15l4 4 4-4"/></svg></button>
+      <nav class="sw-menu" id="swMenu" aria-label="Альбомы">
+{switch_menu(slug, albums)}      </nav>
+    </div>
+  </div>
   <div class="top-right">
     <a class="top-cta" href="#listen">{SVG_PLAY}Слушать альбом</a>
   </div>
@@ -256,7 +276,7 @@ def main():
         p = os.path.join(ROOT, al['slug'], 'album.json')
         if al.get('page') and os.path.exists(p):
             a = json.load(open(p, encoding='utf-8'))
-            open(os.path.join(ROOT, al['slug'], 'index.html'), 'w', encoding='utf-8').write(album_page(al['slug'], a))
+            open(os.path.join(ROOT, al['slug'], 'index.html'), 'w', encoding='utf-8').write(album_page(al['slug'], a, s['albums']))
             print('álbum', al['slug'])
     open(os.path.join(ROOT, 'index.html'), 'w', encoding='utf-8').write(home_page(s))
     print('índice')

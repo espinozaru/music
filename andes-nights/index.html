@@ -17,7 +17,22 @@
 <div class="grain"></div>
 
 <header class="top">
-  <a href="../" class="logo-link" aria-label="Все альбомы"><img src="../shared/logo-white.png" alt="Espinoza" class="logo"></a>
+  <!-- atrás · logo · selector para saltar a otro álbum -->
+  <div class="brand">
+    <a class="hd-btn hd-back" href="../" aria-label="Все альбомы"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></a>
+    <a href="../" class="logo-link" aria-label="Все альбомы"><img src="../shared/logo-white.png" alt="Espinoza" class="logo"></a>
+    <div class="hd-switch">
+      <button class="hd-btn" id="albSw" aria-label="Другие альбомы" aria-haspopup="true" aria-expanded="false"><svg viewBox="0 0 24 24"><path d="M8 9l4-4 4 4M8 15l4 4 4-4"/></svg></button>
+      <nav class="sw-menu" id="swMenu" aria-label="Альбомы">
+        <a href="../zen/"><img src="../covers/zen.webp" alt="" width="40" height="40"><span>Тишина внутри<small>медитации</small></span></a>
+        <a href="../tuta-ukupi/"><img src="../covers/tuta-ukupi.webp" alt="" width="40" height="40"><span>Tuta Ukupi<small>альбом</small></span></a>
+        <a href="../andes-nights/" class="cur" aria-current="page"><img src="../covers/andes-nights.webp" alt="" width="40" height="40"><span>Andes Nights<small>альбом</small></span></a>
+        <a href="../neural-lullabies/"><img src="../covers/neural-lullabies.webp" alt="" width="40" height="40"><span>Neural Lullabies<small>альбом</small></span></a>
+        <a href="../rany-na-bumage/"><img src="../covers/rany-na-bumage.webp" alt="" width="40" height="40"><span>Раны на бумаге<small>альбом</small></span></a>
+        <a href="../" class="all"><span>Все альбомы →</span></a>
+      </nav>
+    </div>
+  </div>
   <div class="top-right">
     <a class="top-cta" href="#listen"><svg viewBox="0 0 10 10"><path d="M2 1v8l7-4z"/></svg>Слушать альбом</a>
   </div>
