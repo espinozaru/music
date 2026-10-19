@@ -192,3 +192,5 @@
   .v2 .top .logo { width: 84px; }
   .sw-menu { min-width: 240px; }
 }
+/* el logo tiene la letra arriba y la raya abajo: bajarlo un poco para que su centro óptico quede alineado con los iconos */
+.brand .logo { translate: 0 4px; }
