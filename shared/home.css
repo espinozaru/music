@@ -45,7 +45,7 @@
 .disc a:hover .sleeve, .disc a:focus-visible .sleeve { transform: translateX(-4%) rotate(-1.5deg); box-shadow: 0 40px 90px rgba(0, 0, 0, .7), 0 0 0 1px rgba(255, 255, 255, .14); }
 
 .disc .info { margin-top: 30px; }
-.disc .kind { font-size: 10px; font-weight: 400; letter-spacing: .3em; text-transform: uppercase; color: var(--dim); opacity: .65; }
+.disc .kind { font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--dim); opacity: .65; }
 .disc h2 { font-family: 'Cormorant', Georgia, serif; font-weight: 500; font-size: 34px; letter-spacing: .03em; line-height: 1.1; margin: 8px 0 0; }
 .disc .p { margin: 8px 0 0; font-size: 14px; line-height: 1.5; color: #dfe3e7; opacity: .8; max-width: 34ch; }
 .disc .go { display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; font-size: 11px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; opacity: .55; transition: opacity .4s, gap .4s; }
