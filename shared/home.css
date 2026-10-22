@@ -12,7 +12,7 @@
 .home-top { padding-top: 40px; }
 .home-top .logo { width: 220px; } /* en el índice, el logo manda */
 @media (max-width: 700px) { .home-top .logo { width: 160px; } }
-.intro { max-width: 620px; margin: 0 auto; padding: 150px 24px 0; text-align: center; }
+.intro { max-width: 620px; margin: 0 auto; padding: 123px 24px 0; text-align: center; }
 .intro .home-title { margin: 0; font-family: 'Unbounded', sans-serif; font-size: clamp(34px, 5vw, 56px); font-weight: 800; line-height: 1; letter-spacing: .02em; text-transform: uppercase; }
 .intro p { margin: 22px 0 0; font-size: 16px; line-height: 1.7; color: #dfe3e7; opacity: .85; }
 
@@ -63,7 +63,7 @@
 
 @media (max-width: 700px) {
   .discs { grid-template-columns: 1fr; padding: 70px 28px 110px; gap: 70px; }
-  .intro { padding-top: 110px; }
+  .intro { padding-top: 88px; }
   .intro p { font-size: 15px; }
   .sleeve-box { width: 72%; }
   .vinyl-slide { transform: translateX(26%); } /* en el teléfono no hay ratón: el vinilo asoma más */
