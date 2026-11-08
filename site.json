@@ -1,6 +1,6 @@
 {
  "title": "Espinoza — музыка",
- "description": "Альбомы Espinoza: медитации «Тишина внутри», андская музыка Tuta Ukupi и Andes Nights, колыбельные Neural Lullabies, песни «Раны на бумаге», Ella, 2804.",
+ "description": "Альбомы Espinoza: сингл «Останься до утра», медитации «Тишина внутри», андская музыка Tuta Ukupi и Andes Nights, колыбельные Neural Lullabies, песни «Раны на бумаге», Ella, 2804.",
  "hero": {
   "eyebrow": "дискография",
   "title": "Espinoza",
@@ -8,6 +8,32 @@
   "bg": "zen/assets/song1"
  },
  "albums": [
+  {
+   "slug": "stay-till-morning",
+   "page": true,
+   "title": "Останься до утра",
+   "cover": "covers/stay-till-morning.webp",
+   "bg": "stay-till-morning/assets/morning",
+   "h": 0.995,
+   "kind": "сингл",
+   "year": 2026,
+   "p": "Одна песня на трёх языках",
+   "meta": "3 версии · RU · EN · ES",
+   "platforms": [
+    {
+     "name": "Яндекс Музыка",
+     "url": "https://music.yandex.ru/album/44659874"
+    },
+    {
+     "name": "Spotify",
+     "url": "https://open.spotify.com/track/49LItOYgxkrpkkBAVcSbJO"
+    },
+    {
+     "name": "Все платформы",
+     "url": "https://ditto.fm/ostan-sa-do-utra"
+    }
+   ]
+  },
   {
    "slug": "zen",
    "page": true,

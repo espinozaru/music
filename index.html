@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Espinoza — музыка</title>
-<meta name="description" content="Альбомы Espinoza: медитации «Тишина внутри», андская музыка Tuta Ukupi и Andes Nights, колыбельные Neural Lullabies, песни «Раны на бумаге», Ella, 2804.">
+<meta name="description" content="Альбомы Espinoza: сингл «Останься до утра», медитации «Тишина внутри», андская музыка Tuta Ukupi и Andes Nights, колыбельные Neural Lullabies, песни «Раны на бумаге», Ella, 2804.">
 <link rel="preload" href="shared/fonts/NotoSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="shared/fonts/Unbounded-Variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="zen/assets/song1.webp" as="image">
@@ -31,6 +31,20 @@
 
   <!-- Discos: funda + vinilo; al pasar el ratón el vinilo sale y el fondo pasa al paisaje del álbum -->
   <ul class="discs">
+  <li class="disc" data-bg="stay-till-morning/assets/morning.webp">
+    <a href="stay-till-morning/">
+      <div class="sleeve-box">
+        <div class="vinyl-slide"><div class="vinyl"><span class="label" style="background-image:url(covers/stay-till-morning.webp)"></span></div></div>
+        <div class="sleeve" style="background-image:url(covers/stay-till-morning.webp)" role="img" aria-label="Останься до утра"></div>
+      </div>
+      <div class="info">
+        <div class="kind">сингл · 2026 · 3 версии · RU · EN · ES</div>
+        <h2><span class="silver">Останься до утра</span></h2>
+        <p class="p">Одна песня на трёх языках</p>
+        <span class="go">открыть альбом →</span>
+      </div>
+    </a>
+  </li>
   <li class="disc" data-bg="zen/assets/song1.webp">
     <a href="zen/">
       <div class="sleeve-box">
@@ -154,6 +168,7 @@
       <svg class="pa-chev" viewBox="0 0 24 24"><path d="M8 9l4-4 4 4M8 15l4 4 4-4"/></svg>
     </button>
     <nav class="sw-menu" id="pAlbList" aria-label="Альбомы">
+      <a href="stay-till-morning/" data-slug="stay-till-morning"><img src="covers/stay-till-morning.webp" alt="" width="40" height="40"><span>Останься до утра<small>сингл</small></span></a>
       <a href="zen/" data-slug="zen"><img src="covers/zen.webp" alt="" width="40" height="40"><span>Тишина внутри<small>медитации</small></span></a>
       <a href="tuta-ukupi/" data-slug="tuta-ukupi"><img src="covers/tuta-ukupi.webp" alt="" width="40" height="40"><span>Tuta Ukupi<small>альбом</small></span></a>
       <a href="andes-nights/" data-slug="andes-nights"><img src="covers/andes-nights.webp" alt="" width="40" height="40"><span>Andes Nights<small>альбом</small></span></a>
@@ -209,7 +224,7 @@
   <ol class="ph-list" id="pList"></ol>
 </aside>
 
-<script>window.SITE = {"type": "home", "albums": [{"slug": "zen", "title": "Тишина внутри", "kind": "медитации", "cover": "covers/zen.webp"}, {"slug": "tuta-ukupi", "title": "Tuta Ukupi", "kind": "альбом", "cover": "covers/tuta-ukupi.webp"}, {"slug": "andes-nights", "title": "Andes Nights", "kind": "альбом", "cover": "covers/andes-nights.webp"}, {"slug": "neural-lullabies", "title": "Neural Lullabies", "kind": "альбом", "cover": "covers/neural-lullabies.webp"}, {"slug": "rany-na-bumage", "title": "Раны на бумаге", "kind": "альбом", "cover": "covers/rany-na-bumage.webp"}, {"slug": "ella", "title": "Ella", "kind": "альбом", "cover": "covers/ella.webp"}, {"slug": "2804", "title": "2804", "kind": "сингл", "cover": "covers/2804.webp"}]};</script>
+<script>window.SITE = {"type": "home", "albums": [{"slug": "stay-till-morning", "title": "Останься до утра", "kind": "сингл", "cover": "covers/stay-till-morning.webp"}, {"slug": "zen", "title": "Тишина внутри", "kind": "медитации", "cover": "covers/zen.webp"}, {"slug": "tuta-ukupi", "title": "Tuta Ukupi", "kind": "альбом", "cover": "covers/tuta-ukupi.webp"}, {"slug": "andes-nights", "title": "Andes Nights", "kind": "альбом", "cover": "covers/andes-nights.webp"}, {"slug": "neural-lullabies", "title": "Neural Lullabies", "kind": "альбом", "cover": "covers/neural-lullabies.webp"}, {"slug": "rany-na-bumage", "title": "Раны на бумаге", "kind": "альбом", "cover": "covers/rany-na-bumage.webp"}, {"slug": "ella", "title": "Ella", "kind": "альбом", "cover": "covers/ella.webp"}, {"slug": "2804", "title": "2804", "kind": "сингл", "cover": "covers/2804.webp"}]};</script>
 <script src="shared/app.js?v=687517f9" data-keep></script>
 </body>
 </html>

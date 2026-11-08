@@ -1,0 +1,94 @@
+{
+ "title": "Останься до утра",
+ "artist": "Espinoza",
+ "description": "«Останься до утра» — песня на русском, а также версии на английском и испанском.",
+ "metaLabel": "песня",
+ "free": 3,
+ "released": true,
+ "ids": {
+  "yandex": "44659874"
+ },
+ "hero": {
+  "words": [
+   "Останься",
+   "до утра"
+  ],
+  "label": "Останься до утра",
+  "sub": "сингл · три языка",
+  "bg": "morning",
+  "horizon": 0.995
+ },
+ "manifest": {
+  "bg": "morning",
+  "horizon": 0.995,
+  "lines": [
+   "Одна ночь. Одна просьба.",
+   "На трёх языках."
+  ],
+  "big": "До утра."
+ },
+ "tracks": [
+  {
+   "n": "01",
+   "t": "Останься до утра",
+   "p": "Не уходи, пока не рассвело",
+   "bg": "morning",
+   "h": 0.995,
+   "d": 236.8,
+   "links": [
+    {
+     "name": "Яндекс Музыка",
+     "url": "https://music.yandex.ru/album/44659874/track/157562078"
+    },
+    {
+     "name": "Spotify",
+     "url": "https://open.spotify.com/track/49LItOYgxkrpkkBAVcSbJO"
+    },
+    {
+     "name": "YouTube Music",
+     "url": "https://music.youtube.com/watch?v=gMXhUJim7xc"
+    },
+    {
+     "name": "Deezer",
+     "url": "https://www.deezer.com/track/4370777091"
+    }
+   ]
+  },
+  {
+   "n": "02",
+   "t": "Stay Till Morning",
+   "p": "Та же ночь — по-английски",
+   "bg": "morning",
+   "h": 0.995,
+   "d": 256.8
+  },
+  {
+   "n": "03",
+   "t": "Quédate hasta el alba",
+   "p": "Та же ночь — по-испански",
+   "bg": "morning",
+   "h": 0.995,
+   "d": 253.2
+  }
+ ],
+ "listen": {
+  "bg": "morning",
+  "horizon": 0.995,
+  "platforms": [
+   {
+    "name": "Яндекс Музыка",
+    "url": "https://music.yandex.ru/album/44659874"
+   },
+   {
+    "name": "Spotify",
+    "url": "https://open.spotify.com/track/49LItOYgxkrpkkBAVcSbJO"
+   },
+   {
+    "name": "Все платформы",
+    "url": "https://ditto.fm/ostan-sa-do-utra"
+   }
+  ],
+  "credits": "Слова, музыка и голос — Espinoza · ℗ 2026",
+  "disclaimer": "© 2026 Espinoza. Все права защищены."
+ }
+}
