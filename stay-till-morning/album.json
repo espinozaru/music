@@ -60,7 +60,25 @@
    "p": "Та же ночь — по-английски",
    "bg": "morning",
    "h": 0.995,
-   "d": 256.8
+   "d": 256.8,
+   "links": [
+    {
+     "name": "Яндекс Музыка",
+     "url": "https://music.yandex.ru/album/44658350/track/157558396"
+    },
+    {
+     "name": "Spotify",
+     "url": "https://open.spotify.com/track/7aYkcLKdokoYbMKkyeI1sV"
+    },
+    {
+     "name": "YouTube Music",
+     "url": "https://music.youtube.com/watch?v=6dM0xBnQ5sA"
+    },
+    {
+     "name": "Deezer",
+     "url": "https://www.deezer.com/track/4370776671"
+    }
+   ]
   },
   {
    "n": "03",
@@ -68,7 +86,25 @@
    "p": "Та же ночь — по-испански",
    "bg": "morning",
    "h": 0.995,
-   "d": 253.2
+   "d": 253.2,
+   "links": [
+    {
+     "name": "Яндекс Музыка",
+     "url": "https://music.yandex.ru/album/44658345/track/157558392"
+    },
+    {
+     "name": "Spotify",
+     "url": "https://open.spotify.com/track/6q87j2Wy1JYmh8DSmraIXK"
+    },
+    {
+     "name": "YouTube Music",
+     "url": "https://music.youtube.com/watch?v=W83AGOERMzg"
+    },
+    {
+     "name": "Deezer",
+     "url": "https://www.deezer.com/track/4370777301"
+    }
+   ]
   }
  ],
  "listen": {
@@ -76,16 +112,16 @@
   "horizon": 0.995,
   "platforms": [
    {
-    "name": "Яндекс Музыка",
-    "url": "https://music.yandex.ru/album/44659874"
-   },
-   {
-    "name": "Spotify",
-    "url": "https://open.spotify.com/track/49LItOYgxkrpkkBAVcSbJO"
-   },
-   {
-    "name": "Все платформы",
+    "name": "Все платформы · RU",
     "url": "https://ditto.fm/ostan-sa-do-utra"
+   },
+   {
+    "name": "Все платформы · EN",
+    "url": "https://ditto.fm/stay-till-morning-espinoza"
+   },
+   {
+    "name": "Все платформы · ES",
+    "url": "https://ditto.fm/quedate-hasta-el-alba"
    }
   ],
   "credits": "Слова, музыка и голос — Espinoza · ℗ 2026",
