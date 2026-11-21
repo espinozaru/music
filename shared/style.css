@@ -381,8 +381,8 @@ main { transition: opacity .3s ease; }
 .home-top .lang { position: absolute; right: 32px; top: 40px; }
 @media (max-width: 700px) { .home-top .lang { right: 16px; top: 18px; } .lang-btn { padding: 7px 10px; } .lang-btn .code { display: none; } }
 @media (min-width: 981px) { /* con el panel del player abierto, el idioma se aparta a su izquierda */
-  .v2.has-panel .top-right { margin-right: calc(var(--panel-w) - 8px); transition: margin-right .6s cubic-bezier(.4, 0, .2, 1); }
-  .v2.has-panel.ph-min .top-right { margin-right: calc(var(--strip-w) - 8px); }
+  .v2.has-panel .top-right { margin-right: calc(var(--panel-w) + 14px); transition: margin-right .6s cubic-bezier(.4, 0, .2, 1); }
+  .v2.has-panel.ph-min .top-right { margin-right: calc(var(--strip-w) + 14px); }
 }
 .top-cta { white-space: nowrap; }
 @media (max-width: 400px) { .top-right { gap: 6px; } .top-cta { padding: 9px 12px; font-size: 12px; } }
