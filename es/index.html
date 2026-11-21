@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Espinoza — música</title>
+<meta name="description" content="Álbumes de Espinoza: el sencillo «Quédate hasta el alba», las meditaciones «Silencio interior», música andina Tuta Ukupi y Andes Nights, Neural Lullabies, las canciones «Heridas en el papel», Ella y 2804.">
+<link rel="canonical" href="https://music.espinoza.ru/es/">
+<link rel="alternate" hreflang="ru" href="https://music.espinoza.ru/">
+<link rel="alternate" hreflang="en" href="https://music.espinoza.ru/en/">
+<link rel="alternate" hreflang="es" href="https://music.espinoza.ru/es/">
+<link rel="alternate" hreflang="x-default" href="https://music.espinoza.ru/">
+<link rel="preload" href="../shared/fonts/NotoSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../shared/fonts/Unbounded-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../zen/assets/song1.webp" as="image">
+<link rel="stylesheet" href="../shared/style.css?v=6017d395">
+<link rel="stylesheet" href="../shared/panel.css?v=6017d395">
+<link rel="stylesheet" href="../shared/home.css?v=6017d395">
+</head>
+<body class="home unb v2" data-bg="zen/assets/song1.webp">
+<!-- fijo (data-keep): no cambia al navegar entre páginas -->
+<canvas id="scene" data-keep></canvas>
+<div class="bg" data-keep></div><div class="bg" data-keep></div>
+<div class="veil" data-keep></div>
+<div class="grain" data-keep></div>
+
+<header class="top home-top">
+  <img src="../shared/logo-white.png" alt="Espinoza" class="logo">
+  <div class="lang"><button class="lang-btn" aria-haspopup="true" aria-expanded="false" aria-label="Idioma"><span class="flag"><svg viewBox="0 0 9 6"><path fill="#c60b1e" d="M0 0h9v6H0z"/><path fill="#ffc400" d="M0 1.5h9v3H0z"/></svg></span><span class="code">ES</span></button><nav class="lang-menu"><a href="../" hreflang="ru" lang="ru" data-full><span class="flag"><svg viewBox="0 0 9 6"><path fill="#fff" d="M0 0h9v2H0z"/><path fill="#0039a6" d="M0 2h9v2H0z"/><path fill="#d52b1e" d="M0 4h9v2H0z"/></svg></span>Русский</a><a href="../en/" hreflang="en" lang="en" data-full><span class="flag"><svg viewBox="0 0 60 30"><clipPath id="uk"><path d="M30 15h30v15zv15H0zH0V0zV0h30z"/></clipPath><path fill="#012169" d="M0 0v30h60V0z"/><path stroke="#fff" stroke-width="6" d="m0 0 60 30m0-30L0 30"/><path stroke="#c8102e" stroke-width="4" d="m0 0 60 30m0-30L0 30" clip-path="url(#uk)"/><path stroke="#fff" stroke-width="10" d="M30 0v30M0 15h60"/><path stroke="#c8102e" stroke-width="6" d="M30 0v30M0 15h60"/></svg></span>English</a><a href="../es/" hreflang="es" lang="es" data-full class=cur aria-current=page><span class="flag"><svg viewBox="0 0 9 6"><path fill="#c60b1e" d="M0 0h9v6H0z"/><path fill="#ffc400" d="M0 1.5h9v3H0z"/></svg></span>Español</a></nav></div>
+</header>
+
+<main>
+  <div class="intro">
+    <h1 class="home-title"><span class="silver">Music</span></h1>
+    <p>Soy Denis Espinoza, diseñador de marca. La música la escribo primero para mí: canciones, motivos andinos, nanas y meditaciones; lo que escucho mientras trabajo, en el camino y antes de dormir. Aquí la comparto, y vendrán más álbumes. Si la música te llega, <a class="intro-support" href="https://pay.cloudtips.ru/p/945dde54" target="_blank" rel="noopener">puedes apoyarla</a>.</p>
+  </div>
+
+  <!-- Discos: funda + vinilo; al pasar el ratón el vinilo sale y el fondo pasa al paisaje del álbum -->
+  <ul class="discs">
+  <li class="disc" data-bg="stay-till-morning/assets/morning.webp">
+    <a href="stay-till-morning/">
+      <div class="sleeve-box">
+        <div class="vinyl-slide"><div class="vinyl"><span class="label" style="background-image:url(../covers/stay-till-morning.webp)"></span></div></div>
+        <div class="sleeve" style="background-image:url(../covers/stay-till-morning.webp)" role="img" aria-label="Quédate hasta el alba"></div>
+      </div>
+      <div class="info">
+        <div class="kind">sencillo · 2026 · 3 versiones · RU · EN · ES</div>
+        <h2><span class="silver">Quédate hasta el alba</span></h2>
+        <p class="p">Una canción en tres idiomas</p>
+        <span class="go">abrir álbum →</span>
+      </div>
+    </a>
+  </li>
+  <li class="disc" data-bg="zen/assets/song1.webp">
+    <a href="zen/">
+      <div class="sleeve-box">
+        <div class="vinyl-slide"><div class="vinyl"><span class="label" style="background-image:url(../covers/zen.webp)"></span></div></div>
+        <div class="sleeve" style="background-image:url(../covers/zen.webp)" role="img" aria-label="Silencio interior"></div>
+      </div>
+      <div class="info">
+        <div class="kind">meditaciones · 2026 · 11 pistas · voz y música</div>
+        <h2><span class="silver">Silencio interior</span></h2>
+        <p class="p">11 meditaciones para el cuerpo, la mente y el sueño (en ruso)</p>
+        <span class="go">abrir álbum →</span>
+      </div>
+    </a>
+  </li>
+  <li class="disc" data-bg="tuta-ukupi/assets/yaku.webp">
+    <a href="tuta-ukupi/">
+      <div class="sleeve-box">
+        <div class="vinyl-slide"><div class="vinyl"><span class="label" style="background-image:url(../covers/tuta-ukupi.webp)"></span></div></div>
+        <div class="sleeve" style="background-image:url(../covers/tuta-ukupi.webp)" role="img" aria-label="Tuta Ukupi"></div>
+      </div>
+      <div class="info">
+        <div class="kind">álbum · 2026 · 9 pistas</div>
+        <h2><span class="silver">Tuta Ukupi</span></h2>
+        <p class="p">Dentro de la noche — música andina en quechua</p>
+        <span class="go">abrir álbum →</span>
+      </div>
+    </a>
+  </li>
+  <li class="disc" data-bg="andes-nights/assets/morning.webp">
+    <a href="andes-nights/">
+      <div class="sleeve-box">
+        <div class="vinyl-slide"><div class="vinyl"><span class="label" style="background-image:url(../covers/andes-nights.webp)"></span></div></div>
+        <div class="sleeve" style="background-image:url(../covers/andes-nights.webp)" role="img" aria-label="Andes Nights"></div>
+      </div>
+      <div class="info">
+        <div class="kind">álbum · 2026 · 7 pistas</div>
+        <h2><span class="silver">Andes Nights</span></h2>
+        <p class="p">Noches andinas — 7 historias sobre ella</p>
+        <span class="go">abrir álbum →</span>
+      </div>
+    </a>
+  </li>
+  <li class="disc" data-bg="neural-lullabies/assets/lullaby.webp">
+    <a href="neural-lullabies/">
+      <div class="sleeve-box">
+        <div class="vinyl-slide"><div class="vinyl"><span class="label" style="background-image:url(../covers/neural-lullabies.webp)"></span></div></div>
+        <div class="sleeve" style="background-image:url(../covers/neural-lullabies.webp)" role="img" aria-label="Neural Lullabies"></div>
+      </div>
+      <div class="info">
+        <div class="kind">álbum · 2026 · 11 pistas</div>
+        <h2><span class="silver">Neural Lullabies</span></h2>
+        <p class="p">Nanas y sonidos de la naturaleza para el sueño profundo del bebé</p>
+        <span class="go">abrir álbum →</span>
+      </div>
+    </a>
+  </li>
+  <li class="disc" data-bg="rany-na-bumage/assets/rany.webp">
+    <a href="rany-na-bumage/">
+      <div class="sleeve-box">
+        <div class="vinyl-slide"><div class="vinyl"><span class="label" style="background-image:url(../covers/rany-na-bumage.webp)"></span></div></div>
+        <div class="sleeve" style="background-image:url(../covers/rany-na-bumage.webp)" role="img" aria-label="Heridas en el papel"></div>
+      </div>
+      <div class="info">
+        <div class="kind">álbum · 2026 · 5 canciones</div>
+        <h2><span class="silver">Heridas en el papel</span></h2>
+        <p class="p">5 canciones de amor y dolor (en ruso)</p>
+        <span class="go">abrir álbum →</span>
+      </div>
+    </a>
+  </li>
+  <li class="disc" data-bg="ella/assets/spot.webp">
+    <a href="ella/">
+      <div class="sleeve-box">
+        <div class="vinyl-slide"><div class="vinyl"><span class="label" style="background-image:url(../covers/ella.webp)"></span></div></div>
+        <div class="sleeve" style="background-image:url(../covers/ella.webp)" role="img" aria-label="Ella"></div>
+      </div>
+      <div class="info">
+        <div class="kind">álbum · 2025 · 8 canciones</div>
+        <h2><span class="silver">Ella</span></h2>
+        <p class="p">8 canciones en español — sobre ella</p>
+        <span class="go">abrir álbum →</span>
+      </div>
+    </a>
+  </li>
+  <li class="disc" data-bg="2804/assets/cabin.webp">
+    <a href="2804/">
+      <div class="sleeve-box">
+        <div class="vinyl-slide"><div class="vinyl"><span class="label" style="background-image:url(../covers/2804.webp)"></span></div></div>
+        <div class="sleeve" style="background-image:url(../covers/2804.webp)" role="img" aria-label="2804"></div>
+      </div>
+      <div class="info">
+        <div class="kind">sencillo · 2025 · 3 pistas</div>
+        <h2><span class="silver">2804</span></h2>
+        <p class="p">Stolen Kiss · Cold · For You</p>
+        <span class="go">abrir álbum →</span>
+      </div>
+    </a>
+  </li>
+  </ul>
+
+  <footer class="disco-foot">
+    <div class="foot-cols">
+      <div class="foot-col foot-support"><p>Si la música te llega —<br>puedes apoyarla</p><a class="support-btn" href="https://pay.cloudtips.ru/p/945dde54" target="_blank" rel="noopener">Apoyar <span aria-hidden="true">☕</span></a><a class="support-qr-link" href="https://pay.cloudtips.ru/p/945dde54" target="_blank" rel="noopener"><img class="support-qr" src="../shared/support-qr.png" alt="QR — apoyar" width="120" height="120" loading="lazy"></a></div>
+      <div class="foot-col"><span class="foot-label">Telegram</span><a href="https://t.me/espinozadesign" target="_blank" rel="noopener"><svg class="fi" viewBox="0 0 24 24" aria-hidden="true"><path d="M21.5 3.5 2.8 10.9c-.9.4-.9 1.6.1 1.9l4.6 1.4 1.8 5.6c.3.9 1.4 1.1 2 .4l2.6-2.8 4.8 3.5c.8.6 1.9.1 2.1-.8l3-14.1c.2-1.1-.9-2-1.9-1.5z"/><path d="m7.5 14.2 9.8-6.6"/></svg>@espinozadesign</a></div>
+      <div class="foot-col"><span class="foot-label">Web personal</span><a href="https://denis.espinoza.ru" target="_blank" rel="noopener"><svg class="fi" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.4-4 4.4-6 8-6s6.6 2 8 6"/></svg>denis.espinoza.ru</a></div>
+      <div class="foot-col"><span class="foot-label">Estudio</span><a href="https://espinoza.ru" target="_blank" rel="noopener"><svg class="fi" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.8 3 2.8 15 0 18M12 3c-2.8 3-2.8 15 0 18"/></svg>espinoza.ru</a></div>
+      <div class="foot-col"><span class="foot-label">Para proyectos</span><a href="https://t.me/espinozadenis" target="_blank" rel="noopener"><svg class="fi" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4.5" width="16" height="11" rx="1.6"/><path d="M2 19.5h20"/></svg>@espinozadenis</a><a href="tel:+79258911980"><svg class="fi" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 3.5h3l1.6 4.2-2.1 1.5a11 11 0 0 0 5.7 5.7l1.5-2.1 4.2 1.6v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.6 5.7a2 2 0 0 1 2-2.2z"/></svg>+7 925 891 1980</a></div>
+    </div>
+    <p class="credits">Música — Espinoza · © 2026 · Todos los derechos reservados</p>
+  </footer>
+</main>
+
+<!-- Player: barra lateral derecha plegable (en móvil, cápsula abajo) -->
+<aside class="player phone" id="player" role="region" aria-label="Reproductor" data-keep>
+  <button class="ph-toggle" id="phToggle" aria-label="Plegar reproductor" aria-expanded="true"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+  <!-- álbum que suena (clic = ir a su página) · ⇅ otros álbumes -->
+  <div class="ph-albumbar hd-switch">
+    <button class="ph-albsel" id="pAlbSw" aria-label="Elegir álbum" aria-haspopup="true" aria-expanded="false">
+      <span class="pa-cover" id="pAlbCov"><svg class="pa-badge" viewBox="0 0 24 24"><path d="M8 9l4-4 4 4M8 15l4 4 4-4"/></svg></span>
+      <span class="pa-txt"><span class="pa-k"><span class="k-on">sonando:</span><span class="k-off">en el reproductor:</span></span><span class="pa-t"><span class="pa-l">Álbum:</span> <span id="pAlbT"></span></span></span>
+      <svg class="pa-chev" viewBox="0 0 24 24"><path d="M8 9l4-4 4 4M8 15l4 4 4-4"/></svg>
+    </button>
+    <nav class="sw-menu" id="pAlbList" aria-label="{      <a href="stay-till-morning/" data-slug="stay-till-morning"><img src="../covers/stay-till-morning.webp" alt="" width="40" height="40"><span>Quédate hasta el alba<small>sencillo</small></span></a>
+      <a href="zen/" data-slug="zen"><img src="../covers/zen.webp" alt="" width="40" height="40"><span>Silencio interior<small>meditaciones</small></span></a>
+      <a href="tuta-ukupi/" data-slug="tuta-ukupi"><img src="../covers/tuta-ukupi.webp" alt="" width="40" height="40"><span>Tuta Ukupi<small>álbum</small></span></a>
+      <a href="andes-nights/" data-slug="andes-nights"><img src="../covers/andes-nights.webp" alt="" width="40" height="40"><span>Andes Nights<small>álbum</small></span></a>
+      <a href="neural-lullabies/" data-slug="neural-lullabies"><img src="../covers/neural-lullabies.webp" alt="" width="40" height="40"><span>Neural Lullabies<small>álbum</small></span></a>
+      <a href="rany-na-bumage/" data-slug="rany-na-bumage"><img src="../covers/rany-na-bumage.webp" alt="" width="40" height="40"><span>Heridas en el papel<small>álbum</small></span></a>
+      <a href="2804/" data-slug="2804"><img src="../covers/2804.webp" alt="" width="40" height="40"><span>2804<small>sencillo</small></span></a>
+}">
+      <a href="stay-till-morning/" data-slug="stay-till-morning"><img src="../covers/stay-till-morning.webp" alt="" width="40" height="40"><span>Quédate hasta el alba<small>sencillo</small></span></a>
+      <a href="zen/" data-slug="zen"><img src="../covers/zen.webp" alt="" width="40" height="40"><span>Silencio interior<small>meditaciones</small></span></a>
+      <a href="tuta-ukupi/" data-slug="tuta-ukupi"><img src="../covers/tuta-ukupi.webp" alt="" width="40" height="40"><span>Tuta Ukupi<small>álbum</small></span></a>
+      <a href="andes-nights/" data-slug="andes-nights"><img src="../covers/andes-nights.webp" alt="" width="40" height="40"><span>Andes Nights<small>álbum</small></span></a>
+      <a href="neural-lullabies/" data-slug="neural-lullabies"><img src="../covers/neural-lullabies.webp" alt="" width="40" height="40"><span>Neural Lullabies<small>álbum</small></span></a>
+      <a href="rany-na-bumage/" data-slug="rany-na-bumage"><img src="../covers/rany-na-bumage.webp" alt="" width="40" height="40"><span>Heridas en el papel<small>álbum</small></span></a>
+      <a href="2804/" data-slug="2804"><img src="../covers/2804.webp" alt="" width="40" height="40"><span>2804<small>sencillo</small></span></a>
+    </nav>
+  </div>
+  <div class="ph-art">
+    <div class="p-cover" id="pCover"><span class="p-ring"></span></div>
+  </div>
+  <div class="p-info">
+    <div class="p-top">
+      <span class="p-num" id="pNum">01</span>
+      <span class="p-title" id="pTitle"></span>
+      <span class="eq"><i></i><i></i><i></i><i></i><i></i></span>
+    </div>
+    <p class="ph-phrase" id="pPhrase"></p>
+    <div class="p-bar" id="pBar" role="slider" tabindex="0" aria-label="Avanzar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+      <span class="p-fill" id="pFill"></span><span class="p-knob" id="pKnob"></span><span class="p-tip" id="pTip">0:00</span>
+    </div>
+    <div class="p-time"><span id="pCur">0:00</span><span class="p-state" id="pState"></span><span id="pDur">0:00</span></div>
+  </div>
+  <div class="p-ctrl">
+    <button id="pPrev" aria-label="Anterior"><svg viewBox="0 0 24 24"><path d="M7 5v14M18 6l-8 6 8 6z"/></svg></button>
+    <button id="pPlay" class="p-play" aria-label="Reproducir">
+      <svg class="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg>
+      <svg class="i-pause" viewBox="0 0 24 24"><path d="M6.5 5h3.5v14H6.5zM14 5h3.5v14H14z"/></svg>
+    </button>
+    <button id="pNext" aria-label="Siguiente"><svg viewBox="0 0 24 24"><path d="M17 5v14M6 6l8 6-8 6z"/></svg></button>
+  </div>
+  <!-- volumen: altavoz (clic = silencio) · barra · cifra que se anima al moverla -->
+  <div class="ph-vol">
+    <button class="ph-mute" id="pMute" aria-label="Silenciar" aria-pressed="false"><svg viewBox="0 0 24 24"><path class="spk" d="M4 9h4l5-4v14l-5-4H4z"/><path class="w1" d="M16 9.5a3.5 3.5 0 0 1 0 5"/><path class="w2" d="M18.5 7a7 7 0 0 1 0 10"/><path class="x" d="M16 9.5l5 5M21 9.5l-5 5"/></svg></button>
+    <input class="p-vol" id="pVol" type="range" min="0" max="1" step="0.01" value="0.7" aria-label="Volumen">
+    <span class="ph-vol-val" id="pVolVal" aria-hidden="true">70%</span>
+  </div>
+  <!-- como en una app: repetir la lista y temporizador de apagado (10 · 20 · 30 мин) -->
+  <div class="ph-tools">
+    <button class="ph-tool" id="pLoop" aria-pressed="false" title="Repetir: no · álbum · pista"><svg viewBox="0 0 24 24"><path d="M17 2l3 3-3 3M4 11V9a4 4 0 0 1 4-4h12M7 22l-3-3 3-3M20 13v2a4 4 0 0 1-4 4H4"/><text class="one" x="12" y="15.5" text-anchor="middle">1</text></svg><span>repetir</span></button>
+    <button class="ph-tool" id="pTimer" aria-pressed="false" title="Temporizador de sueño"><svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg><span id="pTimerLbl">temporizador</span></button>
+    <div class="share-wrap">
+      <button class="ph-tool" id="pShare" aria-haspopup="true" aria-expanded="false" title="Compartir"><svg viewBox="0 0 24 24"><path d="M12 15V3M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg><span>compartir</span></button>
+      <div class="share-pop" id="sharePop" role="menu">
+        <button data-share-album>Enlace al álbum</button>
+        <button data-share-song>Enlace a esta canción</button>
+      </div>
+    </div>
+  </div>
+  <a class="p-cta" href="#listen">Álbum completo →</a>
+  <button class="p-close" id="pClose" aria-label="Cerrar reproductor" hidden>×</button>
+  <p class="ph-album" id="phAlbum"></p>
+  <ol class="ph-list" id="pList"></ol>
+</aside>
+
+<script>window.SITE = {"type": "home", "lang": "es", "albums": [{"slug": "stay-till-morning", "title": "Quédate hasta el alba", "kind": "sencillo", "cover": "covers/stay-till-morning.webp"}, {"slug": "zen", "title": "Silencio interior", "kind": "meditaciones", "cover": "covers/zen.webp"}, {"slug": "tuta-ukupi", "title": "Tuta Ukupi", "kind": "álbum", "cover": "covers/tuta-ukupi.webp"}, {"slug": "andes-nights", "title": "Andes Nights", "kind": "álbum", "cover": "covers/andes-nights.webp"}, {"slug": "neural-lullabies", "title": "Neural Lullabies", "kind": "álbum", "cover": "covers/neural-lullabies.webp"}, {"slug": "rany-na-bumage", "title": "Heridas en el papel", "kind": "álbum", "cover": "covers/rany-na-bumage.webp"}, {"slug": "ella", "title": "Ella", "kind": "álbum", "cover": "covers/ella.webp"}, {"slug": "2804", "title": "2804", "kind": "sencillo", "cover": "covers/2804.webp"}]};</script>
+<script src="../shared/app.js?v=6017d395" data-keep></script>
+</body>
+</html>

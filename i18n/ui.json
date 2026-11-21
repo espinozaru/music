@@ -1,0 +1,41 @@
+{
+ "ru": {
+  "lang": "Язык", "hint": "листай медленно", "player": "Плеер", "collapse": "Свернуть плеер", "pickAlbum": "Выбрать альбом",
+  "nowPlaying": "сейчас играет:", "inPlayer": "в плеере:", "albumL": "Альбом:", "albums": "Альбомы", "seek": "Перемотка",
+  "prev": "Предыдущая", "play": "Играть", "next": "Следующая", "mute": "Без звука", "volume": "Громкость",
+  "loopTitle": "Повтор: выкл · альбом · трек", "loop": "повтор", "timerTitle": "Таймер сна", "timer": "таймер",
+  "shareTitle": "Поделиться", "share": "поделиться", "shareAlbum": "Ссылка на альбом", "shareSong": "Ссылка на эту песню",
+  "fullAlbum": "Полный альбом →", "closePlayer": "Закрыть плеер", "album": "альбом", "allAlbums": "Все альбомы",
+  "otherAlbums": "Другие альбомы", "music": "музыка", "listen": "слушать", "fullOnPlatforms": "полностью — на платформах",
+  "soonFull": "скоро — в полном альбоме", "clip": "клип на YouTube", "listenOn": "слушать на", "songOn": "эта песня на",
+  "available": "доступно", "listenAlbum": "Слушать альбом", "tracks": "Треки", "supportP": "Если музыка откликается — можно поддержать",
+  "support": "Поддержать", "madeBy": "Проект от", "openAlbum": "открыть альбом", "listenPlatforms": "слушать на платформах",
+  "introSupport": " Если музыка откликается — {0}её можно поддержать{1}."
+ },
+ "en": {
+  "lang": "Language", "hint": "scroll slowly", "player": "Player", "collapse": "Collapse player", "pickAlbum": "Choose album",
+  "nowPlaying": "now playing:", "inPlayer": "in player:", "albumL": "Album:", "albums": "Albums", "seek": "Seek",
+  "prev": "Previous", "play": "Play", "next": "Next", "mute": "Mute", "volume": "Volume",
+  "loopTitle": "Repeat: off · album · track", "loop": "repeat", "timerTitle": "Sleep timer", "timer": "timer",
+  "shareTitle": "Share", "share": "share", "shareAlbum": "Link to the album", "shareSong": "Link to this song",
+  "fullAlbum": "Full album →", "closePlayer": "Close player", "album": "album", "allAlbums": "All albums",
+  "otherAlbums": "Other albums", "music": "music", "listen": "listen", "fullOnPlatforms": "full version on platforms",
+  "soonFull": "soon — in the full album", "clip": "video on YouTube", "listenOn": "listen on", "songOn": "this song on",
+  "available": "available", "listenAlbum": "Listen to the album", "tracks": "Tracks", "supportP": "If the music speaks to you — you can support it",
+  "support": "Support", "madeBy": "A project by", "openAlbum": "open album", "listenPlatforms": "listen on platforms",
+  "introSupport": " If the music speaks to you, {0}you can support it{1}."
+ },
+ "es": {
+  "lang": "Idioma", "hint": "desliza despacio", "player": "Reproductor", "collapse": "Plegar reproductor", "pickAlbum": "Elegir álbum",
+  "nowPlaying": "sonando:", "inPlayer": "en el reproductor:", "albumL": "Álbum:", "albums": "Álbumes", "seek": "Avanzar",
+  "prev": "Anterior", "play": "Reproducir", "next": "Siguiente", "mute": "Silenciar", "volume": "Volumen",
+  "loopTitle": "Repetir: no · álbum · pista", "loop": "repetir", "timerTitle": "Temporizador de sueño", "timer": "temporizador",
+  "shareTitle": "Compartir", "share": "compartir", "shareAlbum": "Enlace al álbum", "shareSong": "Enlace a esta canción",
+  "fullAlbum": "Álbum completo →", "closePlayer": "Cerrar reproductor", "album": "álbum", "allAlbums": "Todos los álbumes",
+  "otherAlbums": "Otros álbumes", "music": "música", "listen": "escuchar", "fullOnPlatforms": "completa en las plataformas",
+  "soonFull": "pronto — en el álbum completo", "clip": "videoclip en YouTube", "listenOn": "escuchar en", "songOn": "esta canción en",
+  "available": "disponible", "listenAlbum": "Escuchar el álbum", "tracks": "Pistas", "supportP": "Si la música te llega — puedes apoyarla",
+  "support": "Apoyar", "madeBy": "Un proyecto de", "openAlbum": "abrir álbum", "listenPlatforms": "escuchar en plataformas",
+  "introSupport": " Si la música te llega, {0}puedes apoyarla{1}."
+ }
+}

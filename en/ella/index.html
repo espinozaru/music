@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ella — Espinoza</title>
+<meta name="description" content="“Ella” — 8 songs in Spanish about her: love, fever, attraction and nights without her.">
+<link rel="canonical" href="https://music.espinoza.ru/en/ella/">
+<link rel="alternate" hreflang="ru" href="https://music.espinoza.ru/ella/">
+<link rel="alternate" hreflang="en" href="https://music.espinoza.ru/en/ella/">
+<link rel="alternate" hreflang="es" href="https://music.espinoza.ru/es/ella/">
+<link rel="alternate" hreflang="x-default" href="https://music.espinoza.ru/ella/">
+<link rel="preload" href="../../shared/fonts/NotoSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../../shared/fonts/Unbounded-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../../ella/assets/spot.webp" as="image">
+<link rel="stylesheet" href="../../shared/style.css?v=6017d395">
+<link rel="stylesheet" href="../../shared/panel.css?v=6017d395">
+<link rel="stylesheet" href="../../shared/home.css?v=6017d395">
+</head>
+<body class="v2 unb noplay">
+<!-- fijo (data-keep): no cambia al navegar entre páginas -->
+<canvas id="scene" data-keep></canvas>
+<div class="bg" data-keep></div><div class="bg" data-keep></div>
+<div class="veil" data-keep></div>
+<div class="grain" data-keep></div>
+
+<header class="top">
+  <!-- atrás · logo · selector para saltar a otro álbum -->
+  <div class="brand">
+    <a class="hd-btn hd-back" href="../" aria-label="All albums"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></a>
+    <a href="../" class="logo-link" aria-label="All albums"><img src="../../shared/logo-white.png" alt="Espinoza" class="logo"></a>
+    <div class="hd-switch">
+      <button class="hd-btn" id="albSw" aria-label="Other albums" aria-haspopup="true" aria-expanded="false"><svg viewBox="0 0 24 24"><path d="M8 9l4-4 4 4M8 15l4 4 4-4"/></svg></button>
+      <nav class="sw-menu" id="swMenu" aria-label="Albums">
+        <a href="../stay-till-morning/"><img src="../../covers/stay-till-morning.webp" alt="" width="40" height="40"><span>Stay Till Morning<small>single</small></span></a>
+        <a href="../zen/"><img src="../../covers/zen.webp" alt="" width="40" height="40"><span>Silence Within<small>meditations</small></span></a>
+        <a href="../tuta-ukupi/"><img src="../../covers/tuta-ukupi.webp" alt="" width="40" height="40"><span>Tuta Ukupi<small>album</small></span></a>
+        <a href="../andes-nights/"><img src="../../covers/andes-nights.webp" alt="" width="40" height="40"><span>Andes Nights<small>album</small></span></a>
+        <a href="../neural-lullabies/"><img src="../../covers/neural-lullabies.webp" alt="" width="40" height="40"><span>Neural Lullabies<small>album</small></span></a>
+        <a href="../rany-na-bumage/"><img src="../../covers/rany-na-bumage.webp" alt="" width="40" height="40"><span>Wounds on Paper<small>album</small></span></a>
+        <a href="../ella/" class="cur" aria-current="page"><img src="../../covers/ella.webp" alt="" width="40" height="40"><span>Ella<small>album</small></span></a>
+        <a href="../2804/"><img src="../../covers/2804.webp" alt="" width="40" height="40"><span>2804<small>single</small></span></a>
+        <a href="../" class="all"><span>← All albums</span></a>
+      </nav>
+    </div>
+  </div>
+  <div class="top-right">
+    <div class="lang"><button class="lang-btn" aria-haspopup="true" aria-expanded="false" aria-label="Language"><span class="flag"><svg viewBox="0 0 60 30"><clipPath id="uk"><path d="M30 15h30v15zv15H0zH0V0zV0h30z"/></clipPath><path fill="#012169" d="M0 0v30h60V0z"/><path stroke="#fff" stroke-width="6" d="m0 0 60 30m0-30L0 30"/><path stroke="#c8102e" stroke-width="4" d="m0 0 60 30m0-30L0 30" clip-path="url(#uk)"/><path stroke="#fff" stroke-width="10" d="M30 0v30M0 15h60"/><path stroke="#c8102e" stroke-width="6" d="M30 0v30M0 15h60"/></svg></span><span class="code">EN</span></button><nav class="lang-menu"><a href="../../ella/" hreflang="ru" lang="ru" data-full><span class="flag"><svg viewBox="0 0 9 6"><path fill="#fff" d="M0 0h9v2H0z"/><path fill="#0039a6" d="M0 2h9v2H0z"/><path fill="#d52b1e" d="M0 4h9v2H0z"/></svg></span>Русский</a><a href="../../en/ella/" hreflang="en" lang="en" data-full class=cur aria-current=page><span class="flag"><svg viewBox="0 0 60 30"><clipPath id="uk"><path d="M30 15h30v15zv15H0zH0V0zV0h30z"/></clipPath><path fill="#012169" d="M0 0v30h60V0z"/><path stroke="#fff" stroke-width="6" d="m0 0 60 30m0-30L0 30"/><path stroke="#c8102e" stroke-width="4" d="m0 0 60 30m0-30L0 30" clip-path="url(#uk)"/><path stroke="#fff" stroke-width="10" d="M30 0v30M0 15h60"/><path stroke="#c8102e" stroke-width="6" d="M30 0v30M0 15h60"/></svg></span>English</a><a href="../../es/ella/" hreflang="es" lang="es" data-full><span class="flag"><svg viewBox="0 0 9 6"><path fill="#c60b1e" d="M0 0h9v6H0z"/><path fill="#ffc400" d="M0 1.5h9v3H0z"/></svg></span>Español</a></nav></div>
+    <a class="top-cta" href="#listen"><svg viewBox="0 0 10 10"><path d="M2 1v8l7-4z"/></svg>Listen to the album</a>
+  </div>
+</header>
+
+<!-- Menú vertical fijo: rayas + números; se marca lo que está en pantalla y lo que suena -->
+<nav class="side" id="side" aria-label="Tracks"></nav>
+<div class="side-tip" id="sideTip" aria-hidden="true"></div>
+<!-- Móvil: la lista a pantalla completa, con el botón abajo (donde está el pulgar) -->
+<nav class="m-menu" id="mMenu" aria-label="Tracks"></nav>
+<button class="m-btn" id="mBtn" aria-label="Tracks" aria-expanded="false"><span></span><span></span></button>
+
+<main>
+  <!-- Portada: una palabra grande que entra por la derecha -->
+  <section class="hero" id="top" data-bg="spot" data-horizon="0.995">
+    <h1 class="stair one" aria-label="Ella">
+      <span class="w w2 fx" data-fx="hero-r" data-delay="0.4"><span class="silver">ELLA</span></span>
+    </h1>
+    <p class="sub fx" data-split="words" data-delay="1.6">8 songs in Spanish — about her</p>
+    <p class="hero-note fx" data-split="words" data-delay="2.3">Guitar. Voice. Spanish. Eight songs about her. Ella.</p>
+    <div class="scroll-hint fx" data-delay="2.8"><span></span>scroll slowly</div>
+  </section>
+
+  <!-- Pistas: cada una cambia el paisaje de fondo -->
+  <section class="track" id="t01" data-bg="red" data-horizon="0.995">
+    <div class="num fx">01 / 8</div>
+    <h2 class="fx" data-fx="title" data-delay="0.1"><span class="silver">Todo lo que Soy</span></h2>
+    <p class="phrase fx" data-split="words" data-delay="0.45">All that I am — for her</p>
+    <div class="meta fx" data-delay="0.8">3:49 · song · <button class="share-t" data-share="t01" data-title="Todo lo que Soy"><svg viewBox="0 0 24 24"><path d="M12 15V3M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg>share</button></div>
+    
+    
+    <div class="tlinks fx" data-delay="1.1"><span class="tl-label">listen on</span><a href="https://music.yandex.ru/album/39743901/track/146216188" target="_blank" rel="noopener">Yandex Music</a><a href="https://open.spotify.com/track/5DEjfv5fgVlQ7cq50giUvc" target="_blank" rel="noopener">Spotify</a><a href="https://music.youtube.com/playlist?list=OLAK5uy_lUvkgYzrqT_BYezt3LE9LVl-MAzMGX6vk" target="_blank" rel="noopener">YouTube Music</a><a href="https://www.deezer.com/track/3701183602" target="_blank" rel="noopener">Deezer</a></div>
+  </section>
+  <section class="track" id="t02" data-bg="blue" data-horizon="0.995">
+    <div class="num fx">02 / 8</div>
+    <h2 class="fx" data-fx="title" data-delay="0.1"><span class="silver">Una noche más sin ti</span></h2>
+    <p class="phrase fx" data-split="words" data-delay="0.45">One more night without you</p>
+    <div class="meta fx" data-delay="0.8">3:45 · song · <button class="share-t" data-share="t02" data-title="Una noche más sin ti"><svg viewBox="0 0 24 24"><path d="M12 15V3M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg>share</button></div>
+    
+    
+    <div class="tlinks fx" data-delay="1.1"><span class="tl-label">listen on</span><a href="https://music.yandex.ru/album/39743901/track/146216190" target="_blank" rel="noopener">Yandex Music</a><a href="https://open.spotify.com/track/26TKwLXgUVE5JemX5GGngM" target="_blank" rel="noopener">Spotify</a><a href="https://music.youtube.com/playlist?list=OLAK5uy_lUvkgYzrqT_BYezt3LE9LVl-MAzMGX6vk" target="_blank" rel="noopener">YouTube Music</a><a href="https://www.deezer.com/track/3701183612" target="_blank" rel="noopener">Deezer</a></div>
+  </section>
+  <section class="track" id="t03" data-bg="top0" data-horizon="0.995">
+    <div class="num fx">03 / 8</div>
+    <h2 class="fx" data-fx="title" data-delay="0.1"><span class="silver">La Verdad</span></h2>
+    <p class="phrase fx" data-split="words" data-delay="0.45">A truth that&#x27;s hard to say</p>
+    <div class="meta fx" data-delay="0.8">4:35 · song · <button class="share-t" data-share="t03" data-title="La Verdad"><svg viewBox="0 0 24 24"><path d="M12 15V3M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg>share</button></div>
+    
+    
+    <div class="tlinks fx" data-delay="1.1"><span class="tl-label">listen on</span><a href="https://music.yandex.ru/album/39743901/track/146216191" target="_blank" rel="noopener">Yandex Music</a><a href="https://open.spotify.com/track/4Ejd5vt2M4zUVuB94graWj" target="_blank" rel="noopener">Spotify</a><a href="https://music.youtube.com/playlist?list=OLAK5uy_lUvkgYzrqT_BYezt3LE9LVl-MAzMGX6vk" target="_blank" rel="noopener">YouTube Music</a><a href="https://www.deezer.com/track/3701183622" target="_blank" rel="noopener">Deezer</a></div>
+  </section>
+  <section class="track" id="t04" data-bg="clear" data-horizon="0.995">
+    <div class="num fx">04 / 8</div>
+    <h2 class="fx" data-fx="title" data-delay="0.1"><span class="silver">Fiebre</span></h2>
+    <p class="phrase fx" data-split="words" data-delay="0.45">A fever you can&#x27;t hide from</p>
+    <div class="meta fx" data-delay="0.8">4:26 · song · <button class="share-t" data-share="t04" data-title="Fiebre"><svg viewBox="0 0 24 24"><path d="M12 15V3M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg>share</button></div>
+    
+    
+    <div class="tlinks fx" data-delay="1.1"><span class="tl-label">listen on</span><a href="https://music.yandex.ru/album/39743901/track/146216192" target="_blank" rel="noopener">Yandex Music</a><a href="https://open.spotify.com/track/1GrCDt77ps3euepW5WNe1k" target="_blank" rel="noopener">Spotify</a><a href="https://music.youtube.com/playlist?list=OLAK5uy_lUvkgYzrqT_BYezt3LE9LVl-MAzMGX6vk" target="_blank" rel="noopener">YouTube Music</a><a href="https://www.deezer.com/track/3701183632" target="_blank" rel="noopener">Deezer</a></div>
+  </section>
+  <section class="track" id="t05" data-bg="top1" data-horizon="0.995">
+    <div class="num fx">05 / 8</div>
+    <h2 class="fx" data-fx="title" data-delay="0.1"><span class="silver">Gravedad</span></h2>
+    <p class="phrase fx" data-split="words" data-delay="0.45">A pull stronger than me</p>
+    <div class="meta fx" data-delay="0.8">3:30 · song · <button class="share-t" data-share="t05" data-title="Gravedad"><svg viewBox="0 0 24 24"><path d="M12 15V3M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg>share</button></div>
+    
+    
+    <div class="tlinks fx" data-delay="1.1"><span class="tl-label">listen on</span><a href="https://music.yandex.ru/album/39743901/track/146216194" target="_blank" rel="noopener">Yandex Music</a><a href="https://open.spotify.com/track/1W1Jkvvd569baZL3wxR1K8" target="_blank" rel="noopener">Spotify</a><a href="https://music.youtube.com/playlist?list=OLAK5uy_lUvkgYzrqT_BYezt3LE9LVl-MAzMGX6vk" target="_blank" rel="noopener">YouTube Music</a><a href="https://www.deezer.com/track/3701183642" target="_blank" rel="noopener">Deezer</a></div>
+  </section>
+  <section class="track" id="t06" data-bg="andean" data-horizon="0.995">
+    <div class="num fx">06 / 8</div>
+    <h2 class="fx" data-fx="title" data-delay="0.1"><span class="silver">Fuego lento</span></h2>
+    <p class="phrase fx" data-split="words" data-delay="0.45">Slow fire</p>
+    <div class="meta fx" data-delay="0.8">4:22 · song · <button class="share-t" data-share="t06" data-title="Fuego lento"><svg viewBox="0 0 24 24"><path d="M12 15V3M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg>share</button></div>
+    
+    
+    <div class="tlinks fx" data-delay="1.1"><span class="tl-label">listen on</span><a href="https://music.yandex.ru/album/39743901/track/146216189" target="_blank" rel="noopener">Yandex Music</a><a href="https://open.spotify.com/track/6HvtEXNqW1aXcs3j3ZYbWm" target="_blank" rel="noopener">Spotify</a><a href="https://music.youtube.com/playlist?list=OLAK5uy_lUvkgYzrqT_BYezt3LE9LVl-MAzMGX6vk" target="_blank" rel="noopener">YouTube Music</a><a href="https://www.deezer.com/track/3701183652" target="_blank" rel="noopener">Deezer</a></div>
+  </section>
+  <section class="track" id="t07" data-bg="worn" data-horizon="0.995">
+    <div class="num fx">07 / 8</div>
+    <h2 class="fx" data-fx="title" data-delay="0.1"><span class="silver">Al otro lado</span></h2>
+    <p class="phrase fx" data-split="words" data-delay="0.45">On the other side</p>
+    <div class="meta fx" data-delay="0.8">4:09 · song · <button class="share-t" data-share="t07" data-title="Al otro lado"><svg viewBox="0 0 24 24"><path d="M12 15V3M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg>share</button></div>
+    
+    
+    <div class="tlinks fx" data-delay="1.1"><span class="tl-label">listen on</span><a href="https://music.yandex.ru/album/39743901/track/146216197" target="_blank" rel="noopener">Yandex Music</a><a href="https://open.spotify.com/track/67SHrcxIQQY8mk1hSd6zCp" target="_blank" rel="noopener">Spotify</a><a href="https://music.youtube.com/playlist?list=OLAK5uy_lUvkgYzrqT_BYezt3LE9LVl-MAzMGX6vk" target="_blank" rel="noopener">YouTube Music</a><a href="https://www.deezer.com/track/3701183662" target="_blank" rel="noopener">Deezer</a></div>
+  </section>
+  <section class="track" id="t08" data-bg="spot" data-horizon="0.995">
+    <div class="num fx">08 / 8</div>
+    <h2 class="fx" data-fx="title" data-delay="0.1"><span class="silver">Aunque me pienses</span></h2>
+    <p class="phrase fx" data-split="words" data-delay="0.45">Even if you think of me</p>
+    <div class="meta fx" data-delay="0.8">4:11 · song · <button class="share-t" data-share="t08" data-title="Aunque me pienses"><svg viewBox="0 0 24 24"><path d="M12 15V3M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg>share</button></div>
+    
+    
+    <div class="tlinks fx" data-delay="1.1"><span class="tl-label">listen on</span><a href="https://music.yandex.ru/album/39743901/track/146216201" target="_blank" rel="noopener">Yandex Music</a><a href="https://open.spotify.com/track/4ZJkdBHD8mOAsC3KZHmUTU" target="_blank" rel="noopener">Spotify</a><a href="https://music.youtube.com/playlist?list=OLAK5uy_lUvkgYzrqT_BYezt3LE9LVl-MAzMGX6vk" target="_blank" rel="noopener">YouTube Music</a><a href="https://www.deezer.com/track/3701183672" target="_blank" rel="noopener">Deezer</a></div>
+  </section>
+
+  <!-- Escuchar -->
+  <section class="listen" id="listen" data-bg="spot" data-horizon="0.995">
+    <h2 class="fx" data-fx="title"><span class="silver">Listen to the album</span></h2>
+    <div class="platforms fx"><a href="https://music.yandex.ru/album/39743901" target="_blank" rel="noopener">Yandex Music</a><a href="https://open.spotify.com/album/4DayA7A9pTg4we6dYCWkcG" target="_blank" rel="noopener">Spotify</a><a href="https://music.youtube.com/playlist?list=OLAK5uy_lUvkgYzrqT_BYezt3LE9LVl-MAzMGX6vk" target="_blank" rel="noopener">YouTube Music</a><a href="https://www.deezer.com/album/872180452" target="_blank" rel="noopener">Deezer</a><a href="https://ditto.fm/ella_88859687" target="_blank" rel="noopener">All platforms</a></div>
+    <div class="support fx"><p>If the music speaks to you — you can support it</p><a class="support-btn" href="https://pay.cloudtips.ru/p/945dde54" target="_blank" rel="noopener">Support <span aria-hidden="true">☕</span></a></div>
+    <p class="credits fx">Lyrics, music and voice — Espinoza · ℗ 2025</p>
+    <p class="disclaimer fx">© 2026 Espinoza. All rights reserved.</p>
+    <p class="back fx"><a href="../">← All albums</a></p>
+  </section>
+</main>
+
+<a class="made" href="https://espinoza.ru" target="_blank" rel="noopener">A project by <span>espinoza.ru</span></a>
+
+<!-- Player: barra lateral derecha plegable (en móvil, cápsula abajo) -->
+<aside class="player phone" id="player" role="region" aria-label="Player" data-keep>
+  <button class="ph-toggle" id="phToggle" aria-label="Collapse player" aria-expanded="true"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+  <!-- álbum que suena (clic = ir a su página) · ⇅ otros álbumes -->
+  <div class="ph-albumbar hd-switch">
+    <button class="ph-albsel" id="pAlbSw" aria-label="Choose album" aria-haspopup="true" aria-expanded="false">
+      <span class="pa-cover" id="pAlbCov"><svg class="pa-badge" viewBox="0 0 24 24"><path d="M8 9l4-4 4 4M8 15l4 4 4-4"/></svg></span>
+      <span class="pa-txt"><span class="pa-k"><span class="k-on">now playing:</span><span class="k-off">in player:</span></span><span class="pa-t"><span class="pa-l">Album:</span> <span id="pAlbT"></span></span></span>
+      <svg class="pa-chev" viewBox="0 0 24 24"><path d="M8 9l4-4 4 4M8 15l4 4 4-4"/></svg>
+    </button>
+    <nav class="sw-menu" id="pAlbList" aria-label="{      <a href="../stay-till-morning/" data-slug="stay-till-morning"><img src="../../covers/stay-till-morning.webp" alt="" width="40" height="40"><span>Stay Till Morning<small>single</small></span></a>
+      <a href="../zen/" data-slug="zen"><img src="../../covers/zen.webp" alt="" width="40" height="40"><span>Silence Within<small>meditations</small></span></a>
+      <a href="../tuta-ukupi/" data-slug="tuta-ukupi"><img src="../../covers/tuta-ukupi.webp" alt="" width="40" height="40"><span>Tuta Ukupi<small>album</small></span></a>
+      <a href="../andes-nights/" data-slug="andes-nights"><img src="../../covers/andes-nights.webp" alt="" width="40" height="40"><span>Andes Nights<small>album</small></span></a>
+      <a href="../neural-lullabies/" data-slug="neural-lullabies"><img src="../../covers/neural-lullabies.webp" alt="" width="40" height="40"><span>Neural Lullabies<small>album</small></span></a>
+      <a href="../rany-na-bumage/" data-slug="rany-na-bumage"><img src="../../covers/rany-na-bumage.webp" alt="" width="40" height="40"><span>Wounds on Paper<small>album</small></span></a>
+      <a href="../2804/" data-slug="2804"><img src="../../covers/2804.webp" alt="" width="40" height="40"><span>2804<small>single</small></span></a>
+}">
+      <a href="../stay-till-morning/" data-slug="stay-till-morning"><img src="../../covers/stay-till-morning.webp" alt="" width="40" height="40"><span>Stay Till Morning<small>single</small></span></a>
+      <a href="../zen/" data-slug="zen"><img src="../../covers/zen.webp" alt="" width="40" height="40"><span>Silence Within<small>meditations</small></span></a>
+      <a href="../tuta-ukupi/" data-slug="tuta-ukupi"><img src="../../covers/tuta-ukupi.webp" alt="" width="40" height="40"><span>Tuta Ukupi<small>album</small></span></a>
+      <a href="../andes-nights/" data-slug="andes-nights"><img src="../../covers/andes-nights.webp" alt="" width="40" height="40"><span>Andes Nights<small>album</small></span></a>
+      <a href="../neural-lullabies/" data-slug="neural-lullabies"><img src="../../covers/neural-lullabies.webp" alt="" width="40" height="40"><span>Neural Lullabies<small>album</small></span></a>
+      <a href="../rany-na-bumage/" data-slug="rany-na-bumage"><img src="../../covers/rany-na-bumage.webp" alt="" width="40" height="40"><span>Wounds on Paper<small>album</small></span></a>
+      <a href="../2804/" data-slug="2804"><img src="../../covers/2804.webp" alt="" width="40" height="40"><span>2804<small>single</small></span></a>
+    </nav>
+  </div>
+  <div class="ph-art">
+    <div class="p-cover" id="pCover"><span class="p-ring"></span></div>
+  </div>
+  <div class="p-info">
+    <div class="p-top">
+      <span class="p-num" id="pNum">01</span>
+      <span class="p-title" id="pTitle"></span>
+      <span class="eq"><i></i><i></i><i></i><i></i><i></i></span>
+    </div>
+    <p class="ph-phrase" id="pPhrase"></p>
+    <div class="p-bar" id="pBar" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+      <span class="p-fill" id="pFill"></span><span class="p-knob" id="pKnob"></span><span class="p-tip" id="pTip">0:00</span>
+    </div>
+    <div class="p-time"><span id="pCur">0:00</span><span class="p-state" id="pState"></span><span id="pDur">0:00</span></div>
+  </div>
+  <div class="p-ctrl">
+    <button id="pPrev" aria-label="Previous"><svg viewBox="0 0 24 24"><path d="M7 5v14M18 6l-8 6 8 6z"/></svg></button>
+    <button id="pPlay" class="p-play" aria-label="Play">
+      <svg class="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg>
+      <svg class="i-pause" viewBox="0 0 24 24"><path d="M6.5 5h3.5v14H6.5zM14 5h3.5v14H14z"/></svg>
+    </button>
+    <button id="pNext" aria-label="Next"><svg viewBox="0 0 24 24"><path d="M17 5v14M6 6l8 6-8 6z"/></svg></button>
+  </div>
+  <!-- volumen: altavoz (clic = silencio) · barra · cifra que se anima al moverla -->
+  <div class="ph-vol">
+    <button class="ph-mute" id="pMute" aria-label="Mute" aria-pressed="false"><svg viewBox="0 0 24 24"><path class="spk" d="M4 9h4l5-4v14l-5-4H4z"/><path class="w1" d="M16 9.5a3.5 3.5 0 0 1 0 5"/><path class="w2" d="M18.5 7a7 7 0 0 1 0 10"/><path class="x" d="M16 9.5l5 5M21 9.5l-5 5"/></svg></button>
+    <input class="p-vol" id="pVol" type="range" min="0" max="1" step="0.01" value="0.7" aria-label="Volume">
+    <span class="ph-vol-val" id="pVolVal" aria-hidden="true">70%</span>
+  </div>
+  <!-- como en una app: repetir la lista y temporizador de apagado (10 · 20 · 30 мин) -->
+  <div class="ph-tools">
+    <button class="ph-tool" id="pLoop" aria-pressed="false" title="Repeat: off · album · track"><svg viewBox="0 0 24 24"><path d="M17 2l3 3-3 3M4 11V9a4 4 0 0 1 4-4h12M7 22l-3-3 3-3M20 13v2a4 4 0 0 1-4 4H4"/><text class="one" x="12" y="15.5" text-anchor="middle">1</text></svg><span>repeat</span></button>
+    <button class="ph-tool" id="pTimer" aria-pressed="false" title="Sleep timer"><svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg><span id="pTimerLbl">timer</span></button>
+    <div class="share-wrap">
+      <button class="ph-tool" id="pShare" aria-haspopup="true" aria-expanded="false" title="Share"><svg viewBox="0 0 24 24"><path d="M12 15V3M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg><span>share</span></button>
+      <div class="share-pop" id="sharePop" role="menu">
+        <button data-share-album>Link to the album</button>
+        <button data-share-song>Link to this song</button>
+      </div>
+    </div>
+  </div>
+  <a class="p-cta" href="#listen">Full album →</a>
+  <button class="p-close" id="pClose" aria-label="Close player" hidden>×</button>
+  <p class="ph-album" id="phAlbum"></p>
+  <ol class="ph-list" id="pList"></ol>
+</aside>
+
+<script>window.SITE = {"type": "album", "lang": "en", "albums": [{"slug": "stay-till-morning", "title": "Stay Till Morning", "kind": "single", "cover": "covers/stay-till-morning.webp"}, {"slug": "zen", "title": "Silence Within", "kind": "meditations", "cover": "covers/zen.webp"}, {"slug": "tuta-ukupi", "title": "Tuta Ukupi", "kind": "album", "cover": "covers/tuta-ukupi.webp"}, {"slug": "andes-nights", "title": "Andes Nights", "kind": "album", "cover": "covers/andes-nights.webp"}, {"slug": "neural-lullabies", "title": "Neural Lullabies", "kind": "album", "cover": "covers/neural-lullabies.webp"}, {"slug": "rany-na-bumage", "title": "Wounds on Paper", "kind": "album", "cover": "covers/rany-na-bumage.webp"}, {"slug": "ella", "title": "Ella", "kind": "album", "cover": "covers/ella.webp"}, {"slug": "2804", "title": "2804", "kind": "single", "cover": "covers/2804.webp"}], "still": true, "first": "spot", "items": [{"n": "01", "t": "Todo lo que Soy", "tag": ""}, {"n": "02", "t": "Una noche más sin ti", "tag": ""}, {"n": "03", "t": "La Verdad", "tag": ""}, {"n": "04", "t": "Fiebre", "tag": ""}, {"n": "05", "t": "Gravedad", "tag": ""}, {"n": "06", "t": "Fuego lento", "tag": ""}, {"n": "07", "t": "Al otro lado", "tag": ""}, {"n": "08", "t": "Aunque me pienses", "tag": ""}], "album": {"slug": "ella", "title": "Ella", "artist": "Espinoza", "tracks": [{"n": "01", "t": "Todo lo que Soy", "p": "All that I am — for her", "bg": "red", "d": 229, "free": false}, {"n": "02", "t": "Una noche más sin ti", "p": "One more night without you", "bg": "blue", "d": 225, "free": false}, {"n": "03", "t": "La Verdad", "p": "A truth that's hard to say", "bg": "top0", "d": 275, "free": false}, {"n": "04", "t": "Fiebre", "p": "A fever you can't hide from", "bg": "clear", "d": 266, "free": false}, {"n": "05", "t": "Gravedad", "p": "A pull stronger than me", "bg": "top1", "d": 210, "free": false}, {"n": "06", "t": "Fuego lento", "p": "Slow fire", "bg": "andean", "d": 262, "free": false}, {"n": "07", "t": "Al otro lado", "p": "On the other side", "bg": "worn", "d": 249, "free": false}, {"n": "08", "t": "Aunque me pienses", "p": "Even if you think of me", "bg": "spot", "d": 251, "free": false}]}};</script>
+<script src="../../shared/app.js?v=6017d395" data-keep></script>
+</body>
+</html>

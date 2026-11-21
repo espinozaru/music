@@ -11,6 +11,21 @@
 (() => {
   const ROOT = new URL('../', document.currentScript.src).href; // raíz del sitio (…/music/)
   let SITE = window.SITE;
+  // idioma: ruso en la raíz, los demás en /en/, /es/ (el cambio de idioma recarga la página)
+  const LANG = document.documentElement.lang || 'ru';
+  const HOME = ROOT + (LANG === 'ru' ? '' : LANG + '/');
+  const I18N = {
+    ru: {of: 'из', available: 'доступно', listenAlbum: 'Слушать альбом', error: 'ошибка загрузки', pause: 'Пауза', play: 'Играть',
+      playing: 'играет', resume: 'продолжить', listen: 'слушать', paused: 'пауза', loading: 'загрузка', loop: {off: 'повтор', all: 'альбом', one: 'трек'},
+      loopT: {off: 'Повтор выключен', all: 'Повтор альбома', one: 'Повтор трека'}, timer: 'таймер', collapse: 'Свернуть плеер', expand: 'Развернуть плеер', copied: 'Ссылка скопирована'},
+    en: {of: 'of', available: 'available', listenAlbum: 'Listen to the album', error: 'loading error', pause: 'Pause', play: 'Play',
+      playing: 'playing', resume: 'resume', listen: 'listen', paused: 'paused', loading: 'loading', loop: {off: 'repeat', all: 'album', one: 'track'},
+      loopT: {off: 'Repeat off', all: 'Repeat album', one: 'Repeat track'}, timer: 'timer', collapse: 'Collapse player', expand: 'Expand player', copied: 'Link copied'},
+    es: {of: 'de', available: 'disponibles', listenAlbum: 'Escuchar el álbum', error: 'error de carga', pause: 'Pausa', play: 'Reproducir',
+      playing: 'sonando', resume: 'continuar', listen: 'escuchar', paused: 'pausa', loading: 'cargando', loop: {off: 'repetir', all: 'álbum', one: 'pista'},
+      loopT: {off: 'Repetir: no', all: 'Repetir álbum', one: 'Repetir pista'}, timer: 'temporizador', collapse: 'Plegar reproductor', expand: 'Desplegar reproductor', copied: 'Enlace copiado'},
+  };
+  const T = I18N[LANG] || I18N.ru;
 
   /* ======================= utilidades ======================= */
   const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
@@ -81,7 +96,7 @@ void main(){
     return t;
   };
   // id «song1» → assets/song1.webp de la página; con ruta («zen/assets/song1») → desde la raíz. Caché por URL absoluta.
-  const bgUrl = (id) => (id.includes('/') ? new URL(id, ROOT) : new URL('assets/' + id, location.href)).href;
+  const bgUrl = (id) => (id.includes('/') ? new URL(id, ROOT) : new URL('assets/' + id, SITE.album ? ROOT + SITE.album.slug + '/' : location.href)).href;
   const depthUrl = (u) => { const k = u.lastIndexOf('/'); return `${u.slice(0, k)}/depth/${u.slice(k + 1)}`; };
   const getScene = (id) => { const u = bgUrl(id); return (cache[u] ??= Promise.all([loadImg(u + '.webp'), loadImg(depthUrl(u) + '.webp')])
     .then(([img, dep]) => ({img: texFrom(img), dep: texFrom(dep), aspect: img.width / img.height}))); };
@@ -336,7 +351,7 @@ void main(){
     set: (n, v) => prefs.set(Q.slug + '-pos-' + n, String(v)),
   };
   const pageAlbum = () => (SITE.type === 'album' && SITE.album.tracks.some((t) => t.free)
-    ? {...SITE.album, base: new URL('./', location.href).href} : null);
+    ? {...SITE.album, base: new URL('./', location.href).href, media: ROOT + SITE.album.slug + '/'} : null);
   const sameAlbum = () => Q && SITE.type === 'album' && Q.slug === SITE.album.slug;
   const started = () => idx >= 0 && (!audio.paused || audio.currentTime > 0.5);
 
@@ -355,10 +370,10 @@ void main(){
     if (meta) swapBg($('pAlbCov'), new URL(meta.cover, ROOT).href);
     $('pAlbSw').dataset.tip = al.title;
     $('pAlbList').querySelectorAll('a').forEach((a) => a.classList.toggle('cur', a.dataset.slug === al.slug));
-    $('phAlbum').innerHTML = `${esc(al.title)} <span>${FREE.length} из ${al.tracks.length} доступно</span>`;
+    $('phAlbum').innerHTML = `${esc(al.title)} <span>${FREE.length} ${T.of} ${al.tracks.length} ${T.available}</span>`;
     list.innerHTML = al.tracks.map((tr) => `<li class="${tr.free ? 'free' : 'locked'}" data-n="${tr.n}">
       <span class="ln">${tr.n}</span><span class="lt">${esc(tr.t)}</span>
-      ${tr.free ? `<span class="ld">${fmt(tr.d)}</span>${eqHTML(4)}` : `<a class="ph-rel" href="${al.base}#listen">Слушать альбом</a>`}</li>`).join('');
+      ${tr.free ? `<span class="ld">${fmt(tr.d)}</span>${eqHTML(4)}` : `<a class="ph-rel" href="${al.base}#listen">${T.listenAlbum}</a>`}</li>`).join('');
   }
   function fadeTo(target, secs, done) {
     cancelAnimationFrame(fadeRAF);
@@ -374,14 +389,14 @@ void main(){
     if (idx >= 0) store.set(FREE[idx].n, audio.currentTime);
     idx = i;
     const tr = FREE[i];
-    audio.src = `${window.AUDIO_BASE || Q.base + 'assets/audio/'}${tr.n}.m4a`;
+    audio.src = `${window.AUDIO_BASE || Q.media + 'assets/audio/'}${tr.n}.m4a`;
     const resume = store.get(tr.n);
     pendingSeek = resume > 5 && resume < tr.d - 20 ? resume : 0;
     $('pNum').textContent = tr.n;
     $('pTitle').textContent = tr.t;
     $('pDur').textContent = fmt(tr.d);
     $('pCur').textContent = fmt(pendingSeek);
-    const art = `${Q.base}assets/${tr.bg}.webp`;
+    const art = `${Q.media}assets/${tr.bg}.webp`;
     swapBg($('pCover'), art); // sin parpadeo: la portada nueva entra cuando ya está cargada
     setProgress(pendingSeek / tr.d);
     player.classList.remove('end', 'error');
@@ -413,7 +428,7 @@ void main(){
   }
   function prev() { if (audio.currentTime > 5 || idx <= 0) { audio.currentTime = 0; return; } playIndex(idx - 1); }
   function showEnd() { pause(); player.classList.add('end'); }
-  function setError() { player.classList.add('error'); player.classList.remove('loading'); $('pState').textContent = 'ошибка загрузки'; }
+  function setError() { player.classList.add('error'); player.classList.remove('loading'); $('pState').textContent = T.error; }
   function setProgress(r) {
     const pct = clamp(r, 0, 1) * 100;
     pFill.style.width = pct + '%';
@@ -425,12 +440,12 @@ void main(){
   function sync() {
     const on = !audio.paused, n = idx >= 0 ? FREE[idx].n : null, mineAlbum = sameAlbum();
     player.classList.toggle('playing', on);
-    pPlay.setAttribute('aria-label', on ? 'Пауза' : 'Играть');
+    pPlay.setAttribute('aria-label', on ? T.pause : T.play);
     if (!player.classList.contains('error')) $('pState').textContent = '';
     page.btns.forEach((b) => {
       const mine = mineAlbum && b.dataset.n === n;
       b.classList.toggle('on', mine && on);
-      b.querySelector('.lbl').textContent = mine ? (on ? 'играет' : 'продолжить') : 'слушать';
+      b.querySelector('.lbl').textContent = mine ? (on ? T.playing : T.resume) : T.listen;
     });
     if (page.dock) page.dock.items.forEach((it) => it.a.classList.toggle('now', on && mineAlbum && it.tr.n === n));
     if ('mediaSession' in navigator) navigator.mediaSession.playbackState = on ? 'playing' : 'paused';
@@ -446,7 +461,7 @@ void main(){
     page.btns.forEach((b) => {
       const mine = mineAlbum && b.dataset.n === n;
       const st = mine && (audio.currentTime > 5 || store.get(b.dataset.n) > 5);
-      b.querySelector('.lbl-h').textContent = mine && on ? 'пауза' : st ? 'продолжить' : 'слушать';
+      b.querySelector('.lbl-h').textContent = mine && on ? T.paused : st ? T.resume : T.listen;
     });
   }
 
@@ -478,7 +493,7 @@ void main(){
   audio.addEventListener('play', sync);
   audio.addEventListener('pause', sync);
   audio.addEventListener('loadstart', refresh);
-  audio.addEventListener('waiting', () => { player.classList.add('loading'); $('pState').textContent = 'загрузка'; });
+  audio.addEventListener('waiting', () => { player.classList.add('loading'); $('pState').textContent = T.loading; });
   audio.addEventListener('playing', () => { player.classList.remove('loading'); if (!player.classList.contains('error')) $('pState').textContent = ''; });
   audio.addEventListener('loadedmetadata', () => { if (pendingSeek) { audio.currentTime = pendingSeek; pendingSeek = 0; } });
   audio.addEventListener('timeupdate', () => {
@@ -560,14 +575,14 @@ void main(){
 
   // repetir + temporizador
   // repetir, como en Yandex: apagado → todo el álbum → una canción (cada clic pasa al siguiente)
-  const LOOP = {off: 'повтор', all: 'альбом', one: 'трек'}; // con el icono ↻ delante: «↻ альбом», «↻ трек»
+  const LOOP = T.loop; // con el icono ↻ delante: «↻ альбом», «↻ трек»
   let loopMode = {1: 'all', all: 'all', one: 'one'}[prefs.get('espinoza-loop')] || 'off';
   const pLoop = $('pLoop'), pTimer = $('pTimer'), pTimerLbl = $('pTimerLbl');
   const showLoop = () => {
     pLoop.setAttribute('aria-pressed', String(loopMode !== 'off'));
     pLoop.dataset.mode = loopMode;
     pLoop.querySelector('span').textContent = LOOP[loopMode];
-    pLoop.title = {off: 'Повтор выключен', all: 'Повтор альбома', one: 'Повтор трека'}[loopMode];
+    pLoop.title = T.loopT[loopMode];
   };
   pLoop.addEventListener('click', () => {
     loopMode = {off: 'all', all: 'one', one: 'off'}[loopMode];
@@ -579,7 +594,7 @@ void main(){
   let timerEnd = 0, timerStep = -1, timerTick = 0;
   function showTimer() {
     pTimer.setAttribute('aria-pressed', String(!!timerEnd));
-    pTimerLbl.textContent = timerEnd ? fmt(Math.max(0, timerEnd - Date.now()) / 1000) : 'таймер';
+    pTimerLbl.textContent = timerEnd ? fmt(Math.max(0, timerEnd - Date.now()) / 1000) : T.timer;
   }
   function setTimer(step) {
     clearInterval(timerTick);
@@ -606,7 +621,7 @@ void main(){
   // MÓVIL: ↑ abre la tarjeta desde abajo con el player completo; ↓, tocar fuera o deslizar hacia abajo la cierra
   const setSheet = (open) => {
     document.body.classList.toggle('sheet-open', open);
-    toggleBtn.setAttribute('aria-label', open ? 'Свернуть плеер' : 'Развернуть плеер');
+    toggleBtn.setAttribute('aria-label', open ? T.collapse : T.expand);
     player.style.transform = '';
   };
   toggleBtn.addEventListener('click', (e) => {
@@ -650,15 +665,15 @@ void main(){
 
   // selector de álbumes dentro del panel (escritorio): un recuadro «альбом · título ⇅» que abre la lista de álbumes
   // la lista de álbumes del panel vive entre páginas: sus enlaces e imágenes, absolutos
-  $('pAlbList').querySelectorAll('a').forEach((a) => { a.href = ROOT + a.dataset.slug + '/'; const im = a.querySelector('img'); im.src = im.src; });
+  $('pAlbList').querySelectorAll('a').forEach((a) => { a.href = HOME + a.dataset.slug + '/'; const im = a.querySelector('img'); im.src = im.src; });
   $('pAlbSw').addEventListener('click', (e) => { e.stopPropagation(); const m = $('pAlbList'), o = !m.classList.contains('open'); m.classList.toggle('open', o); $('pAlbSw').setAttribute('aria-expanded', String(o)); });
   // elegir un álbum aquí cambia TODO: lo que sonaba se detiene, el player pasa a ese álbum (primera canción preparada)
   // y la página va a ese álbum. (El ⇅ de la cabecera, en cambio, solo explora: cambia la página y la música sigue.)
   const albCache = {};
-  const loadAlbum = (slug) => (albCache[slug] ??= fetch(ROOT + slug + '/').then((r) => r.text()).then((html) => {
+  const loadAlbum = (slug) => (albCache[slug] ??= fetch(HOME + slug + '/').then((r) => r.text()).then((html) => {
     const doc = new DOMParser().parseFromString(html, 'text/html');
     const t = [...doc.querySelectorAll('script')].find((x) => x.textContent.includes('window.SITE')).textContent;
-    return {...JSON.parse(t.slice(t.indexOf('{'), t.lastIndexOf('}') + 1)).album, base: ROOT + slug + '/'};
+    return {...JSON.parse(t.slice(t.indexOf('{'), t.lastIndexOf('}') + 1)).album, base: HOME + slug + '/', media: ROOT + slug + '/'};
   }));
   $('pAlbList').addEventListener('click', async (e) => {
     const a = e.target.closest('a[data-slug]');
@@ -674,7 +689,7 @@ void main(){
       setTrack(0);
       sync();
     }
-    if (SITE.type !== 'album' || SITE.album.slug !== slug) go(ROOT + slug + '/');
+    if (SITE.type !== 'album' || SITE.album.slug !== slug) go(HOME + slug + '/');
   });
 
   // notas musicales al pasar el ratón por un play (solo si el clic va a hacer sonar)
@@ -743,7 +758,7 @@ void main(){
   }
   async function share(url, title) {
     if (navigator.share && matchMedia('(hover: none)').matches) { try { await navigator.share({title, url}); } catch { /* cancelado */ } return; }
-    toast((await copy(url)) ? 'Ссылка скопирована' : url);
+    toast((await copy(url)) ? T.copied : url);
   }
   document.addEventListener('click', (e) => {
     const b = e.target.closest('.share-t');
@@ -797,7 +812,7 @@ void main(){
   }
   document.addEventListener('click', (e) => {
     const a = e.target.closest('a[href]');
-    if (!a || a.target === '_blank' || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+    if (!a || a.target === '_blank' || a.hasAttribute('data-full') || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
     const u = new URL(a.getAttribute('href'), location.href);
     if (!isPage(u)) return;
     e.preventDefault();
@@ -811,6 +826,12 @@ void main(){
     document.querySelectorAll('.sw-menu.open').forEach((m) => m.classList.remove('open'));
     document.body.classList.remove('m-open', 'sheet-open');
     go(u.href);
+  });
+  // selector de idioma (cabecera): abre/cierra su menú
+  document.addEventListener('click', (e) => {
+    const b = e.target.closest('.lang-btn');
+    document.querySelectorAll('.lang.open').forEach((l) => { if (!b || l !== b.parentNode) { l.classList.remove('open'); l.firstChild.setAttribute('aria-expanded', 'false'); } });
+    if (b) { const o = b.parentNode.classList.toggle('open'); b.setAttribute('aria-expanded', String(o)); }
   });
   let lastPath = location.pathname;
   addEventListener('popstate', () => { if (location.pathname !== lastPath) go(location.href, false); });

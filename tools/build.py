@@ -5,7 +5,7 @@ Genera la web estática desde los datos:
 
   python3 tools/build.py
 """
-import json, os, html
+import json, os, html, re
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 e = html.escape
@@ -27,17 +27,68 @@ def ver():
 
 
 V = None
+LANG = 'ru'
+LANGS = ('ru', 'en', 'es')  # ruso = principal (raíz); los demás en /en/, /es/
+SITE_URL = 'https://music.espinoza.ru/'
+UI = json.load(open(os.path.join(ROOT, 'i18n', 'ui.json'), encoding='utf-8'))
 
 
-def head(title, desc, first_bg, base, font='Unbounded-Variable.woff2'):
+def T(k):
+    return UI[LANG].get(k, UI['ru'][k])
+
+
+PLAT = {'en': {'Яндекс Музыка': 'Yandex Music', 'VK Музыка': 'VK Music', 'Все платформы': 'All platforms'},
+        'es': {'Яндекс Музыка': 'Yandex Music', 'VK Музыка': 'VK Music', 'Все платформы': 'Todas las plataformas'}}
+
+
+def pname(n):
+    for a, b in PLAT.get(LANG, {}).items():
+        n = n.replace(a, b)
+    return n
+
+
+def merge(a, b):
+    """superpone la traducción b sobre los datos a (dicts por clave, listas por índice)"""
+    if isinstance(a, dict) and isinstance(b, dict):
+        return {**a, **{k: merge(a[k], v) if k in a else v for k, v in b.items()}}
+    if isinstance(a, list) and isinstance(b, list):
+        return [merge(x, b[i]) if i < len(b) and b[i] is not None else x for i, x in enumerate(a)]
+    return b
+
+
+FLAGS = {
+    'ru': '<svg viewBox="0 0 9 6"><path fill="#fff" d="M0 0h9v2H0z"/><path fill="#0039a6" d="M0 2h9v2H0z"/><path fill="#d52b1e" d="M0 4h9v2H0z"/></svg>',
+    'es': '<svg viewBox="0 0 9 6"><path fill="#c60b1e" d="M0 0h9v6H0z"/><path fill="#ffc400" d="M0 1.5h9v3H0z"/></svg>',
+    'en': '<svg viewBox="0 0 60 30"><clipPath id="uk"><path d="M30 15h30v15zv15H0zH0V0zV0h30z"/></clipPath><path fill="#012169" d="M0 0v30h60V0z"/><path stroke="#fff" stroke-width="6" d="m0 0 60 30m0-30L0 30"/><path stroke="#c8102e" stroke-width="4" d="m0 0 60 30m0-30L0 30" clip-path="url(#uk)"/><path stroke="#fff" stroke-width="10" d="M30 0v30M0 15h60"/><path stroke="#c8102e" stroke-width="6" d="M30 0v30M0 15h60"/></svg>',
+}
+LNAME = {'ru': 'Русский', 'en': 'English', 'es': 'Español'}
+
+
+def pre(l):
+    return '' if l == 'ru' else l + '/'
+
+
+def lang_switch(root, path):
+    """selector de idioma: bandera del actual + menú; recarga completa (data-full)"""
+    items = ''.join(f'<a href="{root}{pre(l)}{path}" hreflang="{l}" lang="{l}" data-full{" class=cur aria-current=page" if l == LANG else ""}>'
+                    f'<span class="flag">{FLAGS[l]}</span>{LNAME[l]}</a>' for l in LANGS)
+    return (f'<div class="lang"><button class="lang-btn" aria-haspopup="true" aria-expanded="false" aria-label="{e(T("lang"))}">'
+            f'<span class="flag">{FLAGS[LANG]}</span><span class="code">{LANG.upper()}</span></button>'
+            f'<nav class="lang-menu">{items}</nav></div>')
+
+
+def head(title, desc, first_bg, base, font='Unbounded-Variable.woff2', path=''):
+    alt = ''.join(f'<link rel="alternate" hreflang="{l}" href="{SITE_URL}{pre(l)}{path}">\n' for l in LANGS)
+    alt += f'<link rel="alternate" hreflang="x-default" href="{SITE_URL}{path}">\n'
     return f'''<!doctype html>
-<html lang="ru">
+<html lang="{LANG}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{e(title)}</title>
 <meta name="description" content="{e(desc)}">
-<link rel="preload" href="{base}shared/fonts/NotoSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="canonical" href="{SITE_URL}{pre(LANG)}{path}">
+{alt}<link rel="preload" href="{base}shared/fonts/NotoSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="{base}shared/fonts/{font}" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="{e(first_bg)}" as="image">
 <link rel="stylesheet" href="{base}shared/style.css?v={V}">
@@ -66,7 +117,7 @@ def hero(h, bg_attr, note=''):
       <span class="w w2 fx" data-fx="hero-r" data-delay="0.4"><span class="silver">{e(words[0])}</span></span>
     </h1>
     <p class="sub fx" data-split="words" data-delay="1.6">{e(h['sub'])}</p>
-{note_html}    <div class="scroll-hint fx" data-delay="2.8"><span></span>{e(h.get('hint', 'листай медленно'))}</div>
+{note_html}    <div class="scroll-hint fx" data-delay="2.8"><span></span>{e(h.get('hint', T('hint')))}</div>
   </section>
 '''
     w1, w2 = words
@@ -77,7 +128,7 @@ def hero(h, bg_attr, note=''):
       <span class="w w2 fx" data-fx="hero-r" data-delay="1.1"><span class="silver">{e(w2)}</span></span>
     </h1>
     <p class="sub fx" data-split="words" data-delay="2.0">{e(h['sub'])}</p>
-{note_html}    <div class="scroll-hint fx" data-delay="3.2"><span></span>{e(h.get('hint', 'листай медленно'))}</div>
+{note_html}    <div class="scroll-hint fx" data-delay="3.2"><span></span>{e(h.get('hint', T('hint')))}</div>
   </section>
 '''
 
@@ -95,9 +146,9 @@ def platforms(pl):
     out = []
     for p in pl:
         if p.get('url'):
-            out.append(f'<a href="{e(p["url"])}" target="_blank" rel="noopener">{e(p["name"])}</a>')
+            out.append(f'<a href="{e(p["url"])}" target="_blank" rel="noopener">{e(pname(p["name"]))}</a>')
         else:
-            out.append(f'<span>{e(p["name"])}</span>')
+            out.append(f'<span>{e(pname(p["name"]))}</span>')
     return ''.join(out)
 
 
@@ -106,16 +157,16 @@ ICO_PLAY = '<svg class="ico" viewBox="0 0 10 10"><path d="M2 1v8l7-4z"/></svg>'
 EQ = '<span class="eq"><i></i><i></i><i></i><i></i><i></i></span>'
 
 PLAYER = '''<!-- Player: barra lateral derecha plegable (en móvil, cápsula abajo) -->
-<aside class="player phone" id="player" role="region" aria-label="Плеер" data-keep>
-  <button class="ph-toggle" id="phToggle" aria-label="Свернуть плеер" aria-expanded="true"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+<aside class="player phone" id="player" role="region" aria-label="{{player}}" data-keep>
+  <button class="ph-toggle" id="phToggle" aria-label="{{collapse}}" aria-expanded="true"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
   <!-- álbum que suena (clic = ir a su página) · ⇅ otros álbumes -->
   <div class="ph-albumbar hd-switch">
-    <button class="ph-albsel" id="pAlbSw" aria-label="Выбрать альбом" aria-haspopup="true" aria-expanded="false">
+    <button class="ph-albsel" id="pAlbSw" aria-label="{{pickAlbum}}" aria-haspopup="true" aria-expanded="false">
       <span class="pa-cover" id="pAlbCov"><svg class="pa-badge" viewBox="0 0 24 24"><path d="M8 9l4-4 4 4M8 15l4 4 4-4"/></svg></span>
-      <span class="pa-txt"><span class="pa-k"><span class="k-on">сейчас играет:</span><span class="k-off">в плеере:</span></span><span class="pa-t"><span class="pa-l">Альбом:</span> <span id="pAlbT"></span></span></span>
+      <span class="pa-txt"><span class="pa-k"><span class="k-on">{{nowPlaying}}</span><span class="k-off">{{inPlayer}}</span></span><span class="pa-t"><span class="pa-l">{{albumL}}</span> <span id="pAlbT"></span></span></span>
       <svg class="pa-chev" viewBox="0 0 24 24"><path d="M8 9l4-4 4 4M8 15l4 4 4-4"/></svg>
     </button>
-    <nav class="sw-menu" id="pAlbList" aria-label="Альбомы">
+    <nav class="sw-menu" id="pAlbList" aria-label="{{albums}}">
 {albums}    </nav>
   </div>
   <div class="ph-art">
@@ -128,49 +179,49 @@ PLAYER = '''<!-- Player: barra lateral derecha plegable (en móvil, cápsula aba
       <span class="eq"><i></i><i></i><i></i><i></i><i></i></span>
     </div>
     <p class="ph-phrase" id="pPhrase"></p>
-    <div class="p-bar" id="pBar" role="slider" tabindex="0" aria-label="Перемотка" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+    <div class="p-bar" id="pBar" role="slider" tabindex="0" aria-label="{{seek}}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
       <span class="p-fill" id="pFill"></span><span class="p-knob" id="pKnob"></span><span class="p-tip" id="pTip">0:00</span>
     </div>
     <div class="p-time"><span id="pCur">0:00</span><span class="p-state" id="pState"></span><span id="pDur">0:00</span></div>
   </div>
   <div class="p-ctrl">
-    <button id="pPrev" aria-label="Предыдущая"><svg viewBox="0 0 24 24"><path d="M7 5v14M18 6l-8 6 8 6z"/></svg></button>
-    <button id="pPlay" class="p-play" aria-label="Играть">
+    <button id="pPrev" aria-label="{{prev}}"><svg viewBox="0 0 24 24"><path d="M7 5v14M18 6l-8 6 8 6z"/></svg></button>
+    <button id="pPlay" class="p-play" aria-label="{{play}}">
       <svg class="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg>
       <svg class="i-pause" viewBox="0 0 24 24"><path d="M6.5 5h3.5v14H6.5zM14 5h3.5v14H14z"/></svg>
     </button>
-    <button id="pNext" aria-label="Следующая"><svg viewBox="0 0 24 24"><path d="M17 5v14M6 6l8 6-8 6z"/></svg></button>
+    <button id="pNext" aria-label="{{next}}"><svg viewBox="0 0 24 24"><path d="M17 5v14M6 6l8 6-8 6z"/></svg></button>
   </div>
   <!-- volumen: altavoz (clic = silencio) · barra · cifra que se anima al moverla -->
   <div class="ph-vol">
-    <button class="ph-mute" id="pMute" aria-label="Без звука" aria-pressed="false"><svg viewBox="0 0 24 24"><path class="spk" d="M4 9h4l5-4v14l-5-4H4z"/><path class="w1" d="M16 9.5a3.5 3.5 0 0 1 0 5"/><path class="w2" d="M18.5 7a7 7 0 0 1 0 10"/><path class="x" d="M16 9.5l5 5M21 9.5l-5 5"/></svg></button>
-    <input class="p-vol" id="pVol" type="range" min="0" max="1" step="0.01" value="0.7" aria-label="Громкость">
+    <button class="ph-mute" id="pMute" aria-label="{{mute}}" aria-pressed="false"><svg viewBox="0 0 24 24"><path class="spk" d="M4 9h4l5-4v14l-5-4H4z"/><path class="w1" d="M16 9.5a3.5 3.5 0 0 1 0 5"/><path class="w2" d="M18.5 7a7 7 0 0 1 0 10"/><path class="x" d="M16 9.5l5 5M21 9.5l-5 5"/></svg></button>
+    <input class="p-vol" id="pVol" type="range" min="0" max="1" step="0.01" value="0.7" aria-label="{{volume}}">
     <span class="ph-vol-val" id="pVolVal" aria-hidden="true">70%</span>
   </div>
   <!-- como en una app: repetir la lista y temporizador de apagado (10 · 20 · 30 мин) -->
   <div class="ph-tools">
-    <button class="ph-tool" id="pLoop" aria-pressed="false" title="Повтор: выкл · альбом · трек"><svg viewBox="0 0 24 24"><path d="M17 2l3 3-3 3M4 11V9a4 4 0 0 1 4-4h12M7 22l-3-3 3-3M20 13v2a4 4 0 0 1-4 4H4"/><text class="one" x="12" y="15.5" text-anchor="middle">1</text></svg><span>повтор</span></button>
-    <button class="ph-tool" id="pTimer" aria-pressed="false" title="Таймер сна"><svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg><span id="pTimerLbl">таймер</span></button>
+    <button class="ph-tool" id="pLoop" aria-pressed="false" title="{{loopTitle}}"><svg viewBox="0 0 24 24"><path d="M17 2l3 3-3 3M4 11V9a4 4 0 0 1 4-4h12M7 22l-3-3 3-3M20 13v2a4 4 0 0 1-4 4H4"/><text class="one" x="12" y="15.5" text-anchor="middle">1</text></svg><span>{{loop}}</span></button>
+    <button class="ph-tool" id="pTimer" aria-pressed="false" title="{{timerTitle}}"><svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg><span id="pTimerLbl">{{timer}}</span></button>
     <div class="share-wrap">
-      <button class="ph-tool" id="pShare" aria-haspopup="true" aria-expanded="false" title="Поделиться"><svg viewBox="0 0 24 24"><path d="M12 15V3M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg><span>поделиться</span></button>
+      <button class="ph-tool" id="pShare" aria-haspopup="true" aria-expanded="false" title="{{shareTitle}}"><svg viewBox="0 0 24 24"><path d="M12 15V3M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg><span>{{share}}</span></button>
       <div class="share-pop" id="sharePop" role="menu">
-        <button data-share-album>Ссылка на альбом</button>
-        <button data-share-song>Ссылка на эту песню</button>
+        <button data-share-album>{{shareAlbum}}</button>
+        <button data-share-song>{{shareSong}}</button>
       </div>
     </div>
   </div>
-  <a class="p-cta" href="#listen">Полный альбом →</a>
-  <button class="p-close" id="pClose" aria-label="Закрыть плеер" hidden>×</button>
+  <a class="p-cta" href="#listen">{{fullAlbum}}</a>
+  <button class="p-close" id="pClose" aria-label="{{closePlayer}}" hidden>×</button>
   <p class="ph-album" id="phAlbum"></p>
   <ol class="ph-list" id="pList"></ol>
 </aside>
 '''
 
 
-def player_html(albums, base):
-    items = ''.join(f'      <a href="{base}{al["slug"]}/" data-slug="{al["slug"]}"><img src="{base}{e(al["cover"])}" alt="" width="40" height="40"><span>{e(al["title"])}<small>{e(al.get("kind", "альбом"))}</small></span></a>\n'
+def player_html(albums, base, lh):
+    items = ''.join(f'      <a href="{lh}{al["slug"]}/" data-slug="{al["slug"]}"><img src="{base}{e(al["cover"])}" alt="" width="40" height="40"><span>{e(al["title"])}<small>{e(al.get("kind", T("album")))}</small></span></a>\n'
                     for al in albums if al.get('page') and al.get('playable'))  # en el player solo los que suenan aquí
-    return PLAYER.replace('{albums}', items)
+    return re.sub(r'\{\{(\w+)\}\}', lambda m: e(T(m.group(1))), PLAYER.replace('{albums}', items))
 
 
 SHELL_TOP = '''<!-- fijo (data-keep): no cambia al navegar entre páginas -->
@@ -182,34 +233,34 @@ SHELL_TOP = '''<!-- fijo (data-keep): no cambia al navegar entre páginas -->
 
 
 def site_albums(albums):
-    return [{'slug': al['slug'], 'title': al['title'], 'kind': al.get('kind', 'альбом'), 'cover': al['cover']} for al in albums if al.get('page')]
+    return [{'slug': al['slug'], 'title': al['title'], 'kind': al.get('kind', T('album')), 'cover': al['cover']} for al in albums if al.get('page')]
 
 
-def switch_menu(slug, albums, base='../'):
+def switch_menu(slug, albums, base='../', lh='../'):
     out = []
     for al in albums:
         if not al.get('page'):
             continue
         cur = ' class="cur" aria-current="page"' if al['slug'] == slug else ''
-        out.append(f'        <a href="{base}{al["slug"]}/"{cur}><img src="{base}{e(al["cover"])}" alt="" width="40" height="40"><span>{e(al["title"])}<small>{e(al.get("kind", "альбом"))}</small></span></a>\n')
+        out.append(f'        <a href="{lh}{al["slug"]}/"{cur}><img src="{base}{e(al["cover"])}" alt="" width="40" height="40"><span>{e(al["title"])}<small>{e(al.get("kind", T("album")))}</small></span></a>\n')
     if slug:  # en un álbum: volver al índice
-        out.append('        <a href="../" class="all"><span>← Все альбомы</span></a>\n')
+        out.append(f'        <a href="../" class="all"><span>← {e(T("allAlbums"))}</span></a>\n')
     return ''.join(out)
 
 
 def brand(slug, albums, base):
     """Cabecera de álbum: ← atrás · logo · ⇅ selector de álbumes"""
-    back = '<a class="hd-btn hd-back" href="../" aria-label="Все альбомы"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></a>'
+    back = f'<a class="hd-btn hd-back" href="../" aria-label="{e(T("allAlbums"))}"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></a>'
     logo = f'<img src="{base}shared/logo-white.png" alt="Espinoza" class="logo">'
     if slug:
-        logo = f'<a href="../" class="logo-link" aria-label="Все альбомы">{logo}</a>'
+        logo = f'<a href="../" class="logo-link" aria-label="{e(T("allAlbums"))}">{logo}</a>'
     return f'''  <div class="brand">
     {back}
     {logo}
     <div class="hd-switch">
-      <button class="hd-btn" id="albSw" aria-label="Другие альбомы" aria-haspopup="true" aria-expanded="false"><svg viewBox="0 0 24 24"><path d="M8 9l4-4 4 4M8 15l4 4 4-4"/></svg></button>
-      <nav class="sw-menu" id="swMenu" aria-label="Альбомы">
-{switch_menu(slug, albums, base)}      </nav>
+      <button class="hd-btn" id="albSw" aria-label="{e(T("otherAlbums"))}" aria-haspopup="true" aria-expanded="false"><svg viewBox="0 0 24 24"><path d="M8 9l4-4 4 4M8 15l4 4 4-4"/></svg></button>
+      <nav class="sw-menu" id="swMenu" aria-label="{e(T("albums"))}">
+{switch_menu(slug, albums, base, '../')}      </nav>
     </div>
   </div>
 '''
@@ -222,70 +273,72 @@ def album_page(slug, a, albums, support=''):
         t['free'] = i < free_n
     total = len(tracks)
     released = a.get('released', False)
-    meta = a.get('metaLabel', 'музыка')
+    meta = a.get('metaLabel', T('music'))
+    root = '../' + ('../' if LANG != 'ru' else '')
     secs = []
     for t in tracks:
         if t['free']:
-            btn = f'<button class="play fx" data-delay="1.0" data-n="{t["n"]}">{ICO_PLAY}{EQ}<span class="lbl">слушать</span></button>'
+            btn = f'<button class="play fx" data-delay="1.0" data-n="{t["n"]}">{ICO_PLAY}{EQ}<span class="lbl">{e(T("listen"))}</span></button>'
         elif t.get('links'):
             btn = ''  # sin audio aquí: los links de la canción (abajo) hacen de botón
         elif released:
-            btn = f'<a class="play ext fx" data-delay="1.0" href="#listen">{ICO_PLAY}<span class="lbl">полностью — на платформах</span></a>'
+            btn = f'<a class="play ext fx" data-delay="1.0" href="#listen">{ICO_PLAY}<span class="lbl">{e(T("fullOnPlatforms"))}</span></a>'
         else:
-            btn = '<span class="play locked fx" data-delay="1.0" aria-disabled="true">скоро — в полном альбоме</span>'
+            btn = f'<span class="play locked fx" data-delay="1.0" aria-disabled="true">{e(T("soonFull"))}</span>'
         secs.append(f'''  <section class="track{" light" if t.get("light") else ""}" id="t{t["n"]}" data-bg="{e(t["bg"])}" data-horizon="{t.get("h", 0.67)}">
     <div class="num fx">{t["n"]} / {total}</div>
     <h2 class="fx" data-fx="title" data-delay="0.1"><span class="silver">{e(t["t"])}</span></h2>
     <p class="phrase fx" data-split="words" data-delay="0.45">{e(t["p"])}</p>
-    <div class="meta fx" data-delay="0.8">{fmt(t["d"])} · {e(meta)} · <button class="share-t" data-share="t{t["n"]}" data-title="{e(t["t"])}"><svg viewBox="0 0 24 24"><path d="M12 15V3M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg>поделиться</button></div>
+    <div class="meta fx" data-delay="0.8">{fmt(t["d"])} · {e(meta)} · <button class="share-t" data-share="t{t["n"]}" data-title="{e(t["t"])}"><svg viewBox="0 0 24 24"><path d="M12 15V3M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg>{e(T("share"))}</button></div>
     {btn}
-    {f'<a class="vid fx" data-delay="1.2" href="{e(t["video"])}" target="_blank" rel="noopener">{ICO_PLAY}клип на YouTube</a>' if t.get("video") else ''}
-    {f'<div class="tlinks fx" data-delay="1.1"><span class="tl-label">{"слушать на" if not t["free"] else "эта песня на"}</span>' + ''.join(f'<a href="{e(l["url"])}" target="_blank" rel="noopener">{e(l["name"])}</a>' for l in t["links"]) + '</div>' if t.get("links") else ''}
+    {f'<a class="vid fx" data-delay="1.2" href="{e(t["video"])}" target="_blank" rel="noopener">{ICO_PLAY}{e(T("clip"))}</a>' if t.get("video") else ''}
+    {f'<div class="tlinks fx" data-delay="1.1"><span class="tl-label">{e(T("listenOn") if not t["free"] else T("songOn"))}</span>' + ''.join(f'<a href="{e(l["url"])}" target="_blank" rel="noopener">{e(pname(l["name"]))}</a>' for l in t["links"]) + '</div>' if t.get("links") else ''}
   </section>
 ''')
     L = a['listen']
     soon = f'    <p class="soon fx">{L["soon"]}</p>\n' if L.get('soon') else ''
     disclaimer = f'    <p class="disclaimer fx">{L["disclaimer"]}</p>\n' if L.get('disclaimer') else ''
     site = {
-        'type': 'album', 'albums': site_albums(albums),
+        'type': 'album', 'lang': LANG, 'albums': site_albums(albums),
         'still': a.get('motion') != 'parallax',  # fondo fijo salvo que el álbum pida parallax (zen)
         'first': a['hero']['bg'],
-        'items': [{'n': t['n'], 't': t['t'], 'tag': 'доступно' if t['free'] else ''} for t in tracks],
+        'items': [{'n': t['n'], 't': t['t'], 'tag': T('available') if t['free'] else ''} for t in tracks],
         'album': {'slug': slug, 'title': a['title'], 'artist': a['artist'],
                   'tracks': [{k: t[k] for k in ('n', 't', 'p', 'bg', 'd', 'free')} for t in tracks]},
     }
-    out = head(f'{a["title"]} — {a["artist"]}', a['description'], f'assets/{a["hero"]["bg"]}.webp', '../',
-               'CormorantGaramond-Upright-Variable.woff2' if a.get('font') == 'serif' else 'Unbounded-Variable.woff2')
+    out = head(f'{a["title"]} — {a["artist"]}', a['description'], f'{root}{slug}/assets/{a["hero"]["bg"]}.webp', root,
+               'CormorantGaramond-Upright-Variable.woff2' if a.get('font') == 'serif' else 'Unbounded-Variable.woff2', slug + '/')
     out += f'''</head>
 <body class="v2{" unb" if a.get("font") != "serif" else ""}{"" if free_n else " noplay"}">
 {SHELL_TOP}
 <header class="top">
   <!-- atrás · logo · selector para saltar a otro álbum -->
-{brand(slug, albums, '../')}  <div class="top-right">
-    <a class="top-cta" href="#listen">{SVG_PLAY}Слушать альбом</a>
+{brand(slug, albums, root)}  <div class="top-right">
+    {lang_switch(root, slug + '/')}
+    <a class="top-cta" href="#listen">{SVG_PLAY}{e(T("listenAlbum"))}</a>
   </div>
 </header>
 
-{menus(a.get('menuLabel', 'Треки'))}
+{menus(a.get('menuLabel', T('tracks')))}
 <main>
 {hero(a['hero'], a['hero']['bg'], ' '.join(a['manifest']['lines'] + [a['manifest']['big']]) if a.get('manifest') else '')}
   <!-- Pistas: cada una cambia el paisaje de fondo -->
 {''.join(secs)}
   <!-- Escuchar -->
   <section class="listen" id="listen" data-bg="{e(L['bg'])}" data-horizon="{L.get('horizon', 0.67)}">
-    <h2 class="fx" data-fx="title"><span class="silver">Слушать альбом</span></h2>
+    <h2 class="fx" data-fx="title"><span class="silver">{e(T("listenAlbum"))}</span></h2>
 {soon}    <div class="platforms fx">{platforms(L['platforms'])}</div>
-    {f'<div class="support fx"><p>Если музыка откликается — можно поддержать</p><a class="support-btn" href="{e(support)}" target="_blank" rel="noopener">Поддержать <span aria-hidden="true">☕</span></a></div>' if support else ''}
+    {f'<div class="support fx"><p>{e(T("supportP"))}</p><a class="support-btn" href="{e(support)}" target="_blank" rel="noopener">{e(T("support"))} <span aria-hidden="true">☕</span></a></div>' if support else ''}
     <p class="credits fx">{L['credits']}</p>
-{disclaimer}    <p class="back fx"><a href="../">← Все альбомы</a></p>
+{disclaimer}    <p class="back fx"><a href="../">← {e(T("allAlbums"))}</a></p>
   </section>
 </main>
 
-<a class="made" href="https://espinoza.ru" target="_blank" rel="noopener">Проект от <span>espinoza.ru</span></a>
+<a class="made" href="https://espinoza.ru" target="_blank" rel="noopener">{e(T("madeBy"))} <span>espinoza.ru</span></a>
 
-{player_html(albums, '../')}
+{player_html(albums, root, '../')}
 <script>window.SITE = {json.dumps(site, ensure_ascii=False)};</script>
-<script src="../shared/app.js?v={V}" data-keep></script>
+<script src="{root}shared/app.js?v={V}" data-keep></script>
 </body>
 </html>
 '''
@@ -294,17 +347,18 @@ def album_page(slug, a, albums, support=''):
 
 def home_page(s):
     """Índice: presentación de discos (funda + vinilo), fondo que cambia con el disco. Sin menú lateral."""
+    root = '../' if LANG != 'ru' else ''
     cards = []
     for al in s['albums']:
         href = f'{al["slug"]}/' if al.get('page') else next((p['url'] for p in al.get('platforms', []) if p.get('url')), '#')
         ext = '' if al.get('page') else ' target="_blank" rel="noopener"'
-        go = 'открыть альбом' if al.get('page') else 'слушать на платформах'
-        kind = e(al.get('kind', 'альбом')) + (f' · {al["year"]}' if al.get('year') else '') + f' · {e(al["meta"])}'
+        go = T('openAlbum') if al.get('page') else T('listenPlatforms')
+        kind = e(al.get('kind', T('album'))) + (f' · {al["year"]}' if al.get('year') else '') + f' · {e(al["meta"])}'
         cards.append(f'''  <li class="disc" data-bg="{e(al["bg"])}.webp">
     <a href="{e(href)}"{ext}>
       <div class="sleeve-box">
-        <div class="vinyl-slide"><div class="vinyl"><span class="label" style="background-image:url({e(al["cover"])})"></span></div></div>
-        <div class="sleeve" style="background-image:url({e(al["cover"])})" role="img" aria-label="{e(al["title"])}"></div>
+        <div class="vinyl-slide"><div class="vinyl"><span class="label" style="background-image:url({root}{e(al["cover"])})"></span></div></div>
+        <div class="sleeve" style="background-image:url({root}{e(al["cover"])})" role="img" aria-label="{e(al["title"])}"></div>
       </div>
       <div class="info">
         <div class="kind">{kind}</div>
@@ -325,9 +379,9 @@ def home_page(s):
     ico = lambda k: f'<svg class="fi" viewBox="0 0 24 24" aria-hidden="true">{ICONS[k]}</svg>' if k in ICONS else ''
     foot = ''
     if s.get('support'):  # 1.ª columna: apoyar (texto, botón y, en escritorio, el QR)
-        foot += (f'      <div class="foot-col foot-support"><p>Если музыка откликается —<br>можно поддержать</p>'
-                 f'<a class="support-btn" href="{e(s["support"])}" target="_blank" rel="noopener">Поддержать <span aria-hidden="true">☕</span></a>'
-                 f'<a class="support-qr-link" href="{e(s["support"])}" target="_blank" rel="noopener"><img class="support-qr" src="shared/support-qr.png" alt="QR — поддержать" width="120" height="120" loading="lazy"></a></div>\n')
+        foot += (f'      <div class="foot-col foot-support"><p>{e(T("supportP")).replace(" — ", " —<br>", 1)}</p>'
+                 f'<a class="support-btn" href="{e(s["support"])}" target="_blank" rel="noopener">{e(T("support"))} <span aria-hidden="true">☕</span></a>'
+                 f'<a class="support-qr-link" href="{e(s["support"])}" target="_blank" rel="noopener"><img class="support-qr" src="{root}shared/support-qr.png" alt="QR — {e(T("support").lower())}" width="120" height="120" loading="lazy"></a></div>\n')
     for f in s.get('footer', []):
         ext = '' if f['url'].startswith('tel:') else ' target="_blank" rel="noopener"'
         extra = ''
@@ -336,18 +390,19 @@ def home_page(s):
             extra = f'<a href="{e(x["url"])}">{ico(x.get("icon"))}{e(x["text"])}</a>'
         foot += f'      <div class="foot-col"><span class="foot-label">{e(f["label"])}</span><a href="{e(f["url"])}"{ext}>{ico(f.get("icon"))}{e(f["text"])}</a>{extra}</div>\n'
     h = s['hero']
-    out = head(s['title'], s['description'], h['bg'] + '.webp', '')
+    out = head(s['title'], s['description'], root + h['bg'] + '.webp', root)
     out += f'''</head>
 <body class="home unb v2" data-bg="{e(h['bg'])}.webp">
 {SHELL_TOP}
 <header class="top home-top">
-  <img src="shared/logo-white.png" alt="Espinoza" class="logo">
+  <img src="{root}shared/logo-white.png" alt="Espinoza" class="logo">
+  {lang_switch(root, '')}
 </header>
 
 <main>
   <div class="intro">
     <h1 class="home-title"><span class="silver">{e(s['intro']['title'])}</span></h1>
-    <p>{e(s['intro']['text'])}{f' Если музыка откликается — <a class="intro-support" href="{e(s["support"])}" target="_blank" rel="noopener">её можно поддержать</a>.' if s.get('support') else ''}</p>
+    <p>{e(s['intro']['text'])}{T('introSupport').format(f'<a class="intro-support" href="{e(s["support"])}" target="_blank" rel="noopener">', '</a>') if s.get('support') else ''}</p>
   </div>
 
   <!-- Discos: funda + vinilo; al pasar el ratón el vinilo sale y el fondo pasa al paisaje del álbum -->
@@ -361,9 +416,9 @@ def home_page(s):
   </footer>
 </main>
 
-{player_html(s['albums'], '')}
-<script>window.SITE = {json.dumps({'type': 'home', 'albums': site_albums(s['albums'])}, ensure_ascii=False)};</script>
-<script src="shared/app.js?v={V}" data-keep></script>
+{player_html(s['albums'], root, '')}
+<script>window.SITE = {json.dumps({'type': 'home', 'lang': LANG, 'albums': site_albums(s['albums'])}, ensure_ascii=False)};</script>
+<script src="{root}shared/app.js?v={V}" data-keep></script>
 </body>
 </html>
 '''
@@ -371,20 +426,30 @@ def home_page(s):
 
 
 def main():
-    global V
+    global V, LANG
     V = ver()
+    for LANG in LANGS:
+        build_lang()
+
+
+def build_lang():
     s = json.load(open(os.path.join(ROOT, 'site.json'), encoding='utf-8'))
+    tr = json.load(open(os.path.join(ROOT, 'i18n', LANG + '.json'), encoding='utf-8')) if LANG != 'ru' else {}
+    s = merge(s, tr.get('site', {}))
+    for al in s['albums']:
+        al.update(tr.get('home', {}).get(al['slug'], {}))
+    out = os.path.join(ROOT, pre(LANG))
     for al in s['albums']:  # ¿tiene pistas que suenan aquí? (para el selector del player)
         p = os.path.join(ROOT, al['slug'], 'album.json')
         al['playable'] = bool(al.get('page') and os.path.exists(p) and json.load(open(p, encoding='utf-8')).get('free', 3) > 0)
     for al in s['albums']:
         p = os.path.join(ROOT, al['slug'], 'album.json')
         if al.get('page') and os.path.exists(p):
-            a = json.load(open(p, encoding='utf-8'))
-            open(os.path.join(ROOT, al['slug'], 'index.html'), 'w', encoding='utf-8').write(album_page(al['slug'], a, s['albums'], s.get('support', '')))
-            print('álbum', al['slug'])
-    open(os.path.join(ROOT, 'index.html'), 'w', encoding='utf-8').write(home_page(s))
-    print('índice')
+            a = merge(json.load(open(p, encoding='utf-8')), tr.get('albums', {}).get(al['slug'], {}))
+            os.makedirs(os.path.join(out, al['slug']), exist_ok=True)
+            open(os.path.join(out, al['slug'], 'index.html'), 'w', encoding='utf-8').write(album_page(al['slug'], a, s['albums'], s.get('support', '')))
+    open(os.path.join(out, 'index.html'), 'w', encoding='utf-8').write(home_page(s))
+    print(LANG, 'ok')
 
 
 if __name__ == '__main__':

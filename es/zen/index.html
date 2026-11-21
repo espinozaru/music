@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Silencio interior — Espinoza Meditation</title>
+<meta name="description" content="«Silencio interior» — 11 meditaciones para el cuerpo, la mente y el sueño, en ruso. Espinoza Meditation.">
+<link rel="canonical" href="https://music.espinoza.ru/es/zen/">
+<link rel="alternate" hreflang="ru" href="https://music.espinoza.ru/zen/">
+<link rel="alternate" hreflang="en" href="https://music.espinoza.ru/en/zen/">
+<link rel="alternate" hreflang="es" href="https://music.espinoza.ru/es/zen/">
+<link rel="alternate" hreflang="x-default" href="https://music.espinoza.ru/zen/">
+<link rel="preload" href="../../shared/fonts/NotoSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../../shared/fonts/CormorantGaramond-Upright-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../../zen/assets/song1.webp" as="image">
+<link rel="stylesheet" href="../../shared/style.css?v=6017d395">
+<link rel="stylesheet" href="../../shared/panel.css?v=6017d395">
+<link rel="stylesheet" href="../../shared/home.css?v=6017d395">
+</head>
+<body class="v2">
+<!-- fijo (data-keep): no cambia al navegar entre páginas -->
+<canvas id="scene" data-keep></canvas>
+<div class="bg" data-keep></div><div class="bg" data-keep></div>
+<div class="veil" data-keep></div>
+<div class="grain" data-keep></div>
+
+<header class="top">
+  <!-- atrás · logo · selector para saltar a otro álbum -->
+  <div class="brand">
+    <a class="hd-btn hd-back" href="../" aria-label="Todos los álbumes"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></a>
+    <a href="../" class="logo-link" aria-label="Todos los álbumes"><img src="../../shared/logo-white.png" alt="Espinoza" class="logo"></a>
+    <div class="hd-switch">
+      <button class="hd-btn" id="albSw" aria-label="Otros álbumes" aria-haspopup="true" aria-expanded="false"><svg viewBox="0 0 24 24"><path d="M8 9l4-4 4 4M8 15l4 4 4-4"/></svg></button>
+      <nav class="sw-menu" id="swMenu" aria-label="Álbumes">
+        <a href="../stay-till-morning/"><img src="../../covers/stay-till-morning.webp" alt="" width="40" height="40"><span>Quédate hasta el alba<small>sencillo</small></span></a>
+        <a href="../zen/" class="cur" aria-current="page"><img src="../../covers/zen.webp" alt="" width="40" height="40"><span>Silencio interior<small>meditaciones</small></span></a>
+        <a href="../tuta-ukupi/"><img src="../../covers/tuta-ukupi.webp" alt="" width="40" height="40"><span>Tuta Ukupi<small>álbum</small></span></a>
+        <a href="../andes-nights/"><img src="../../covers/andes-nights.webp" alt="" width="40" height="40"><span>Andes Nights<small>álbum</small></span></a>
+        <a href="../neural-lullabies/"><img src="../../covers/neural-lullabies.webp" alt="" width="40" height="40"><span>Neural Lullabies<small>álbum</small></span></a>
+        <a href="../rany-na-bumage/"><img src="../../covers/rany-na-bumage.webp" alt="" width="40" height="40"><span>Heridas en el papel<small>álbum</small></span></a>
+        <a href="../ella/"><img src="../../covers/ella.webp" alt="" width="40" height="40"><span>Ella<small>álbum</small></span></a>
+        <a href="../2804/"><img src="../../covers/2804.webp" alt="" width="40" height="40"><span>2804<small>sencillo</small></span></a>
+        <a href="../" class="all"><span>← Todos los álbumes</span></a>
+      </nav>
+    </div>
+  </div>
+  <div class="top-right">
+    <div class="lang"><button class="lang-btn" aria-haspopup="true" aria-expanded="false" aria-label="Idioma"><span class="flag"><svg viewBox="0 0 9 6"><path fill="#c60b1e" d="M0 0h9v6H0z"/><path fill="#ffc400" d="M0 1.5h9v3H0z"/></svg></span><span class="code">ES</span></button><nav class="lang-menu"><a href="../../zen/" hreflang="ru" lang="ru" data-full><span class="flag"><svg viewBox="0 0 9 6"><path fill="#fff" d="M0 0h9v2H0z"/><path fill="#0039a6" d="M0 2h9v2H0z"/><path fill="#d52b1e" d="M0 4h9v2H0z"/></svg></span>Русский</a><a href="../../en/zen/" hreflang="en" lang="en" data-full><span class="flag"><svg viewBox="0 0 60 30"><clipPath id="uk"><path d="M30 15h30v15zv15H0zH0V0zV0h30z"/></clipPath><path fill="#012169" d="M0 0v30h60V0z"/><path stroke="#fff" stroke-width="6" d="m0 0 60 30m0-30L0 30"/><path stroke="#c8102e" stroke-width="4" d="m0 0 60 30m0-30L0 30" clip-path="url(#uk)"/><path stroke="#fff" stroke-width="10" d="M30 0v30M0 15h60"/><path stroke="#c8102e" stroke-width="6" d="M30 0v30M0 15h60"/></svg></span>English</a><a href="../../es/zen/" hreflang="es" lang="es" data-full class=cur aria-current=page><span class="flag"><svg viewBox="0 0 9 6"><path fill="#c60b1e" d="M0 0h9v6H0z"/><path fill="#ffc400" d="M0 1.5h9v3H0z"/></svg></span>Español</a></nav></div>
+    <a class="top-cta" href="#listen"><svg viewBox="0 0 10 10"><path d="M2 1v8l7-4z"/></svg>Escuchar el álbum</a>
+  </div>
+</header>
+
+<!-- Menú vertical fijo: rayas + números; se marca lo que está en pantalla y lo que suena -->
+<nav class="side" id="side" aria-label="Meditaciones"></nav>
+<div class="side-tip" id="sideTip" aria-hidden="true"></div>
+<!-- Móvil: la lista a pantalla completa, con el botón abajo (donde está el pulgar) -->
+<nav class="m-menu" id="mMenu" aria-label="Meditaciones"></nav>
+<button class="m-btn" id="mBtn" aria-label="Meditaciones" aria-expanded="false"><span></span><span></span></button>
+
+<main>
+  <!-- Portada: título en escalera (la 1.ª palabra entra por la izquierda, la 2.ª por la derecha) -->
+  <section class="hero" id="top" data-bg="song1" data-horizon="0.67">
+    <h1 class="stair" aria-label="Silencio interior">
+      <span class="w w1 fx" data-fx="hero-l" data-delay="0.3"><span class="silver">SILENCIO</span></span>
+      <span class="w w2 fx" data-fx="hero-r" data-delay="1.1"><span class="silver">INTERIOR</span></span>
+    </h1>
+    <p class="sub fx" data-split="words" data-delay="2.0">11 meditaciones para el cuerpo, la mente y el sueño · en ruso</p>
+    <p class="hero-note fx" data-split="words" data-delay="2.3">Seis minutos. Atención. Respiración. Cuerpo. Solo el silencio interior.</p>
+    <div class="scroll-hint fx" data-delay="3.2"><span></span>desliza despacio</div>
+  </section>
+
+  <!-- Pistas: cada una cambia el paisaje de fondo -->
+  <section class="track" id="t01" data-bg="song1" data-horizon="0.67">
+    <div class="num fx">01 / 11</div>
+    <h2 class="fx" data-fx="title" data-delay="0.1"><span class="silver">Relajación profunda del cuerpo</span></h2>
+    <p class="phrase fx" data-split="words" data-delay="0.45">Suelta la tensión, paso a paso</p>
+    <div class="meta fx" data-delay="0.8">5:59 · voz y música · <button class="share-t" data-share="t01" data-title="Relajación profunda del cuerpo"><svg viewBox="0 0 24 24"><path d="M12 15V3M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg>compartir</button></div>
+    <button class="play fx" data-delay="1.0" data-n="01"><svg class="ico" viewBox="0 0 10 10"><path d="M2 1v8l7-4z"/></svg><span class="eq"><i></i><i></i><i></i><i></i><i></i></span><span class="lbl">escuchar</span></button>
+    
+    <div class="tlinks fx" data-delay="1.1"><span class="tl-label">esta canción en</span><a href="https://music.yandex.ru/album/44565027/track/157328656" target="_blank" rel="noopener">Yandex Music</a></div>
+  </section>
+  <section class="track" id="t02" data-bg="song2" data-horizon="0.685">
+    <div class="num fx">02 / 11</div>
+    <h2 class="fx" data-fx="title" data-delay="0.1"><span class="silver">Calmar la respiración y los pensamientos</span></h2>
+    <p class="phrase fx" data-split="words" data-delay="0.45">La antigua práctica «So Ham» para una mente tranquila</p>
+    <div class="meta fx" data-delay="0.8">5:44 · voz y música · <button class="share-t" data-share="t02" data-title="Calmar la respiración y los pensamientos"><svg viewBox="0 0 24 24"><path d="M12 15V3M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg>compartir</button></div>
+    <button class="play fx" data-delay="1.0" data-n="02"><svg class="ico" viewBox="0 0 10 10"><path d="M2 1v8l7-4z"/></svg><span class="eq"><i></i><i></i><i></i><i></i><i></i></span><span class="lbl">escuchar</span></button>
+    
+    <div class="tlinks fx" data-delay="1.1"><span class="tl-label">esta canción en</span><a href="https://music.yandex.ru/album/44565027/track/157328661" target="_blank" rel="noopener">Yandex Music</a></div>
+  </section>
+  <section class="track" id="t03" data-bg="song4" data-horizon="0.995">
+    <div class="num fx">03 / 11</div>
+    <h2 class="fx" data-fx="title" data-delay="0.1"><span class="silver">Soltar la ansiedad y las emociones fuertes</span></h2>
+    <p class="phrase fx" data-split="words" data-delay="0.45">Volver al cuerpo cuando las emociones son demasiado fuertes</p>
+    <div class="meta fx" data-delay="0.8">5:44 · voz y música · <button class="share-t" data-share="t03" data-title="Soltar la ansiedad y las emociones fuertes"><svg viewBox="0 0 24 24"><path d="M12 15V3M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg>compartir</button></div>
+    <button class="play fx" data-delay="1.0" data-n="03"><svg class="ico" viewBox="0 0 10 10"><path d="M2 1v8l7-4z"/></svg><span class="eq"><i></i><i></i><i></i><i></i><i></i></span><span class="lbl">escuchar</span></button>
+    
+    <div class="tlinks fx" data-delay="1.1"><span class="tl-label">esta canción en</span><a href="https://music.yandex.ru/album/44565027/track/157328678" target="_blank" rel="noopener">Yandex Music</a></div>
+  </section>
+  <section class="track" id="t04" data-bg="song5" data-horizon="0.995">
+    <div class="num fx">04 / 11</div>
+    <h2 class="fx" data-fx="title" data-delay="0.1"><span class="silver">Despertar por la mañana con claridad</span></h2>
+    <p class="phrase fx" data-split="words" data-delay="0.45">La mente clara y un comienzo de día tranquilo</p>
+    <div class="meta fx" data-delay="0.8">5:39 · voz y música · <button class="share-t" data-share="t04" data-title="Despertar por la mañana con claridad"><svg viewBox="0 0 24 24"><path d="M12 15V3M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg>compartir</button></div>
+    
+    
+    <div class="tlinks fx" data-delay="1.1"><span class="tl-label">escuchar en</span><a href="https://music.yandex.ru/album/44565027/track/157328691" target="_blank" rel="noopener">Yandex Music</a></div>
+  </section>
+  <section class="track light" id="t05" data-bg="song5new" data-horizon="0.54">
+    <div class="num fx">05 / 11</div>
+    <h2 class="fx" data-fx="title" data-delay="0.1"><span class="silver">Concentración profunda antes de trabajar</span></h2>
+    <p class="phrase fx" data-split="words" data-delay="0.45">Una tarea. Toda la atención</p>
+    <div class="meta fx" data-delay="0.8">5:39 · voz y música · <button class="share-t" data-share="t05" data-title="Concentración profunda antes de trabajar"><svg viewBox="0 0 24 24"><path d="M12 15V3M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg>compartir</button></div>
+    
+    
+    <div class="tlinks fx" data-delay="1.1"><span class="tl-label">escuchar en</span><a href="https://music.yandex.ru/album/44565027/track/157328699" target="_blank" rel="noopener">Yandex Music</a></div>
+  </section>
+  <section class="track light" id="t06" data-bg="song6forest" data-horizon="0.995">
+    <div class="num fx">06 / 11</div>
+    <h2 class="fx" data-fx="title" data-delay="0.1"><span class="silver">Seguridad tranquila antes de un momento importante</span></h2>
+    <p class="phrase fx" data-split="words" data-delay="0.45">Antes de una reunión, una presentación, una conversación importante</p>
+    <div class="meta fx" data-delay="0.8">5:38 · voz y música · <button class="share-t" data-share="t06" data-title="Seguridad tranquila antes de un momento importante"><svg viewBox="0 0 24 24"><path d="M12 15V3M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg>compartir</button></div>
+    
+    
+    <div class="tlinks fx" data-delay="1.1"><span class="tl-label">escuchar en</span><a href="https://music.yandex.ru/album/44565027/track/157328703" target="_blank" rel="noopener">Yandex Music</a></div>
+  </section>
+  <section class="track light" id="t07" data-bg="song7new" data-horizon="0.995">
+    <div class="num fx">07 / 11</div>
+    <h2 class="fx" data-fx="title" data-delay="0.1"><span class="silver">Recuperar energía después de un día difícil</span></h2>
+    <p class="phrase fx" data-split="words" data-delay="0.45">Sacudirse un día pesado y recuperar las fuerzas</p>
+    <div class="meta fx" data-delay="0.8">5:39 · voz y música · <button class="share-t" data-share="t07" data-title="Recuperar energía después de un día difícil"><svg viewBox="0 0 24 24"><path d="M12 15V3M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg>compartir</button></div>
+    
+    
+    <div class="tlinks fx" data-delay="1.1"><span class="tl-label">escuchar en</span><a href="https://music.yandex.ru/album/44565027/track/157328706" target="_blank" rel="noopener">Yandex Music</a></div>
+  </section>
+  <section class="track" id="t08" data-bg="song9" data-horizon="0.68">
+    <div class="num fx">08 / 11</div>
+    <h2 class="fx" data-fx="title" data-delay="0.1"><span class="silver">Dejar de luchar contigo mismo</span></h2>
+    <p class="phrase fx" data-split="words" data-delay="0.45">Hablarte como a alguien cercano</p>
+    <div class="meta fx" data-delay="0.8">5:39 · voz y música · <button class="share-t" data-share="t08" data-title="Dejar de luchar contigo mismo"><svg viewBox="0 0 24 24"><path d="M12 15V3M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg>compartir</button></div>
+    
+    
+    <div class="tlinks fx" data-delay="1.1"><span class="tl-label">escuchar en</span><a href="https://music.yandex.ru/album/44565027/track/157328709" target="_blank" rel="noopener">Yandex Music</a></div>
+  </section>
+  <section class="track light" id="t09" data-bg="song9new" data-horizon="0.68">
+    <div class="num fx">09 / 11</div>
+    <h2 class="fx" data-fx="title" data-delay="0.1"><span class="silver">Relajación profunda antes de dormir</span></h2>
+    <p class="phrase fx" data-split="words" data-delay="0.45">Yoga nidra para dormirse con suavidad</p>
+    <div class="meta fx" data-delay="0.8">5:39 · voz y música · <button class="share-t" data-share="t09" data-title="Relajación profunda antes de dormir"><svg viewBox="0 0 24 24"><path d="M12 15V3M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg>compartir</button></div>
+    
+    
+    <div class="tlinks fx" data-delay="1.1"><span class="tl-label">escuchar en</span><a href="https://music.yandex.ru/album/44565027/track/157328712" target="_blank" rel="noopener">Yandex Music</a></div>
+  </section>
+  <section class="track" id="t10" data-bg="song11" data-horizon="0.995">
+    <div class="num fx">10 / 11</div>
+    <h2 class="fx" data-fx="title" data-delay="0.1"><span class="silver">Dejar de pensar antes de dormir</span></h2>
+    <p class="phrase fx" data-split="words" data-delay="0.45">Cuando los pensamientos no te dejan dormir</p>
+    <div class="meta fx" data-delay="0.8">5:39 · voz y música · <button class="share-t" data-share="t10" data-title="Dejar de pensar antes de dormir"><svg viewBox="0 0 24 24"><path d="M12 15V3M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg>compartir</button></div>
+    
+    
+    <div class="tlinks fx" data-delay="1.1"><span class="tl-label">escuchar en</span><a href="https://music.yandex.ru/album/44565027/track/157328715" target="_blank" rel="noopener">Yandex Music</a></div>
+  </section>
+  <section class="track" id="t11" data-bg="song12" data-horizon="0.72">
+    <div class="num fx">11 / 11</div>
+    <h2 class="fx" data-fx="title" data-delay="0.1"><span class="silver">¿Quién observa?</span></h2>
+    <p class="phrase fx" data-split="words" data-delay="0.45">Una meditación profunda «neti, neti»</p>
+    <div class="meta fx" data-delay="0.8">5:13 · voz y música · <button class="share-t" data-share="t11" data-title="¿Quién observa?"><svg viewBox="0 0 24 24"><path d="M12 15V3M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg>compartir</button></div>
+    
+    
+    <div class="tlinks fx" data-delay="1.1"><span class="tl-label">escuchar en</span><a href="https://music.yandex.ru/album/44565027/track/157328719" target="_blank" rel="noopener">Yandex Music</a></div>
+  </section>
+
+  <!-- Escuchar -->
+  <section class="listen" id="listen" data-bg="song12" data-horizon="0.72">
+    <h2 class="fx" data-fx="title"><span class="silver">Escuchar el álbum</span></h2>
+    <p class="soon fx">El álbum ya está en Yandex Music.<br>Las demás plataformas, muy pronto.</p>
+    <div class="platforms fx"><a href="https://music.yandex.ru/album/44565027" target="_blank" rel="noopener">Yandex Music</a><span>Spotify</span><span>Apple Music</span><span>VK Music</span><span>Rutube</span></div>
+    <div class="support fx"><p>Si la música te llega — puedes apoyarla</p><a class="support-btn" href="https://pay.cloudtips.ru/p/945dde54" target="_blank" rel="noopener">Apoyar <span aria-hidden="true">☕</span></a></div>
+    <p class="credits fx">Texto y voz — Denis Espinoza · Música — Espinoza Meditation · ℗ 2026</p>
+    <p class="disclaimer fx">Las meditaciones no sustituyen la ayuda médica ni psicológica. Si lo estás pasando mal, acude a un médico o a un psicólogo.<br>No las escuches mientras conduces ni durante trabajos que requieran atención.<br>© 2026 Espinoza Meditation. Todos los derechos reservados.</p>
+    <p class="back fx"><a href="../">← Todos los álbumes</a></p>
+  </section>
+</main>
+
+<a class="made" href="https://espinoza.ru" target="_blank" rel="noopener">Un proyecto de <span>espinoza.ru</span></a>
+
+<!-- Player: barra lateral derecha plegable (en móvil, cápsula abajo) -->
+<aside class="player phone" id="player" role="region" aria-label="Reproductor" data-keep>
+  <button class="ph-toggle" id="phToggle" aria-label="Plegar reproductor" aria-expanded="true"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+  <!-- álbum que suena (clic = ir a su página) · ⇅ otros álbumes -->
+  <div class="ph-albumbar hd-switch">
+    <button class="ph-albsel" id="pAlbSw" aria-label="Elegir álbum" aria-haspopup="true" aria-expanded="false">
+      <span class="pa-cover" id="pAlbCov"><svg class="pa-badge" viewBox="0 0 24 24"><path d="M8 9l4-4 4 4M8 15l4 4 4-4"/></svg></span>
+      <span class="pa-txt"><span class="pa-k"><span class="k-on">sonando:</span><span class="k-off">en el reproductor:</span></span><span class="pa-t"><span class="pa-l">Álbum:</span> <span id="pAlbT"></span></span></span>
+      <svg class="pa-chev" viewBox="0 0 24 24"><path d="M8 9l4-4 4 4M8 15l4 4 4-4"/></svg>
+    </button>
+    <nav class="sw-menu" id="pAlbList" aria-label="{      <a href="../stay-till-morning/" data-slug="stay-till-morning"><img src="../../covers/stay-till-morning.webp" alt="" width="40" height="40"><span>Quédate hasta el alba<small>sencillo</small></span></a>
+      <a href="../zen/" data-slug="zen"><img src="../../covers/zen.webp" alt="" width="40" height="40"><span>Silencio interior<small>meditaciones</small></span></a>
+      <a href="../tuta-ukupi/" data-slug="tuta-ukupi"><img src="../../covers/tuta-ukupi.webp" alt="" width="40" height="40"><span>Tuta Ukupi<small>álbum</small></span></a>
+      <a href="../andes-nights/" data-slug="andes-nights"><img src="../../covers/andes-nights.webp" alt="" width="40" height="40"><span>Andes Nights<small>álbum</small></span></a>
+      <a href="../neural-lullabies/" data-slug="neural-lullabies"><img src="../../covers/neural-lullabies.webp" alt="" width="40" height="40"><span>Neural Lullabies<small>álbum</small></span></a>
+      <a href="../rany-na-bumage/" data-slug="rany-na-bumage"><img src="../../covers/rany-na-bumage.webp" alt="" width="40" height="40"><span>Heridas en el papel<small>álbum</small></span></a>
+      <a href="../2804/" data-slug="2804"><img src="../../covers/2804.webp" alt="" width="40" height="40"><span>2804<small>sencillo</small></span></a>
+}">
+      <a href="../stay-till-morning/" data-slug="stay-till-morning"><img src="../../covers/stay-till-morning.webp" alt="" width="40" height="40"><span>Quédate hasta el alba<small>sencillo</small></span></a>
+      <a href="../zen/" data-slug="zen"><img src="../../covers/zen.webp" alt="" width="40" height="40"><span>Silencio interior<small>meditaciones</small></span></a>
+      <a href="../tuta-ukupi/" data-slug="tuta-ukupi"><img src="../../covers/tuta-ukupi.webp" alt="" width="40" height="40"><span>Tuta Ukupi<small>álbum</small></span></a>
+      <a href="../andes-nights/" data-slug="andes-nights"><img src="../../covers/andes-nights.webp" alt="" width="40" height="40"><span>Andes Nights<small>álbum</small></span></a>
+      <a href="../neural-lullabies/" data-slug="neural-lullabies"><img src="../../covers/neural-lullabies.webp" alt="" width="40" height="40"><span>Neural Lullabies<small>álbum</small></span></a>
+      <a href="../rany-na-bumage/" data-slug="rany-na-bumage"><img src="../../covers/rany-na-bumage.webp" alt="" width="40" height="40"><span>Heridas en el papel<small>álbum</small></span></a>
+      <a href="../2804/" data-slug="2804"><img src="../../covers/2804.webp" alt="" width="40" height="40"><span>2804<small>sencillo</small></span></a>
+    </nav>
+  </div>
+  <div class="ph-art">
+    <div class="p-cover" id="pCover"><span class="p-ring"></span></div>
+  </div>
+  <div class="p-info">
+    <div class="p-top">
+      <span class="p-num" id="pNum">01</span>
+      <span class="p-title" id="pTitle"></span>
+      <span class="eq"><i></i><i></i><i></i><i></i><i></i></span>
+    </div>
+    <p class="ph-phrase" id="pPhrase"></p>
+    <div class="p-bar" id="pBar" role="slider" tabindex="0" aria-label="Avanzar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+      <span class="p-fill" id="pFill"></span><span class="p-knob" id="pKnob"></span><span class="p-tip" id="pTip">0:00</span>
+    </div>
+    <div class="p-time"><span id="pCur">0:00</span><span class="p-state" id="pState"></span><span id="pDur">0:00</span></div>
+  </div>
+  <div class="p-ctrl">
+    <button id="pPrev" aria-label="Anterior"><svg viewBox="0 0 24 24"><path d="M7 5v14M18 6l-8 6 8 6z"/></svg></button>
+    <button id="pPlay" class="p-play" aria-label="Reproducir">
+      <svg class="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg>
+      <svg class="i-pause" viewBox="0 0 24 24"><path d="M6.5 5h3.5v14H6.5zM14 5h3.5v14H14z"/></svg>
+    </button>
+    <button id="pNext" aria-label="Siguiente"><svg viewBox="0 0 24 24"><path d="M17 5v14M6 6l8 6-8 6z"/></svg></button>
+  </div>
+  <!-- volumen: altavoz (clic = silencio) · barra · cifra que se anima al moverla -->
+  <div class="ph-vol">
+    <button class="ph-mute" id="pMute" aria-label="Silenciar" aria-pressed="false"><svg viewBox="0 0 24 24"><path class="spk" d="M4 9h4l5-4v14l-5-4H4z"/><path class="w1" d="M16 9.5a3.5 3.5 0 0 1 0 5"/><path class="w2" d="M18.5 7a7 7 0 0 1 0 10"/><path class="x" d="M16 9.5l5 5M21 9.5l-5 5"/></svg></button>
+    <input class="p-vol" id="pVol" type="range" min="0" max="1" step="0.01" value="0.7" aria-label="Volumen">
+    <span class="ph-vol-val" id="pVolVal" aria-hidden="true">70%</span>
+  </div>
+  <!-- como en una app: repetir la lista y temporizador de apagado (10 · 20 · 30 мин) -->
+  <div class="ph-tools">
+    <button class="ph-tool" id="pLoop" aria-pressed="false" title="Repetir: no · álbum · pista"><svg viewBox="0 0 24 24"><path d="M17 2l3 3-3 3M4 11V9a4 4 0 0 1 4-4h12M7 22l-3-3 3-3M20 13v2a4 4 0 0 1-4 4H4"/><text class="one" x="12" y="15.5" text-anchor="middle">1</text></svg><span>repetir</span></button>
+    <button class="ph-tool" id="pTimer" aria-pressed="false" title="Temporizador de sueño"><svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg><span id="pTimerLbl">temporizador</span></button>
+    <div class="share-wrap">
+      <button class="ph-tool" id="pShare" aria-haspopup="true" aria-expanded="false" title="Compartir"><svg viewBox="0 0 24 24"><path d="M12 15V3M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg><span>compartir</span></button>
+      <div class="share-pop" id="sharePop" role="menu">
+        <button data-share-album>Enlace al álbum</button>
+        <button data-share-song>Enlace a esta canción</button>
+      </div>
+    </div>
+  </div>
+  <a class="p-cta" href="#listen">Álbum completo →</a>
+  <button class="p-close" id="pClose" aria-label="Cerrar reproductor" hidden>×</button>
+  <p class="ph-album" id="phAlbum"></p>
+  <ol class="ph-list" id="pList"></ol>
+</aside>
+
+<script>window.SITE = {"type": "album", "lang": "es", "albums": [{"slug": "stay-till-morning", "title": "Quédate hasta el alba", "kind": "sencillo", "cover": "covers/stay-till-morning.webp"}, {"slug": "zen", "title": "Silencio interior", "kind": "meditaciones", "cover": "covers/zen.webp"}, {"slug": "tuta-ukupi", "title": "Tuta Ukupi", "kind": "álbum", "cover": "covers/tuta-ukupi.webp"}, {"slug": "andes-nights", "title": "Andes Nights", "kind": "álbum", "cover": "covers/andes-nights.webp"}, {"slug": "neural-lullabies", "title": "Neural Lullabies", "kind": "álbum", "cover": "covers/neural-lullabies.webp"}, {"slug": "rany-na-bumage", "title": "Heridas en el papel", "kind": "álbum", "cover": "covers/rany-na-bumage.webp"}, {"slug": "ella", "title": "Ella", "kind": "álbum", "cover": "covers/ella.webp"}, {"slug": "2804", "title": "2804", "kind": "sencillo", "cover": "covers/2804.webp"}], "still": false, "first": "song1", "items": [{"n": "01", "t": "Relajación profunda del cuerpo", "tag": "disponible"}, {"n": "02", "t": "Calmar la respiración y los pensamientos", "tag": "disponible"}, {"n": "03", "t": "Soltar la ansiedad y las emociones fuertes", "tag": "disponible"}, {"n": "04", "t": "Despertar por la mañana con claridad", "tag": ""}, {"n": "05", "t": "Concentración profunda antes de trabajar", "tag": ""}, {"n": "06", "t": "Seguridad tranquila antes de un momento importante", "tag": ""}, {"n": "07", "t": "Recuperar energía después de un día difícil", "tag": ""}, {"n": "08", "t": "Dejar de luchar contigo mismo", "tag": ""}, {"n": "09", "t": "Relajación profunda antes de dormir", "tag": ""}, {"n": "10", "t": "Dejar de pensar antes de dormir", "tag": ""}, {"n": "11", "t": "¿Quién observa?", "tag": ""}], "album": {"slug": "zen", "title": "Silencio interior", "artist": "Espinoza Meditation", "tracks": [{"n": "01", "t": "Relajación profunda del cuerpo", "p": "Suelta la tensión, paso a paso", "bg": "song1", "d": 359.6, "free": true}, {"n": "02", "t": "Calmar la respiración y los pensamientos", "p": "La antigua práctica «So Ham» para una mente tranquila", "bg": "song2", "d": 344.4, "free": true}, {"n": "03", "t": "Soltar la ansiedad y las emociones fuertes", "p": "Volver al cuerpo cuando las emociones son demasiado fuertes", "bg": "song4", "d": 344.4, "free": true}, {"n": "04", "t": "Despertar por la mañana con claridad", "p": "La mente clara y un comienzo de día tranquilo", "bg": "song5", "d": 339.6, "free": false}, {"n": "05", "t": "Concentración profunda antes de trabajar", "p": "Una tarea. Toda la atención", "bg": "song5new", "d": 339.6, "free": false}, {"n": "06", "t": "Seguridad tranquila antes de un momento importante", "p": "Antes de una reunión, una presentación, una conversación importante", "bg": "song6forest", "d": 338.8, "free": false}, {"n": "07", "t": "Recuperar energía después de un día difícil", "p": "Sacudirse un día pesado y recuperar las fuerzas", "bg": "song7new", "d": 339.6, "free": false}, {"n": "08", "t": "Dejar de luchar contigo mismo", "p": "Hablarte como a alguien cercano", "bg": "song9", "d": 339.9, "free": false}, {"n": "09", "t": "Relajación profunda antes de dormir", "p": "Yoga nidra para dormirse con suavidad", "bg": "song9new", "d": 339.6, "free": false}, {"n": "10", "t": "Dejar de pensar antes de dormir", "p": "Cuando los pensamientos no te dejan dormir", "bg": "song11", "d": 339.4, "free": false}, {"n": "11", "t": "¿Quién observa?", "p": "Una meditación profunda «neti, neti»", "bg": "song12", "d": 313.4, "free": false}]}};</script>
+<script src="../../shared/app.js?v=6017d395" data-keep></script>
+</body>
+</html>

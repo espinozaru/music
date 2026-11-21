@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Espinoza — music</title>
+<meta name="description" content="Albums by Espinoza: the single “Stay Till Morning”, the meditations “Silence Within”, Andean music Tuta Ukupi and Andes Nights, Neural Lullabies, the songs “Wounds on Paper”, Ella and 2804.">
+<link rel="canonical" href="https://music.espinoza.ru/en/">
+<link rel="alternate" hreflang="ru" href="https://music.espinoza.ru/">
+<link rel="alternate" hreflang="en" href="https://music.espinoza.ru/en/">
+<link rel="alternate" hreflang="es" href="https://music.espinoza.ru/es/">
+<link rel="alternate" hreflang="x-default" href="https://music.espinoza.ru/">
+<link rel="preload" href="../shared/fonts/NotoSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../shared/fonts/Unbounded-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../zen/assets/song1.webp" as="image">
+<link rel="stylesheet" href="../shared/style.css?v=6017d395">
+<link rel="stylesheet" href="../shared/panel.css?v=6017d395">
+<link rel="stylesheet" href="../shared/home.css?v=6017d395">
+</head>
+<body class="home unb v2" data-bg="zen/assets/song1.webp">
+<!-- fijo (data-keep): no cambia al navegar entre páginas -->
+<canvas id="scene" data-keep></canvas>
+<div class="bg" data-keep></div><div class="bg" data-keep></div>
+<div class="veil" data-keep></div>
+<div class="grain" data-keep></div>
+
+<header class="top home-top">
+  <img src="../shared/logo-white.png" alt="Espinoza" class="logo">
+  <div class="lang"><button class="lang-btn" aria-haspopup="true" aria-expanded="false" aria-label="Language"><span class="flag"><svg viewBox="0 0 60 30"><clipPath id="uk"><path d="M30 15h30v15zv15H0zH0V0zV0h30z"/></clipPath><path fill="#012169" d="M0 0v30h60V0z"/><path stroke="#fff" stroke-width="6" d="m0 0 60 30m0-30L0 30"/><path stroke="#c8102e" stroke-width="4" d="m0 0 60 30m0-30L0 30" clip-path="url(#uk)"/><path stroke="#fff" stroke-width="10" d="M30 0v30M0 15h60"/><path stroke="#c8102e" stroke-width="6" d="M30 0v30M0 15h60"/></svg></span><span class="code">EN</span></button><nav class="lang-menu"><a href="../" hreflang="ru" lang="ru" data-full><span class="flag"><svg viewBox="0 0 9 6"><path fill="#fff" d="M0 0h9v2H0z"/><path fill="#0039a6" d="M0 2h9v2H0z"/><path fill="#d52b1e" d="M0 4h9v2H0z"/></svg></span>Русский</a><a href="../en/" hreflang="en" lang="en" data-full class=cur aria-current=page><span class="flag"><svg viewBox="0 0 60 30"><clipPath id="uk"><path d="M30 15h30v15zv15H0zH0V0zV0h30z"/></clipPath><path fill="#012169" d="M0 0v30h60V0z"/><path stroke="#fff" stroke-width="6" d="m0 0 60 30m0-30L0 30"/><path stroke="#c8102e" stroke-width="4" d="m0 0 60 30m0-30L0 30" clip-path="url(#uk)"/><path stroke="#fff" stroke-width="10" d="M30 0v30M0 15h60"/><path stroke="#c8102e" stroke-width="6" d="M30 0v30M0 15h60"/></svg></span>English</a><a href="../es/" hreflang="es" lang="es" data-full><span class="flag"><svg viewBox="0 0 9 6"><path fill="#c60b1e" d="M0 0h9v6H0z"/><path fill="#ffc400" d="M0 1.5h9v3H0z"/></svg></span>Español</a></nav></div>
+</header>
+
+<main>
+  <div class="intro">
+    <h1 class="home-title"><span class="silver">Music</span></h1>
+    <p>I&#x27;m Denis Espinoza, a brand designer. I write music for myself first — songs, Andean motifs, lullabies and meditations: what I listen to while working, on the road and before sleep. Here I share it — and more albums are on the way. If the music speaks to you, <a class="intro-support" href="https://pay.cloudtips.ru/p/945dde54" target="_blank" rel="noopener">you can support it</a>.</p>
+  </div>
+
+  <!-- Discos: funda + vinilo; al pasar el ratón el vinilo sale y el fondo pasa al paisaje del álbum -->
+  <ul class="discs">
+  <li class="disc" data-bg="stay-till-morning/assets/morning.webp">
+    <a href="stay-till-morning/">
+      <div class="sleeve-box">
+        <div class="vinyl-slide"><div class="vinyl"><span class="label" style="background-image:url(../covers/stay-till-morning.webp)"></span></div></div>
+        <div class="sleeve" style="background-image:url(../covers/stay-till-morning.webp)" role="img" aria-label="Stay Till Morning"></div>
+      </div>
+      <div class="info">
+        <div class="kind">single · 2026 · 3 versions · RU · EN · ES</div>
+        <h2><span class="silver">Stay Till Morning</span></h2>
+        <p class="p">One song in three languages</p>
+        <span class="go">open album →</span>
+      </div>
+    </a>
+  </li>
+  <li class="disc" data-bg="zen/assets/song1.webp">
+    <a href="zen/">
+      <div class="sleeve-box">
+        <div class="vinyl-slide"><div class="vinyl"><span class="label" style="background-image:url(../covers/zen.webp)"></span></div></div>
+        <div class="sleeve" style="background-image:url(../covers/zen.webp)" role="img" aria-label="Silence Within"></div>
+      </div>
+      <div class="info">
+        <div class="kind">meditations · 2026 · 11 tracks · voice and music</div>
+        <h2><span class="silver">Silence Within</span></h2>
+        <p class="p">11 meditations for body, mind and sleep (in Russian)</p>
+        <span class="go">open album →</span>
+      </div>
+    </a>
+  </li>
+  <li class="disc" data-bg="tuta-ukupi/assets/yaku.webp">
+    <a href="tuta-ukupi/">
+      <div class="sleeve-box">
+        <div class="vinyl-slide"><div class="vinyl"><span class="label" style="background-image:url(../covers/tuta-ukupi.webp)"></span></div></div>
+        <div class="sleeve" style="background-image:url(../covers/tuta-ukupi.webp)" role="img" aria-label="Tuta Ukupi"></div>
+      </div>
+      <div class="info">
+        <div class="kind">album · 2026 · 9 tracks</div>
+        <h2><span class="silver">Tuta Ukupi</span></h2>
+        <p class="p">Inside the night — Andean music in Quechua</p>
+        <span class="go">open album →</span>
+      </div>
+    </a>
+  </li>
+  <li class="disc" data-bg="andes-nights/assets/morning.webp">
+    <a href="andes-nights/">
+      <div class="sleeve-box">
+        <div class="vinyl-slide"><div class="vinyl"><span class="label" style="background-image:url(../covers/andes-nights.webp)"></span></div></div>
+        <div class="sleeve" style="background-image:url(../covers/andes-nights.webp)" role="img" aria-label="Andes Nights"></div>
+      </div>
+      <div class="info">
+        <div class="kind">album · 2026 · 7 tracks</div>
+        <h2><span class="silver">Andes Nights</span></h2>
+        <p class="p">Andean nights — 7 stories about her</p>
+        <span class="go">open album →</span>
+      </div>
+    </a>
+  </li>
+  <li class="disc" data-bg="neural-lullabies/assets/lullaby.webp">
+    <a href="neural-lullabies/">
+      <div class="sleeve-box">
+        <div class="vinyl-slide"><div class="vinyl"><span class="label" style="background-image:url(../covers/neural-lullabies.webp)"></span></div></div>
+        <div class="sleeve" style="background-image:url(../covers/neural-lullabies.webp)" role="img" aria-label="Neural Lullabies"></div>
+      </div>
+      <div class="info">
+        <div class="kind">album · 2026 · 11 tracks</div>
+        <h2><span class="silver">Neural Lullabies</span></h2>
+        <p class="p">Lullabies and nature sounds for a baby&#x27;s deep sleep</p>
+        <span class="go">open album →</span>
+      </div>
+    </a>
+  </li>
+  <li class="disc" data-bg="rany-na-bumage/assets/rany.webp">
+    <a href="rany-na-bumage/">
+      <div class="sleeve-box">
+        <div class="vinyl-slide"><div class="vinyl"><span class="label" style="background-image:url(../covers/rany-na-bumage.webp)"></span></div></div>
+        <div class="sleeve" style="background-image:url(../covers/rany-na-bumage.webp)" role="img" aria-label="Wounds on Paper"></div>
+      </div>
+      <div class="info">
+        <div class="kind">album · 2026 · 5 songs</div>
+        <h2><span class="silver">Wounds on Paper</span></h2>
+        <p class="p">5 songs about love and pain (in Russian)</p>
+        <span class="go">open album →</span>
+      </div>
+    </a>
+  </li>
+  <li class="disc" data-bg="ella/assets/spot.webp">
+    <a href="ella/">
+      <div class="sleeve-box">
+        <div class="vinyl-slide"><div class="vinyl"><span class="label" style="background-image:url(../covers/ella.webp)"></span></div></div>
+        <div class="sleeve" style="background-image:url(../covers/ella.webp)" role="img" aria-label="Ella"></div>
+      </div>
+      <div class="info">
+        <div class="kind">album · 2025 · 8 songs</div>
+        <h2><span class="silver">Ella</span></h2>
+        <p class="p">8 songs in Spanish — about her</p>
+        <span class="go">open album →</span>
+      </div>
+    </a>
+  </li>
+  <li class="disc" data-bg="2804/assets/cabin.webp">
+    <a href="2804/">
+      <div class="sleeve-box">
+        <div class="vinyl-slide"><div class="vinyl"><span class="label" style="background-image:url(../covers/2804.webp)"></span></div></div>
+        <div class="sleeve" style="background-image:url(../covers/2804.webp)" role="img" aria-label="2804"></div>
+      </div>
+      <div class="info">
+        <div class="kind">single · 2025 · 3 tracks</div>
+        <h2><span class="silver">2804</span></h2>
+        <p class="p">Stolen Kiss · Cold · For You</p>
+        <span class="go">open album →</span>
+      </div>
+    </a>
+  </li>
+  </ul>
+
+  <footer class="disco-foot">
+    <div class="foot-cols">
+      <div class="foot-col foot-support"><p>If the music speaks to you —<br>you can support it</p><a class="support-btn" href="https://pay.cloudtips.ru/p/945dde54" target="_blank" rel="noopener">Support <span aria-hidden="true">☕</span></a><a class="support-qr-link" href="https://pay.cloudtips.ru/p/945dde54" target="_blank" rel="noopener"><img class="support-qr" src="../shared/support-qr.png" alt="QR — support" width="120" height="120" loading="lazy"></a></div>
+      <div class="foot-col"><span class="foot-label">Telegram</span><a href="https://t.me/espinozadesign" target="_blank" rel="noopener"><svg class="fi" viewBox="0 0 24 24" aria-hidden="true"><path d="M21.5 3.5 2.8 10.9c-.9.4-.9 1.6.1 1.9l4.6 1.4 1.8 5.6c.3.9 1.4 1.1 2 .4l2.6-2.8 4.8 3.5c.8.6 1.9.1 2.1-.8l3-14.1c.2-1.1-.9-2-1.9-1.5z"/><path d="m7.5 14.2 9.8-6.6"/></svg>@espinozadesign</a></div>
+      <div class="foot-col"><span class="foot-label">Personal site</span><a href="https://denis.espinoza.ru" target="_blank" rel="noopener"><svg class="fi" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.4-4 4.4-6 8-6s6.6 2 8 6"/></svg>denis.espinoza.ru</a></div>
+      <div class="foot-col"><span class="foot-label">Studio</span><a href="https://espinoza.ru" target="_blank" rel="noopener"><svg class="fi" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.8 3 2.8 15 0 18M12 3c-2.8 3-2.8 15 0 18"/></svg>espinoza.ru</a></div>
+      <div class="foot-col"><span class="foot-label">For projects</span><a href="https://t.me/espinozadenis" target="_blank" rel="noopener"><svg class="fi" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4.5" width="16" height="11" rx="1.6"/><path d="M2 19.5h20"/></svg>@espinozadenis</a><a href="tel:+79258911980"><svg class="fi" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 3.5h3l1.6 4.2-2.1 1.5a11 11 0 0 0 5.7 5.7l1.5-2.1 4.2 1.6v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.6 5.7a2 2 0 0 1 2-2.2z"/></svg>+7 925 891 1980</a></div>
+    </div>
+    <p class="credits">Music — Espinoza · © 2026 · All rights reserved</p>
+  </footer>
+</main>
+
+<!-- Player: barra lateral derecha plegable (en móvil, cápsula abajo) -->
+<aside class="player phone" id="player" role="region" aria-label="Player" data-keep>
+  <button class="ph-toggle" id="phToggle" aria-label="Collapse player" aria-expanded="true"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+  <!-- álbum que suena (clic = ir a su página) · ⇅ otros álbumes -->
+  <div class="ph-albumbar hd-switch">
+    <button class="ph-albsel" id="pAlbSw" aria-label="Choose album" aria-haspopup="true" aria-expanded="false">
+      <span class="pa-cover" id="pAlbCov"><svg class="pa-badge" viewBox="0 0 24 24"><path d="M8 9l4-4 4 4M8 15l4 4 4-4"/></svg></span>
+      <span class="pa-txt"><span class="pa-k"><span class="k-on">now playing:</span><span class="k-off">in player:</span></span><span class="pa-t"><span class="pa-l">Album:</span> <span id="pAlbT"></span></span></span>
+      <svg class="pa-chev" viewBox="0 0 24 24"><path d="M8 9l4-4 4 4M8 15l4 4 4-4"/></svg>
+    </button>
+    <nav class="sw-menu" id="pAlbList" aria-label="{      <a href="stay-till-morning/" data-slug="stay-till-morning"><img src="../covers/stay-till-morning.webp" alt="" width="40" height="40"><span>Stay Till Morning<small>single</small></span></a>
+      <a href="zen/" data-slug="zen"><img src="../covers/zen.webp" alt="" width="40" height="40"><span>Silence Within<small>meditations</small></span></a>
+      <a href="tuta-ukupi/" data-slug="tuta-ukupi"><img src="../covers/tuta-ukupi.webp" alt="" width="40" height="40"><span>Tuta Ukupi<small>album</small></span></a>
+      <a href="andes-nights/" data-slug="andes-nights"><img src="../covers/andes-nights.webp" alt="" width="40" height="40"><span>Andes Nights<small>album</small></span></a>
+      <a href="neural-lullabies/" data-slug="neural-lullabies"><img src="../covers/neural-lullabies.webp" alt="" width="40" height="40"><span>Neural Lullabies<small>album</small></span></a>
+      <a href="rany-na-bumage/" data-slug="rany-na-bumage"><img src="../covers/rany-na-bumage.webp" alt="" width="40" height="40"><span>Wounds on Paper<small>album</small></span></a>
+      <a href="2804/" data-slug="2804"><img src="../covers/2804.webp" alt="" width="40" height="40"><span>2804<small>single</small></span></a>
+}">
+      <a href="stay-till-morning/" data-slug="stay-till-morning"><img src="../covers/stay-till-morning.webp" alt="" width="40" height="40"><span>Stay Till Morning<small>single</small></span></a>
+      <a href="zen/" data-slug="zen"><img src="../covers/zen.webp" alt="" width="40" height="40"><span>Silence Within<small>meditations</small></span></a>
+      <a href="tuta-ukupi/" data-slug="tuta-ukupi"><img src="../covers/tuta-ukupi.webp" alt="" width="40" height="40"><span>Tuta Ukupi<small>album</small></span></a>
+      <a href="andes-nights/" data-slug="andes-nights"><img src="../covers/andes-nights.webp" alt="" width="40" height="40"><span>Andes Nights<small>album</small></span></a>
+      <a href="neural-lullabies/" data-slug="neural-lullabies"><img src="../covers/neural-lullabies.webp" alt="" width="40" height="40"><span>Neural Lullabies<small>album</small></span></a>
+      <a href="rany-na-bumage/" data-slug="rany-na-bumage"><img src="../covers/rany-na-bumage.webp" alt="" width="40" height="40"><span>Wounds on Paper<small>album</small></span></a>
+      <a href="2804/" data-slug="2804"><img src="../covers/2804.webp" alt="" width="40" height="40"><span>2804<small>single</small></span></a>
+    </nav>
+  </div>
+  <div class="ph-art">
+    <div class="p-cover" id="pCover"><span class="p-ring"></span></div>
+  </div>
+  <div class="p-info">
+    <div class="p-top">
+      <span class="p-num" id="pNum">01</span>
+      <span class="p-title" id="pTitle"></span>
+      <span class="eq"><i></i><i></i><i></i><i></i><i></i></span>
+    </div>
+    <p class="ph-phrase" id="pPhrase"></p>
+    <div class="p-bar" id="pBar" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+      <span class="p-fill" id="pFill"></span><span class="p-knob" id="pKnob"></span><span class="p-tip" id="pTip">0:00</span>
+    </div>
+    <div class="p-time"><span id="pCur">0:00</span><span class="p-state" id="pState"></span><span id="pDur">0:00</span></div>
+  </div>
+  <div class="p-ctrl">
+    <button id="pPrev" aria-label="Previous"><svg viewBox="0 0 24 24"><path d="M7 5v14M18 6l-8 6 8 6z"/></svg></button>
+    <button id="pPlay" class="p-play" aria-label="Play">
+      <svg class="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg>
+      <svg class="i-pause" viewBox="0 0 24 24"><path d="M6.5 5h3.5v14H6.5zM14 5h3.5v14H14z"/></svg>
+    </button>
+    <button id="pNext" aria-label="Next"><svg viewBox="0 0 24 24"><path d="M17 5v14M6 6l8 6-8 6z"/></svg></button>
+  </div>
+  <!-- volumen: altavoz (clic = silencio) · barra · cifra que se anima al moverla -->
+  <div class="ph-vol">
+    <button class="ph-mute" id="pMute" aria-label="Mute" aria-pressed="false"><svg viewBox="0 0 24 24"><path class="spk" d="M4 9h4l5-4v14l-5-4H4z"/><path class="w1" d="M16 9.5a3.5 3.5 0 0 1 0 5"/><path class="w2" d="M18.5 7a7 7 0 0 1 0 10"/><path class="x" d="M16 9.5l5 5M21 9.5l-5 5"/></svg></button>
+    <input class="p-vol" id="pVol" type="range" min="0" max="1" step="0.01" value="0.7" aria-label="Volume">
+    <span class="ph-vol-val" id="pVolVal" aria-hidden="true">70%</span>
+  </div>
+  <!-- como en una app: repetir la lista y temporizador de apagado (10 · 20 · 30 мин) -->
+  <div class="ph-tools">
+    <button class="ph-tool" id="pLoop" aria-pressed="false" title="Repeat: off · album · track"><svg viewBox="0 0 24 24"><path d="M17 2l3 3-3 3M4 11V9a4 4 0 0 1 4-4h12M7 22l-3-3 3-3M20 13v2a4 4 0 0 1-4 4H4"/><text class="one" x="12" y="15.5" text-anchor="middle">1</text></svg><span>repeat</span></button>
+    <button class="ph-tool" id="pTimer" aria-pressed="false" title="Sleep timer"><svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg><span id="pTimerLbl">timer</span></button>
+    <div class="share-wrap">
+      <button class="ph-tool" id="pShare" aria-haspopup="true" aria-expanded="false" title="Share"><svg viewBox="0 0 24 24"><path d="M12 15V3M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg><span>share</span></button>
+      <div class="share-pop" id="sharePop" role="menu">
+        <button data-share-album>Link to the album</button>
+        <button data-share-song>Link to this song</button>
+      </div>
+    </div>
+  </div>
+  <a class="p-cta" href="#listen">Full album →</a>
+  <button class="p-close" id="pClose" aria-label="Close player" hidden>×</button>
+  <p class="ph-album" id="phAlbum"></p>
+  <ol class="ph-list" id="pList"></ol>
+</aside>
+
+<script>window.SITE = {"type": "home", "lang": "en", "albums": [{"slug": "stay-till-morning", "title": "Stay Till Morning", "kind": "single", "cover": "covers/stay-till-morning.webp"}, {"slug": "zen", "title": "Silence Within", "kind": "meditations", "cover": "covers/zen.webp"}, {"slug": "tuta-ukupi", "title": "Tuta Ukupi", "kind": "album", "cover": "covers/tuta-ukupi.webp"}, {"slug": "andes-nights", "title": "Andes Nights", "kind": "album", "cover": "covers/andes-nights.webp"}, {"slug": "neural-lullabies", "title": "Neural Lullabies", "kind": "album", "cover": "covers/neural-lullabies.webp"}, {"slug": "rany-na-bumage", "title": "Wounds on Paper", "kind": "album", "cover": "covers/rany-na-bumage.webp"}, {"slug": "ella", "title": "Ella", "kind": "album", "cover": "covers/ella.webp"}, {"slug": "2804", "title": "2804", "kind": "single", "cover": "covers/2804.webp"}]};</script>
+<script src="../shared/app.js?v=6017d395" data-keep></script>
+</body>
+</html>
